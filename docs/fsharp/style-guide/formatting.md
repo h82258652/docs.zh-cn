@@ -2,12 +2,12 @@
 title: F# 代码格式设置准则
 description: '了解设置 F # 代码格式的准则。'
 ms.date: 08/31/2020
-ms.openlocfilehash: 22020d69c13fbf8317cbf5e871073a290f8967b7
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: 5c5ba972bcd91120b129efb944a028889294f048
+ms.sourcegitcommit: 652f62fc8f3ab6a264681b6eb5211ac7539bd115
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104876352"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105964814"
 ---
 # <a name="f-code-formatting-guidelines"></a>F# 代码格式设置准则
 
@@ -278,6 +278,58 @@ let myFun (a: decimal) b c : decimal = a + b + c // Type annotation for the retu
 let expensiveToComputeBad1:int = 1
 let expensiveToComputeBad2 :int = 2
 let myFunBad (a: decimal) b c:decimal = a + b + c
+```
+
+### <a name="formatting-bindings"></a>格式绑定
+
+在所有情况下，绑定的右侧要么都在一行上，要么 (如果太长) 则进入缩进一个范围的新行。
+
+例如，以下内容不符合：
+
+```fsharp
+let a = """
+foobar, long string
+"""
+
+type File =
+    member this.SaveAsync(path: string) : Async<unit> = async {
+        // IO operation
+        return ()
+    }
+
+let c = {
+    Name = "Bilbo"
+    Age = 111
+    Region = "The Shire"
+}
+
+let d = while f do
+    printfn "%A" x
+```
+
+以下内容符合：
+
+```fsharp
+let a =
+    """
+foobar, long string
+"""
+
+type File =
+    member this.SaveAsync(path: string) : Async<unit> =
+        async {
+            // IO operation
+            return ()
+        }
+
+let c =
+    { Name = "Bilbo"
+      Age = 111
+      Region = "The Shire" }
+
+let d =
+    while f do
+        printfn "%A" x
 ```
 
 ## <a name="formatting-blank-lines"></a>设置空行的格式
@@ -856,7 +908,8 @@ lambdaList
 即使使用关键字，使用定义的函数中的模式匹配 `let` 也 `let rec` 应缩进四个空格 `let` `function` ：
 
 ```fsharp
-let rec sizeLambda acc = function
+let rec sizeLambda acc = 
+    function
     | Abs(x, body) -> sizeLambda (succ acc) body
     | App(lam1, lam2) -> sizeLambda (sizeLambda acc lam1) lam2
     | Var v -> succ acc

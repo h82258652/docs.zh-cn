@@ -3,12 +3,12 @@ title: 迁移注意事项
 description: 团队需要了解哪些内容才能正确决定是否以及如何从 ASP.NET MVC 迁移到 .NET Core？
 author: ardalis
 ms.date: 11/13/2020
-ms.openlocfilehash: efa1efc99cbe46ef289cfd6b53ba83b3bc1b56b1
-ms.sourcegitcommit: bdbf6472de867a0a11aaa5b9384a2506c24f27d2
+ms.openlocfilehash: c669dc477469c92dfa3acda8209ba7a1fdea5ed5
+ms.sourcegitcommit: b5d2290673e1c91260c9205202dd8b95fbab1a0b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102401227"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122854"
 ---
 # <a name="migration-considerations"></a>迁移注意事项
 
@@ -50,13 +50,15 @@ ASP.NET Core 是模块化的，使用 NuGet 包作为框架的第一类部分。
 
 ### <a name="application-domains"></a>应用程序域
 
-应用程序域 (AppDomain) 可将应用相互隔离。 Appdomain 需要运行时支持，而且可能会占用大量资源。 不支持创建更多的应用程序域，而且将来不会将此功能添加到 .NET Core。 对于代码隔离，将流程或容器用作备用。
+应用程序域 (AppDomain) 可将应用相互隔离。 Appdomain 需要运行时支持，而且可能会占用大量资源。 不支持创建更多的应用程序域，而且将来不会将此功能添加到 .NET Core。 对于代码隔离，将流程或容器用作备用。 一些客户使用 Appdomain 作为卸载程序集的一种方法。 在 .NET Core 中， [AssemblyLoadContext](https://docs.microsoft.com/dotnet/standard/assembly/unloadability) 提供了一种替代方法来卸载程序集。
 
 ### <a name="wcf"></a>WCF
 
 .NET Core 不支持服务器端 WCF。 .NET Core 支持 WCF 客户端，但不支持 WCF 主机。 需要此功能的应用将需要升级到不同的通信技术 (例如，作为迁移的一部分的 gRPC 或 REST) 。
 
 [.Net Foundation 中提供了一个 WCF 客户端端口](../../core/dotnet-five.md#windows-communication-foundation)。 它完全是开放源代码、跨平台并受 Microsoft 支持。 还有一个 *不* 受 Microsoft 正式支持的社区支持的 [CoreWCF 项目](https://github.com/CoreWCF/CoreWCF)。
+
+若要了解有关从 WCF 迁移到 gRPC 的详细信息，请参阅 [WCF 开发人员的 gRPC](https://docs.microsoft.com/dotnet/architecture/grpc-for-wcf-developers/) 电子书。
 
 ### <a name="remoting"></a>远程处理
 

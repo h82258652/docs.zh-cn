@@ -3,12 +3,12 @@ title: EShop 到 ASP.NET Core 的迁移示例
 description: 使用示例在线商店应用作为参考，将现有的 ASP.NET MVC 应用迁移到 ASP.NET Core 的演练。
 author: ardalis
 ms.date: 11/13/2020
-ms.openlocfilehash: 498eb3b11c44381ff6d261b37caed15a2698b166
-ms.sourcegitcommit: 46cfed35d79d70e08c313b9c664c7e76babab39e
+ms.openlocfilehash: 119ba64134813fa17848cf9f5fe02cb1a14f8a5d
+ms.sourcegitcommit: b5d2290673e1c91260c9205202dd8b95fbab1a0b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102605251"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122971"
 ---
 # <a name="example-migration-of-eshop-to-aspnet-core"></a>EShop 到 ASP.NET Core 的迁移示例
 
@@ -58,7 +58,7 @@ ms.locfileid: "102605251"
 
 ## <a name="update-project-files-and-nuget-reference-syntax"></a>更新项目文件和 NuGet 引用语法
 
-接下来，从较旧的 *.csproj* 文件结构迁移到 .net Core 引入的较新的更简单的结构。 在此过程中，还将从使用 *packages.config* 文件进行 NuGet 引用，以使用 `<PackageReference>` 项目文件中的元素。
+接下来，从较旧的 *.csproj* 文件结构迁移到 .net Core 引入的较新的更简单的结构。 在此过程中，还将从使用 *packages.config* 文件进行 NuGet 引用，以使用 `<PackageReference>` 项目文件中的元素。 旧样式项目文件也可以使用 `<PackageReference>` 元素，因此，在升级到新的项目文件格式之前，最好先将所有 NuGet 包引用迁移为此格式。
 
 原始项目的 *eShopLegacyMVC* 文件长度为418行。 图4-6 显示了项目文件的示例。 为了提供总体大小和复杂性，映像的右边包含了整个文件的缩图视图。
 
@@ -74,7 +74,7 @@ ms.locfileid: "102605251"
 
 **图 4-7.** *packages.config* 的文件。
 
-升级到新的 *.csproj* 文件格式后，可以使用 Visual Studio 将 *packages.config* 迁移到类库项目中。 不过，此功能不适用于 ASP.NET 项目。 [详细了解如何将 *packages.config* 迁移到 `<PackageReference>` Visual Studio 中](/nuget/consume-packages/migrate-packages-config-to-package-reference)。 如果要迁移大量项目， [此社区工具可能会有所帮助](https://github.com/MarkKharitonov/NuGetPCToPRMigrator)。
+你可以使用 Visual Studio 将 *packages.config* 迁移到类库项目中。 不过，此功能不适用于 ASP.NET 项目。 [详细了解如何将 *packages.config* 迁移到 `<PackageReference>` Visual Studio 中](/nuget/consume-packages/migrate-packages-config-to-package-reference)。 如果要迁移大量项目， [此社区工具可能会有所帮助](https://github.com/MarkKharitonov/NuGetPCToPRMigrator)。 如果要使用工具将项目文件迁移到新格式，则在完成迁移所有 NuGet 引用后，应执行此操作 `<PackageReverence>` 。
 
 ## <a name="create-new-aspnet-core-project"></a>创建新 ASP.NET Core 项目
 
@@ -135,7 +135,7 @@ NuGet 为这些包安装的静态客户端文件将被复制到新项目的 *www
 
 添加 NuGet 包的版本 2.2.0 `Microsoft.AspNetCore.StaticFiles` 。
 
-在 *Startup.cs* 中，在方法中添加对的调用 `app.UseStaticFiles()` `Configure` ：
+在 *Startup* 中，在方法中添加对的调用 `app.UseStaticFiles()` `Configure` ：
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -296,7 +296,7 @@ public ActionResult Create([Bind("Id,Name,Description,Price,PictureFileName,Cata
 <link rel="stylesheet" href="~/Content/Site.css" />
 ```
 
-若要确定元素的显示顺序 `<link>` ，请查看原始应用程序的呈现的 HTML。 另外，请查看 *BundleConfig.cs*，其中 *eShop* 示例包含以下代码来指示适当的顺序：
+若要确定元素的显示顺序 `<link>` ，请查看原始应用程序的呈现的 HTML。 另外，请查看 *BundleConfig*，其中 *eShop* 示例包含以下代码来指示适当的顺序：
 
 ```csharp
 bundles.Add(new StyleBundle("~/Content/css").Include(
@@ -312,20 +312,13 @@ bundles.Add(new StyleBundle("~/Content/css").Include(
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js" integrity="sha512-O/nUTF5mdFkhEoQHFn9N5wmgYyW323JO6v8kr6ltSRKriZyTr/8417taVWeabVS4iONGk2V444QD0P2cwhuTkg==" crossorigin="anonymous"></script>
 ```
 
-视图中要修复的最后一件事是对进行引用以 `Session` 显示应用已运行的时间，以及在哪个计算机上运行的时间。 我们可以将此数据收集 `Startup` 为静态变量，并在布局页上显示变量。 将以下属性添加到 *Startup.cs*：
-
-```csharp
-public static DateTime StartTime { get; } = DateTime.UtcNow;
-public static string MachineName { get; } = Environment.MachineName;
-```
-
-然后，将布局中页脚的内容替换为以下代码：
+视图中要修复的最后一件事是对进行引用以 `Session` 显示应用已运行的时间，以及在哪个计算机上运行的时间。 通过使用和，我们可以直接在站点的 *_Layout* 中显示此数据 `System.Environment.MachineName` `System.Diagnostics.Process.GetCurrentProcess().StartTime` ：
 
 ```razor
 <section class="col-sm-6">
     <img class="esh-app-footer-text hidden-xs" src="~/images/main_footer_text.png" width="335" height="26" alt="footer text image" />
     <br />
-<small>@eShopPorted.Startup.MachineName - @eShopPorted.Startup.StartTime.ToString() UTC</small>
+<small>@Environment.MachineName - @System.Diagnostics.Process.GetCurrentProcess().StartTime.ToString() UTC</small>
 </section>
 ```
 
@@ -333,7 +326,7 @@ public static string MachineName { get; } = Environment.MachineName;
 
 ## <a name="migrate-app-startup-components"></a>迁移应用启动组件
 
-最后一个迁移步骤是从 *global.asax* 和它调用的类中获取应用启动任务，并将这些任务迁移到 ASP.NET Core 等效项。 这些任务包括 MVC 本身的配置，设置依赖关系注入，并使用新的配置系统。 在 ASP.NET Core 中，将在 *Startup.cs* 文件中处理这些任务。
+最后一个迁移步骤是从 *global.asax* 和它调用的类中获取应用启动任务，并将这些任务迁移到 ASP.NET Core 等效项。 这些任务包括 MVC 本身的配置，设置依赖关系注入，并使用新的配置系统。 在 ASP.NET Core 中，这些任务在 *启动 .cs* 文件中进行处理。
 
 ### <a name="configure-mvc"></a>配置 MVC
 
@@ -364,7 +357,7 @@ public static void RegisterGlobalFilters(GlobalFilterCollection filters)
 }
 ```
 
-添加到应用的唯一属性是 ASP.NET MVC 筛选器 `HandleErrorAttribute` 。 此筛选器可确保当发生异常作为请求的一部分时，将显示默认操作和视图，而不是显示异常详细信息。 在 ASP.NET Core 中，中间件将执行相同的功能 `UseExceptionHandler` 。 默认情况下不启用详细的错误消息。 必须使用中间件来配置这些设置 `UseDeveloperExceptionPage` 。 若要配置此行为以匹配原始应用程序，必须将以下代码添加到 `Configure` *Startup.cs* 中方法的开头：
+添加到应用的唯一属性是 ASP.NET MVC 筛选器 `HandleErrorAttribute` 。 此筛选器可确保当发生异常作为请求的一部分时，将显示默认操作和视图，而不是显示异常详细信息。 在 ASP.NET Core 中，中间件将执行相同的功能 `UseExceptionHandler` 。 默认情况下不启用详细的错误消息。 必须使用中间件来配置这些设置 `UseDeveloperExceptionPage` 。 若要配置此行为以匹配原始应用程序，必须将以下代码添加到 `Configure` *启动* 中方法的开头：
 
 ```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -401,7 +394,7 @@ public static void RegisterRoutes(RouteCollection routes)
 
 如果逐行执行此代码，则第一行会设置对属性路由的支持。 这内置于 ASP.NET Core 中，因此不需要单独配置。 同样， *{resource} axd* 文件不与 ASP.NET Core 一起使用，因此无需忽略此类路由。 `MapRoute`方法为使用典型路由模板的 MVC 配置默认值 `{controller}/{action}/{id}` 。 它还指定此模板的默认值，以使 `CatalogController` 成为使用的默认控制器并且 `Index` 方法是默认操作。 较大的应用通常会包含多个对的调用，以 `MapRoute` 设置其他路由。
 
-ASP.NET Core MVC 支持 [传统路由和属性路由](/aspnet/core/mvc/controllers/routing?preserve-view=true&view=aspnetcore-2.2)。 传统路由类似于前面列出的方法中的路由表的配置方式 `RegisterRoutes` 。 若要使用默认路由（如 *eShop* 应用中使用的路由）设置传统路由，请将以下代码添加到 `Configure` *Startup.cs* 中的方法的底部：
+ASP.NET Core MVC 支持 [传统路由和属性路由](/aspnet/core/mvc/controllers/routing?preserve-view=true&view=aspnetcore-2.2)。 传统路由类似于前面列出的方法中的路由表的配置方式 `RegisterRoutes` 。 若要使用默认路由（如 *eShop* 应用程序中使用的路由）设置传统路由，请将以下代码添加到 `Configure` *Startup* 中方法的底部：
 
 ```csharp
 app.UseMvc(routes =>
@@ -447,7 +440,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-前面的代码是使 MVC 功能正常工作所需的最低配置。 此调用可以配置许多其他功能，但是现在这就足以构建应用了。 现在运行它会正确路由默认请求，但由于尚未配置 DI，因此在激活时出现错误， `CatalogController` 因为尚未提供类型的实现 `ICatalogService` 。 稍后我们将再次配置 MVC。 现在，让我们迁移应用程序的依赖关系注入。
+前面的代码是使 MVC 功能正常工作所需的最低配置。 此调用可以配置许多其他功能 (其中一些功能在本章后面的部分进行了详细介绍) ，但是现在这就足以构建应用了。 现在运行它会正确路由默认请求，但由于尚未配置 DI，因此在激活时出现错误， `CatalogController` 因为尚未提供类型的实现 `ICatalogService` 。 稍后我们将再次配置 MVC。 现在，让我们迁移应用程序的依赖关系注入。
 
 #### <a name="migrate-dependency-injection-configuration"></a>迁移依赖关系注入配置
 
@@ -505,7 +498,7 @@ public IServiceProvider ConfigureServices(IServiceCollection services)
 
 #### <a name="migrate-app-settings"></a>迁移应用设置
 
-ASP.NET Core 使用一个新的 [配置系统](/aspnet/core/fundamentals/configuration/?preserve-view=true&view=aspnetcore-2.2)，默认情况下，该系统利用文件 *上的appsettings.js* 。 通过 `CreateDefaultBuilder` 在 *Program.cs* 中使用，已在应用中设置默认配置。 若要访问配置，类只需在其构造函数中请求它即可。 `Startup`类不是异常。 若要开始访问中的配置 `Startup` 和应用程序的其余部分，请 `IConfiguration` 从其构造函数中请求的实例：
+ASP.NET Core 使用一个新的 [配置系统](/aspnet/core/fundamentals/configuration/?preserve-view=true&view=aspnetcore-2.2)，默认情况下，该系统利用文件 *上的appsettings.js* 。 通过 `CreateDefaultBuilder` 在 *.cs* 中使用，已在应用程序中设置了默认配置。 若要访问配置，类只需在其构造函数中请求它即可。 `Startup`类不是异常。 若要开始访问中的配置 `Startup` 和应用程序的其余部分，请 `IConfiguration` 从其构造函数中请求的实例：
 
 ```csharp
 public Startup(IConfiguration configuration)

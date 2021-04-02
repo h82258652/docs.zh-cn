@@ -191,7 +191,7 @@ Mono 通常与[实时编译器](#jit)一起使用，但它也提供在 iOS 之�
 
 一种跨平台、高性能的开放源 .NET 实现。 包括公共语言运行时 ([CLR](#clr))、[AOT](#aot) 运行时（正在开发中的 [CoreRT](#corert)）、基类库 ([BCL](#bcl)) 以及 [.NET SDK](#net-sdk)。
 
-此 .NET 实现的早期版本称为 .NET Core。 .Net 5.0 是继 .NET Core 3.1 之后的下一版本。 跳过了版本 4，以避免将此较新的 .NET 实现与称为 [.NET Framework](#net-framework) 的旧实现混淆。 .NET Core 的当前版本为版本 4.8。
+此 .NET 实现的早期版本称为 .NET Core。 .Net 5.0 是继 .NET Core 3.1 之后的下一版本。 跳过了版本 4，以避免将此较新的 .NET 实现与称为 [.NET Framework](#net-framework) 的旧实现混淆。 .NET Framework 的当前版本为版本 4.8。
 
 请参阅 [.NET 基础知识](../fundamentals/index.yml)。
 

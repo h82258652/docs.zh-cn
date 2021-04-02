@@ -23,12 +23,12 @@ helpviewer_keywords:
 - Exit statement [Visual Basic], For Each...Next statements
 - iteration
 ms.assetid: ebce3120-95c3-42b1-b70b-fa7da40c75e2
-ms.openlocfilehash: ff7afb5e3b505ebe2326343063a7884dc4f567b1
-ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
+ms.openlocfilehash: 85fb426fdc2d7961603a3ddcc882f9fdce0c70a2
+ms.sourcegitcommit: 109507b6c16704ed041efe9598c70cd3438a9fbc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99769098"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106079617"
 ---
 # <a name="for-eachnext-statement-visual-basic"></a>For Each...Next 语句 (Visual Basic)
 
@@ -67,7 +67,7 @@ Next [ element ]
 
 在 `For Each` 下面的示例中，"..."`Next` 语句循环访问列表集合的所有元素。
 
-[!code-vb[VbVbalrStatements#121](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrStatements/VB/class9.vb#121)]
+:::code language="vb" source="./snippets/for-each-next-statement/vb/Examples.vb" id="init":::
 
 有关更多示例，请参阅 [集合](../../../standard/collections/index.md) 和 [数组](../../programming-guide/language-features/arrays/index.md)。
 
@@ -77,7 +77,7 @@ Next [ element ]
 
 下面的示例演示了嵌套 `For Each` .。。`Next` 构造.
 
-[!code-vb[VbVbalrStatements#122](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrStatements/VB/class9.vb#122)]
+:::code language="vb" source="./snippets/for-each-next-statement/vb/Examples.vb" id="nested":::
 
 嵌套循环时，每个循环必须具有唯一 `element` 变量。
 
@@ -91,7 +91,7 @@ Next [ element ]
 
 下面的示例演示如何使用 `Continue For` 和 `Exit For` 语句。
 
-[!code-vb[VbVbalrStatements#123](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrStatements/VB/class9.vb#123)]
+:::code language="vb" source="./snippets/for-each-next-statement/vb/Examples.vb" id="exitcontinue":::
 
 可以将任意数量的语句放入 `Exit For` `For Each` 循环中。 在嵌套循环内使用时 `For Each` ， `Exit For` 使执行退出最内层的循环，并将控制转移到下一个更高的嵌套级别。
 
@@ -111,7 +111,7 @@ Next [ element ]
 
 下面的示例使用迭代器函数。 迭代器函数包含的 `Yield` 语句位于 [For .。。下一个](for-next-statement.md) 循环。 在 `ListEvenNumbers` 方法中，语句体的每次迭代 `For Each` 都会创建对迭代器函数的调用，该函数将继续执行下一 `Yield` 条语句。
 
-[!code-vb[VbVbalrStatements#127](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrStatements/VB/class9.vb#127)]
+:::code language="vb" source="./snippets/for-each-next-statement/vb/Examples.vb" id="iterator":::
 
 有关详细信息，请参阅 [迭代](../../programming-guide/concepts/iterators.md)器、 [Yield 语句](yield-statement.md)和 [迭代器](../modifiers/iterator.md)。
 
@@ -141,7 +141,7 @@ Next [ element ]
 
 在下面的示例中，当为 `m` on 时，的赋值 `n` 不会进行编译， `Option Strict` 因为从到的转换 `Long` `Integer` 是收缩转换。 但是，在语句中， `For Each` 不会报告编译器错误，即使赋值 `number` 需要从到的相同转换 `Long` `Integer` 。 在 `For Each` 包含大量的语句中，当应用于大数值时，将发生运行时错误 <xref:Microsoft.VisualBasic.CompilerServices.Conversions.ToInteger%2A> 。
 
-[!code-vb[VbVbalrStatements#89](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrStatements/VB/Class3.vb#89)]
+:::code language="vb" source="./snippets/for-each-next-statement/vb/Program.vb":::
 
 ### <a name="ienumerator-calls"></a>IEnumerator 调用
 
@@ -171,7 +171,7 @@ End Sub
 
 下面的示例列出了 C：\ 中的所有文件夹目录 <xref:System.IO.DirectoryInfo> 。
 
-[!code-vb[VbVbalrStatements#124](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrStatements/VB/class9.vb#124)]
+:::code language="vb" source="./snippets/for-each-next-statement/vb/Examples.vb" id="foreachdir":::
 
 ## <a name="example"></a>示例
 
@@ -181,9 +181,9 @@ End Sub
 
 在 `ListCars` 方法中，`cars.Sort()` 语句对列表进行排序。 对 <xref:System.Collections.Generic.List%601> 的 <xref:System.Collections.Generic.List%601.Sort%2A> 方法的此调用将导致为 `List` 中的 `Car` 对象自动调用 `CompareTo` 方法。
 
-[!code-vb[VbVbalrStatements#125](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrStatements/VB/class9.vb#125)]
+:::code language="vb" source="./snippets/for-each-next-statement/vb/Examples.vb" id="sort":::
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 - [集合](../../../standard/collections/index.md)
 - [For...Next 语句](for-next-statement.md)

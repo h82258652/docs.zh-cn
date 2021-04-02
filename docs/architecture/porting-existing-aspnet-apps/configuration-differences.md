@@ -3,12 +3,12 @@ title: ASP.NET MVC 和 ASP.NET Core 之间的配置差异
 description: 如何在 ASP.NET 与 ASP.NET Core 之间显著地存储和读取配置值。 本部分将讨论详细信息以及如何将配置从 ASP.NET 迁移到 ASP.NET Core。
 author: ardalis
 ms.date: 11/13/2020
-ms.openlocfilehash: 1e8e4d4ac408862f0216a5744476047186222304
-ms.sourcegitcommit: 42d436ebc2a7ee02fc1848c7742bc7d80e13fc2f
+ms.openlocfilehash: 3d721c028b1e760a6227855451e2194d9e471a58
+ms.sourcegitcommit: b5d2290673e1c91260c9205202dd8b95fbab1a0b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102401089"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122945"
 ---
 # <a name="configuration-differences-between-aspnet-mvc-and-aspnet-core"></a>ASP.NET MVC 和 ASP.NET Core 之间的配置差异
 
@@ -59,7 +59,7 @@ public class TestModel : PageModel
 
 **图 2-2。** 访问配置值 `IConfiguration` 。
 
-使用 options 模式时，设置访问类似于，但它是强类型的，更特定于使用类 (s) 所需的设置，如图2-3 所示。
+使用 [options 模式](/dotnet/core/extensions/options)时，设置访问类似于，但它是强类型的，更特定于使用类 (s) 所需的设置，如图2-3 所示。
 
 ```csharp
 public class PositionOptions
@@ -97,7 +97,7 @@ services.Configure<PositionOptions>(Configuration.GetSection(PositionOptions.Pos
 
 ## <a name="migrate-configuration"></a>迁移配置
 
-考虑如何将应用的配置设置从 .NET Framework 移植到 .NET Core 时，第一步是确定正在使用的所有配置设置。 其中的大多数将位于应用程序根文件夹中的 *web.config* 文件中，但某些应用程序也需要在共享的 *machine.config* 文件中找到设置。
+考虑如何将应用的配置设置从 .NET Framework 移植到 .NET Core 时，第一步是确定正在使用的所有配置设置。 其中的大多数将位于应用程序根文件夹中的 *web.config* 文件中，但某些应用程序也需要在共享的 *machine.config* 文件中找到设置。 这些设置将包括元素的元素 `appSettings` 、元素以及 `connectionStrings` 任何自定义配置元素。 在 .NET Core 中，所有这些设置通常存储在文件 *appsettings.js上* 。
 
 在配置文件中的所有设置都已分类后，下一步应该是确定在应用程序本身中使用设置的位置和方式。 如果未使用某些设置，则可能会在迁移时省略这些设置。 对于每个设置，请注意正在使用的所有位置，因此可以确保在迁移代码时不会丢失任何位置。
 

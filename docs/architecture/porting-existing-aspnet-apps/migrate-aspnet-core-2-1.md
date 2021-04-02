@@ -3,16 +3,16 @@ title: 迁移到 ASP.NET Core 2.1
 description: 作为支持 .NET Framework 运行时目标的最新 .NET Core 版本，迁移到 .NET Core 2.1 对于某些应用迁移计划而言是一个中间步骤吗？
 author: ardalis
 ms.date: 11/13/2020
-ms.openlocfilehash: 0c478ae194c6d9118bfbca73f8933d7623246e2c
-ms.sourcegitcommit: 42d436ebc2a7ee02fc1848c7742bc7d80e13fc2f
+ms.openlocfilehash: e4db85405edc7e7f51ab6f8b422451cf7acc065e
+ms.sourcegitcommit: b5d2290673e1c91260c9205202dd8b95fbab1a0b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102401070"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122841"
 ---
 # <a name="migrate-to-aspnet-core-21"></a>迁移到 ASP.NET Core 2.1
 
-ASP.NET Core 2.1 是一个有趣的版本，因为它是唯一支持 .NET Core 和 .NET Framework 运行时的唯一受支持的 .NET Core 版本。 同样，与将应用程序的所有部分升级到 .NET Core 相比，它可以为某些应用提供更简单的升级途径。 作为 LTS 版本，对 .NET Core 2.1 的支持将持续到8月2021。 对于在 .NET Framework 上运行的 ASP.NET Core 2.1 的支持，只要支持其基础 .NET Framework，就会继续。
+ASP.NET Core 2.1 是一个有趣的版本，因为它是当前支持的 ASP.NET Core 版本，它支持 .NET Core 和 .NET Framework 运行时。 同样，与将应用程序的所有部分升级到 .NET Core 相比，它可以为某些应用提供更简单的升级途径。 作为 LTS 版本，对 .NET Core 2.1 的支持将持续到8月2021。 对于在 .NET Framework 上运行的 ASP.NET Core 2.1 的支持，只要支持其基础 .NET Framework，就会继续。
 
 ## <a name="should-apps-run-on-net-framework-with-aspnet-core-21"></a>应用是否应在 ASP.NET Core 2.1 的 .NET Framework 上运行
 

@@ -3,12 +3,12 @@ title: C# 简介 - 交互式教程
 description: 通过浏览器了解 C#，并开始使用自己的开发环境
 ms.date: 02/02/2021
 ms.custom: mvc
-ms.openlocfilehash: ed869271cd6f4ec13f769f46d41aefae9e1dad8d
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: 3a215a3a9bb860601d906f6bdb9d7d1e8fec7e46
+ms.sourcegitcommit: 109507b6c16704ed041efe9598c70cd3438a9fbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104872413"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106079461"
 ---
 # <a name="introduction-to-c"></a>C\# 简介
 
@@ -23,14 +23,14 @@ ms.locfileid: "104872413"
 
 - [在浏览器中的文档平台上](hello-world.yml)：该体验在文档页面中嵌入了一个可运行的 C# 代码窗口。 你在浏览器中编写和执行 C# 代码。
 - [在 Microsoft Learn 体验中](/learn/paths/csharp-first-steps/)。 此学习路径包含多个模块，其中介绍了 C# 的基本知识。
-- [在 Binder 上的 Jupyter 中](https://mybinder.org/v2/gh/dotnet/try-samples/master?filepath=hello-csharp%2Fhello-world.ipynb)。 可在 Binder 上的 Jupyter 笔记本中实验 C# 代码。
+- [在 Binder 上的 Jupyter 中](https://mybinder.org/v2/gh/dotnet/try-samples/main?filepath=hello-csharp%2Fhello-world.ipynb)。 可在 Binder 上的 Jupyter 笔记本中实验 C# 代码。
 - [在本地计算机上](numbers-in-csharp-local.md)。 联机浏览后，可在计算机上[下载](https://dotnet.microsoft.com/download) .NET Core SDK 和生成程序。
 
 可以使用联机浏览器体验或[在自己的本地开发环境中](local-environment.md)学习 Hello World 课程之后的入门教程。 每个教程结束时，可以决定是继续在线学习还是在自己的计算机上学习下一节课程。 可以访问相关链接设置自己的环境并继续在自己的计算机上学习下一个教程。
 
 ## <a name="hello-world"></a>[Hello World](hello-world.yml)
 
-在 [Hello world](hello-world.yml) 教程中，你将创建最基本的 C# 程序。 读者将探索 `string` 类型以及如何使用文本。 还可使用 [Microsoft Learn](/learn/paths/csharp-first-steps/) 上的路径或 [Binder 上的 Jupyter](https://mybinder.org/v2/gh/dotnet/try-samples/master?filepath=hello-csharp%2Fhello-world.ipynb)。
+在 [Hello world](hello-world.yml) 教程中，你将创建最基本的 C# 程序。 读者将探索 `string` 类型以及如何使用文本。 还可使用 [Microsoft Learn](/learn/paths/csharp-first-steps/) 上的路径或 [Binder 上的 Jupyter](https://mybinder.org/v2/gh/dotnet/try-samples/main?filepath=hello-csharp%2Fhello-world.ipynb)。
 
 ## <a name="numbers-in-c"></a>[C# 中的数字](numbers-in-csharp.yml)
 
