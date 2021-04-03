@@ -9,12 +9,12 @@ api_location:
 - corprof.idl
 api_type:
 - COM
-ms.openlocfilehash: 4602438148a369f2a2321a2ec2e959cc375e37cf
-ms.sourcegitcommit: 20b4565974d185c7716656a6c63e3cfdbdf4bf41
+ms.openlocfilehash: 6ce96bf301f1c559923df64edd9dd214c28db918
+ms.sourcegitcommit: 44af69720863bd09bd7a4509bf1ec119466ba6e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104805579"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106231305"
 ---
 # <a name="icorprofilercallback10eventpipeprovidercreated-method"></a>ICorProfilerCallback10：： EventPipeProviderCreated 方法
 
@@ -23,7 +23,7 @@ ms.locfileid: "104805579"
 ## <a name="syntax"></a>语法  
   
 ```cpp  
-    HRESULT EventPipeProviderCreated([in] EVENTPIPE_PROVIDER provider); 
+    HRESULT EventPipeProviderCreated([in] EVENTPIPE_PROVIDER provider);
 ```  
   
 ## <a name="parameters"></a>参数

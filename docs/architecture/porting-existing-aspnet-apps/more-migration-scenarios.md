@@ -3,12 +3,12 @@ title: 更多迁移方案
 description: 本部分介绍将 .NET Framework 应用升级到 .NET Core/.NET 5 的其他迁移方案和技术。
 author: ardalis
 ms.date: 02/11/2021
-ms.openlocfilehash: 672ad1da4611197e7af63d1408836c4c1a26567a
-ms.sourcegitcommit: b5d2290673e1c91260c9205202dd8b95fbab1a0b
+ms.openlocfilehash: c819fd42cd02da9b643873cda5f2ecf8bc21e559
+ms.sourcegitcommit: 44af69720863bd09bd7a4509bf1ec119466ba6e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106122776"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106231162"
 ---
 # <a name="more-migration-scenarios"></a>更多迁移方案
 
@@ -179,7 +179,7 @@ ASP.NET Web API 支持多种媒体格式，可以使用自定义媒体格式化�
 ```csharp
 public static void ConfigureApis(HttpConfiguration config)
 {
-    config.Formatters.Add(new ProductCsvFormatter()); 
+    config.Formatters.Add(new ProductCsvFormatter());
 }
 ```
 
@@ -283,7 +283,7 @@ public class RouteConfig
     public static void RegisterRoutes(RouteCollection routes)
     {
         routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
- 
+
         var constraintsResolver = new DefaultInlineConstraintResolver();
         constraintsResolver.ConstraintMap.Add("values", typeof(ValuesConstraint));
         routes.MapMvcAttributeRoutes(constraintsResolver);
@@ -301,7 +301,7 @@ ASP.NET MVC 5 的另一个相当高级的功能是路由处理程序。 自定�
 public static void RegisterRoutes(RouteCollection routes)
 {
     routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
- 
+
     routes.Add(new Route("custom", new CustomRouteHandler()));
 }
 ```

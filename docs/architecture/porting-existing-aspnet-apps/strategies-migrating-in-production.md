@@ -3,12 +3,12 @@ title: 在生产环境中运行时的迁移策略
 description: 不能 tenable 将大型应用从 ASP.NET MVC 迁移到一次 ASP.NET Core。 了解将应用程序迁移到 ASP.NET Core，同时使其在现有用户的工作和生产环境中运行的策略。
 author: ardalis
 ms.date: 11/13/2020
-ms.openlocfilehash: e9dcdb3594cc431f3fd7e71b16e0d806ab8d1ba6
-ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
+ms.openlocfilehash: 9b5d031165773c4da536bdc5478836a1b00436a1
+ms.sourcegitcommit: b5d2290673e1c91260c9205202dd8b95fbab1a0b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105637086"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122724"
 ---
 # <a name="strategies-for-migrating-while-running-in-production"></a>在生产环境中运行时的迁移策略
 
@@ -16,7 +16,7 @@ ms.locfileid: "105637086"
 
 ## <a name="refactor-the-net-framework-solution"></a>重构 .NET Framework 解决方案
 
-如果你打算将 .NET Framework 应用移植到 .NET Core，就是一个不错的开端。 这意味着更新单个类库以面向 .NET Standard，并将尽可能多的逻辑移出 ASP.NET MVC 项目并移入这些类库中。 .NET Standard 库中的任何代码都应当相对于从 .NET Framework 到 .NET Core 进行相对轻松地移动。
+如果你打算将 .NET Framework 应用移植到 .NET Core，就是一个不错的开端。 这意味着更新单个类库以面向 .NET Standard，并将尽可能多的逻辑移出 ASP.NET MVC 项目并移入这些类库中。 .NET Standard 库中的任何代码都可立即从 .NET Framework 到 .NET Core 应用程序，这就是为什么此步骤在迁移过程中非常有用。
 
 重构时，请确保遵循良好的重构基础知识。 例如，创建在开始重构之前验证系统功能的测试。 完成后，请运行这些测试，确认没有更改系统的行为。 如果还没有可以依赖的合适的自动测试，则可能需要向系统中添加特性测试。
 
@@ -40,17 +40,17 @@ ms.locfileid: "105637086"
 
 在外观准备就绪后，可以将部分部分路由到新的 ASP.NET Core 应用。 当你将更多的原始 .NET Framework 应用移植到 .NET Core 时，你将继续相应地更新外观层，将更多 façade's 的功能全部功能发送到新系统。 图3-5 显示了一段时间内 strangler 模式的进展情况。
 
-## <a name="multi-targeting-approaches"></a>多目标方法
-
-对于面向 .NET Framework 的大型应用程序，可以通过对每个框架使用多目标和单独的代码路径，迁移到 ASP.NET Core 一段时间。 例如，在两个环境中都必须运行的代码可以使用[预 `#if` 处理器](../../csharp/language-reference/preprocessor-directives.md#conditional-compilation)指令进行修改，以实现不同的功能，或在 .NET Framework 与 .net Core 运行时使用不同的依赖项。 另一种方法是修改项目文件，使其包含不同的文件集，以供基于的框架为目标。 项目文件可使用不同的组合模式，如 `*.core.cs` ，根据目标框架包含不同的源文件集。
-
-通过这些技术，可在添加新功能的同时，维护单个通用代码，并将应用的) 部分 (为使用 .NET Core。
-
 ![图3-5](media/Figure3-5.png)
 
 **图3-5。** 一段时间内的 Strangler 模式。
 
 最终，整个外观层对应于新式的新式实现。 此时，旧系统和人脸层都可以停用。
+
+## <a name="multi-targeting-approaches"></a>多目标方法
+
+对于面向 .NET Framework 的大型应用程序，可以通过对每个框架使用多目标和单独的代码路径，迁移到 ASP.NET Core 一段时间。 例如，在两个环境中都必须运行的代码可以使用[预 `#if` 处理器](../../csharp/language-reference/preprocessor-directives.md#conditional-compilation)指令进行修改，以实现不同的功能，或在 .NET Framework 与 .net Core 运行时使用不同的依赖项。 另一种方法是修改项目文件，使其包含不同的文件集，以供基于的框架为目标。 项目文件可使用不同的组合模式，如 `*.core.cs` ，根据目标框架包含不同的源文件集。 通常，对于将由多个 web 应用使用的库，只需要执行此方法。 对于 web 应用本身，最好具有两个单独的项目。
+
+通过这些技术，可在添加新功能的同时，维护单个通用代码，并将应用的) 部分 (为使用 .NET Core。
 
 ## <a name="summary"></a>总结
 

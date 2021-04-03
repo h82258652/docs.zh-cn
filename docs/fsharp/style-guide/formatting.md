@@ -2,12 +2,12 @@
 title: F# 代码格式设置准则
 description: '了解设置 F # 代码格式的准则。'
 ms.date: 08/31/2020
-ms.openlocfilehash: 5c5ba972bcd91120b129efb944a028889294f048
-ms.sourcegitcommit: 652f62fc8f3ab6a264681b6eb5211ac7539bd115
+ms.openlocfilehash: 36e8ddaf360604777ce193c69dcb5cba7168c023
+ms.sourcegitcommit: 44af69720863bd09bd7a4509bf1ec119466ba6e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105964814"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106231135"
 ---
 # <a name="f-code-formatting-guidelines"></a>F# 代码格式设置准则
 
@@ -908,7 +908,7 @@ lambdaList
 即使使用关键字，使用定义的函数中的模式匹配 `let` 也 `let rec` 应缩进四个空格 `let` `function` ：
 
 ```fsharp
-let rec sizeLambda acc = 
+let rec sizeLambda acc =
     function
     | Abs(x, body) -> sizeLambda (succ acc) body
     | App(lam1, lam2) -> sizeLambda (sizeLambda acc lam1) lam2

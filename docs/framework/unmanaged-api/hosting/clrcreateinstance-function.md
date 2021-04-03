@@ -16,12 +16,12 @@ helpviewer_keywords:
 ms.assetid: 5de13327-96c6-4697-a89e-b8bf40717855
 topic_type:
 - apiref
-ms.openlocfilehash: 5d25ca8ea33aacf88a3359335b2b4bbfb91c06eb
-ms.sourcegitcommit: 80f38cb67bd02f51d5722fa13d0ea207e3b14a8e
+ms.openlocfilehash: ac81aeadce651a04e2cabc8a6740fe86825edcc3
+ms.sourcegitcommit: 44af69720863bd09bd7a4509bf1ec119466ba6e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105610871"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106231344"
 ---
 # <a name="clrcreateinstance-function"></a>CLRCreateInstance 函数
 
@@ -93,7 +93,7 @@ CreateInterfaceFnPtr createInterface = (CreateInterfaceFnPtr)GetProcAddress(hMod
 HRESULT hr;
 hr = createInterface(CLSID_CLRMetaHost, IID_ICLRMetaHost, (LPVOID*)&pMetaHost);
 hr = createInterface (CLSID_CLRMetaHostPolicy, IID_ICLRMetaHostPolicy,  (LPVOID*)&pMetaHostPolicy);  
-hr = createInterface (CLSID_CLRDebugging, IID_ICLRDebugging,  (LPVOID*)&pCLRDebugging); 
+hr = createInterface (CLSID_CLRDebugging, IID_ICLRDebugging,  (LPVOID*)&pCLRDebugging);
 ```
   
 ## <a name="requirements"></a>要求  

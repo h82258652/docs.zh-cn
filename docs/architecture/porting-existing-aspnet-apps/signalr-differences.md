@@ -3,12 +3,12 @@ title: 比较 ASP.NET SignalR 和 ASP.NET Core SignalR
 description: ASP.NET Core SignalR 的不同之处在于 ASP.NET SignalR？
 author: ardalis
 ms.date: 11/13/2020
-ms.openlocfilehash: 89236bd0272c8f20cf9838dddefeb9afee1f3d93
-ms.sourcegitcommit: 42d436ebc2a7ee02fc1848c7742bc7d80e13fc2f
+ms.openlocfilehash: 4a8680d8a28faaa07687b2c5835ebbf428032fbe
+ms.sourcegitcommit: b5d2290673e1c91260c9205202dd8b95fbab1a0b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102401058"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122648"
 ---
 # <a name="compare-aspnet-signalr-and-aspnet-core-signalr"></a>比较 ASP.NET SignalR 和 ASP.NET Core SignalR
 
@@ -23,7 +23,7 @@ ASP.NET Core SignalR 与使用 ASP.NET SignalR 的客户端或服务器不兼容
 - ASP.NET Core SignalR 需要粘滞会话;ASP.NET SignalR。
 - ASP.NET Core 简化了连接模型;仅连接到单个集线器。
 - ASP.NET Core SignalR 支持从集线器向客户端流式传输数据。
-- ASP.NET Core SignalR 不支持在客户端和中心之间传递状态。
+- ASP.NET Core SignalR 不支持在客户端和中心 (间传递状态，但方法调用仍允许在集线器和客户端) 之间传递信息。
 - `PersistentConnection`类在 ASP.NET Core SignalR 中不存在。
 - ASP.NET SignalR 支持 SQL Server 和 Redis。 ASP.NET Core SignalR 支持 [Azure SignalR](/azure/azure-signalr/) 和 Redis。
 

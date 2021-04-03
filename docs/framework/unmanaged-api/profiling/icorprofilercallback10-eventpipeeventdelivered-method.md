@@ -9,12 +9,12 @@ api_location:
 - corprof.idl
 api_type:
 - COM
-ms.openlocfilehash: 7b2ca813d610c2b41d97d8cd76dac22ca38802d7
-ms.sourcegitcommit: 20b4565974d185c7716656a6c63e3cfdbdf4bf41
+ms.openlocfilehash: 73f3eb64671b22b1ec16b5a5b1b24115f7f65f6d
+ms.sourcegitcommit: 44af69720863bd09bd7a4509bf1ec119466ba6e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104805631"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106231331"
 ---
 # <a name="icorprofilercallback10eventpipeeventdelivered-method"></a>ICorProfilerCallback10：： EventPipeEventDelivered 方法
 
@@ -35,7 +35,7 @@ ms.locfileid: "104805631"
         [in] LPCGUID pRelatedActivityId,
         [in] ThreadID eventThread,
         [in] ULONG numStackFrames,
-        [in, length_is(numStackFrames)] UINT_PTR stackFrames[]); 
+        [in, length_is(numStackFrames)] UINT_PTR stackFrames[]);
 ```  
   
 ## <a name="parameters"></a>参数
