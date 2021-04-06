@@ -2,12 +2,12 @@
 title: 中断性变更：WinForms 和 WPF 应用使用 Microsoft.NET.Sdk
 description: 了解 .NET 5 中的中断性变更：Windows 窗体和 Windows Presentation Framework 应用现使用 .NET SDK，而不使用 .NET Core WinForms 和 WPF SDK。
 ms.date: 09/18/2020
-ms.openlocfilehash: 408233f6f8801fb3d4e53beab28c26a777a4a3e1
-ms.sourcegitcommit: 9c589b25b005b9a7f87327646020eb85c3b6306f
+ms.openlocfilehash: ebd4f51d5436cec2f0463558e99a85cb261ae682
+ms.sourcegitcommit: 109507b6c16704ed041efe9598c70cd3438a9fbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2021
-ms.locfileid: "102256200"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106079487"
 ---
 # <a name="winforms-and-wpf-apps-use-microsoftnetsdk"></a>WinForms 和 WPF 应用使用 Microsoft.NET.Sdk
 
@@ -58,7 +58,7 @@ Windows 窗体和 Windows Presentation Framework (WPF) 应用现在使用 .NET S
 
 ## <a name="affected-apis"></a>受影响的 API
 
-无法通过 API 分析检测到。
+无。
 
 <!--
 

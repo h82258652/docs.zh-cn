@@ -3,12 +3,12 @@ title: 垃圾回收器配置设置
 description: 了解用于配置垃圾回收器如何为 .NET Core 应用管理内存的运行时设置。
 ms.date: 07/10/2020
 ms.topic: reference
-ms.openlocfilehash: c4f55124d9f50146ceac1eea52ce60b0dd77ad1d
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: 1bae00d2fc6e80811986bbb111f38582720f8487
+ms.sourcegitcommit: 872ca41d1c26f39d0aef57cc365d09503bac780d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104875039"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106288066"
 ---
 # <a name="run-time-configuration-options-for-garbage-collection"></a>用于垃圾回收的运行时配置选项
 
@@ -288,7 +288,7 @@ runtimeconfig.json 文件：
 - 此设置仅适用于 64 位计算机。
 - 如果进程正在具有指定内存限制的容器中运行，则百分比的计算结果将为该内存限制的百分比。
 - 如果已配置[每对象堆限制](#per-object-heap-limits)，则忽略此设置。
-- 默认值（仅在某些情况下适用）是 20 MB 或容器内存限制的 75%（以较小者为准）。 此默认值在以下情况下适用：
+- 默认值（仅在某些情况下适用）是 20 MB 或容器内存限制的 75%（以较大者为准）。 此默认值在以下情况下适用：
 
   - 进程正在具有指定内存限制的容器中运行。
   - [System.GC.HeapHardLimit](#heap-limit) 未设置。
@@ -427,7 +427,7 @@ runtimeconfig.json 文件：
 
 | | 设置名 | 值 | 引入的版本 |
 | - | - | - | - |
-| **runtimeconfig.json** | 不可用 | 不适用 | 不可用 |
+| **runtimeconfig.json** | 不可用 | 空值 | 不可用 |
 | **环境变量** | `COMPlus_GCLargePages` | `0` - 禁用<br/>`1` - 启用 | .NET Core 3.0 |
 
 ## <a name="allow-large-objects"></a>允许大型对象
@@ -438,7 +438,7 @@ runtimeconfig.json 文件：
 
 | | 设置名 | 值 | 引入的版本 |
 | - | - | - | - |
-| **runtimeconfig.json** | 不可用 | 不适用 | 不可用 |
+| **runtimeconfig.json** | 不可用 | 空值 | 不可用 |
 | **环境变量** | `COMPlus_gcAllowVeryLargeObjects` | `1` - 启用<br/> `0` - 禁用 | .NET Core 1.0 |
 | **.NET Framework 的 app.config** | [gcAllowVeryLargeObjects](../../framework/configure-apps/file-schema/runtime/gcallowverylargeobjects-element.md) | `1` - 启用<br/> `0` - 禁用 | .NET Framework 4.5 |
 
@@ -476,5 +476,5 @@ runtimeconfig.json 文件：
 
 | | 设置名 | 值 | 引入的版本 |
 | - | - | - | - |
-| **runtimeconfig.json** | 不可用 | 不适用 | 不可用 |
+| **runtimeconfig.json** | 不可用 | 空值 | 不可用 |
 | **环境变量** | `COMPlus_GCName` | string_path | .NET Core 2.0 |
