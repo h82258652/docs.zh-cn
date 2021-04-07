@@ -43,6 +43,8 @@ items:
                 items:
                   - name: 为 Null 性注释更改
                     href: core-libraries/6.0/nullable-ref-type-annotation-changes.md
+                  - name: 新的可查询方法重载
+                    href: core-libraries/6.0/additional-linq-queryable-method-overloads.md
                   - name: 在流派生类型中重命名了参数
                     href: core-libraries/6.0/parameters-renamed-on-stream-derived-types.md
                   - name: 标准数字格式分析精度
@@ -51,6 +53,8 @@ items:
                 items:
                   - name: API 引发 ArgumentNullException
                     href: windows-forms/6.0/apis-throw-argumentnullexception.md
+                  - name: DataGridView API 引发 InvalidOperationException
+                    href: windows-forms/6.0/null-owner-causes-invalidoperationexception.md
                   - name: 增加了 NotifyIcon.Text 最大文本长度
                     href: windows-forms/6.0/notifyicon-text-max-text-length-increased.md
                   - name: TableLayoutSettings 属性引发 InvalidEnumArgumentException
@@ -443,6 +447,8 @@ items:
                 items:
                   - name: 为 Null 性注释更改
                     href: core-libraries/6.0/nullable-ref-type-annotation-changes.md
+                  - name: 新的可查询方法重载
+                    href: core-libraries/6.0/additional-linq-queryable-method-overloads.md
                   - name: 在流派生类型中重命名了参数
                     href: core-libraries/6.0/parameters-renamed-on-stream-derived-types.md
                   - name: 标准数字格式分析精度
@@ -619,6 +625,8 @@ items:
                 items:
                   - name: API 引发 ArgumentNullException
                     href: windows-forms/6.0/apis-throw-argumentnullexception.md
+                  - name: DataGridView API 引发 InvalidOperationException
+                    href: windows-forms/6.0/null-owner-causes-invalidoperationexception.md
                   - name: 增加了 NotifyIcon.Text 最大文本长度
                     href: windows-forms/6.0/notifyicon-text-max-text-length-increased.md
                   - name: TableLayoutSettings 属性引发 InvalidEnumArgumentException

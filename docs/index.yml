@@ -11,270 +11,262 @@ metadata:
   author: BillWagner
   ms.author: wiwagn
   ms.date: 03/11/2021
-  ms.openlocfilehash: 1dd3988778fe7fe4a0f75c849554b7913309111d
-  ms.sourcegitcommit: 5ce37699c2a51ed173171813be68ef7577b1aba5
-  ms.translationtype: HT
-  ms.contentlocale: zh-CN
-  ms.lasthandoff: 03/23/2021
-  ms.locfileid: "104881036"
 highlightedContent:
   items:
-  - title: 下载 .NET
-    itemType: download
-    url: https://dotnet.microsoft.com/download
-  - title: 使用 C# 生成 .NET 应用
-    itemType: learn
-    url: /learn/paths/build-dotnet-applications-csharp
-  - title: 创建你的第一个控制台应用
-    itemType: tutorial
-    url: core/get-started.md
-  - title: 创建自己的第一个 Web 应用
-    itemType: learn
-    url: https://dotnet.microsoft.com/learn/aspnet/hello-world-tutorial/intro
-  - title: 浏览 .NET 学习路径
-    itemType: learn
-    url: /learn/dotnet/
-  - title: 面向 .NET 开发人员的 Azure
-    itemType: overview
-    url: azure/index.yml
-  - title: .NET 文档中的新增功能
-    itemType: whats-new
-    url: whats-new/index.yml
-  - title: C# 交互式简介
-    itemType: get-started
-    url: csharp/tour-of-csharp/tutorials/hello-world.yml
+    - title: 下载 .NET
+      itemType: download
+      url: 'https://dotnet.microsoft.com/download'
+    - title: 使用 C# 生成 .NET 应用
+      itemType: learn
+      url: /learn/paths/build-dotnet-applications-csharp
+    - title: 创建你的第一个控制台应用
+      itemType: tutorial
+      url: core/get-started.md
+    - title: 创建自己的第一个 Web 应用
+      itemType: learn
+      url: 'https://dotnet.microsoft.com/learn/aspnet/hello-world-tutorial/intro'
+    - title: 浏览 .NET 学习路径
+      itemType: learn
+      url: /learn/dotnet/
+    - title: 面向 .NET 开发人员的 Azure
+      itemType: overview
+      url: azure/index.yml
+    - title: .NET 文档中的新增功能
+      itemType: whats-new
+      url: whats-new/index.yml
+    - title: C# 交互式简介
+      itemType: get-started
+      url: csharp/tour-of-csharp/tutorials/hello-world.yml
 conceptualContent:
   title: .NET：可用。 跨平台。 开放源代码。
   summary: 用于构建所有应用（Web 应用、移动应用、桌面应用、游戏、IoT 等）的开发人员平台。 在 Windows、Linux 和 macOS 上受支持。
   items:
-  - title: 开放源代码 .NET
-    links:
-    - url: core/introduction.md
-      itemType: overview
-      text: .NET 概述
-    - url: core/tutorials/index.md
-      itemType: tutorial
-      text: .NET 教程
-    - url: core/dotnet-five.md
-      itemType: whats-new
-      text: .NET 5 的新变化
-    - url: core/deploying/index.md
-      itemType: deploy
-      text: 部署 .NET 应用
-    - url: https://dotnetfoundation.org
-      itemType: overview
-      text: .NET Foundation
-    - url: https://dotnet.microsoft.com/platform/community
-      itemType: whats-new
-      text: .NET 开发人员社区
-    - url: standard/library-guidance/index.md
-      itemType: concept
-      text: 开放源代码库指南
-  - title: .NET 概念
-    links:
-    - url: https://channel9.msdn.com/series/net-core-101/what-is-net
-      itemType: video
-      text: 什么是 .NET？
-    - url: fundamentals/index.yml
-      itemType: concept
-      text: .NET 基础知识
-    - url: /aspnet/core/
-      itemType: overview
-      text: ASP.NET Core
-    - url: /ef/core/
-      itemType: overview
-      text: Entity Framework Core
-    - url: standard/components.md
-      itemType: concept
-      text: .NET 体系结构组件
-    - url: framework/index.yml
-      itemType: overview
-      text: .NET Framework (Windows) 应用
-    - url: /answers/products/dotnet
-      itemType: get-started
-      text: .NET 问答
-  - title: 开发 .NET 应用
-    links:
-    - url: core/sdk.md
-      itemType: overview
-      text: .NET SDK 概述
-    - url: core/tools/index.md
-      itemType: overview
-      text: .NET CLI 概述
-    - url: standard/net-standard.md
-      itemType: overview
-      text: .NET Standard
-    - url: core/porting/index.md
-      itemType: overview
-      text: 从 .NET Framework 移植到 .NET
-    - url: core/docker/build-container.md
-      itemType: tutorial
-      text: 使用 Docker 对 .NET 应用进行容器化
-    - url: core/compatibility/index.md
-      itemType: concept
-      text: .NET 中断性变更
-    - url: /dotnet/desktop/wpf/get-started/create-app-visual-studio?view=netdesktop-5.0&preserve-view=true
-      itemType: tutorial
-      text: 创建适用于 Windows 的 .NET 桌面应用
-  - title: .NET 体系结构指南
-    links:
-    - url: architecture/dapr-for-net-developers/index.md
-      itemType: architecture
-      text: 适用于 .NET 开发人员的 Dapr
-    - url: architecture/microservices/index.md
-      itemType: architecture
-      text: .NET 微服务体系结构指南
-    - url: architecture/modern-web-apps-azure/index.md
-      itemType: architecture
-      text: 使用 ASP.NET Core 和 Azure 的新式 Web 应用
-    - url: architecture/containerized-lifecycle/index.md
-      itemType: architecture
-      text: 容器化 Docker 应用生命周期
-    - url: architecture/cloud-native/index.md
-      itemType: architecture
-      text: 适用于 Azure 的云原生 .NET 应用
-    - url: architecture/modernize-with-azure-containers/index.md
-      itemType: architecture
-      text: 使用 Azure 新式化 NET 应用
-    footerLink:
-      url: architecture/index.yml
-      text: 所有体系结构指南
+    - title: 开放源代码 .NET
+      links:
+        - url: core/introduction.md
+          itemType: overview
+          text: .NET 概述
+        - url: core/tutorials/index.md
+          itemType: tutorial
+          text: .NET 教程
+        - url: core/dotnet-five.md
+          itemType: whats-new
+          text: .NET 5 的新变化
+        - url: core/deploying/index.md
+          itemType: deploy
+          text: 部署 .NET 应用
+        - url: 'https://dotnetfoundation.org'
+          itemType: overview
+          text: .NET Foundation
+        - url: 'https://dotnet.microsoft.com/platform/community'
+          itemType: whats-new
+          text: .NET 开发人员社区
+        - url: standard/library-guidance/index.md
+          itemType: concept
+          text: 开放源代码库指南
+    - title: .NET 概念
+      links:
+        - url: 'https://channel9.msdn.com/series/net-core-101/what-is-net'
+          itemType: video
+          text: 什么是 .NET？
+        - url: fundamentals/index.yml
+          itemType: concept
+          text: .NET 基础知识
+        - url: /aspnet/core/
+          itemType: overview
+          text: ASP.NET Core
+        - url: /ef/core/
+          itemType: overview
+          text: Entity Framework Core
+        - url: standard/components.md
+          itemType: concept
+          text: .NET 体系结构组件
+        - url: framework/index.yml
+          itemType: overview
+          text: .NET Framework (Windows) 应用
+        - url: /answers/products/dotnet
+          itemType: get-started
+          text: .NET 问答
+    - title: 开发 .NET 应用
+      links:
+        - url: core/sdk.md
+          itemType: overview
+          text: .NET SDK 概述
+        - url: core/tools/index.md
+          itemType: overview
+          text: .NET CLI 概述
+        - url: standard/net-standard.md
+          itemType: overview
+          text: .NET Standard
+        - url: core/porting/index.md
+          itemType: overview
+          text: 从 .NET Framework 移植到 .NET
+        - url: core/docker/build-container.md
+          itemType: tutorial
+          text: 使用 Docker 对 .NET 应用进行容器化
+        - url: core/compatibility/index.md
+          itemType: concept
+          text: .NET 中断性变更
+        - url: /dotnet/desktop/wpf/get-started/create-app-visual-studio?view=netdesktop-5.0&preserve-view=true
+          itemType: tutorial
+          text: 创建适用于 Windows 的 .NET 桌面应用
+    - title: .NET 体系结构指南
+      links:
+        - url: architecture/dapr-for-net-developers/index.md
+          itemType: architecture
+          text: 适用于 .NET 开发人员的 Dapr
+        - url: architecture/microservices/index.md
+          itemType: architecture
+          text: .NET 微服务体系结构指南
+        - url: architecture/modern-web-apps-azure/index.md
+          itemType: architecture
+          text: 使用 ASP.NET Core 和 Azure 的新式 Web 应用
+        - url: architecture/containerized-lifecycle/index.md
+          itemType: architecture
+          text: 容器化 Docker 应用生命周期
+        - url: architecture/cloud-native/index.md
+          itemType: architecture
+          text: 适用于 Azure 的云原生 .NET 应用
+        - url: architecture/modernize-with-azure-containers/index.md
+          itemType: architecture
+          text: 使用 Azure 新式化 NET 应用
+      footerLink:
+        url: architecture/index.yml
+        text: 所有体系结构指南
 tools:
   title: 编程语言
   summary: 可使用 C#、F# 或 Visual Basic 编写 .NET 应用。
   items:
-  - title: 面向对象的新式类型安全语言
-    imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
-    url: csharp/index.yml
-  - title: 适用于 .NET 的函数编程语言
-    imageSrc: https://docs.microsoft.com/media/logos/logo_Fsharp.svg
-    url: fsharp/index.yml
-  - title: 具有可读语法的易学语言
-    imageSrc: https://docs.microsoft.com/media/logos/logo_VB.svg
-    url: visual-basic/index.yml
+    - title: 面向对象的新式类型安全语言
+      imageSrc: 'https://docs.microsoft.com/media/logos/logo_Csharp.svg'
+      url: csharp/index.yml
+    - title: 适用于 .NET 的函数编程语言
+      imageSrc: 'https://docs.microsoft.com/media/logos/logo_Fsharp.svg'
+      url: fsharp/index.yml
+    - title: 具有可读语法的易学语言
+      imageSrc: 'https://docs.microsoft.com/media/logos/logo_VB.svg'
+      url: visual-basic/index.yml
 additionalContent:
   sections:
-  - title: 创建应用程序
-    summary: 你可以选择 Web 应用、移动应用、桌面应用、游戏、IoT 等。
-    items:
-    - title: Web
-      links:
-      - url: /aspnet/core/tutorials
-        text: ASP.NET Core 教程
-      - url: /aspnet/core
-        text: 什么是 ASP.NET Core？
-      - url: /aspnet/core/tutorials/first-mvc-app/start-mvc
-        text: Visual Studio 中的 ASP.NET Core
-      - url: /aspnet/mvc/overview/deployment/docker-aspnetmvc
-        text: Windows 容器中的 ASP.NET MVC 应用
-      - url: /aspnet/core/blazor/
-        text: Blazor：带 .NET 的交互式客户端 Web UI
-    - title: 移动型
-      links:
-      - url: /xamarin/xamarin-forms
-        text: Xamarin.Forms
-      - url: /xamarin/ios
-        text: Xamarin.iOS
-      - url: /xamarin/android
-        text: Xamarin.Android
-      - url: /azure/developer/mobile-apps
-        text: 使用 Azure 开发 Xamarin 应用
-    - title: 桌面
-      links:
-      - url: /uwp
-        text: 通用 Windows 应用
-      - url: /dotnet/desktop/wpf/?view=netdesktop-5.0&preserve-view=true
-        text: Windows Presentation Foundation（.NET 5 及更高版本）
-      - url: /dotnet/desktop/wpf/?view=netframeworkdesktop-4.8&preserve-view=true
-        text: Windows Presentation Foundation (.NET Framework)
-      - url: /dotnet/desktop/winforms/?view=netdesktop-5.0&preserve-view=true
-        text: Windows 窗体（.NET 5 及更高版本）
-      - url: /dotnet/desktop/winforms/?view=netframeworkdesktop-4.8&preserve-view=true
-        text: Windows 窗体 (.NET Framework)
-      - url: /xamarin/mac
-        text: Xamarin for macOS
-    - title: 微服务
-      links:
-      - url: architecture/dapr-for-net-developers/index.md
-        text: 适用于 .NET 开发人员的 Dapr
-      - url: architecture/cloud-native/index.md
-        text: 云原生 .NET 应用
-      - url: /learn/aspnet/microservice-tutorial/intro
-        text: 创建你的第一个 .NET 微服务
-      - url: architecture/serverless/index.md
-        text: 使用 Azure 的无服务器应用
-      - url: architecture/microservices/index.md
-        text: 适用于容器化 .NET 应用的体系结构
-    - title: 云
-      links:
-      - url: azure/index.yml
-        text: 面向 .NET 开发人员的 Azure
-      - url: ./azure/migration/app-service.md?preserve-view=true&view=azure-dotnet
-        text: 迁移本地 .NET Web 应用或服务
-      - url: ./azure/key-azure-services.md
-        text: 适用于 .NET 开发人员的 Azure 服务
-      - url: ./azure/sdk/azure-sdk-for-dotnet.md
-        text: Azure .NET SDK
-      - url: fsharp/using-fsharp-on-azure/index.md
-        text: 在 Azure 上使用 F#
-    - title: 机器学习和 AI
-      links:
-      - url: machine-learning/index.yml
-        text: 通过 ML.NET 生成自定义 AI 解决方案
-      - url: /azure/cognitive-services/
-        text: Azure 认知服务
-      - url: /azure/machine-learning
-        text: Azure 机器学习
-      - url: spark/index.yml
-        text: .NET for Apache Spark
-    - title: 游戏开发
-      links:
-      - url: https://visualstudio.microsoft.com/vs/features/game-development/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link
-        text: 利用 Visual Studio 开发游戏
-      - url: https://docs.cryengine.com/display/CEPROG/C%23+Programming
-        text: 了解如何使用 CRYENGINE 和 C# 开发游戏
-      - url: https://docs.monogame.net/?page=main
-        text: 使用 MonoGame 库和 C# 开发游戏
-      - url: https://docs.unity3d.com/Manual/index.html
-        text: 了解如何使用 Unity 和 C# 开发 2D 和 3D 游戏
-    - title: 物联网 (IoT)
-      links:
-      - url: iot/index.yml
-        text: .NET IoT 库
-      - url: iot/quickstarts/sensehat.md
-        text: 5 分钟入门
-      - url: iot/tutorials/blink-led.md
-        text: 闪烁 LED
-      - url: https://aka.ms/IoTNet101
-        text: .NET IoT 101 视频系列
-  - title: API 和语言参考
-    summary: 搜索 .NET API 和语言参考文档。
-    items:
-    - title: .NET API 参考
-      summary: .NET 的 API 参考文档
-      url: ../api/index.md?view=net-5.0
-    - title: .NET Core API 参考
-      summary: .NET Core 的 API 参考文档
-      url: ../api/index.md?view=netcore-3.1&preserve-view=true
-    - title: .NET Framework API 参考
-      summary: .NET Framework 的 API 参考文档
-      url: ../api/index.md?view=netframework-4.8&preserve-view=true
-    - title: ASP.NET Core API 参考
-      summary: ASP.NET Core 的 API 参考文档
-      url: ../api/index.md?view=aspnetcore-3.1&preserve-view=true
-    - title: ML.NET API 引用
-      summary: ML.NET 的 API 参考文档
-      url: ../api/index.md?view=ml-dotnet&preserve-view=true
-    - title: .NET for Apache Spark API 参考
-      summary: .NET for Apache Spark 的 API 参考文档
-      url: ../api/index.md?view=spark-dotnet&preserve-view=true
-    - title: C# 语言参考
-      summary: C# 语言参考和规范
-      url: csharp/language-reference/index.md
-    - title: F# 语言参考
-      summary: F# 语言参考
-      url: fsharp/language-reference/index.md
-    - title: Visual Basic 语言参考
-      summary: Visual Basic 语言参考和规范
-      url: visual-basic/language-reference/index.md
-  footer: 是否有兴趣参与撰写 .NET 文档？ 有关详细信息，请参阅[参与者指南](/contribute/dotnet/dotnet-contribute)。
+    - title: 创建应用程序
+      summary: 你可以选择 Web 应用、移动应用、桌面应用、游戏、IoT 等。
+      items:
+        - title: Web
+          links:
+            - url: /aspnet/core/tutorials
+              text: ASP.NET Core 教程
+            - url: /aspnet/core
+              text: 什么是 ASP.NET Core？
+            - url: /aspnet/core/tutorials/first-mvc-app/start-mvc
+              text: Visual Studio 中的 ASP.NET Core
+            - url: /aspnet/mvc/overview/deployment/docker-aspnetmvc
+              text: Windows 容器中的 ASP.NET MVC 应用
+            - url: /aspnet/core/blazor/
+              text: Blazor：带 .NET 的交互式客户端 Web UI
+        - title: 移动型
+          links:
+            - url: /xamarin/xamarin-forms
+              text: Xamarin.Forms
+            - url: /xamarin/ios
+              text: Xamarin.iOS
+            - url: /xamarin/android
+              text: Xamarin.Android
+            - url: /azure/developer/mobile-apps
+              text: 使用 Azure 开发 Xamarin 应用
+        - title: 桌面
+          links:
+            - url: /uwp
+              text: 通用 Windows 应用
+            - url: /dotnet/desktop/wpf/?view=netdesktop-5.0&preserve-view=true
+              text: Windows Presentation Foundation（.NET 5 及更高版本）
+            - url: /dotnet/desktop/wpf/?view=netframeworkdesktop-4.8&preserve-view=true
+              text: Windows Presentation Foundation (.NET Framework)
+            - url: /dotnet/desktop/winforms/?view=netdesktop-5.0&preserve-view=true
+              text: Windows 窗体（.NET 5 及更高版本）
+            - url: /dotnet/desktop/winforms/?view=netframeworkdesktop-4.8&preserve-view=true
+              text: Windows 窗体 (.NET Framework)
+            - url: /xamarin/mac
+              text: Xamarin for macOS
+        - title: 微服务
+          links:
+            - url: architecture/dapr-for-net-developers/index.md
+              text: 适用于 .NET 开发人员的 Dapr
+            - url: architecture/cloud-native/index.md
+              text: 云原生 .NET 应用
+            - url: architecture/serverless/index.md
+              text: 使用 Azure 的无服务器应用
+            - url: architecture/microservices/index.md
+              text: 适用于容器化 .NET 应用的体系结构
+        - title: 云
+          links:
+            - url: azure/index.yml
+              text: 面向 .NET 开发人员的 Azure
+            - url: ./azure/migration/app-service.md?preserve-view=true&view=azure-dotnet
+              text: 迁移本地 .NET Web 应用或服务
+            - url: ./azure/key-azure-services.md
+              text: 适用于 .NET 开发人员的 Azure 服务
+            - url: ./azure/sdk/azure-sdk-for-dotnet.md
+              text: Azure .NET SDK
+            - url: fsharp/using-fsharp-on-azure/index.md
+              text: 在 Azure 上使用 F#
+        - title: 机器学习和 AI
+          links:
+            - url: machine-learning/index.yml
+              text: 通过 ML.NET 生成自定义 AI 解决方案
+            - url: /azure/cognitive-services/
+              text: Azure 认知服务
+            - url: /azure/machine-learning
+              text: Azure 机器学习
+            - url: spark/index.yml
+              text: .NET for Apache Spark
+        - title: 游戏开发
+          links:
+            - url: 'https://visualstudio.microsoft.com/vs/features/game-development/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link'
+              text: 利用 Visual Studio 开发游戏
+            - url: 'https://docs.cryengine.com/display/CEPROG/C%23+Programming'
+              text: 了解如何使用 CRYENGINE 和 C# 开发游戏
+            - url: 'https://docs.monogame.net/?page=main'
+              text: 使用 MonoGame 库和 C# 开发游戏
+            - url: 'https://docs.unity3d.com/Manual/index.html'
+              text: 了解如何使用 Unity 和 C# 开发 2D 和 3D 游戏
+        - title: 物联网 (IoT)
+          links:
+            - url: iot/index.yml
+              text: .NET IoT 库
+            - url: iot/quickstarts/sensehat.md
+              text: 5 分钟入门
+            - url: iot/tutorials/blink-led.md
+              text: 闪烁 LED
+            - url: 'https://aka.ms/IoTNet101'
+              text: .NET IoT 101 视频系列
+    - title: API 和语言参考
+      summary: 搜索 .NET API 和语言参考文档。
+      items:
+        - title: .NET API 参考
+          summary: .NET 的 API 参考文档
+          url: ../api/index.md?view=net-5.0
+        - title: .NET Core API 参考
+          summary: .NET Core 的 API 参考文档
+          url: ../api/index.md?view=netcore-3.1&preserve-view=true
+        - title: .NET Framework API 参考
+          summary: .NET Framework 的 API 参考文档
+          url: ../api/index.md?view=netframework-4.8&preserve-view=true
+        - title: ASP.NET Core API 参考
+          summary: ASP.NET Core 的 API 参考文档
+          url: ../api/index.md?view=aspnetcore-3.1&preserve-view=true
+        - title: ML.NET API 引用
+          summary: ML.NET 的 API 参考文档
+          url: ../api/index.md?view=ml-dotnet&preserve-view=true
+        - title: .NET for Apache Spark API 参考
+          summary: .NET for Apache Spark 的 API 参考文档
+          url: ../api/index.md?view=spark-dotnet&preserve-view=true
+        - title: C# 语言参考
+          summary: C# 语言参考和规范
+          url: csharp/language-reference/index.md
+        - title: F# 语言参考
+          summary: F# 语言参考
+          url: fsharp/language-reference/index.md
+        - title: Visual Basic 语言参考
+          summary: Visual Basic 语言参考和规范
+          url: visual-basic/language-reference/index.md
+  footer: 'Are you interested in contributing to the .NET docs? For more information, see our [contributor guide](/contribute/dotnet/dotnet-contribute).'

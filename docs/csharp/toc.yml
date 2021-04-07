@@ -767,22 +767,6 @@ items:
             href: programming-guide/namespaces/using-namespaces.md
           - name: 如何使用 My 命名空间
             href: programming-guide/namespaces/how-to-use-the-my-namespace.md
-      - name: 不安全代码和指针
-        items:
-          - name: 概述和限制
-            displayName: unsafe code pointers
-            href: programming-guide/unsafe-code-pointers/index.md
-          - name: 固定大小的缓冲区
-            href: programming-guide/unsafe-code-pointers/fixed-size-buffers.md
-          - name: 指针类型
-            items:
-              - name: 概述
-                displayName: pointer types
-                href: programming-guide/unsafe-code-pointers/pointer-types.md
-              - name: 指针转换
-                href: programming-guide/unsafe-code-pointers/pointer-conversions.md
-              - name: 如何使用指针来复制字节数组
-                href: programming-guide/unsafe-code-pointers/how-to-use-pointers-to-copy-an-array-of-bytes.md
       - name: XML 文档注释
         items:
           - name: 概述
@@ -1123,7 +1107,7 @@ items:
                 href: language-reference/keywords/this.md
           - name: 文字关键字
             items:
-              - name: 'null'
+              - name: 'Null'
                 href: language-reference/keywords/null.md
               - name: true 和 false
                 href: language-reference/builtin-types/bool.md
@@ -1225,6 +1209,9 @@ items:
           - name: Lambda 表达式
             href: language-reference/operators/lambda-expressions.md
             displayName: anonymous functions
+          - name: 模式
+            href: language-reference/operators/patterns.md
+            displayName: 'pattern matching, and keyword, or keyword, not keyword, pattern reference'
           - name: + += 运算符
             href: language-reference/operators/addition-operator.md
             displayName: 'string concatenation, delegate combination, event subscription'
@@ -1299,6 +1286,9 @@ items:
           - name: 杂项
             displayName: 'Conditional, Obsolete, AttributeUsage, ModuleInitializer, SkipLocalsInit'
             href: language-reference/attributes/general.md
+      - name: 不安全代码和指针
+        displayName: 'unsafe code, pointers, fixed buffer, function pointer'
+        href: language-reference/unsafe-code.md
       - name: 预处理器指令
         href: language-reference/preprocessor-directives.md
         displayName: '\#if, \#else, \#elif, \#endif, \#define, \#undef, \#warning, \#error, \#line, \#nullable, \#region, \#endregion, \#pragma, warning, checksum'
