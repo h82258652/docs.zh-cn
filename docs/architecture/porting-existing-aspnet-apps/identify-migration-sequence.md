@@ -3,12 +3,12 @@ title: 确定要迁移的项目序列
 description: 大型应用程序通常不会同时迁移到新的平台，而是一系列较小的步骤。 了解如何规划将 ASP.NET MVC 应用程序迁移到 ASP.NET Core 的步骤。
 author: ardalis
 ms.date: 11/13/2020
-ms.openlocfilehash: 452898da5839f8979a5e4f9ebf5d4c21b250e1fa
-ms.sourcegitcommit: 42d436ebc2a7ee02fc1848c7742bc7d80e13fc2f
+ms.openlocfilehash: 34bcfbf4ea3941329419ba64253a2177247df7b8
+ms.sourcegitcommit: b5d2290673e1c91260c9205202dd8b95fbab1a0b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102401081"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122906"
 ---
 # <a name="identify-sequence-of-projects-to-migrate"></a>确定要迁移的项目序列
 
@@ -61,13 +61,13 @@ MSTest、xUnit 和 NUnit 都适用于 .NET Core。 如果当前没有适用于�
 
 - 迁移第三方 NuGet 依赖项
 - 迁移应用以使用新 *的 .csproj* 文件格式
-- 将应用迁移到 ASP.NET Core (目标 .NET Framework) 
 - 将内部 NuGet 依赖项更新到 .NET Standard
+- 将应用迁移到 ASP.NET Core (目标 .NET Framework) 
 - 将所有应用更新为面向 .NET Core 3。1
 
 当应用程序自动执行时，如果应用程序遵循一致的编码准则和项目组织，则会很有帮助。 自动化工作依赖于此一致性才能有效。 除了分析和迁移项目文件外，还可以自动迁移常见的代码模式。 一些代码模式示例包括如何声明控制器操作的方式，或它们如何返回结果。
 
-例如，对于匹配以下模式之一的代码行，迁移脚本可能会搜索匹配 *Controller.cs* 的文件：
+例如，迁移脚本可以在与以下模式之一 *匹配的* 代码行中搜索匹配的文件：
 
 ```csharp
    return new HttpStatusCodeResult(200);

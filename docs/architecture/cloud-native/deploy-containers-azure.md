@@ -2,12 +2,12 @@
 title: 在 Azure 中部署容器
 description: 在 Azure 中通过 Azure 容器注册表、Azure Kubernetes 服务和 Azure Dev Spaces 部署容器。
 ms.date: 04/13/2020
-ms.openlocfilehash: d848a146a2bdb5d8d02543f57f19d6a39c9699e6
-ms.sourcegitcommit: 5b475c1855b32cf78d2d1bbb4295e4c236f39464
+ms.openlocfilehash: f8b029f31ba493b3a777e12ca72854145ef312c4
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91160770"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106497406"
 ---
 # <a name="deploying-containers-in-azure"></a>在 Azure 中部署容器
 
@@ -19,7 +19,7 @@ ms.locfileid: "91160770"
 
 ## <a name="azure-container-registry"></a>Azure 容器注册表
 
-容器化微服务时，您首先会生成一个 "映像"。 此图像是服务代码、依赖项和运行时的二进制表示形式。 尽管可以使用 `Docker Build` DOCKER API 中的命令手动创建映像，但更好的方法是将其创建为自动生成过程的一部分。
+容器化微服务时，首先构建一个容器 "image"。 此图像是服务代码、依赖项和运行时的二进制表示形式。 尽管可以使用 `Docker Build` DOCKER API 中的命令手动创建映像，但更好的方法是将其创建为自动生成过程的一部分。
 
 创建后，容器映像存储在容器注册表中。 它们使你能够生成、存储和管理容器映像。 有很多可用的注册表项，无论是公共的还是私有的。 Azure 容器注册表 (ACR) 是 Azure 云中完全托管的容器注册表服务。 它将映像保存在 Azure 网络中，缩短将其部署到 Azure 容器主机的时间。 还可以使用与其他 Azure 资源相同的安全和标识过程来保护这些资源。
 
@@ -94,7 +94,7 @@ az acr build --image sample/hello-world:v1  --registry myContainerRegistry008 --
 - 身份验证
 - 网络
 - 监视
-- 标记
+- Tags
 
 本 [快速入门演示如何使用 Azure 门户部署 AKS 群集](/azure/aks/kubernetes-walkthrough-portal)。
 

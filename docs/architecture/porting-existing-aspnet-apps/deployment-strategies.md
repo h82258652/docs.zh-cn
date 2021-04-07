@@ -3,12 +3,12 @@ title: 部署策略
 description: 从 ASP.NET 迁移到 ASP.NET Core 时，团队可以使用哪些部署策略？ 增量迁移能否实现 .NET Framework 和 .NET Core 应用的并行部署，提供无缝的最终用户体验？
 author: ardalis
 ms.date: 11/13/2020
-ms.openlocfilehash: 6691a4878205d6422cf8b6153353abefd9764d18
-ms.sourcegitcommit: 42d436ebc2a7ee02fc1848c7742bc7d80e13fc2f
+ms.openlocfilehash: 4c69f049611e4995cdb1905c89afe6973994f20d
+ms.sourcegitcommit: b5d2290673e1c91260c9205202dd8b95fbab1a0b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102401083"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122932"
 ---
 # <a name="deployment-strategies"></a>部署策略
 
@@ -21,7 +21,7 @@ ms.locfileid: "102401083"
 * 你的组织有基础结构或专业知识。
 * 宿主提供程序为基于 Linux 的托管提供了引人注目的功能或定价。
 
-.NET Core 会打开这些选项。
+.NET Core 会打开这些选项的门。
 
 ## <a name="cloud-native-development"></a>云本机开发
 

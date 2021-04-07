@@ -3,12 +3,12 @@ title: 了解和更新依赖项
 description: 若要将 .NET Framework 项目迁移到 .NET Core，则必须将其依赖项更新为使用 .NET Core。 本部分介绍可用于规划大型应用的迁移的工具和方法。
 author: ardalis
 ms.date: 11/13/2020
-ms.openlocfilehash: afad77860099e4737b5270dc32fc20c2025e63dd
-ms.sourcegitcommit: 42d436ebc2a7ee02fc1848c7742bc7d80e13fc2f
+ms.openlocfilehash: 484691496d3691151fd3ca83ec776dbb31327c09
+ms.sourcegitcommit: b5d2290673e1c91260c9205202dd8b95fbab1a0b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102401055"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122750"
 ---
 # <a name="understand-and-update-dependencies"></a>了解和更新依赖项
 
@@ -46,7 +46,7 @@ dotnet tool install -g upgrade-assistant
 
 如果支持使用应用当前使用的包版本，很好！ 如果不是，请查看包的更新版本是否具有支持和研究升级所涉及的内容。 包中可能存在重大更改，尤其是在当前使用的版本和要升级到的版本之间，包的主版本发生更改。
 
-在某些情况下，给定包的任何版本均不适用于 .NET Core。 在这种情况下，团队有几个选项。 它们可以继续，具体取决于 .NET Framework 版本，但这样做有限制。 该应用程序将只在 Windows 上运行，团队可能需要在包的二进制文件上运行可移植性分析器，以查看是否有可能遇到任何问题。 当然，团队需要进行彻底的测试。 另一种方法是查找其他包，或者，如果所需的包是开放源，请将其升级到 .NET Standard 或 .NET Core 本身。
+在某些情况下，给定包的任何版本均不适用于 .NET Core。 在这种情况下，团队有几个选项。 它们可以继续，具体取决于 .NET Framework 版本，但这样做有限制。 应用只能在 Windows 上运行，并且团队可能需要在包的二进制文件上运行可移植性分析器，以查看是否有可能遇到任何问题。 当然，团队需要进行全面测试，因为如果使用的 .NET Framework 包引用的 Api 在 .NET Core 中不可用，则会发生运行时异常。 另一种方法是查找其他包，或者，如果所需的包是开放源，请将其升级到 .NET Standard 或 .NET Core 本身。
 
 ## <a name="migrate-aspnet-mvc-projects"></a>迁移 ASP.NET MVC 项目
 
