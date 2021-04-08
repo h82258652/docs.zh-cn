@@ -2,12 +2,12 @@
 title: 为基于容器的应用程序选择 Azure 计算平台
 description: 通过 Azure 云和 Windows 容器现代化现有 .NET 应用程序 | 为基于容器的应用程序选择 Azure 计算平台
 ms.date: 02/18/2020
-ms.openlocfilehash: 9246b8dfb4e1d68fbd965d25e2e9d3272563798c
-ms.sourcegitcommit: 9c589b25b005b9a7f87327646020eb85c3b6306f
+ms.openlocfilehash: fcb9a0e7277f5ce31309f52aff63d579b0bb9a02
+ms.sourcegitcommit: 109507b6c16704ed041efe9598c70cd3438a9fbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2021
-ms.locfileid: "102257988"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106079604"
 ---
 # <a name="choosing-azure-compute-platforms-for-container-based-applications"></a>为基于容器的应用程序选择 Azure 计算平台
 
@@ -38,6 +38,12 @@ ms.locfileid: "102257988"
 
 ![推荐的图标](media/choosing-azure-compute-options-for-container-based-applications/recommended.png) 推荐的 \
 ![可能的图标](media/choosing-azure-compute-options-for-container-based-applications/possible.png) 可能
+
+### <a name="additional-resources"></a>其他资源
+
+- 选择用于应用程序的 Azure 计算服务
+
+    <https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree>
 
 > [!div class="step-by-step"]
 > [上一页](when-to-deploy-windows-containers-to-azure-container-service-kubernetes.md)

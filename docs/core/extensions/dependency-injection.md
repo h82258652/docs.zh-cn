@@ -5,12 +5,12 @@ author: IEvangelist
 ms.author: dapine
 ms.date: 10/28/2020
 ms.topic: overview
-ms.openlocfilehash: cc030e32846690b6544b99030800b50055a3113e
-ms.sourcegitcommit: 965a5af7918acb0a3fd3baf342e15d511ef75188
+ms.openlocfilehash: 0b5526f24f3ac658123acd030c3adf32c346422a
+ms.sourcegitcommit: 109507b6c16704ed041efe9598c70cd3438a9fbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "102401947"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106079513"
 ---
 # <a name="dependency-injection-in-net"></a>.NET 中的依赖关系注入
 
@@ -193,9 +193,6 @@ Microsoft 扩展使用一种约定来注册一组相关服务。 约定使用单
 
 在处理请求的应用中，当应用关闭并释放 <xref:Microsoft.Extensions.DependencyInjection.ServiceProvider> 时，会释放单一实例服务。 由于应用关闭之前不释放内存，因此请考虑单一实例服务的内存使用。
 
-> [!WARNING]
-> 不要从单一实例解析指定了作用域的服务。 当处理后续请求时，它可能会导致服务处于不正确的状态。 可以从范围内或暂时性服务解析单一实例服务。
-
 ## <a name="service-registration-methods"></a>服务注册方法
 
 框架提供了适用于特定场景的服务注册扩展方法：
@@ -210,7 +207,7 @@ Microsoft 扩展使用一种约定来注册一组相关服务。 约定使用单
 
 要详细了解释放类型，请参阅[服务释放](dependency-injection-guidelines.md#disposal-of-services)部分。
 
-仅使用实现类型注册服务等效于使用相同的实现和服务类型注册该服务。 因此，我们不能使用捕获显式服务类型的方法来注册服务的多个实现。 这些方法可以注册服务的多个实例，但它们都具有相同的实现类型。
+仅使用实现类型注册服务等效于使用相同的实现和服务类型注册该服务。 因此，我们不能使用捕获显式服务类型的方法来注册服务的多个实现。 这些方法可以注册服务的多个实例，但它们都具有相同的实现类型 。
 
 上述任何服务注册方法都可用于注册同一服务类型的多个服务实例。 下面的示例以 `IMessageWriter` 作为服务类型调用 `AddSingleton` 两次。 第二次对 `AddSingleton` 的调用在解析为 `IMessageWriter` 时替代上一次调用，在通过 `IEnumerable<IMessageWriter>` 解析多个服务时添加到上一次调用。 通过 `IEnumerable<{SERVICE}>` 解析服务时，服务按其注册顺序显示。
 

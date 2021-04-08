@@ -2,12 +2,12 @@
 title: C# 程序的构建基块
 description: 了解 C# 成员、表达式和语句。 类型包含你编写的成员。 这些成员是根据语句和表达式生成的。
 ms.date: 08/06/2020
-ms.openlocfilehash: 79ba391a6c4c6dc453f6c6e07107e4dd831e111d
-ms.sourcegitcommit: f0fc5db7bcbf212e46933e9cf2d555bb82666141
+ms.openlocfilehash: 87410697bbed305c746f1440cca61dcbe53f88a7
+ms.sourcegitcommit: 872ca41d1c26f39d0aef57cc365d09503bac780d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582959"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106288051"
 ---
 # <a name="program-building-blocks"></a>程序构建基块
 

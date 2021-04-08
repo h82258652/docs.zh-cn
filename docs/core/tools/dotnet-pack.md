@@ -2,12 +2,12 @@
 title: dotnet pack 命令
 description: dotnet pack 命令可为 .NET 项目创建 NuGet 包。
 ms.date: 04/28/2020
-ms.openlocfilehash: a9a634c358f5de4f28c3de06edc9a2b4d2eb8d57
-ms.sourcegitcommit: a4cecb7389f02c27e412b743f9189bd2a6dea4d6
+ms.openlocfilehash: 52790b61e8b2d59fa6a8fc68bad6a1e0dc13a97b
+ms.sourcegitcommit: b5d2290673e1c91260c9205202dd8b95fbab1a0b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98190073"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122634"
 ---
 # <a name="dotnet-pack"></a>dotnet pack
 
@@ -39,7 +39,7 @@ dotnet pack -h|--help
 - `--include-symbols`：该选项用于创建符号包。
 - `--include-source`：该选项用于创建带有 `src` 文件夹的符号包，该文件夹包含源文件。
 
-将被打包项目的 NuGet 依赖项添加到 *.nuspec* 文件，以便在安装包时可以进行正确解析。 项目到项目的引用不会打包到项目内。 目前，如果具有项目到项目的依赖项，则每个项目均必须包含一个包。
+将被打包项目的 NuGet 依赖项添加到 *.nuspec* 文件，以便在安装包时可以进行正确解析。 如果打包的项目具有对其他项目的引用，则不会将其他项目包含在包中。 目前，如果具有项目到项目的依赖项，则每个项目均必须包含一个包。
 
 默认情况下，`dotnet pack` 先构建项目。 如果希望避免此行为，则传递 `--no-build` 选项。 此选项在持续集成 (CI) 生成方案中通常非常有用，你可以知道代码是之前生成的。
 

@@ -2,12 +2,12 @@
 title: 通过 Polly 实现使用指数退避算法的 HTTP 调用重试
 description: 了解如何使用 Polly 和 IHttpClientFactory 处理 HTTP 故障。
 ms.date: 01/13/2021
-ms.openlocfilehash: c2831f73ed38b48fd32fa241f8fe1792b9adf3d4
-ms.sourcegitcommit: 1d3af230ec30d8d061be7a887f6ba38a530c4ece
+ms.openlocfilehash: cd209aa7f2802ffea80e14f0e3e77cc4fc29b6d5
+ms.sourcegitcommit: b5d2290673e1c91260c9205202dd8b95fbab1a0b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102511783"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122958"
 ---
 # <a name="implement-http-call-retries-with-exponential-backoff-with-ihttpclientfactory-and-polly-policies"></a>通过 IHttpClientFactory 和 Polly 策略实现使用指数退避算法的 HTTP 调用重试
 
@@ -51,20 +51,16 @@ static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
 
 ## <a name="add-a-jitter-strategy-to-the-retry-policy"></a>将抖动策略添加到重试策略
 
-在高并发率、高可伸缩性和高争用的情况下，常规重试策略可能会对系统产生影响。 在部分运行中断的情况下，有可能会有许多客户端同时发出相似的重试操作，从而形成操作高峰，为克服这种情况，一个好办法是向重试算法或策略中添加抖动策略。 由于增加了指数退避的随机性，这可能会改进端到端系统的整体性能。 这样在出现问题时可以分散峰值。 以下示例说明了这一原理：
+在高并发率、高可伸缩性和高争用的情况下，常规重试策略可能会对系统产生影响。 在部分运行中断时，可能会有许多客户端同时发出相似的重试操作，从而形成操作高峰，为避免这种情况，一个好办法是向重试算法或策略中添加抖动策略。 该策略可以改进端到端系统的整体性能。 如 [Polly：重试与抖动](https://github.com/App-vNext/Polly/wiki/Retry-with-jitter)中所建议，一个好的抖动策略可以通过采用均匀分布的平滑重试间隔并在指数退避上应用一个控制良好的中值初始重试延迟来实现。 这种方法有助于在出现问题时分散峰值。 以下示例说明了这一原理：
 
 ```csharp
-Random jitterer = new Random();
-var retryWithJitterPolicy = HttpPolicyExtensions
-    .HandleTransientHttpError()
-    .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.NotFound)
-    .WaitAndRetryAsync(6,    // exponential back-off plus some jitter
-        retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))  
-                      + TimeSpan.FromMilliseconds(jitterer.Next(0, 100))
-    );
-```
 
-Polly 通过项目网站提供了可用于生产的 jitter 算法。
+var delay = Backoff.DecorrelatedJitterBackoffV2(medianFirstRetryDelay: TimeSpan.FromSeconds(1), retryCount: 5);
+
+var retryPolicy = Policy
+    .Handle<FooException>()
+    .WaitAndRetryAsync(delay);
+```
 
 ## <a name="additional-resources"></a>其他资源
 

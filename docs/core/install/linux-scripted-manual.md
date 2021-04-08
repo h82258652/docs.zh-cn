@@ -4,12 +4,12 @@ description: 演示如何在 Linux 上无包管理器的情况下安装 .NET SDK
 author: adegeo
 ms.author: adegeo
 ms.date: 01/06/2021
-ms.openlocfilehash: 6840814627be0124d7b3855f08a433eab76eac4a
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: 9176f7477cf80c26ef0b5b7c438c47afcb423799
+ms.sourcegitcommit: 44af69720863bd09bd7a4509bf1ec119466ba6e8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104873908"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106231292"
 ---
 # <a name="install-the-net-sdk-or-the-net-runtime-manually"></a>手动安装 .NET SDK 或 .NET Runtime
 
@@ -81,6 +81,8 @@ ms.locfileid: "104873908"
 ## <a name="scripted-install"></a>脚本安装
 
 [dotnet-install 脚本](../tools/dotnet-install-script.md)用于 **SDK** 和 **运行时** 的自动化和非管理员安装。 可通过 <https://dot.net/v1/dotnet-install.sh> 下载脚本。
+
+> ！[重要说明]需要 Bash 才能运行该脚本。
 
 此脚本默认安装最新的 SDK [长期支持 (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) 版本，即 .NET Core 3.1。 若要安装当前版本（可能不是 (LTS) 版本），请使用 `-c Current` 参数。
 

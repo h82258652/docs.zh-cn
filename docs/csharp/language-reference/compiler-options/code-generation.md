@@ -9,12 +9,12 @@ helpviewer_keywords:
 - Optimize compiler option [C#]
 - Deterministic compiler option [C#]
 - ProduceOnlyReferenceAssembly compiler option [C#]
-ms.openlocfilehash: a846bc515c501ec5a14069dd3b312b5e2df43d25
-ms.sourcegitcommit: 5ce37699c2a51ed173171813be68ef7577b1aba5
+ms.openlocfilehash: 02610c9d0142643bdb553f8b8177d1a4a2237717
+ms.sourcegitcommit: 652f62fc8f3ab6a264681b6eb5211ac7539bd115
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104881130"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105964788"
 ---
 # <a name="c-compiler-options-that-control-code-generation"></a>控制代码生成的 C# 编译器选项
 
@@ -35,8 +35,17 @@ DebugType 选项将使编译器生成调试信息，并将此信息放置在一�
 
 自 C# 6.0 起，对于所有编译器版本而言，pdbonly 与 full 之间没有任何区别。 请选择 pdbonly。 若要更改 .pdb 文件的位置，请参阅 [PdbFile](./advanced.md#pdbfile)。
 
+以下为有效值：
+
+| Value      | 含义                                                                                                 |
+|------------|---------------------------------------------------------------------------------------------------------|
+| `full`     | 使用当前平台的默认格式向 _.pdb_ 文件发出调试信息：<br>Windows：Windows pdb 文件。 <br>Linux/macOS：[可移植 PDB](https://github.com/dotnet/core/blob/main/Documentation/diagnostics/portable_pdb.md) 文件。 |
+| `pdbonly`  | 与 `full` 相同。 有关详细信息，请参阅下面的注释。 |
+| `portable` | 使用跨平台[可移植 PDB](https://github.com/dotnet/core/blob/main/Documentation/diagnostics/portable_pdb.md) 格式向 .pdb 文件发出调试信息。 |
+| `embedded` | 使用 [可移植 PDB](https://github.com/dotnet/core/blob/main/Documentation/diagnostics/portable_pdb.md) 格式向 _.dll/.exe_ 自身（未生成 _.pdb_ 文件）发出调试信息。 |
+
 > [!IMPORTANT]
-> 本节内容仅适用于 C# 6.0 以前的编译器。
+> 以下信息仅适用于 C# 6.0 以前的编译器。
 > 此元素的值可以是 `full` 或 `pdbonly`。 full 参数（在不指定 pdbonly 时生效）允许将调试器附加到正在运行的程序。 指定 pdbonly 后，可以在调试器中启动程序时进行源代码调试，但仅在正在运行的程序附加到调试器时才显示汇编程序。 使用此选项创建调试版本。 如果使用 Full，请注意，对经过优化的 JIT 代码的速度和大小会存在一定影响，使用 full 时对代码质量的影响较小 。 建议使用 pdbonly 或不使用 PDB 生成发布代码。 pdbonly 和 full 之间的一个区别在于，使用 full，编译器将发出 <xref:System.Diagnostics.DebuggableAttribute>，用于告知 JIT 编译器有可用调试信息  。 因此，在使用 full 时，如果代码包含设置为 false 的 <xref:System.Diagnostics.DebuggableAttribute>，将出现错误。 有关如何配置应用程序的调试性能的详细信息，请参阅[令映像更易于调试](../../../framework/debug-trace-profile/making-an-image-easier-to-debug.md)。
 
 ## <a name="optimize"></a>优化

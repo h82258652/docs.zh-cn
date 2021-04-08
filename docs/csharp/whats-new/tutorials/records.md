@@ -2,16 +2,16 @@
 title: 使用记录类型 - C# 教程
 description: 了解如何使用记录类型、构建记录的层次结构，以及何时选择记录而不是类。
 ms.date: 11/12/2020
-ms.openlocfilehash: 301eaf1ddf6d6b7dc1f88ffa4c790e2c2b01862f
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: 9c90368bc25225fa2bf1dc4dff75d995e0a53268
+ms.sourcegitcommit: 872ca41d1c26f39d0aef57cc365d09503bac780d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104878881"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106288065"
 ---
 # <a name="create-record-types"></a>创建记录类型
 
-C# 9 引入了记录，这是一种可以创建的新引用类型，而不是类或结构。 记录与类不同，区别在于记录类型使用基于值的相等性。 两个记录类型的变量在它们的类型和值都相同时，它们是相等的。 两个类类型的变量如果引用的对象属于同一类类型并且引用相同的对象，则这两个变量是相等的。 基于值的相等性意味着可能需要的记录类型中的其他功能。 声明 `record` 而不是 `class` 时，编译器将生成许多这些成员。
+C# 9 引入了 [*记录*](../../language-reference/builtin-types/record.md)，这是一种可以创建的新引用类型，而不是类或结构。 记录与类不同，区别在于记录类型使用基于值的相等性。 两个记录类型的变量在它们的类型和值都相同时，它们是相等的。 两个类类型的变量如果引用的对象属于同一类类型并且引用相同的对象，则这两个变量是相等的。 基于值的相等性意味着可能需要的记录类型中的其他功能。 声明 `record` 而不是 `class` 时，编译器将生成许多这些成员。
 
 本教程介绍以下操作：
 
