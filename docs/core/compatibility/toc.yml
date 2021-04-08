@@ -25,6 +25,8 @@ items:
                 href: 6.0.md
               - name: ASP.NET Core
                 items:
+                  - name: 从共享框架中删除的程序集
+                    href: aspnet-core/6.0/assemblies-removed-from-shared-framework.md
                   - name: 可以为 Null 的引用类型注释已更改
                     href: aspnet-core/6.0/nullable-reference-type-annotations-changed.md
                   - name: 已过时和已删除的 API
@@ -331,6 +333,8 @@ items:
             items:
               - name: .NET 6
                 items:
+                  - name: 从共享框架中删除的程序集
+                    href: aspnet-core/6.0/assemblies-removed-from-shared-framework.md
                   - name: 可以为 Null 的引用类型注释已更改
                     href: aspnet-core/6.0/nullable-reference-type-annotations-changed.md
                   - name: 已过时和已删除的 API
