@@ -7,12 +7,12 @@ helpviewer_keywords:
 - exceptions [C#]
 - C# language, exceptions
 ms.assetid: 0001887f-4fa2-47e2-8034-2819477e2344
-ms.openlocfilehash: 679171e6d397741ef44cb37fb770f6feba039fd9
-ms.sourcegitcommit: 9b877e160c326577e8aa5ead22a937110d80fa44
+ms.openlocfilehash: 245299707254c7bafb4589ee8031a107921ca2a7
+ms.sourcegitcommit: e7e0921d0a10f85e9cb12f8b87cc1639a6c8d3fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97110619"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255397"
 ---
 # <a name="exceptions-and-exception-handling-c-programming-guide"></a>异常和异常处理（C# 编程指南）
 
