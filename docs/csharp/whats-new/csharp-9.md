@@ -2,12 +2,12 @@
 title: C# 9.0 中的新增功能 - C# 指南
 description: 简要介绍 C# 9.0 中提供的新功能。
 ms.date: 09/04/2020
-ms.openlocfilehash: dbc104cb0bbfc965b0cc055429713538f62ed0e8
-ms.sourcegitcommit: 34968a61e9bac0f6be23ed6ffb837f52d2390c85
+ms.openlocfilehash: 49170b123f612c06f22b70e44b29ad7be5f382ea
+ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94687355"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104876040"
 ---
 # <a name="whats-new-in-c-90"></a>C# 9.0 中的新增功能
 
@@ -100,7 +100,7 @@ C# 9.0 引入了记录类型，这是一种引用类型，它提供合成方法�
 
 :::code language="csharp" source="snippets/whats-new-csharp9/PositionalRecords.cs" ID="DeconstructRecord":::
 
-最后，记录支持 [`with` 表达式](../language-reference/operators/with-expression.md)。 `with` 表达式指示编译器创建记录的副本，但修改指定的属性 _*_ ：
+最后，记录支持 [`with` 表达式](../language-reference/operators/with-expression.md)。 `with` 表达式指示编译器创建一个记录的副本，但要修改指定的属性：
 
 :::code language="csharp" source="snippets/whats-new-csharp9/PositionalRecords.cs" ID="Wither":::
 
@@ -110,11 +110,11 @@ C# 9.0 引入了记录类型，这是一种引用类型，它提供合成方法�
 
 你可编写除“克隆”方法以外的任何合成成员。 如果记录类型的方法与任何合成方法的签名匹配，则编译器不会合成该方法。 较早的 `Dog` 记录示例包含手动编码的 <xref:System.String.ToString> 方法作为示例。
 
-了解有关此[浏览记录](../tutorials/exploration/records.md)教程中记录类型的详细信息。
+了解有关此[浏览记录](../whats-new/tutorials/records.md)教程中记录类型的详细信息。
 
 ## <a name="init-only-setters"></a>仅限 Init 的资源库
 
-仅限 init 的资源库提供一致的语法来初始化对象的成员*。 属性初始值设定项可明确哪个值正在设置哪个属性。 缺点是这些属性必须是可设置的。 从 C# 9.0 开始，可为属性和索引器创建 `init` 访问器，而不是 `set` 访问器。 调用方可使用属性初始化表达式语法在创建表达式中设置这些值，但构造完成后，这些属性将变为只读。 仅限 init 的资源库提供了一个窗口用来更改状态。 构造阶段结束时，该窗口关闭。 在完成所有初始化（包括属性初始化表达式和 with 表达式）之后，构造阶段实际上就结束了。
+仅限 init 的资源库提供一致的语法来初始化对象的成员。 属性初始值设定项可明确哪个值正在设置哪个属性。 缺点是这些属性必须是可设置的。 从 C# 9.0 开始，可为属性和索引器创建 `init` 访问器，而不是 `set` 访问器。 调用方可使用属性初始化表达式语法在创建表达式中设置这些值，但构造完成后，这些属性将变为只读。 仅限 init 的资源库提供了一个窗口用来更改状态。 构造阶段结束时，该窗口关闭。 在完成所有初始化（包括属性初始化表达式和 with 表达式）之后，构造阶段实际上就结束了。
 
 可在编写的任何类型中声明仅限 `init` 的资源库。 例如，以下结构定义了天气观察结构：
 
@@ -204,7 +204,7 @@ if (e is not null)
 
 本机大小的整数 `nint` 和 `nuint` 是整数类型。 它们由基础类型 <xref:System.IntPtr?displayProperty=nameWithType> 和 <xref:System.UIntPtr?displayProperty=nameWithType> 表示。 编译器将这些类型的其他转换和操作作为本机整数公开。 本机大小的整数定义 `MaxValue` 或 `MinValue` 的属性。 这些值不能表示为编译时编译时，因为它取决于目标计算机上整数的本机大小。 这些值在运行时是只读的。 可在以下范围内对 `nint` 使用常量值：[`int.MinValue` .. `int.MaxValue`]. 可在以下范围内对 `nuint` 使用常量值：[`uint.MinValue` .. `uint.MaxValue`]. 编译器使用 <xref:System.Int32?displayProperty=nameWithType> 和 <xref:System.UInt32?displayProperty=nameWithType> 类型为所有一元和二元运算符执行常量折叠。 如果结果不满足 32 位，操作将在运行时执行，且不会被视为常量。 在广泛使用整数数学且需要尽可能快的性能的情况下，本机大小的整数可提高性能。
 
-函数指针提供了一种简单的语法来访问 IL 操作码 `ldftn` 和 `calli`。 可使用新的 `delegate_` 语法声明函数指针。 `delegate*` 类型是指针类型。 调用 `delegate*` 类型会使用 `calli`，而不是使用在 `Invoke()` 方法上采用 `callvirt` 的委托。 从语法上讲，调用是相同的。 函数指针调用使用 `managed` 调用约定。 在 `delegate*` 语法后面添加 `unmanaged` 关键字，以声明想要 `unmanaged` 调用约定。 可使用 `delegate*` 声明中的属性来指定其他调用约定。
+函数指针提供了一种简单的语法来访问 IL 操作码 `ldftn` 和 `calli`。 可使用新的 `delegate*` 语法声明函数指针。 `delegate*` 类型是指针类型。 调用 `delegate*` 类型会使用 `calli`，而不是使用在 `Invoke()` 方法上采用 `callvirt` 的委托。 从语法上讲，调用是相同的。 函数指针调用使用 `managed` 调用约定。 在 `delegate*` 语法后面添加 `unmanaged` 关键字，以声明想要 `unmanaged` 调用约定。 可使用 `delegate*` 声明中的属性来指定其他调用约定。
 
 最后，可添加 <xref:System.Runtime.CompilerServices.SkipLocalsInitAttribute?displayProperty=nameWithType> 来指示编译器不要发出 `localsinit` 标志。 此标志指示 CLR 对所有局部变量进行零初始化。 从 1.0 开始，`localsinit` 标志一直是 C# 的默认行为。 但在某些情况下，额外的零初始化可能会对性能产生可衡量的影响， 特别是在使用 `stackalloc` 时。 在这些情况下，可添加 <xref:System.Runtime.CompilerServices.SkipLocalsInitAttribute>。 可将它添加到单个方法或属性中，或者添加到 `class`、`struct`、`interface`，甚至是模块中。 此属性不会影响 `abstract` 方法，它会影响为实现生成的代码。
 
@@ -248,7 +248,7 @@ if (e is not null)
 
 代码生成器使用 Roslyn 分析 API 读取属性或其他代码元素。 通过该信息，它将新代码添加到编译中。 源生成器只能添加代码，不能修改编译中的任何现有代码。
 
-为代码生成器添加的两项功能是分部方法语法和模块初始化表达式的扩展。 首先是对分部方法的更改。 在 C# 9.0 之前，分部方法为 `private`，但不能指定访问修饰符、不能返回 `void`，也不能具有 `out` 参数。 这些限制意味着，如果未提供任何方法实现，编译器会删除对分部方法的所有调用。 C# 9.0 消除了这些限制，但要求分部方法声明必须具有实现。 代码生成器可提供这种实现。 为了避免引入中断性变更，编译器会考虑没有访问修饰符的任何分部方法，以遵循旧规则。 如果分部方法包括 `private` 访问修饰符，则由新规则控制该分部方法。
+为代码生成器添加的两项功能是“分部方法语法”和“模块初始化表达式”的扩展。 首先是对分部方法的更改。 在 C# 9.0 之前，分部方法为 `private`，但不能指定访问修饰符、不能返回 `void`，也不能具有 `out` 参数。 这些限制意味着，如果未提供任何方法实现，编译器会删除对分部方法的所有调用。 C# 9.0 消除了这些限制，但要求分部方法声明必须具有实现。 代码生成器可提供这种实现。 为了避免引入中断性变更，编译器会考虑没有访问修饰符的任何分部方法，以遵循旧规则。 如果分部方法包括 `private` 访问修饰符，则由新规则控制该分部方法。
 
 代码生成器的第二项新功能是模块初始化表达式。 模块初始化表达式是附加了 <xref:System.Runtime.CompilerServices.ModuleInitializerAttribute> 属性的方法。 在整个模块中进行任何其他字段访问或方法调用之前，运行时将调用这些方法。 模块初始化表达式方法：
 

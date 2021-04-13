@@ -1,17 +1,17 @@
 ---
 title: 使用 Visual Studio 创建 .NET 控制台应用程序
 description: 了解如何使用 Visual Studio 通过 C# 或 Visual Basic 创建 .NET 控制台应用程序。
-ms.date: 06/08/2020
+ms.date: 03/26/2021
 dev_langs:
 - csharp
 - vb
-ms.custom: vs-dotnet
-ms.openlocfilehash: 3986ef4083b964799be33d2876570ac4cf2082b8
-ms.sourcegitcommit: 1d3af230ec30d8d061be7a887f6ba38a530c4ece
+ms.custom: vs-dotnet,contperf-fy21q3
+ms.openlocfilehash: e55927080ab30e7a24c54656b7f11a94a023bd65
+ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102511848"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105636800"
 ---
 # <a name="tutorial-create-a-net-console-application-using-visual-studio"></a>教程：使用 Visual Studio 创建 .NET 控制台应用程序
 
@@ -19,7 +19,7 @@ ms.locfileid: "102511848"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 安装了具有“.NET Core 跨平台开发”工作负载的 [Visual Studio 2019 版本 16.8 或更高版本](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)。 选择此工作负载时，将自动安装 .NET 5.0 SDK。
+- 安装了“.NET Core 跨平台开发”工作负载的 [Visual Studio 2019 版本 16.9.2 或更高版本](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)。 选择此工作负载时，将自动安装 .NET 5.0 SDK。
 
   有关详细信息，请参阅[使用 Visual Studio 安装 .NET SDK](../install/windows.md#install-with-visual-studio)。
 
@@ -28,12 +28,6 @@ ms.locfileid: "102511848"
 创建一个名为“HelloWorld”的 .NET 控制台应用项目。
 
 1. 启动 Visual Studio 2019。
-
-1. 选择“工具” > “选项” > “环境” > “预览功能”，然后选择“在‘新建项目’中显示所有 .NET Core 模板(需重启)”    。
-
-   :::image type="content" source="media/with-visual-studio/dotnet-options.png" alt-text="显示所有 .NET 模板选项":::
-
-1. 关闭并重新打开 Visual Studio。
 
 1. 在“开始”页上，选择“创建新项目”。
 
@@ -106,7 +100,7 @@ End Module
    :::code language="csharp" source="./snippets/with-visual-studio/csharp/Program.cs" id="MainMethod":::
    :::code language="vb" source="./snippets/with-visual-studio/vb/Program.vb" id="MainMethod":::
 
-   此代码会在控制台窗口中显示一条提示，然后等待用户输入字符串并按 <kbd>Enter</kbd>。 它会将此字符串存储到名为 `name` 的变量中。 它还会检索 <xref:System.DateTime.Now?displayProperty=nameWithType> 属性的值（其中包含当前的本地时间），并将此值赋给 `date` 变量（Visual Basic 中为 `currentDate`）。 同时会在控制台窗口中显示这些值。 最后会在控制台窗口中显示一条提示，并调用 <xref:System.Console.ReadKey(System.Boolean)?displayProperty=nameWithType> 方法来等待用户输入。
+   此代码会在控制台窗口中显示一条提示，然后等待用户输入字符串并按 <kbd>Enter</kbd>。 它会将此字符串存储到名为 `name` 的变量中。 它还会检索 <xref:System.DateTime.Now?displayProperty=nameWithType> 属性的值（其中包含当前的本地时间），并将此值赋给 `currentDate` 变量。 同时会在控制台窗口中显示这些值。 最后会在控制台窗口中显示一条提示，并调用 <xref:System.Console.ReadKey(System.Boolean)?displayProperty=nameWithType> 方法来等待用户输入。
 
    <xref:System.Environment.NewLine> 是一种独立于平台和语言的表示换行符的方式。 替代方法是在 C# 中使用 `\n` 和在 Visual Basic 中使用 `vbCrLf`。
 

@@ -1,15 +1,14 @@
 ---
 title: 中断性变更：SignalR：MessagePack 集线器协议已移至 MessagePack 2.x 包
 description: 了解 ASP.NET Core 5.0 中的以下中断性变更：SignalR：MessagePack 集线器协议已移至 MessagePack 2.x 包
-author: scottaddie
 ms.author: scaddie
 ms.date: 10/01/2020
-ms.openlocfilehash: 1e666c40d7046233c9fb06af819b901fd1251b06
-ms.sourcegitcommit: d8020797a6657d0fbbdff362b80300815f682f94
+ms.openlocfilehash: 6851c4fdbaab61e7655dd71ba3c21b8835b2b855
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95759293"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106497107"
 ---
 # <a name="signalr-messagepack-hub-protocol-moved-to-messagepack-2x-package"></a>SignalR：MessagePack 集线器协议已移至 MessagePack 2.x 包
 

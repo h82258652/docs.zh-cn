@@ -1,15 +1,15 @@
 ---
 title: 通过 Docker 使应用程序容器化的教程
 description: 在本教程中，你将了解如何使用 Docker 容器化 .NET Core 应用。
-ms.date: 04/27/2020
+ms.date: 03/22/2021
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: c92f5823f56f74941afdd28638d30e759b2c51c9
-ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
+ms.openlocfilehash: 0a64743046d31badb10b5240a172b6e47c76d3cc
+ms.sourcegitcommit: 26721a2260deabb3318cc98af8619306711153cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99740751"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027879"
 ---
 # <a name="tutorial-containerize-a-net-core-app"></a>教程：使 .NET Core 应用程序容器化
 
@@ -239,6 +239,13 @@ ENTRYPOINT ["dotnet", "NetCore.Docker.dll"]
 `WORKDIR` 命令将容器内的当前目录更改为“App”   。
 
 下一个命令 `ENTRYPOINT` 指示 Docker 将容器配置为可执行文件运行。 在容器启动时，`ENTRYPOINT` 命令运行。 当此命令结束时，容器也会自动停止。
+
+> [!TIP]
+> 为了提高安全性，可以选择退出诊断管道。 选择退出后，容器将以只读方式运行。 为此，请将 `COMPlus_EnableDiagnostics` 环境变量指定为 `0`（就在 `ENTRYPOINT` 步骤之前）：
+>
+> ```dockerfile
+> ENV COMPlus_EnableDiagnostics=0
+> ```
 
 在终端中，运行 `docker build -t counter-image -f Dockerfile .`；在此命令完成后，运行 `docker images`。
 

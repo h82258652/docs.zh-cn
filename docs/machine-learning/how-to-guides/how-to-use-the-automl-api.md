@@ -3,16 +3,16 @@ title: 如何使用 ML.NET 自动化 ML API
 description: ML.NET 自动化 ML API 可自动化模型生成过程并生成可供部署的模型。 了解可用于配置自动化机器学习任务的选项。
 ms.date: 12/18/2019
 ms.custom: mvc,how-to
-ms.openlocfilehash: b1ef526301e01e1e75e71e0646f4d11e68215d69
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: 31204610d471f13aca177f0d599c1eba5cd7a624
+ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90540727"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104876327"
 ---
 # <a name="how-to-use-the-mlnet-automated-machine-learning-api"></a>如何使用 ML.NET 自动化机器学习 API
 
-自动化机器学习 (AutoML) 可自动化将机器学习应用于数据的过程。 在给定数据集的情况下，可以运行 AutoML **试验**来迭代不同的数据特征、机器学习算法和超参数，从而选择最佳模型。
+自动化机器学习 (AutoML) 可自动化将机器学习应用于数据的过程。 在给定数据集的情况下，可以运行 AutoML **试验** 来迭代不同的数据特征、机器学习算法和超参数，从而选择最佳模型。
 
 > [!NOTE]
 > 本主题涉及 ML.NET 目前处于预览状态的自动化机器学习 API。 材料可能会有所变化。
@@ -72,7 +72,7 @@ using Microsoft.ML.AutoML;
 
 试验具有高度可配置性。 有关配置设置的完整列表，请参阅 [AutoML API 文档](/dotnet/api/microsoft.ml.automl?view=ml-dotnet-preview)。
 
-一些示例包括：
+示例包括：
 
 1. 指定试验的最长允许运行时间。
 
@@ -125,7 +125,7 @@ using Microsoft.ML.AutoML;
 
 |[二元分类](xref:Microsoft.ML.AutoML.BinaryClassificationMetric) | [多类分类](xref:Microsoft.ML.AutoML.MulticlassClassificationMetric) |[回归和建议](xref:Microsoft.ML.AutoML.RegressionMetric)
 |-- |-- |--
-|准确性| LogLoss | RSquared
+|精确度| LogLoss | RSquared
 |AreaUnderPrecisionRecallCurve | LogLossReduction | MeanAbsoluteError
 |AreaUnderRocCurve | MacroAccuracy | MeanSquaredError
 |F1Score | MicroAccuracy | RootMeanSquaredError
@@ -143,7 +143,7 @@ using Microsoft.ML.AutoML;
 
 1. 删除没有有用信息的特征
 
-    删除没有来自训练集和验证集的有用信息的特征。 其中包括缺少所有值的特征、所有行具有相同值的特征或具有极高基数的特征（例如，哈希、ID 或 GUID）。
+    从训练和验证集中删除不包含任何有用信息的特征。 这包括缺少所有值的特征、在所有行中使用相同值的特征，或者包含极高基数（例如哈希、ID 或 GUID）的特征。
 
 1. 缺少值指示和插补
 
@@ -151,9 +151,9 @@ using Microsoft.ML.AutoML;
 
 1. 生成其他特征
 
-    对于文本特征：使用一元语法和三元语法的词袋特征。
+    对于文本特征：生成使用一元语法和三元语法的词袋特征。
 
-    对于分类特征：用于低基数特征的单热编码，以及用于高基数分类特征的单热哈希编码。
+    对于分类特征：生成用于低基数特征的单热编码，以及用于高基数分类特征的单热哈希编码。
 
 1. 转换和编码
 
@@ -229,6 +229,6 @@ Console.WriteLine($"Root Mean Squared Error: {metrics.RootMeanSquaredError:0.##}
 * [多类分类指标](xref:Microsoft.ML.AutoML.MulticlassClassificationMetric)
 * [回归和建议指标](xref:Microsoft.ML.AutoML.RegressionMetric)
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
-有关完整的代码示例等，请访问 [dotnet/machinelearning-samples](https://github.com/dotnet/machinelearning-samples/tree/master#automate-mlnet-models-generation-preview-state) GitHub 存储库。
+有关完整的代码示例等，请访问 [dotnet/machinelearning-samples](https://github.com/dotnet/machinelearning-samples/tree/main#automate-mlnet-models-generation-preview-state) GitHub 存储库。

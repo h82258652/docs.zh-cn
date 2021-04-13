@@ -4,12 +4,12 @@ title: 非托管类型 - C# 参考
 ms.date: 09/06/2019
 helpviewer_keywords:
 - unmanaged type [C#]
-ms.openlocfilehash: 4374872af13c94e1a1af6b9f2c431f076c6f7dff
-ms.sourcegitcommit: 870bc4b4087510f6fba3c7b1c0d391f02bcc1f3e
+ms.openlocfilehash: 13e8d4238a85201d46acabdf3103bdc7254ecfe8
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471794"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106497393"
 ---
 # <a name="unmanaged-types-c-reference"></a>非托管类型（C# 参考）
 
@@ -17,7 +17,7 @@ ms.locfileid: "92471794"
 
 - `sbyte`、`byte`、`short`、`ushort`、`int`、`uint`、`long`、`ulong`、`char`、`float`、`double`、`decimal` 或 `bool`
 - 任何[枚举](enum.md)类型
-- 任何[指针](../../programming-guide/unsafe-code-pointers/pointer-types.md)类型
+- 任何[指针](../unsafe-code.md#pointer-types)类型
 - 任何用户定义的 [struct](struct.md) 类型，只包含非托管类型的字段，并且在 C# 7.3 及更早版本中，不是构造类型（包含至少一个类型参数的类型）
 
 从 C# 7.3 开始，可使用 [`unmanaged` 约束](../../programming-guide/generics/constraints-on-type-parameters.md#unmanaged-constraint)指定：类型参数为“非指针、不可为 null 的非托管类型”。
@@ -37,7 +37,7 @@ ms.locfileid: "92471794"
 ## <a name="see-also"></a>请参阅
 
 - [C# 参考](../index.md)
-- [指针类型](../../programming-guide/unsafe-code-pointers/pointer-types.md)
+- [指针类型](../unsafe-code.md#pointer-types)
 - [内存和跨度相关类型](../../../standard/memory-and-spans/index.md)
 - [sizeof 运算符](../operators/sizeof.md)
 - [stackalloc](../operators/stackalloc.md)

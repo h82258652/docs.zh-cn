@@ -2,12 +2,12 @@
 title: 中断性变更：一些 API 引发 ArgumentNullException
 description: 了解 .NET 6 中的中断性变更：一些 API 现在会验证参数并引发 ArgumentNullException。
 ms.date: 01/29/2021
-ms.openlocfilehash: dd0ee33ca7335bfd6e4ddfefca0e56ab719178eb
-ms.sourcegitcommit: 109507b6c16704ed041efe9598c70cd3438a9fbc
+ms.openlocfilehash: 1c7b41bf5e367dca394130da66360e660173ba14
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106079565"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106496847"
 ---
 # <a name="some-apis-throw-argumentnullexception"></a>一些 API 引发 ArgumentNullException
 
@@ -39,6 +39,7 @@ ms.locfileid: "106079565"
 | 方法/属性 | 参数名称 | 版本已更改 |
 |-|-|-|
 | <xref:System.Windows.Forms.TreeNodeCollection.Item(System.Int32)?displayProperty=fullName> | `index` | 预览版 1 |
+| <xref:System.Windows.Forms.DrawTreeNodeEventArgs.%23ctor(System.Drawing.Graphics,System.Windows.Forms.TreeNode,System.Drawing.Rectangle,System.Windows.Forms.TreeNodeStates)> | `graphics` | 预览版 3 |
 | <xref:System.Windows.Forms.DataGridViewRowStateChangedEventArgs.%23ctor(System.Windows.Forms.DataGridViewRow,System.Windows.Forms.DataGridViewElementStates)> | `dataGridViewRow` | 预览版 4 |
 
 ## <a name="see-also"></a>另请参阅
@@ -50,6 +51,7 @@ ms.locfileid: "106079565"
 ### Affected APIs
 
 - `P:System.Windows.Forms.TreeNodeCollection.Item(System.Int32)`
+- `M:System.Windows.Forms.DrawTreeNodeEventArgs.#ctor(System.Drawing.Graphics,System.Windows.Forms.TreeNode,System.Drawing.Rectangle,System.Windows.Forms.TreeNodeStates)`
 - `M:System.Windows.Forms.DataGridViewRowStateChangedEventArgs.#ctor(System.Windows.Forms.DataGridViewRow,System.Windows.Forms.DataGridViewElementStates)`
 
 ### Category

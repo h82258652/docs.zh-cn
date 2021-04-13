@@ -10,12 +10,12 @@ helpviewer_keywords:
 - DefineConstants compiler option [C#]
 - LangVersion compiler option [C#]
 - Nullable compiler option [C#]
-ms.openlocfilehash: fe3b7b8c06aa86e406757feb7635a5e9ca1032e9
-ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
+ms.openlocfilehash: a7767d548e41e054006fb53cad47e8ab1f14b21b
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105637021"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106496704"
 ---
 # <a name="c-compiler-options-for-language-feature-rules"></a>用于语言功能规则的 C# 编译器选项
 
@@ -45,7 +45,7 @@ AllowUnsafeBlocks 编译器选项允许使用 [unsafe](../keywords/unsafe.md) �
 <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 ```
 
-有关不安全代码的详细信息，请参阅[不安全代码和指针](../../programming-guide/unsafe-code-pointers/index.md)。
+有关不安全代码的详细信息，请参阅[不安全代码和指针](../unsafe-code.md)。
 
 ## <a name="defineconstants"></a>DefineConstants
 

@@ -9,12 +9,12 @@ f1_keywords:
 helpviewer_keywords:
 - void keyword [C#]
 ms.assetid: 0d2d8a95-fe20-4fbd-bf5d-c1e54bce71d4
-ms.openlocfilehash: fb22fffadeff4db9fcd8e1c8753d44455186aa5a
-ms.sourcegitcommit: 870bc4b4087510f6fba3c7b1c0d391f02bcc1f3e
+ms.openlocfilehash: 4a6afbd88f9cabc6818cdc8ba34f14ae18b195a4
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471632"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106497380"
 ---
 # <a name="void-c-reference"></a>void（C# 参考）
 
@@ -22,7 +22,7 @@ ms.locfileid: "92471632"
 
 [!code-csharp[void method](snippets/shared/VoidType.cs#VoidExample)]
 
-还可以将 `void` 用作引用类型来声明指向未知类型的指针。 有关详细信息，请参阅[指针类型](../../programming-guide/unsafe-code-pointers/pointer-types.md)。
+还可以将 `void` 用作引用类型来声明指向未知类型的指针。 有关详细信息，请参阅[指针类型](../unsafe-code.md#pointer-types)。
 
 不能将 `void` 用作变量的类型。
 

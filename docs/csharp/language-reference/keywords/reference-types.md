@@ -9,12 +9,12 @@ helpviewer_keywords:
 - C# language, reference types
 - types [C#], reference types
 ms.assetid: 801cf030-6e2d-4a0d-9daf-1431b0c31f47
-ms.openlocfilehash: 075ec5ecd8f71f5cb85bab0e2baff56409709191
-ms.sourcegitcommit: 88fbb019b84c2d044d11fb4f6004aec07f2b25b1
+ms.openlocfilehash: ab8eb426a3f65fd2c59920e6baa9a67bdccad82c
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97899608"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106498550"
 ---
 # <a name="reference-types-c-reference"></a>引用类型（C# 参考）
 
@@ -41,5 +41,5 @@ C# 中有两种类型：引用类型和值类型。 引用类型的变量存储�
 
 - [C# 参考](../index.md)
 - [C# 关键字](index.md)
-- [指针类型](../../programming-guide/unsafe-code-pointers/pointer-types.md)
+- [指针类型](../unsafe-code.md#pointer-types)
 - [值类型](../builtin-types/value-types.md)

@@ -2,12 +2,12 @@
 title: F# 代码格式设置准则
 description: '了解设置 F # 代码格式的准则。'
 ms.date: 08/31/2020
-ms.openlocfilehash: 36e8ddaf360604777ce193c69dcb5cba7168c023
-ms.sourcegitcommit: 44af69720863bd09bd7a4509bf1ec119466ba6e8
+ms.openlocfilehash: b8997a3cd854bd89e292e1090b5ebba3f7e6ae99
+ms.sourcegitcommit: e7e0921d0a10f85e9cb12f8b87cc1639a6c8d3fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106231135"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255475"
 ---
 # <a name="f-code-formatting-guidelines"></a>F# 代码格式设置准则
 
@@ -560,6 +560,40 @@ type Volume =
 | Liter of float
 | USPint of float
 | ImperialPint of float
+```
+
+如果有单个 short 联合，则可以省略前导 `|` 。
+
+```fsharp
+type Address = Address of string
+```
+
+对于较长或多行联合，请保留 `|` 。
+
+```fsharp
+[<NoEquality; NoComparison>]
+type SynBinding =
+    | SynBinding of
+        accessibility: SynAccess option *
+        kind: SynBindingKind *
+        mustInline: bool *
+        isMutable: bool *
+        attributes: SynAttributes *
+        xmlDoc: PreXmlDoc *
+        valData: SynValData *
+        headPat: SynPat *
+        returnInfo: SynBindingReturnInfo option *
+        expr: SynExpr *
+        range: range *
+        seqPoint: DebugPointAtBinding
+```
+
+你还可以使用三斜杠 `///` 注释。
+
+```fsharp
+type Foobar =
+    /// Code comment
+    | Foobar of int
 ```
 
 ## <a name="formatting-discriminated-unions"></a>设置可区分联合的格式

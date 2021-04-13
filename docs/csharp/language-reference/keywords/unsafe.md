@@ -8,16 +8,16 @@ f1_keywords:
 helpviewer_keywords:
 - unsafe keyword [C#]
 ms.assetid: 7e818009-1c6e-4b9e-b769-3728a01586a0
-ms.openlocfilehash: 5be895621966dd10b2b1b0f53ebf0f3c688f1ef0
-ms.sourcegitcommit: 0bb8074d524e0dcf165430b744bb143461f17026
+ms.openlocfilehash: e7ee7e3c721a4141160b907076533effa2848085
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103480655"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106498433"
 ---
 # <a name="unsafe-c-reference"></a>unsafe（C# 参考）
 
-`unsafe` 关键字表示不安全上下文，该上下文是任何涉及指针的操作所必需的。 有关详细信息，请参阅[不安全代码和指针](../../programming-guide/unsafe-code-pointers/index.md)。
+`unsafe` 关键字表示不安全上下文，该上下文是任何涉及指针的操作所必需的。 有关详细信息，请参阅[不安全代码和指针](../unsafe-code.md)。
 
 可在类型或成员的声明中使用 `unsafe` 修饰符。 因此，类型或成员的整个正文范围均被视为不安全上下文。 以下面使用 `unsafe` 修饰符声明的方法为例：
 
@@ -59,5 +59,5 @@ unsafe
 - [C# 编程指南](../../programming-guide/index.md)
 - [C# 关键字](index.md)
 - [fixed 语句](fixed-statement.md)
-- [不安全代码和指针](../../programming-guide/unsafe-code-pointers/index.md)
-- [固定大小的缓冲区](../../programming-guide/unsafe-code-pointers/fixed-size-buffers.md)
+- [不安全代码和指针](../unsafe-code.md)
+- [固定大小的缓冲区](../unsafe-code.md#fixed-size-buffers)

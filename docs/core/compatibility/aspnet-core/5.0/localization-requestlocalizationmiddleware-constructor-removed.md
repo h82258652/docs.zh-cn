@@ -1,15 +1,14 @@
 ---
 title: 中断性变更：本地化：请求本地化中间件中删除了已过时的构造函数
 description: 了解 ASP.NET Core 5.0 中的以下中断性变更：本地化：请求本地化中间件中删除了已过时的构造函数
-author: scottaddie
 ms.author: scaddie
 ms.date: 10/01/2020
-ms.openlocfilehash: 53dd0f25078dae140d34d6d21d66983f78b8bdb0
-ms.sourcegitcommit: d8020797a6657d0fbbdff362b80300815f682f94
+ms.openlocfilehash: 8c04e1735c5a35d1539b6fcb2506dbe37183ff79
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95759271"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106497978"
 ---
 # <a name="localization-obsolete-constructor-removed-in-request-localization-middleware"></a>本地化：请求本地化中间件中删除了已过时的构造函数
 

@@ -1,15 +1,14 @@
 ---
 title: 中断性变更：已删除 Pubternal API
 description: 了解 ASP.NET Core 5.0 中的以下中断性变更：已删除部分 pubternal 本地化 API
-author: scottaddie
 ms.author: scaddie
 ms.date: 10/01/2020
-ms.openlocfilehash: ae647d66b716175536edb3c978b027ebb7d3ddac
-ms.sourcegitcommit: d8020797a6657d0fbbdff362b80300815f682f94
+ms.openlocfilehash: 35b6f80569945e54367117446ea96107d6c5199c
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95759105"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106497656"
 ---
 # <a name="localization-pubternal-apis-removed"></a>本地化：已删除“Pubternal”API
 

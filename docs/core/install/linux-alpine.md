@@ -4,12 +4,12 @@ description: 演示在 Alpine 上安装 .NET SDK 和 .NET 运行时的各种方�
 author: adegeo
 ms.author: adegeo
 ms.date: 01/06/2021
-ms.openlocfilehash: 19cae3c6237dc9f1a23087ec654e8f24ca13cd66
-ms.sourcegitcommit: 1dbe25ff484a02025d5c34146e517c236f7161fb
+ms.openlocfilehash: 6cd36fa6329d3c1a5835d4c202ac0024ffa41892
+ms.sourcegitcommit: 109507b6c16704ed041efe9598c70cd3438a9fbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104653434"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106079500"
 ---
 # <a name="install-the-net-sdk-or-the-net-runtime-on-alpine"></a>在 Alpine 上安装 .NET SDK 或 .NET 运行时
 
@@ -35,6 +35,7 @@ ms.locfileid: "104653434"
 
 | Alpine  | .NET Core 2.1 | .NET Core 3.1 | .NET 5.0 |
 |-------- |---------------|---------------|----------------|
+| ✔️ 3.13 | ✔️ 2.1        | ✔️ 3.1        | ✔️ 5.0 |
 | ✔️ 3.12 | ✔️ 2.1        | ✔️ 3.1        | ✔️ 5.0 |
 | ✔️ 3.11 | ✔️ 2.1        | ✔️ 3.1        | ✔️ 5.0 |
 | ✔️ 3.10 | ✔️ 2.1        | ✔️ 3.1        | ❌ 5.0 |
@@ -51,7 +52,6 @@ ms.locfileid: "104653434"
 
 Alpine Linux 上的 .NET 要求安装以下依赖项：
 
-- bash
 - icu-libs
 - krb5-libs
 - libgcc

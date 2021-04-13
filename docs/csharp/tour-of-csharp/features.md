@@ -2,12 +2,12 @@
 title: C# 教程 - 主要语言区域
 description: 刚开始接触 C#？ 了解 C# 语言的基础知识。 本文包含主要语言功能的调查。
 ms.date: 08/06/2020
-ms.openlocfilehash: 943701b544dd3495fa2286e804e2566da146cb45
-ms.sourcegitcommit: 68c9d9d9a97aab3b59d388914004b5474cf1dbd7
+ms.openlocfilehash: e62ed4e360fdf3b30142474494ff4f038c77a772
+ms.sourcegitcommit: e16315d9f1ff355f55ff8ab84a28915be0a8e42b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99216650"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105111330"
 ---
 # <a name="major-language-areas"></a>主要语言区域
 
@@ -25,7 +25,7 @@ C# 和 .NET 提供了许多不同的集合类型。 数组包含由语言定义�
 
 :::code language="csharp" source="./snippets/shared/Features.cs" ID="ArraysSample":::
 
-上面的示例创建一维数组，并对其执行运算。 C# 还支持多维数组。 数组类型的维数（亦称为数组类型的秩）是 1 与数组类型方括号内的逗号数量相加的结果。 以下示例分别分配一维、二维、三维数组。
+此示例创建并在“一维数组”上进行操作。 C# 还支持多维数组。 数组类型的维数（亦称为数组类型的秩）是 1 与数组类型方括号内的逗号数量相加的结果。 以下示例分别分配一维、二维、三维数组。
 
 :::code language="csharp" source="./snippets/shared/Features.cs" ID="DeclareArrays":::
 
@@ -60,11 +60,11 @@ C# [字符串内插](../language-reference/tokens/interpolated.md)使你能够�
 
 :::code language="csharp" source="./snippets/shared/Features.cs" ID="StringInterpolation":::
 
-内插字符串通过 `$` 标记来声明。 字符串插内插计算 `{` 和 `}` 之间的表达式，然后将结果转换为 `string`，并将括号内的文本替换为表达式的字符串结果。 第一个表达式 (`{weatherData.Date:MM-DD-YYYY}`) 中的 `:` 指定格式字符串_*。 在前一个示例中，这指定日期应以“MM-DD-YYYY”格式显示。
+内插字符串通过 `$` 标记来声明。 字符串插内插计算 `{` 和 `}` 之间的表达式，然后将结果转换为 `string`，并将括号内的文本替换为表达式的字符串结果。 第一个表达式 (`{weatherData.Date:MM-DD-YYYY}`) 中的 `:` 指定格式字符串。 在前一个示例中，这指定日期应以“MM-DD-YYYY”格式显示。
 
 ## <a name="pattern-matching"></a>模式匹配
 
-C# 语言提供[模式匹配](../pattern-matching.md)*_表达式来查询对象的状态并基于该状态执行代码。 你可以检查属性和字段的类型和值，以确定要执行的操作。 `switch` 表达式是模式匹配的主要表达式。
+C# 语言提供[模式匹配](../pattern-matching.md)表达式来查询对象的状态并基于该状态执行代码。 你可以检查属性和字段的类型和值，以确定要执行的操作。 `switch` 表达式是模式匹配的主要表达式。
 
 ## <a name="delegates-and-lambda-expressions"></a>委托和 Lambda 表达式
 
@@ -98,7 +98,7 @@ C# 支持含两个关键字的异步程序：`async` 和 `await`。 将 `async` 
 
 ## <a name="attributes"></a>属性
 
-C# 程序中的类型、成员和其他实体支持使用修饰符来控制其行为的某些方面。 例如，方法的可访问性是由 `public`、`protected`、`internal` 和 `private` 修饰符控制。 C# 整合了这种能力，以便可以将用户定义类型的声明性信息附加到程序实体，并在运行时检索此类信息。 程序通过定义和使用 [特性](../programming-guide/concepts/attributes/index.md) *_* *来指定此类额外的声明性信息。
+C# 程序中的类型、成员和其他实体支持使用修饰符来控制其行为的某些方面。 例如，方法的可访问性是由 `public`、`protected`、`internal` 和 `private` 修饰符控制。 C# 整合了这种能力，以便可以将用户定义类型的声明性信息附加到程序实体，并在运行时检索此类信息。 程序通过定义和使用[特性](../programming-guide/concepts/attributes/index.md)来指定此类额外的声明性信息。
 
 以下示例声明了 `HelpAttribute` 特性，可将其附加到程序实体，以提供指向关联文档的链接。
 
@@ -118,7 +118,7 @@ C# 程序中的类型、成员和其他实体支持使用修饰符来控制其�
 
 ## <a name="learn-more"></a>了解详细信息
 
-可以通过试用其中一个[教程](../tutorials/index.md)来了解更多关于 C# 的内容。
+可以通过试用其中一个[教程](../tutorials/intro-to-csharp/introduction-to-classes.md)来了解更多关于 C# 的内容。
 
 >[!div class="step-by-step"]
 >[上一页](program-building-blocks.md)

@@ -1,15 +1,14 @@
 ---
 title: 中断性变更：Azure：Microsoft 预先指定的 Azure 集成包已删除
 description: 了解 ASP.NET Core 5.0 中的以下中断性变更：Azure：Microsoft 预先指定的 Azure 集成包已删除
-author: scottaddie
 ms.author: scaddie
 ms.date: 10/01/2020
-ms.openlocfilehash: b9f685b8c9fdcd73044f78840f2732809a0de710
-ms.sourcegitcommit: d8020797a6657d0fbbdff362b80300815f682f94
+ms.openlocfilehash: be7b2eeb6b12d033517c15ecb29e0d5364d64817
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95759282"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106498225"
 ---
 # <a name="azure-microsoft-prefixed-azure-integration-packages-removed"></a>Azure：Microsoft 预先指定的 Azure 集成包已删除
 

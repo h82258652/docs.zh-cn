@@ -1,18 +1,18 @@
 ---
 title: 分部类和方法 - C# 编程指南
 description: C# 中的分部类和方法拆分一个类、一个结构、一个接口或一个方法的定义到两个或更多的源文件中。
-ms.date: 07/20/2015
+ms.date: 03/23/2021
 helpviewer_keywords:
 - partial methods [C#]
 - partial classes [C#]
 - C# language, partial classes and methods
 ms.assetid: 804cecb7-62db-4f97-a99f-60975bd59fa1
-ms.openlocfilehash: cfda3b89bfd9dc046274dfa53d62a0789d4d597e
-ms.sourcegitcommit: 8299abfbd5c49b596d61f1e4d09bc6b8ba055b36
+ms.openlocfilehash: 2132dd8e729725f0dd9bcb4477a3a604aa7065a0
+ms.sourcegitcommit: e16315d9f1ff355f55ff8ab84a28915be0a8e42b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98899095"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105111044"
 ---
 # <a name="partial-classes-and-methods-c-programming-guide"></a>分部类和方法（C# 编程指南）
 
@@ -133,7 +133,7 @@ ms.locfileid: "98899095"
 
 ## <a name="partial-methods"></a>分部方法
 
-分部类或结构可以包含分部方法。 类的一个部分包含方法的签名。 可以在同一部分或另一个部分中定义可选实现。 如果未提供该实现，则会在编译时删除方法以及对方法的所有调用。
+分部类或结构可以包含分部方法。 类的一个部分包含方法的签名。 可以在同一部分或另一部分中定义实现。 如果未提供该实现，则会在编译时删除方法以及对方法的所有调用。 根据方法签名，可能需要实现。
 
 分部方法使类的某个部分的实施者能够定义方法（类似于事件）。 类的另一部分的实施者可以决定是否实现该方法。 如果未实现该方法，编译器会删除方法签名以及对该方法的所有调用。 调用该方法（包括调用中的任何参数计算结果）在运行时没有任何影响。 因此，分部类中的任何代码都可以随意地使用分部方法，即使未提供实现也是如此。 调用但不实现该方法不会导致编译时错误或运行时错误。
 
@@ -143,28 +143,36 @@ ms.locfileid: "98899095"
 
 ```csharp
 // Definition in file1.cs
-partial void onNameChanged();
+partial void OnNameChanged();
 
 // Implementation in file2.cs
-partial void onNameChanged()
+partial void OnNameChanged()
 {
   // method body
 }
 ```
 
-- 分部方法声明必须以上下文关键字 [partial](../../language-reference/keywords/partial-type.md) 开头，并且方法必须返回 [void](../../language-reference/builtin-types/void.md)。
+- 分部方法声明必须以上下文关键字 [partial](../../language-reference/keywords/partial-type.md) 开头。
 
-- 分部方法可以有 [in](../../language-reference/keywords/in-parameter-modifier.md) 或 [ref](../../language-reference/keywords/ref.md) 参数，但不能有 [out](../../language-reference/keywords/out-parameter-modifier.md) 参数。
-
-- 分部方法为隐式 [private](../../language-reference/keywords/private.md) 方法，因此不能为 [virtual](../../language-reference/keywords/virtual.md) 方法。
-
-- 分部方法不能为 [extern](../../language-reference/keywords/extern.md) 方法，因为主体的存在确定了方法是在定义还是在实现。
+- 分部类型的两个部分中的分部方法签名必须匹配。
 
 - 分部方法可以有 [static](../../language-reference/keywords/static.md) 和 [unsafe](../../language-reference/keywords/unsafe.md) 修饰符。
 
 - 分部方法可以是泛型的。 约束将放在定义分部方法声明上，但也可以选择重复放在实现声明上。 参数和类型参数名称在实现声明和定义声明中不必相同。
 
 - 你可以为已定义并实现的分部方法生成[委托](../../language-reference/builtin-types/reference-types.md)，但不能为已经定义但未实现的分部方法生成委托。
+
+在以下情况下，不需要使用分部方法即可实现：
+
+- 没有任何可访问性修饰符（包括默认的 [专用](../../language-reference/keywords/private.md)）。
+
+- 返回 [void](../../language-reference/builtin-types/void.md)。
+
+- 没有任何[输出](../../language-reference/keywords/out-parameter-modifier.md)参数。
+
+- 没有以下任何修饰符：[virtual](../../language-reference/keywords/virtual.md)、[override](../../language-reference/keywords/override.md)、[sealed](../../language-reference/keywords/sealed.md)、[new](../../language-reference/keywords/new-modifier.md) 或 [extern](../../language-reference/keywords/extern.md)。
+
+任何不符合所有这些限制的方法（例如 `public virtual partial void` 方法）都必须提供实现。
 
 ## <a name="c-language-specification"></a>C# 语言规范
 

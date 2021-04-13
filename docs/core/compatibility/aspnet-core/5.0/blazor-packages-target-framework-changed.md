@@ -1,15 +1,14 @@
 ---
 title: 中断性变更：Blazor：NuGet 包的目标框架已更改
 description: 了解 ASP.NET Core 5.0 中的以下中断性变更：Blazor：NuGet 包的目标框架已更改
-author: scottaddie
 ms.author: scaddie
 ms.date: 10/01/2020
-ms.openlocfilehash: 5515edc66ff9786f0d8f7e24e5fc28c71502567b
-ms.sourcegitcommit: d8020797a6657d0fbbdff362b80300815f682f94
+ms.openlocfilehash: 02945c223410860c9336b6046afe54cacce878dd
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95759142"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106498186"
 ---
 # <a name="blazor-target-framework-of-nuget-packages-changed"></a>Blazor：NuGet 包的目标框架已更改
 
@@ -49,7 +48,7 @@ Blazor 3.2 WebAssembly 项目应在将其包引用更新为 5.x.x 的过程中�
 
 ## <a name="affected-apis"></a>受影响的 API
 
-None
+无
 
 <!--
 

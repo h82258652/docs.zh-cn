@@ -1,17 +1,16 @@
 ---
 title: 显式接口实现 - C# 编程指南
 description: 类可以在 C# 中实现包含具有相同签名的成员的接口。 显式实现创建特定于一个接口的类成员。
-ms.date: 01/24/2020
+ms.date: 03/24/2021
 helpviewer_keywords:
 - explicit interfaces [C#]
 - interfaces [C#], explicit
-ms.assetid: 181c901f-0d4c-4f29-97fc-895079617bf2
-ms.openlocfilehash: a6ec328c08d1da84a11431d9400a094df8c72223
-ms.sourcegitcommit: 6f58a5f75ceeb936f8ee5b786e9adb81a9a3bee9
+ms.openlocfilehash: 2ca7e8a10c009b01b43e0c09d25d2dd99cbee2ec
+ms.sourcegitcommit: 80f38cb67bd02f51d5722fa13d0ea207e3b14a8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87303082"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105610858"
 ---
 # <a name="explicit-interface-implementation-c-programming-guide"></a>显式接口实现（C# 编程指南）
 
@@ -23,7 +22,7 @@ ms.locfileid: "87303082"
 
 [!code-csharp[DefineSimpleTypes](~/samples/snippets/csharp/interfaces/ExplicitImplementation.cs#CallMethods)]
 
-当两个接口成员不执行相同的功能时，它会导致其中一个或两个接口的实现不正确。 创建仅通过接口调用且特定于该接口的类成员，则有可能显式实现接口成员。 请使用接口名称和句点命名类成员。 例如：
+但你可能不希望为这两个接口都调用相同的实现。 若要调用不同的实现，根据所使用的接口，可以显式实现接口成员。 显式接口实现是一个类成员，只通过指定接口进行调用。 通过在类成员前面加上接口名称和句点可命名该类成员。 例如：
 
 [!code-csharp[DefineExplicitImplementation](~/samples/snippets/csharp/interfaces/ExplicitImplementation.cs#ExplicitImplementation)]
 
@@ -34,6 +33,8 @@ ms.locfileid: "87303082"
 显式实现还用于处理两个接口分别声明名称相同的不同成员（例如属性和方法）的情况。 若要实现两个接口，类必须对属性 `P` 或方法 `P` 使用显式实现，或对二者同时使用，从而避免编译器错误。 例如：
 
 [!code-csharp[NameCollisions](~/samples/snippets/csharp/interfaces/ExplicitImplementation.cs#NameCollision)]
+
+显式接口实现没有访问修饰符，因为它不能作为其定义类型的成员进行访问。 而只能在通过接口实例调用时访问。 如果为显式接口实现指定访问修饰符，将收到编译器错误 [CS0106](../../language-reference/compiler-messages/cs0106.md)。 有关详细信息，请参阅 [`interface`（C# 参考）](../../language-reference/keywords/interface.md)。
 
 从 [C# 8.0](../../whats-new/csharp-8.md#default-interface-methods) 开始，你可以为在接口中声明的成员定义一个实现。 如果类从接口继承方法实现，则只能通过接口类型的引用访问该方法。 继承的成员不会显示为公共接口的一部分。 下面的示例定义接口方法的默认实现：
 

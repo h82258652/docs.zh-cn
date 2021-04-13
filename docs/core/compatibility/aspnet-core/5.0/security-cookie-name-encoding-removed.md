@@ -1,15 +1,14 @@
 ---
 title: 中断性变更：安全性：Cookie 名称编码已删除
 description: 了解 ASP.NET Core 5.0 中的以下中断性变更：安全性：Cookie 名称编码已删除
-author: scottaddie
 ms.author: scaddie
 ms.date: 10/01/2020
-ms.openlocfilehash: 00764493fb2d8d300612f2bd9dc6e512b10be25f
-ms.sourcegitcommit: e3cf8227573e13b8e1f4e3dc007404881cdafe47
+ms.openlocfilehash: a50ef0ee34b7148d13b01f96e754d1cb47d40819
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103190055"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106497881"
 ---
 # <a name="security-cookie-name-encoding-removed"></a>安全性：Cookie 名称编码已删除
 

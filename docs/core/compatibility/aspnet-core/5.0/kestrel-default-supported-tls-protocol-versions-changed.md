@@ -1,15 +1,14 @@
 ---
 title: 中断性变更：Kestrel：默认支持的 TLS 协议版本已更改
 description: 了解 ASP.NET Core 5.0 中的以下中断性变更：Kestrel：默认支持的 TLS 协议版本已更改
-author: scottaddie
 ms.author: scaddie
 ms.date: 10/01/2020
-ms.openlocfilehash: d7018be7cc778560b7b9c65472d42d7e0fbf623d
-ms.sourcegitcommit: d8020797a6657d0fbbdff362b80300815f682f94
+ms.openlocfilehash: 1e3ebd700e5bb603f95a8b20ebdbd61379f1e508
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95759072"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106497640"
 ---
 # <a name="kestrel-default-supported-tls-protocol-versions-changed"></a>Kestrel：默认支持的 TLS 协议版本已更改
 

@@ -5,12 +5,12 @@ author: cartermp
 ms.date: 05/20/2020
 ms.technology: csharp-async
 ms.assetid: b878c34c-a78f-419e-a594-a2b44fa521a4
-ms.openlocfilehash: c3fbcdec2bf181a5211e89024855967d687388ff
-ms.sourcegitcommit: d623f686701b94bef905ec5e93d8b55d031c5d6f
+ms.openlocfilehash: bb333e5eb5dfadb1ff7a1fac64627b74bca8d981
+ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2021
-ms.locfileid: "103623728"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105637255"
 ---
 # <a name="asynchronous-programming"></a>异步编程
 
@@ -211,62 +211,62 @@ public static async Task<User[]> GetUsersAsync(IEnumerable<int> userIds)
 
 ## <a name="important-info-and-advice"></a>重要信息和建议
 
-对于异步编程，应记住一些可避免意外行为的要点。
+对于异步编程，有一些细节需要注意，以防止意外行为。
 
 * `async` 方法需要在主体中有 `await` 关键字，否则它们将永不暂停！
 
   这一点需牢记在心。 如果 `await` 未用在 `async` 方法的主体中，C# 编译器将生成一个警告，但此代码将会以类似普通方法的方式进行编译和运行。 这种方式非常低效，因为由 C# 编译器为异步方法生成的状态机将不会完成任何任务。
 
-* 应将“Async”作为后缀添加到所编写的每个异步方法名称中。
+* 添加“Async”作为编写的每个异步方法名称的后缀。
 
-这是 .NET 中的惯例，以便更为轻松地区分同步和异步方法。 未由代码显式调用的某些方法（如事件处理程序或 Web 控制器方法）并不一定适用。 由于它们未由代码显式调用，因此对其显式命名并不重要。
+  这是 .NET 中的惯例，以便更为轻松地区分同步和异步方法。 未由代码显式调用的某些方法（如事件处理程序或 Web 控制器方法）并不一定适用。 由于它们未由代码显式调用，因此对其显式命名并不重要。
 
 * `async void` 应仅用于事件处理程序。
 
-`async void` 是允许异步事件处理程序工作的唯一方法，因为事件不具有返回类型（因此无法利用 `Task` 和 `Task<T>`）。 其他任何对 `async void` 的使用都不遵循 TAP 模型，且可能存在一定使用难度，例如：
+  `async void` 是允许异步事件处理程序工作的唯一方法，因为事件不具有返回类型（因此无法利用 `Task` 和 `Task<T>`）。 其他任何对 `async void` 的使用都不遵循 TAP 模型，且可能存在一定使用难度，例如：
 
-* `async void` 方法中引发的异常无法在该方法外部被捕获。
-* `async void` 方法很难测试。
-* `async void` 方法可能会导致不良副作用（如果调用方不希望方法是异步的话）。
+  * `async void` 方法中引发的异常无法在该方法外部被捕获。
+  * `async void` 方法很难测试。
+  * `async void` 方法可能会导致不良副作用（如果调用方不希望方法是异步的话）。
 
 * **在 LINQ 表达式中使用异步 lambda 时请谨慎**
 
-LINQ 中的 Lambda 表达式使用延迟执行，这意味着代码可能在你并不希望结束的时候停止执行。 如果编写不正确，将阻塞任务引入其中时可能很容易导致死锁。 此外，此类异步代码嵌套可能会对推断代码的执行带来更多困难。 Async 和 LINQ 的功能都十分强大，但在结合使用两者时应尽可能小心。
+  LINQ 中的 Lambda 表达式使用延迟执行，这意味着代码可能在你并不希望结束的时候停止执行。 如果编写不正确，将阻塞任务引入其中时可能很容易导致死锁。 此外，此类异步代码嵌套可能会对推断代码的执行带来更多困难。 Async 和 LINQ 的功能都十分强大，但在结合使用两者时应尽可能小心。
 
 * **采用非阻止方式编写等待任务的代码**
 
-通过阻止当前线程来等待 `Task` 完成的方法可能导致死锁和已阻止的上下文线程，且可能需要更复杂的错误处理方法。 下表提供了关于如何以非阻止方式处理等待任务的指南：
+  通过阻止当前线程来等待 `Task` 完成的方法可能导致死锁和已阻止的上下文线程，且可能需要更复杂的错误处理方法。 下表提供了关于如何以非阻止方式处理等待任务的指南：
 
-| 使用以下方式...          | 而不是…           | 若要执行此操作...                 |
-|----------------------|------------------------------|--------------------------------------------|
-| `await`              | `Task.Wait` 或 `Task.Result` | 检索后台任务的结果 |
-| `await Task.WhenAny` | `Task.WaitAny`               | 等待任何任务完成           |
-| `await Task.WhenAll` | `Task.WaitAll`               | 等待所有任务完成          |
-| `await Task.Delay`   | `Thread.Sleep`               | 等待一段时间               |
+  | 使用以下方式...          | 而不是…           | 若要执行此操作...                 |
+  |----------------------|------------------------------|--------------------------------------------|
+  | `await`              | `Task.Wait` 或 `Task.Result` | 检索后台任务的结果 |
+  | `await Task.WhenAny` | `Task.WaitAny`               | 等待任何任务完成           |
+  | `await Task.WhenAll` | `Task.WaitAll`               | 等待所有任务完成          |
+  | `await Task.Delay`   | `Thread.Sleep`               | 等待一段时间               |
 
 * 如果可能，请考虑使用 `ValueTask`
 
-从异步方法返回 `Task` 对象可能在某些路径中导致性能瓶颈。 `Task` 是引用类型，因此使用它意味着分配对象。 如果使用 `async` 修饰符声明的方法返回缓存结果或以同步方式完成，那么额外的分配在代码的性能关键部分可能要耗费相当长的时间。 如果这些分配发生在紧凑循环中，则成本会变高。 有关详细信息，请参阅[通用的异步返回类型](whats-new/csharp-7.md#generalized-async-return-types)。
+  从异步方法返回 `Task` 对象可能在某些路径中导致性能瓶颈。 `Task` 是引用类型，因此使用它意味着分配对象。 如果使用 `async` 修饰符声明的方法返回缓存结果或以同步方式完成，那么额外的分配在代码的性能关键部分可能要耗费相当长的时间。 如果这些分配发生在紧凑循环中，则成本会变高。 有关详细信息，请参阅[通用的异步返回类型](whats-new/csharp-7.md#generalized-async-return-types)。
 
 * **考虑使用** `ConfigureAwait(false)`
 
-常见的问题是“应何时使用 <xref:System.Threading.Tasks.Task.ConfigureAwait(System.Boolean)?displayProperty=nameWithType> 方法？”。 该方法允许 `Task` 实例配置其 awaiter。 这是一个重要的注意事项，如果设置不正确，可能会影响性能，甚至造成死锁。 有关 `ConfigureAwait` 的详细信息，请参阅 [ConfigureAwait 常见问题解答](https://devblogs.microsoft.com/dotnet/configureawait-faq)。
+  常见的问题是“应何时使用 <xref:System.Threading.Tasks.Task.ConfigureAwait(System.Boolean)?displayProperty=nameWithType> 方法？”。 该方法允许 `Task` 实例配置其 awaiter。 这是一个重要的注意事项，如果设置不正确，可能会影响性能，甚至造成死锁。 有关 `ConfigureAwait` 的详细信息，请参阅 [ConfigureAwait 常见问题解答](https://devblogs.microsoft.com/dotnet/configureawait-faq)。
 
 * **编写状态欠缺的代码**
 
-请勿依赖全局对象的状态或某些方法的执行。 请仅依赖方法的返回值。 为什么？
+  请勿依赖全局对象的状态或某些方法的执行。 请仅依赖方法的返回值。 为什么？
 
-* 这样更容易推断代码。
-* 这样更容易测试代码。
-* 混合异步和同步代码更简单。
-* 通常可完全避免争用条件。
-* 通过依赖返回值，协调异步代码可变得简单。
-* （好处）它非常适用于依赖关系注入。
+  * 这样更容易推断代码。
+  * 这样更容易测试代码。
+  * 混合异步和同步代码更简单。
+  * 通常可完全避免争用条件。
+  * 通过依赖返回值，协调异步代码可变得简单。
+  * （好处）它非常适用于依赖关系注入。
 
-建议的目标是实现代码中完整或接近完整的[引用透明度](https://en.wikipedia.org/wiki/Referential_transparency_%28computer_science%29)。 这么做能获得高度可预测、可测试和可维护的基本代码。
+建议的目标是实现代码中完整或接近完整的[引用透明度](https://en.wikipedia.org/wiki/Referential_transparency_%28computer_science%29)。 这么做能获得可预测、可测试和可维护的代码库。
 
 ## <a name="other-resources"></a>其他资源
 
 * [深入了解异步](../standard/async-in-depth.md)提供了关于任务如何工作的详细信息。
-* [基于任务的异步编程模型 (C#)](./programming-guide/concepts/async/task-asynchronous-programming-model.md)
-* 由 Lucian Wischik 所著的 [Six Essential Tips for Async](https://channel9.msdn.com/Series/Three-Essential-Tips-for-Async)（关于异步的六个要点）是有关异步编程的绝佳资源
+* [基于任务的异步编程模型 (C#)](./programming-guide/concepts/async/task-asynchronous-programming-model.md)。
+* 由 Lucian Wischik 所著的 [Six Essential Tips for Async](https://channel9.msdn.com/Series/Three-Essential-Tips-for-Async)（关于异步的六个要点）是有关异步编程的绝佳资源。

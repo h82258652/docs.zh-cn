@@ -1,15 +1,14 @@
 ---
 title: 中断性变更：Blazor：RenderTreeFrame readonly public 字段已变为属性
 description: 了解 ASP.NET Core 5.0 中的以下中断性变更：Blazor：RenderTreeFrame readonly public 字段已变为属性
-author: scottaddie
 ms.author: scaddie
 ms.date: 10/01/2020
-ms.openlocfilehash: e9da9c538cc0a8ed4f138ef64ece0c7d144f28d3
-ms.sourcegitcommit: d8020797a6657d0fbbdff362b80300815f682f94
+ms.openlocfilehash: c4d70279b4280b079570099b82b056299405508b
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95759079"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106498160"
 ---
 # <a name="blazor-rendertreeframe-readonly-public-fields-have-become-properties"></a>Blazor：RenderTreeFrame readonly public 字段已变为属性
 

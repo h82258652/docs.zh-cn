@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 8b6d334677991382d235fd53cd3c98e3a77d650d
-ms.sourcegitcommit: 0802ac583585110022beb6af8ea0b39188b77c43
+ms.openlocfilehash: b75f9ce8e878c935dcc5fd9dc292369720b895e9
+ms.sourcegitcommit: e16315d9f1ff355f55ff8ab84a28915be0a8e42b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96032255"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105152830"
 ---
 ### <a name="http-browser-samesite-changes-impact-authentication"></a>HTTP：浏览器的 SameSite 更改会影响身份验证
 
@@ -26,7 +26,7 @@ Google 提出了一项不向后兼容的新草案标准。 该标准将默认模
 
 已更新 ASP.NET Core 3.1 来实现新的 `SameSite` 行为。 该更新重新定义了 `SameSiteMode.None` 的行为以发出 `SameSite=None`，并添加了一个新值 `SameSiteMode.Unspecified` 以忽略 `SameSite` 属性。 现在，所有 Cookie API 都默认为 `Unspecified`，但某些使用 Cookie 的组件设置了更特定于其方案的值，例如 OpenID Connect 相关性和 nonce Cookie。
 
-有关此方面的其他最新更改，请参阅 [HTTP：某些 Cookie SameSite 默认值已更改为 None ](../../../../docs/core/compatibility/2.2-3.0.md#http-some-cookie-samesite-defaults-changed-to-none)。 在 ASP.NET Core 3.0 中，大多数默认值已从 <xref:Microsoft.AspNetCore.Http.SameSiteMode.Lax?displayProperty=nameWithType> 更改为 <xref:Microsoft.AspNetCore.Http.SameSiteMode.None?displayProperty=nameWithType>（但仍使用之前的标准）。
+有关此方面的其他最新更改，请参阅 [HTTP：某些 Cookie SameSite 默认值已更改为“None”](../../../../docs/core/compatibility/3.0.md#http-some-cookie-samesite-defaults-changed-to-none)。 在 ASP.NET Core 3.0 中，大多数默认值已从 <xref:Microsoft.AspNetCore.Http.SameSiteMode.Lax?displayProperty=nameWithType> 更改为 <xref:Microsoft.AspNetCore.Http.SameSiteMode.None?displayProperty=nameWithType>（但仍使用之前的标准）。
 
 #### <a name="reason-for-change"></a>更改原因
 
@@ -78,7 +78,7 @@ Electron 的版本包括较早版本的 Chromium。 例如，Microsoft Teams 使
 
 2016 `SameSite` 标准要求将未知值视为 `SameSite=Strict` 值。 因此，任何支持原始标准的旧版浏览器都可能在检测到 `SameSite` 属性具有 `None` 值时中断。 如果 Web 应用要支持这些旧版浏览器，它们必须实现浏览器探查。 ASP.NET Core 不会为你实现浏览器探查，因为 `User-Agent` 请求标头值非常不稳定，每周都会更改。 相反，Cookie 策略中的扩展点允许添加特定于 `User-Agent` 的逻辑。
 
-在 Startup.cs 中，添加以下代码  ：
+在 Startup.cs 中，添加以下代码：
 
 ```csharp
 private void CheckSameSite(HttpContext httpContext, CookieOptions options)
@@ -118,7 +118,7 @@ public void Configure(IApplicationBuilder app)
 
 ##### <a name="opt-out-switches"></a>“选择退出”开关
 
-通过 `Microsoft.AspNetCore.SuppressSameSiteNone` 兼容性开关，可暂时选择退出新的 ASP.NET Core Cookie 行为。 将以下 JSON 添加到项目的 runtimeconfig.template.json 文件中  ：
+通过 `Microsoft.AspNetCore.SuppressSameSiteNone` 兼容性开关，可暂时选择退出新的 ASP.NET Core Cookie 行为。 将以下 JSON 添加到项目的 runtimeconfig.template.json 文件中：
 
 ```json
 {

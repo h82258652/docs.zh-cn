@@ -2,12 +2,12 @@
 title: dotnet restore 命令
 description: 了解如何使用 dotnet-restore 命令还原依赖项和特定于项目的工具。
 ms.date: 02/27/2020
-ms.openlocfilehash: dcb68d6c690f2e12b61cfdfa6dc288bd474721c1
-ms.sourcegitcommit: b201d177e01480a139622f3bf8facd367657a472
+ms.openlocfilehash: 14bcf65bb78e6d1d96604c8a10a3ba94fab80db8
+ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94634398"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104874831"
 ---
 # <a name="dotnet-restore"></a>dotnet restore
 
@@ -79,7 +79,7 @@ dotnet restore -h|--help
 
 - [trustedSigners](/nuget/schema/nuget-config-file#trustedsigners-section)
 
-  此设置不适用，如 [NuGet 尚不支持跨平台验证](https://github.com/NuGet/Home/issues/7939)受信任包所述。
+  .NET 5.0.100 SDK 中添加了对跨平台包签名验证的支持。
 
 ## <a name="arguments"></a>自变量
 

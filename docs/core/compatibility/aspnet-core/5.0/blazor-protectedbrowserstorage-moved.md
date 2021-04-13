@@ -1,15 +1,14 @@
 ---
 title: 中断性变更：Blazor：ProtectedBrowserStorage 功能已移动到共享框架
 description: 了解 ASP.NET Core 5.0 中的以下中断性变更：Blazor：ProtectedBrowserStorage 功能已移动到共享框架
-author: scottaddie
 ms.author: scaddie
 ms.date: 10/01/2020
-ms.openlocfilehash: c8058adf8b66aef8dd011ea672cd306ae4de60a7
-ms.sourcegitcommit: d8020797a6657d0fbbdff362b80300815f682f94
+ms.openlocfilehash: 36ba6c16ac970aa8acb0d0faab42b151addae888
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95759141"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106497835"
 ---
 # <a name="blazor-protectedbrowserstorage-feature-moved-to-shared-framework"></a>Blazor：ProtectedBrowserStorage 功能已移动到共享框架
 

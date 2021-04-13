@@ -5,12 +5,12 @@ ms.date: 03/15/2021
 helpviewer_keywords:
 - types [C#], built-in
 - built-in C# types
-ms.openlocfilehash: c2b1c736e17e55913ef1c593813717dd33efd6c3
-ms.sourcegitcommit: 20b4565974d185c7716656a6c63e3cfdbdf4bf41
+ms.openlocfilehash: 4b92add8189c6205408ec78c281eaacf04173047
+ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104759711"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105637060"
 ---
 # <a name="built-in-types-c-reference"></a>内置类型（C# 参考）
 
@@ -42,7 +42,7 @@ ms.locfileid: "104759711"
 |[`string`](reference-types.md#the-string-type)|<xref:System.String?displayProperty=nameWithType>|
 |[`dynamic`](reference-types.md#the-dynamic-type)|<xref:System.Object?displayProperty=nameWithType>|
 
-在上表中，左侧列中的每个 C# 类型关键字（[nint 和 nuint](nint-nuint.md) 除外）都是相应 .NET 类型的别名。 它们是可互换的。 例如，以下声明声明了相同类型的变量：
+在上表中，左侧列中的每个 C# 类型关键字（[nint、nuint](nint-nuint.md) 和 [dynamic](reference-types.md#the-dynamic-type) 除外）都是相应 .NET 类型的别名。 它们是可互换的。 例如，以下声明声明了相同类型的变量：
 
 ```csharp
 int a = 123;

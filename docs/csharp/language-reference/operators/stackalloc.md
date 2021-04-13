@@ -6,12 +6,12 @@ f1_keywords:
 - stackalloc_CSharpKeyword
 helpviewer_keywords:
 - stackalloc expression [C#]
-ms.openlocfilehash: 72d91cf9aa67957ed8e1cad5b2c4a1f3b6382c1f
-ms.sourcegitcommit: d579fb5e4b46745fd0f1f8874c94c6469ce58604
+ms.openlocfilehash: 42867ff1b5acffaf62639a31a5bdd3b4055e252a
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89136845"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106497458"
 ---
 # <a name="stackalloc-expression-c-reference"></a>stackalloc 表达式（C# 参考）
 
@@ -36,7 +36,7 @@ ms.locfileid: "89136845"
   > [!NOTE]
   > 建议尽可能使用 <xref:System.Span%601> 或 <xref:System.ReadOnlySpan%601> 类型来处理堆栈中分配的内存。
 
-- [指针类型](../../programming-guide/unsafe-code-pointers/pointer-types.md)，如以下示例所示：
+- [指针类型](../unsafe-code.md#pointer-types)，如以下示例所示：
 
   [!code-csharp[stackalloc pointer](snippets/shared/StackallocOperator.cs#AssignToPointer)]
 
@@ -75,6 +75,6 @@ ms.locfileid: "89136845"
 - [C# 参考](../index.md)
 - [C# 运算符和表达式](index.md)
 - [指针相关的运算符](pointer-related-operators.md)
-- [指针类型](../../programming-guide/unsafe-code-pointers/pointer-types.md)
+- [指针类型](../unsafe-code.md#pointer-types)
 - [内存和跨度相关类型](../../../standard/memory-and-spans/index.md)
 - [stackalloc 注意事项](https://vcsjones.dev/2020/02/24/stackalloc/)

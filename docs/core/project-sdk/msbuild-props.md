@@ -4,12 +4,12 @@ description: .NET SDK 可以理解的 MSBuild 属性和项的引用。
 ms.date: 02/14/2020
 ms.topic: reference
 ms.custom: updateeachrelease
-ms.openlocfilehash: f6a49a0040bcb38dbaf433f6ea53bb8aad24c65b
-ms.sourcegitcommit: 20b4565974d185c7716656a6c63e3cfdbdf4bf41
+ms.openlocfilehash: effcb704056f553b2986ee4a61f73c0dc58af599
+ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104759880"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105636761"
 ---
 # <a name="msbuild-reference-for-net-sdk-projects"></a>.NET SDK 项目的 MSBuild 引用
 
@@ -64,6 +64,174 @@ ms.locfileid: "104759880"
 <PropertyGroup>
   <TargetFramework>netstandard1.3</TargetFramework>
   <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
+</PropertyGroup>
+```
+
+## <a name="assembly-info-generation-properties"></a>程序集信息生成属性
+
+- [GenerateAssemblyCompanyAttribute](#generateassemblycompanyattribute)
+- [GenerateAssemblyConfigurationAttribute](#generateassemblyconfigurationattribute)
+- [GenerateAssemblyCopyrightAttribute](#generateassemblycopyrightattribute)
+- [GenerateAssemblyDescriptionAttribute](#generateassemblydescriptionattribute)
+- [GenerateAssemblyFileVersionAttribute](#generateassemblyfileversionattribute)
+- [GenerateAssemblyInfo](#generateassemblyinfo)
+- [GenerateAssemblyInformationalVersionAttribute](#generateassemblyinformationalversionattribute)
+- [GenerateAssemblyProductAttribute](#generateassemblyproductattribute)
+- [GenerateAssemblyTitleAttribute](#generateassemblytitleattribute)
+- [GenerateAssemblyVersionAttribute](#generateassemblyversionattribute)
+- [GeneratedAssemblyInfoFile](#generatedassemblyinfofile)
+- [GenerateNeutralResourcesLanguageAttribute](#generateneutralresourceslanguageattribute)
+
+### <a name="generateassemblycompanyattribute"></a>GenerateAssemblyCompanyAttribute
+
+此属性控制 `Company` 属性是否为程序集生成 <xref:System.Reflection.AssemblyCompanyAttribute>。 默认值为 `true`。
+
+```xml
+<PropertyGroup>
+  <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+</PropertyGroup>
+```
+
+### <a name="generateassemblyconfigurationattribute"></a>GenerateAssemblyConfigurationAttribute
+
+此属性控制 `Configuration` 属性是否为程序集生成 <xref:System.Reflection.AssemblyConfigurationAttribute>。 默认值为 `true`。
+
+```xml
+<PropertyGroup>
+  <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+</PropertyGroup>
+```
+
+### <a name="generateassemblycopyrightattribute"></a>GenerateAssemblyCopyrightAttribute
+
+此属性控制 `Copyright` 属性是否为程序集生成 <xref:System.Reflection.AssemblyCopyrightAttribute>。 默认值为 `true`。
+
+```xml
+<PropertyGroup>
+  <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+</PropertyGroup>
+```
+
+### <a name="generateassemblydescriptionattribute"></a>GenerateAssemblyDescriptionAttribute
+
+此属性控制 `Description` 属性是否为程序集生成 <xref:System.Reflection.AssemblyDescriptionAttribute>。 默认值为 `true`。
+
+```xml
+<PropertyGroup>
+  <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+</PropertyGroup>
+```
+
+### <a name="generateassemblyfileversionattribute"></a>GenerateAssemblyFileVersionAttribute
+
+此属性控制 `FileVersion` 属性是否为程序集生成 <xref:System.Reflection.AssemblyFileVersionAttribute>。 默认值为 `true`。
+
+```xml
+<PropertyGroup>
+  <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+</PropertyGroup>
+```
+
+### <a name="generateassemblyinfo"></a>GenerateAssemblyInfo
+
+控制项目的 `AssemblyInfo` 属性生成。 默认值为 `true`。 使用 `false` 禁用文件生成：
+
+```xml
+<PropertyGroup>
+  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+</PropertyGroup>
+```
+
+[GeneratedAssemblyInfoFile](#generatedassemblyinfofile) 设置控制生成的文件的名称。
+
+当 `GenerateAssemblyInfo` 值为 `true` 时，项目属性将转换为 `AssemblyInfo` 属性。 下表列出了用于生成特性的项目属性，以及可禁用该生成的属性：
+
+| 属性               | 属性                                                      | 要禁用的属性                                                                               |
+|------------------------|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| `Company`              | <xref:System.Reflection.AssemblyCompanyAttribute>              | [`GenerateAssemblyCompanyAttribute`](#generateassemblycompanyattribute)                           |
+| `Configuration`        | <xref:System.Reflection.AssemblyConfigurationAttribute>        | [`GenerateAssemblyConfigurationAttribute`](#generateassemblyconfigurationattribute)               |
+| `Copyright`            | <xref:System.Reflection.AssemblyCopyrightAttribute>            | [`GenerateAssemblyCopyrightAttribute`](#generateassemblycopyrightattribute)                       |
+| `Description`          | <xref:System.Reflection.AssemblyDescriptionAttribute>          | [`GenerateAssemblyDescriptionAttribute`](#generateassemblydescriptionattribute)                   |
+| `FileVersion`          | <xref:System.Reflection.AssemblyFileVersionAttribute>          | [`GenerateAssemblyFileVersionAttribute`](#generateassemblyfileversionattribute)                   |
+| `InformationalVersion` | <xref:System.Reflection.AssemblyInformationalVersionAttribute> | [`GenerateAssemblyInformationalVersionAttribute`](#generateassemblyinformationalversionattribute) |
+| `Product`              | <xref:System.Reflection.AssemblyProductAttribute>              | [`GenerateAssemblyProductAttribute`](#generateassemblyproductattribute)                           |
+| `AssemblyTitle`        | <xref:System.Reflection.AssemblyTitleAttribute>                | [`GenerateAssemblyTitleAttribute`](#generateassemblytitleattribute)                               |
+| `AssemblyVersion`      | <xref:System.Reflection.AssemblyVersionAttribute>              | [`GenerateAssemblyVersionAttribute`](#generateassemblyversionattribute)                           |
+| `NeutralLanguage`      | <xref:System.Resources.NeutralResourcesLanguageAttribute>      | [`GenerateNeutralResourcesLanguageAttribute`](#generateneutralresourceslanguageattribute)         |
+
+有关这些设置的说明：
+
+- `AssemblyVersion` 和 `FileVersion` 默认采用 `$(Version)` 的值而不带后缀。 例如，如果 `$(Version)` 为 `1.2.3-beta.4`，则值将为 `1.2.3`。
+- `InformationalVersion` 默认是 `$(Version)` 的值。
+- 如果存在 `$(SourceRevisionId)` 属性，则该属性会附加到 `InformationalVersion`。 可以使用 `IncludeSourceRevisionInInformationalVersion` 禁用此行为。
+- `Copyright` 和 `Description` 属性也可用于 NuGet 元数据。
+- `Configuration`（默认值为 `Debug`）由所有 MSBuild 目标共享。 可以通过 `dotnet` 命令的 `--configuration` 选项对其进行设置，例如 [dotnet pack](../tools/dotnet-pack.md)。
+- 创建 NuGet 包时会使用某些属性。 有关详细信息，请参阅[包属性](#package-properties)。
+
+#### <a name="migrating-from-net-framework"></a>从 .NET Framework 迁移
+
+.NET Framework 项目模板会创建一个包含这些程序集信息属性集的代码文件。 该文件通常位于 .\Properties\AssemblyInfo.cs 或 .\Properties\AssemblyInfo.vb 。 SDK 样式项目基于项目设置为你生成此文件。 你不能同时具有这两者。 将代码移植到 .NET 5（和 .NET Core 3.1）或更高版本时，请执行以下操作之一：
+
+- 通过将 `GenerateAssemblyInfo` 设置为 `false` 来禁用包含程序集信息特性的临时代码文件的生成。 这使你可以保留 AssemblyInfo 文件。
+- 将 `AssemblyInfo` 文件中的设置迁移到项目文件，并删除该 `AssemblyInfo` 文件。
+
+### <a name="generateassemblyinformationalversionattribute"></a>GenerateAssemblyInformationalVersionAttribute
+
+此属性控制 `InformationalVersion` 属性是否为程序集生成 <xref:System.Reflection.AssemblyInformationalVersionAttribute>。 默认值为 `true`。
+
+```xml
+<PropertyGroup>
+  <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+</PropertyGroup>
+```
+
+### <a name="generateassemblyproductattribute"></a>GenerateAssemblyProductAttribute
+
+此属性控制 `Product` 属性是否为程序集生成 <xref:System.Reflection.AssemblyProductAttribute>。 默认值为 `true`。
+
+```xml
+<PropertyGroup>
+  <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+</PropertyGroup>
+```
+
+### <a name="generateassemblytitleattribute"></a>GenerateAssemblyTitleAttribute
+
+此属性控制 `AssemblyTitle` 属性是否为程序集生成 <xref:System.Reflection.AssemblyTitleAttribute>。 默认值为 `true`。
+
+```xml
+<PropertyGroup>
+  <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+</PropertyGroup>
+```
+
+### <a name="generateassemblyversionattribute"></a>GenerateAssemblyVersionAttribute
+
+此属性控制 `AssemblyVersion` 属性是否为程序集生成 <xref:System.Reflection.AssemblyVersionAttribute>。 默认值为 `true`。
+
+```xml
+<PropertyGroup>
+  <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+</PropertyGroup>
+```
+
+### <a name="generatedassemblyinfofile"></a>GeneratedAssemblyInfoFile
+
+此属性定义生成的程序集信息文件的相对或绝对路径。 默认为 `$(IntermediateOutputPath)`（通常为 obj）目录中名为 [project-name].AssemblyInfo.[cs|vb] 的文件 。
+
+```xml
+<PropertyGroup>
+  <GeneratedAssemblyInfoFile>assemblyinfo.cs</GeneratedAssemblyInfoFile>
+</PropertyGroup>
+```
+
+### <a name="generateneutralresourceslanguageattribute"></a>GenerateNeutralResourcesLanguageAttribute
+
+此属性控制 `NeutralLanguage` 属性是否为程序集生成 <xref:System.Resources.NeutralResourcesLanguageAttribute>。 默认值为 `true`。
+
+```xml
+<PropertyGroup>
+  <GenerateNeutralResourcesLanguageAttribute>false</GenerateNeutralResourcesLanguageAttribute>
 </PropertyGroup>
 ```
 

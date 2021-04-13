@@ -1,15 +1,14 @@
 ---
 title: 中断性变更：本地化：ResourceManagerWithCultureStringLocalizer 类和 WithCulture 接口成员已删除
 description: 了解 ASP.NET Core 5.0 中的以下中断性变更：本地化：ResourceManagerWithCultureStringLocalizer 类和 WithCulture 接口成员已删除
-author: scottaddie
 ms.author: scaddie
 ms.date: 10/01/2020
-ms.openlocfilehash: ac7723cd9b961b34b3f87a55119d421668c87417
-ms.sourcegitcommit: 721c3e4bdbb1ea0bb420818ec944c538fe5c513a
+ms.openlocfilehash: 0c02a0e0cc78e4bfbf6f4a1ba5951cd13b56fe0c
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437852"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106498082"
 ---
 # <a name="localization-resourcemanagerwithculturestringlocalizer-class-and-withculture-interface-member-removed"></a>本地化：ResourceManagerWithCultureStringLocalizer 类和 WithCulture 接口成员已删除
 

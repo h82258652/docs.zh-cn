@@ -9,12 +9,12 @@ helpviewer_keywords:
 - struct type [C#]
 - structure type [C#]
 ms.assetid: ff3dd9b7-dc93-4720-8855-ef5558f65c7c
-ms.openlocfilehash: 2ceac94c04dd8deb169e836f09928dfd9a38ac35
-ms.sourcegitcommit: 5d9cee27d9ffe8f5670e5f663434511e81b8ac38
+ms.openlocfilehash: 3aaba057da6214992864cf8e907b0c06ec93264c
+ms.sourcegitcommit: e7e0921d0a10f85e9cb12f8b87cc1639a6c8d3fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98025428"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255085"
 ---
 # <a name="structure-types-c-reference"></a>结构类型（C# 参考）
 
@@ -33,7 +33,7 @@ ms.locfileid: "98025428"
 从 C# 7.2 开始，可以使用 `readonly` 修饰符来声明结构类型为不可变。 `readonly` 结构的所有数据成员都必须是只读的，如下所示：
 
 - 任何字段声明都必须具有 [`readonly` 修饰符](../keywords/readonly.md)
-- 任何属性（包括自动实现的属性）都必须是只读的。 在 C# 9.0 和更高版本中，属性可以具有 [`init` 访问器](../../whats-new/csharp-9.md#init-only-setters)。
+- 任何属性（包括自动实现的属性）都必须是只读的。 在 C# 9.0 和更高版本中，属性可以具有 [`init` 访问器](../keywords/init.md)。
 
 这样可以保证 `readonly` 结构的成员不会修改该结构的状态。 在 C# 8.0 及更高版本中，这意味着除构造函数外的其他实例成员是隐式 [`readonly`](#readonly-instance-members)。
 

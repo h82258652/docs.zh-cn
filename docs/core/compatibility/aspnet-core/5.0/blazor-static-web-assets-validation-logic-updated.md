@@ -1,15 +1,14 @@
 ---
 title: 中断性变更：Blazor：更新的静态 Web 资产的验证逻辑
 description: 了解 ASP.NET Core 5.0 中的以下中断性变更：Blazor：更新的静态 Web 资产的验证逻辑
-author: scottaddie
 ms.author: scaddie
 ms.date: 10/01/2020
-ms.openlocfilehash: f201818c0130739e8da4f42e7b1f3a1987f70d1c
-ms.sourcegitcommit: d8020797a6657d0fbbdff362b80300815f682f94
+ms.openlocfilehash: b6fb8e9a10157a97119fa07a95fb3dbb8b207214
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95759140"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106498147"
 ---
 # <a name="blazor-updated-validation-logic-for-static-web-assets"></a>Blazor：更新的静态 Web 资产的验证逻辑
 

@@ -4,12 +4,12 @@ description: 了解用于构建多种应用的免费开源开发平台 .NET。
 author: tdykstra
 ms.date: 11/16/2020
 ms.custom: updateeachrelease
-ms.openlocfilehash: 78713ee08fadd7a947ee26997b8abe6373ab98d8
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: 7aa84abdf4653960503699ea7cb239279d748c4e
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104875130"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106496691"
 ---
 # <a name="introduction-to-net"></a>.NET 简介
 
@@ -385,7 +385,7 @@ Entity Framework (EF) Core 是一种可用作 ORM 的[开源](https://github.com
 
 根据语言支持，CLR 可通过 `unsafe` 代码访问本机内存和执行指针算术运算。 某些算法和系统互操作性需要这些操作。 尽管不安全代码的功能强大，但除非有必要与系统 API 互操作或实现最高效的算法，否则不建议使用。 在不同的环境中，不安全代码的执行方式可能不同，使用它还会丧失垃圾回收器和类型安全带来的好处。 建议尽可能地限制和集中化使用不安全代码，并全面测试该代码。
 
-有关详细信息，请参阅[不安全代码和指针](../csharp/programming-guide/unsafe-code-pointers/index.md)。
+有关详细信息，请参阅[不安全代码和指针](../csharp/language-reference/unsafe-code.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

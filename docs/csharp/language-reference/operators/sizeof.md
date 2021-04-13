@@ -8,12 +8,12 @@ f1_keywords:
 helpviewer_keywords:
 - sizeof keyword [C#]
 ms.assetid: c548592c-677c-4f40-a4ce-e613f7529141
-ms.openlocfilehash: f1358cbfb6cbc2942cef12e650f7bd362ba37a78
-ms.sourcegitcommit: d579fb5e4b46745fd0f1f8874c94c6469ce58604
+ms.openlocfilehash: 6685cdb4fba2460ee4a47b004aa6911ab76235a4
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89136871"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106497367"
 ---
 # <a name="sizeof-operator-c-reference"></a>sizeof 运算符（C# 参考）
 
@@ -43,7 +43,7 @@ ms.locfileid: "89136871"
 
 [!code-csharp[sizeof examples](snippets/shared/SizeOfOperator.cs)]
 
-`sizeof` 运算符返回公共语言运行时将在托管内存中分配的字节数。 对于[结构](../builtin-types/struct.md)类型，该值包括了填充（如有），如前例所示。 `sizeof` 运算符的结果可能异于 <xref:System.Runtime.InteropServices.Marshal.SizeOf%2A?displayProperty=nameWithType> 方法的结果，该方法返回某个类型在*非托管*内存中的大小。
+`sizeof` 运算符返回公共语言运行时将在托管内存中分配的字节数。 对于[结构](../builtin-types/struct.md)类型，该值包括了填充（如有），如前例所示。 `sizeof` 运算符的结果可能异于 <xref:System.Runtime.InteropServices.Marshal.SizeOf%2A?displayProperty=nameWithType> 方法的结果，该方法返回某个类型在 *非托管* 内存中的大小。
 
 ## <a name="c-language-specification"></a>C# 语言规范
 
@@ -54,6 +54,6 @@ ms.locfileid: "89136871"
 - [C# 参考](../index.md)
 - [C# 运算符和表达式](index.md)
 - [指针相关的运算符](pointer-related-operators.md)
-- [指针类型](../../programming-guide/unsafe-code-pointers/pointer-types.md)
+- [指针类型](../unsafe-code.md#pointer-types)
 - [内存和跨度相关类型](../../../standard/memory-and-spans/index.md)
 - [.NET 中的泛型](../../../standard/generics/index.md)

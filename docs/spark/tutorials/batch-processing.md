@@ -5,20 +5,20 @@ author: mamccrea
 ms.author: mamccrea
 ms.date: 10/09/2020
 ms.topic: tutorial
-ms.openlocfilehash: c161a0420de9e99478768926e5385dcfda1f9ee7
-ms.sourcegitcommit: 34968a61e9bac0f6be23ed6ffb837f52d2390c85
+ms.openlocfilehash: 28674c583466bb4873581c9d233b9a508019b045
+ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94688223"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104876937"
 ---
-# <a name="tutorial-do-batch-processing-with-net-for-apache-spark"></a>教程：使用 .NET for Apache Spark 进行批处理
+# <a name="tutorial-do-batch-processing-with-net-for-apache-spark"></a>教程：使用 .NET for Apache Spark 支持批处理操作
 
 在本教程中，了解如何使用 .NET for Apache Spark 进行批处理。 批处理是指静态数据的转换，这意味着源数据已经加载到数据存储中。
 
 批处理通常在需要为进一步分析做好准备的大型、平面数据集上执行。 日志处理和数据仓库是常见的批处理方案。 在这种情况下，你将分析有关 GitHub 项目的信息，如不同项目的分叉次数或项目最近的更新情况。
 
-在本教程中，你将了解：
+本教程介绍如何执行下列操作：
 
 > [!div class="checklist"]
 >
@@ -30,9 +30,9 @@ ms.locfileid: "94688223"
 
 如果这是你第一次使用 .NET for Apache Spark，请参阅 [.NET for Apache Spark 入门](get-started.md)教程，了解如何准备环境并运行第一个 .NET for Apache Spark 应用程序。
 
-## <a name="download-the-sample-data"></a>下载示例应用数据
+## <a name="download-the-sample-data"></a>下载示例数据
 
-[GHTorrent](http://ghtorrent.org/) 监视所有公共 GitHub 事件，如有关项目、提交和观察程序的信息，并将这些事件及其结构存储在数据库中。 在不同时间段收集的数据可作为可下载存档。 因为转储文件非常大，所以本指南使用可从 GitHub 下载的[转储文件的截断版本](https://github.com/dotnet/spark/tree/master/examples/Microsoft.Spark.CSharp.Examples/Sql/Batch/projects_smaller.csv)。
+[GHTorrent](http://ghtorrent.org/) 监视所有公共 GitHub 事件，如有关项目、提交和观察程序的信息，并将这些事件及其结构存储在数据库中。 在不同时间段收集的数据可作为可下载存档。 因为转储文件非常大，所以本指南使用可从 GitHub 下载的[转储文件的截断版本](https://github.com/dotnet/spark/tree/main/examples/Microsoft.Spark.CSharp.Examples/Sql/Batch/projects_smaller.csv)。
 
 > [!NOTE]
 > GHTorrent 数据集按照双重许可方案 ([Creative Commons +](https://wiki.creativecommons.org/wiki/CCPlus)) 进行分发。 对于非商业用途（包括但不限于教育、研究或个人用途），数据集按照 [CC-BY-SA 许可](https://creativecommons.org/licenses/by-sa/4.0/)进行分发。
@@ -46,7 +46,7 @@ ms.locfileid: "94688223"
    cd mySparkBatchApp
    ```
 
-   `dotnet` 命令将创建 `console` 类型的 `new` 应用程序。 `-o` 参数将创建名为“mySparkBatchApp”  的目录，其中会存储你的应用并填充必需文件。 `cd mySparkBatchApp` 命令会将目录更改为你刚才创建的应用目录。
+   `dotnet` 命令将创建 `console` 类型的 `new` 应用程序。 `-o` 参数将创建名为“mySparkBatchApp”的目录，其中会存储你的应用并填充必需文件。 `cd mySparkBatchApp` 命令会将目录更改为你刚才创建的应用目录。
 
 1. 要在应用中使用 .NET for Apache Spark，请安装 Microsoft.Spark 包。 在控制台中运行以下命令：
 
@@ -56,7 +56,7 @@ ms.locfileid: "94688223"
 
 ## <a name="create-a-sparksession"></a>创建 SparkSession
 
-1. 将以下附加的 `using` 语句添加到 mySparkBatchApp  中的 Program.cs  文件顶部。
+1. 将以下附加的 `using` 语句添加到 mySparkBatchApp 中的 Program.cs 文件顶部。
 
    ```csharp
    using System;
@@ -64,7 +64,7 @@ ms.locfileid: "94688223"
    using static Microsoft.Spark.Sql.Functions;
    ```
 
-1. 将以下代码添加到文件命名空间。 稍后在程序中使用 s_referenceData  基于日期进行筛选。
+1. 将以下代码添加到文件命名空间。 稍后在程序中使用 s_referenceData 基于日期进行筛选。
 
    ```csharp
    static readonly DateTime s_referenceDate = new DateTime(2015, 10, 20);
@@ -131,7 +131,7 @@ Spark SQL 允许对数据进行 SQL 调用。 常见的方法是将用户定义�
    groupedDF.OrderBy(Desc("avg(forked_from)")).Show();
    ```
 
-1. 下一个代码块显示最近项目的更新情况。 注册名为“MyUDF”  的新用户定义的函数，并将其与在教程开头声明的日期 s_referenceDate  进行比较。 将每个项目的日期与参考日期进行比较。 然后，使用 Spark SQL 对每个数据行调用 UDF，以分析数据集中的每个项目。
+1. 下一个代码块显示最近项目的更新情况。 注册名为“MyUDF”的新用户定义的函数，并将其与在教程开头声明的日期 s_referenceDate 进行比较。 将每个项目的日期与参考日期进行比较。 然后，使用 Spark SQL 对每个数据行调用 UDF，以分析数据集中的每个项目。
 
    ```csharp
    spark.Udf().Register<string, bool>(
@@ -163,7 +163,7 @@ Spark SQL 允许对数据进行 SQL 调用。 常见的方法是将用户定义�
 
 ## <a name="get-the-code"></a>获取代码
 
-可在 GitHub 上查看[完整解决方案](https://github.com/dotnet/spark/blob/master/examples/Microsoft.Spark.CSharp.Examples/Sql/Batch/GitHubProjects.cs)。
+可在 GitHub 上查看[完整解决方案](https://github.com/dotnet/spark/blob/main/examples/Microsoft.Spark.CSharp.Examples/Sql/Batch/GitHubProjects.cs)。
 
 ## <a name="next-steps"></a>后续步骤
 

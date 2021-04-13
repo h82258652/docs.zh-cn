@@ -3,12 +3,12 @@ title: 什么是托管代码？
 description: 了解托管代码为何是其执行由运行时（公共语言运行时 (CLR)）管理的代码。
 ms.date: 06/20/2016
 ms.assetid: 20bb7ea8-192e-4a96-8ef3-e10e1950fd3d
-ms.openlocfilehash: 3e2a6576f84890afd35d74b2f0f5fb352a90236a
-ms.sourcegitcommit: 965a5af7918acb0a3fd3baf342e15d511ef75188
+ms.openlocfilehash: 10036ab92718aa56a068c7515dec4302a5c3ac9c
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94825892"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106498512"
 ---
 # <a name="what-is-managed-code"></a>什么是“托管代码”？
 
@@ -37,5 +37,5 @@ ms.locfileid: "94825892"
 ## <a name="more-resources"></a>更多资源
 
 * [.NET Framework 概述](../framework/get-started/overview.md)
-* [不安全代码和指针](../csharp/programming-guide/unsafe-code-pointers/index.md)
+* [不安全代码和指针](../csharp/language-reference/unsafe-code.md)
 * [本机互操作性](./native-interop/index.md)

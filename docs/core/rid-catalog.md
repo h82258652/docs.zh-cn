@@ -2,12 +2,12 @@
 title: .NET 运行时标识符 (RID) 目录
 description: 了解运行时标识符 (RID) 及如何在 .NET 中使用 RID。
 ms.date: 01/28/2021
-ms.openlocfilehash: 15a2be8d3c2a903011e298d99c838baef731b9c2
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: 87fbad990fce5431769fa1631be7e079c2eb27a5
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104875091"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106496665"
 ---
 # <a name="net-rid-catalog"></a>.NET RID 目录
 
@@ -39,7 +39,7 @@ RID 是运行时标识符的缩写。 RID 值用于标识应用程序运行所�
 
 ## <a name="rid-graph"></a>RID 图表
 
-RID 图表或运行时回退图表是互相兼容的 RID 列表。 [Microsoft.NETCore.Platforms](https://www.nuget.org/packages/Microsoft.NETCore.Platforms/) 包中定义了 RID。 可以在 `dotnet/runtime` 存储库的 [runtime.json](https://github.com/dotnet/runtime/blob/main/src/libraries/Microsoft.NETCore.Platforms/pkg/runtime.json) 文件中查看支持的 RID 列表和 RID 图表。 在此文件中，可以看到除基 RID 以外的所有 RID 均包含 `"#import"` 语句。 这些语句指示的是兼容的 RID。
+RID 图表或运行时回退图表是互相兼容的 RID 列表。 [Microsoft.NETCore.Platforms](https://www.nuget.org/packages/Microsoft.NETCore.Platforms/) 包中定义了 RID。 可以在 `dotnet/runtime` 存储库的 [runtime.json](https://github.com/dotnet/runtime/blob/main/src/libraries/Microsoft.NETCore.Platforms/src/runtime.json) 文件中查看支持的 RID 列表和 RID 图表。 在此文件中，可以看到除基 RID 以外的所有 RID 均包含 `"#import"` 语句。 这些语句指示的是兼容的 RID。
 
 NuGet 还原包时，它将尝试找到指定运行时的完全匹配项。
 如果未找到完全匹配项，NuGet 将返回此图表，直至它根据 RID 图表找到最相近的兼容系统。
@@ -80,7 +80,7 @@ NuGet 还原包时，它将尝试找到指定运行时的完全匹配项。
 ## <a name="using-rids"></a>使用 RID
 
 若要使用 RID，必须知道有哪些 RID。 新值将定期添加到该平台。
-若要获取最新的完整版，请参阅 `dotnet/runtime` 存储库中的 [runtime.json](https://github.com/dotnet/runtime/blob/main/src/libraries/Microsoft.NETCore.Platforms/pkg/runtime.json) 文件。
+若要获取最新的完整版，请参阅 `dotnet/runtime` 存储库中的 [runtime.json](https://github.com/dotnet/runtime/blob/main/src/libraries/Microsoft.NETCore.Platforms/src/runtime.json) 文件。
 
 可移植 RID 是添加到 RID 图表的值，未绑定到特定的版本或 OS 发行。 它们是首选选项，尤其是在处理多个 Linux 发行版时，因为大多数发行版 RID 都映射到可移植的 RID。
 
@@ -88,7 +88,7 @@ NuGet 还原包时，它将尝试找到指定运行时的完全匹配项。
 
 ## <a name="windows-rids"></a>Windows RID
 
-仅列出了公共值。 若要获取最新的完整版，请参阅 `dotnet/runtime` 存储库中的 [runtime.json](https://github.com/dotnet/runtime/blob/main/src/libraries/Microsoft.NETCore.Platforms/pkg/runtime.json) 文件。
+仅列出了公共值。 若要获取最新的完整版，请参阅 `dotnet/runtime` 存储库中的 [runtime.json](https://github.com/dotnet/runtime/blob/main/src/libraries/Microsoft.NETCore.Platforms/src/runtime.json) 文件。
 
 - 可移植
   - `win-x64`
@@ -112,7 +112,7 @@ NuGet 还原包时，它将尝试找到指定运行时的完全匹配项。
 
 ## <a name="linux-rids"></a>Linux RID
 
-仅列出了公共值。 若要获取最新的完整版，请参阅 `dotnet/runtime` 存储库中的 [runtime.json](https://github.com/dotnet/runtime/blob/main/src/libraries/Microsoft.NETCore.Platforms/pkg/runtime.json) 文件。 运行以下未列出的发行版的设备可能适用于其中一个可移植 RID。 例如，可以将运行未列出的 Linux 发行版的 Raspberry Pi 设备定向为使用 `linux-arm`。
+仅列出了公共值。 若要获取最新的完整版，请参阅 `dotnet/runtime` 存储库中的 [runtime.json](https://github.com/dotnet/runtime/blob/main/src/libraries/Microsoft.NETCore.Platforms/src/runtime.json) 文件。 运行以下未列出的发行版的设备可能适用于其中一个可移植 RID。 例如，可以将运行未列出的 Linux 发行版的 Raspberry Pi 设备定向为使用 `linux-arm`。
 
 - 可移植
   - `linux-x64`（大多数桌面发行版，如 CentOS、Debian、Fedora、Ubuntu 及派生版本）
@@ -131,7 +131,7 @@ NuGet 还原包时，它将尝试找到指定运行时的完全匹配项。
 
 ## <a name="macos-rids"></a>macOS RID
 
-macOS RID 使用较早的“OSX”品牌。 仅列出了公共值。 若要获取最新的完整版，请参阅 `dotnet/runtime` 存储库中的 [runtime.json](https://github.com/dotnet/runtime/blob/main/src/libraries/Microsoft.NETCore.Platforms/pkg/runtime.json) 文件。
+macOS RID 使用较早的“OSX”品牌。 仅列出了公共值。 若要获取最新的完整版，请参阅 `dotnet/runtime` 存储库中的 [runtime.json](https://github.com/dotnet/runtime/blob/main/src/libraries/Microsoft.NETCore.Platforms/src/runtime.json) 文件。
 
 - 可移植
   - `osx-x64`（最低 OS 版本为 macOS 10.12 Sierra）

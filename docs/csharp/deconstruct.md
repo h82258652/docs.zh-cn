@@ -2,14 +2,13 @@
 title: 析构元组和其他类型
 description: 了解如何析构元组和其他类型。
 ms.technology: csharp-fundamentals
-ms.date: 11/23/2017
-ms.assetid: 0b0c4b0f-4a47-4f66-9b8e-f5c63b195960
-ms.openlocfilehash: 5aaf7157b87de4f67f6e4beba18794a6dd13b6d0
-ms.sourcegitcommit: 65af0f0ad316858882845391d60ef7e303b756e8
+ms.date: 03/22/2021
+ms.openlocfilehash: acacfb6a9401a3a888f9b8226798c95578f9fa45
+ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585346"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104875819"
 ---
 # <a name="deconstructing-tuples-and-other-types"></a>析构元组和其他类型
 
@@ -65,7 +64,7 @@ var (name, address, city, zip) = contact.GetAddressInfo();
 
 ## <a name="deconstructing-user-defined-types"></a>析构用户定义类型
 
-对于非元组类型的解构，C# 不提供内置支持。 但是，用户作为类、结构或接口的创建者，可通过实现一个或多个 `Deconstruct`方法来析构该类型的实例。 该方法返回 void，且要析构的每个值由方法签名中的 [out](language-reference/keywords/out-parameter-modifier.md) 参数指示。 例如，下面的 `Person` 类的 `Deconstruct` 方法返回名字、中间名和姓氏：
+除了 [`record`](#deconstructing-a-record-type) 和 [DictionaryEntry](xref:System.Collections.DictionaryEntry.Deconstruct%2A) 类型，C# 不提供析构非元组类型的内置支持。 但是，用户作为类、结构或接口的创建者，可通过实现一个或多个 `Deconstruct`方法来析构该类型的实例。 该方法返回 void，且要析构的每个值由方法签名中的 [out](language-reference/keywords/out-parameter-modifier.md) 参数指示。 例如，下面的 `Person` 类的 `Deconstruct` 方法返回名字、中间名和姓氏：
 
 [!code-csharp[Class-deconstruct](../../samples/snippets/csharp/programming-guide/deconstructing-tuples/deconstruct-class1.cs#1)]
 
@@ -98,6 +97,10 @@ var (name, address, city, zip) = contact.GetAddressInfo();
 以下示例为 <xref:System.Reflection.PropertyInfo?displayProperty=nameWithType> 类定义了两个 `Deconstruct` 扩展方法。 第一个方法返回一组值，指示属性的特征，包括其类型、是静态还是实例、是否为只读，以及是否已编制索引。 第二个方法指示属性的可访问性。 因为 get 和 set 访问器的可访问性可能不同，所以布尔值指示属性是否具有单独的 get 和 set 访问器，如果是，则指示它们是否具有相同的可访问性。 如果只有一个访问器，或者 get 和 set 访问器具有相同的可访问性，则 `access` 变量指示整个属性的可访问性。 否则，get 和 set 访问器的可访问性由 `getAccess` 和 `setAccess` 变量指示。
 
 [!code-csharp[Extension-deconstruct](../../samples/snippets/csharp/programming-guide/deconstructing-tuples/deconstruct-extension1.cs)]
+
+## <a name="deconstructing-a-record-type"></a>析构 `record` 类型
+
+使用两个或多个位置参数声明[记录](language-reference/builtin-types/record.md)类型时，编译器将为 `record` 声明中的每个位置参数创建一个带有 `out` 参数的 `Deconstruct` 方法。 有关详细信息，请参阅[属性定义的位置语法](language-reference/builtin-types/record.md#positional-syntax-for-property-definition)和[派生记录中的解构函数行为](language-reference/builtin-types/record.md#deconstructor-behavior-in-derived-records)。
 
 ## <a name="see-also"></a>请参阅
 

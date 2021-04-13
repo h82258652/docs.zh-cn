@@ -1,15 +1,14 @@
 ---
 title: 中断性变更：身份验证：标记为已过时的 AzureAD.UI 和 AzureADB2C.UI API 和包
 description: 了解 ASP.NET Core 5.0 中的以下中断性变更：身份验证：标记为已过时的 AzureAD.UI 和 AzureADB2C.UI API 和包
-author: scottaddie
 ms.author: scaddie
 ms.date: 10/01/2020
-ms.openlocfilehash: c977ba4d6e34fc5f11133bdd1446a94d54efcb63
-ms.sourcegitcommit: d8020797a6657d0fbbdff362b80300815f682f94
+ms.openlocfilehash: 179b0b248131a7c02c5f79fbba4562be0ad49d77
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95759283"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106498264"
 ---
 # <a name="authentication-azureadui-and-azureadb2cui-apis-and-packages-marked-obsolete"></a>身份验证：标记为已过时的 AzureAD.UI 和 AzureADB2C.UI API 和包
 

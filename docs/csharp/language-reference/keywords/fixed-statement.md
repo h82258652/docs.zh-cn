@@ -7,16 +7,16 @@ f1_keywords:
 - fixed
 helpviewer_keywords:
 - fixed keyword [C#]
-ms.openlocfilehash: 05505916ab3837d2c433ec420d7928a8ee883fa8
-ms.sourcegitcommit: d579fb5e4b46745fd0f1f8874c94c6469ce58604
+ms.openlocfilehash: 2af9c4311e8326d6df933ec5d4c38354fe021e5c
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89139718"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106497562"
 ---
 # <a name="fixed-statement-c-reference"></a>fixed 语句（C# 参考）
 
-`fixed` 语句可防止垃圾回收器重新定位可移动的变量。 `fixed` 语句仅允许存在于[不安全的](unsafe.md)上下文中。 还可以使用 `fixed` 关键字创建[固定大小的缓冲区](../../programming-guide/unsafe-code-pointers/fixed-size-buffers.md)。
+`fixed` 语句可防止垃圾回收器重新定位可移动的变量。 `fixed` 语句仅允许存在于[不安全的](unsafe.md)上下文中。 还可以使用 `fixed` 关键字创建[固定大小的缓冲区](../unsafe-code.md#fixed-size-buffers)。
 
 `fixed` 语句将为托管变量设置一个指针，并在该语句的执行过程中“单边锁定”该变量。 仅可在 `fixed` 上下文中使用指向可移动托管变量的指针。 如果没有 `fixed` 上下文，垃圾回收可能会不可预测地重定位变量。 C# 编译器只允许将指针分配给 `fixed` 语句中的托管变量。
 
@@ -75,5 +75,5 @@ fixed (byte* ps = srcarray, pd = dstarray)
 - [C# 编程指南](../../programming-guide/index.md)
 - [C# 关键字](index.md)
 - [unsafe](unsafe.md)
-- [指针类型](../../programming-guide/unsafe-code-pointers/pointer-types.md)
-- [固定大小的缓冲区](../../programming-guide/unsafe-code-pointers/fixed-size-buffers.md)
+- [指针类型](../unsafe-code.md#pointer-types)
+- [固定大小的缓冲区](../unsafe-code.md#fixed-size-buffers)

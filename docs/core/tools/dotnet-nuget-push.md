@@ -3,12 +3,12 @@ title: dotnet nuget push 命令
 description: dotnet nuget push 命令可将包推送到服务器并发布。
 author: karann-msft
 ms.date: 02/14/2020
-ms.openlocfilehash: 92e2593633343bda6990ca51d593455ff13f0df7
-ms.sourcegitcommit: 0bb8074d524e0dcf165430b744bb143461f17026
+ms.openlocfilehash: 71bc14fa729945b3d1e1508d014287cc5355f8cc
+ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103478183"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105637554"
 ---
 # <a name="dotnet-nuget-push"></a>dotnet nuget push
 
@@ -92,7 +92,7 @@ dotnet nuget push -h|--help
 
 - **`-t|--timeout <TIMEOUT>`**
 
-  指定推送到服务器的超时（秒）。 默认值为 300 秒（5 分钟）。 指定为 0（零秒）将应用默认值。
+  指定推送到服务器的超时（秒）。 默认值为 300 秒（5 分钟）。 指定 0 时应用默认值。
 
 ## <a name="examples"></a>示例
 

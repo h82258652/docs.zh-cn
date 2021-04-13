@@ -3,12 +3,12 @@ title: 垃圾回收器配置设置
 description: 了解用于配置垃圾回收器如何为 .NET Core 应用管理内存的运行时设置。
 ms.date: 07/10/2020
 ms.topic: reference
-ms.openlocfilehash: 1bae00d2fc6e80811986bbb111f38582720f8487
-ms.sourcegitcommit: 872ca41d1c26f39d0aef57cc365d09503bac780d
+ms.openlocfilehash: 17df3ec8473750edfca4999972c56be1e8a5feec
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106288066"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106496652"
 ---
 # <a name="run-time-configuration-options-for-garbage-collection"></a>用于垃圾回收的运行时配置选项
 
@@ -377,7 +377,7 @@ runtimeconfig.json 文件：
 | | 设置名 | 值 | 引入的版本 |
 | - | - | - | - |
 | **runtimeconfig.json** | `System.GC.HighMemoryPercent` | 十进制值 | .NET 5.0 |
-| **环境变量** | `COMPlus_GCHighMemPercent` | 十六进制值 | |
+| **环境变量** | `COMPlus_GCHighMemPercent` | 十六进制值 | .NET Core 3.0<br/>.NET Framework 4.7.2 |
 
 > [!TIP]
 > 如果要在 runtimeconfig.template.json 中设置该选项，请指定一个十进制值。 如果要将选项设置为一个环境变量，请指定一个十六进制值。 例如，要将高内存阈值设置为 75%，JSON 文件的值将为 75，而环境变量的值为 0x4B 或 4B。
@@ -427,7 +427,7 @@ runtimeconfig.json 文件：
 
 | | 设置名 | 值 | 引入的版本 |
 | - | - | - | - |
-| **runtimeconfig.json** | 不可用 | 空值 | 不可用 |
+| **runtimeconfig.json** | 不可用 | 不适用 | 不可用 |
 | **环境变量** | `COMPlus_GCLargePages` | `0` - 禁用<br/>`1` - 启用 | .NET Core 3.0 |
 
 ## <a name="allow-large-objects"></a>允许大型对象
@@ -438,7 +438,7 @@ runtimeconfig.json 文件：
 
 | | 设置名 | 值 | 引入的版本 |
 | - | - | - | - |
-| **runtimeconfig.json** | 不可用 | 空值 | 不可用 |
+| **runtimeconfig.json** | 不可用 | 不适用 | 不可用 |
 | **环境变量** | `COMPlus_gcAllowVeryLargeObjects` | `1` - 启用<br/> `0` - 禁用 | .NET Core 1.0 |
 | **.NET Framework 的 app.config** | [gcAllowVeryLargeObjects](../../framework/configure-apps/file-schema/runtime/gcallowverylargeobjects-element.md) | `1` - 启用<br/> `0` - 禁用 | .NET Framework 4.5 |
 
@@ -476,5 +476,5 @@ runtimeconfig.json 文件：
 
 | | 设置名 | 值 | 引入的版本 |
 | - | - | - | - |
-| **runtimeconfig.json** | 不可用 | 空值 | 不可用 |
+| **runtimeconfig.json** | 不可用 | 不适用 | 不可用 |
 | **环境变量** | `COMPlus_GCName` | string_path | .NET Core 2.0 |

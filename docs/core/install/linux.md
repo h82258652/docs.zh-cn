@@ -4,12 +4,12 @@ description: 了解哪些 Linux 发行版支持在 Linux 上安装 .NET。
 author: adegeo
 ms.author: adegeo
 ms.date: 01/06/2021
-ms.openlocfilehash: 27be7151d95810d8cc607564d5c0ce8dfe5b9ed8
-ms.sourcegitcommit: f2ab02d9a780819ca2e5310bbcf5cfe5b7993041
+ms.openlocfilehash: 2b79bccf747d37c368b61eb17d3472d75bd665b3
+ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99506274"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104873713"
 ---
 # <a name="install-net-on-linux"></a>在 Linux 上安装 .NET
 
@@ -55,6 +55,7 @@ ms.locfileid: "99506274"
 
 | Alpine                      | .NET Core 2.1 | .NET Core 3.1 | .NET 5.0 |
 |-----------------------------|---------------|---------------|----------------|
+| ✔️ [3.13](linux-alpine.md)  | ✔️ 2.1        | ✔️ 3.1        | ✔️ 5.0 |
 | ✔️ [3.12](linux-alpine.md)  | ✔️ 2.1        | ✔️ 3.1        | ✔️ 5.0 |
 | ✔️ [3.11](linux-alpine.md)  | ✔️ 2.1        | ✔️ 3.1        | ✔️ 5.0 |
 | ✔️ [3.10](linux-alpine.md)  | ✔️ 2.1        | ✔️ 3.1        | ❌ 5.0 |

@@ -12,12 +12,12 @@ helpviewer_keywords:
 - JSON Serializer, JSON Reader, JSON Writer
 - Converter, JSON Converter, DateTime Converter
 - ISO, ISO 8601, ISO 8601-1:2019
-ms.openlocfilehash: 3f8161c40f21428a4a22bef09582754069f3a2b6
-ms.sourcegitcommit: 965a5af7918acb0a3fd3baf342e15d511ef75188
+ms.openlocfilehash: 6b4e79e6c666731e313ed41e25f601df4158b8d4
+ms.sourcegitcommit: 4b7f6b348c986556ef805cb6baacfd5b9ec18ed0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94817531"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107075415"
 ---
 # <a name="datetime-and-datetimeoffset-support-in-systemtextjson"></a>System.Text.Json 中的 DateTime 和 DateTimeOffset 支持
 
@@ -102,6 +102,12 @@ ms.locfileid: "94817531"
 
 [!code-csharp[example-showing-datetime-parse-as-fallback](~/samples/snippets/standard/datetime/json/csharp/datetime-converter-examples/example3/Program.cs)]
 
+#### <a name="using-unix-epoch-date-format"></a>使用 Unix epoch 日期格式
+
+下面的转换器用时区格式处理 Unix epoch (值，如 `/Date(1590863400000-0700)/`) ：
+
+:::code language="csharp" source="../serialization/snippets/system-text-json-how-to-5-0/csharp/CustomConverterUnixEpochDate.cs" id="ConverterOnly":::
+
 ### <a name="when-writing-with-xrefsystemtextjsonutf8jsonwriter"></a>写入时 <xref:System.Text.Json.Utf8JsonWriter>
 
 如果要使用编写自定义 <xref:System.DateTime> 或 <xref:System.DateTimeOffset> 文本表示形式 <xref:System.Text.Json.Utf8JsonWriter> ，可以将自定义表示形式设置为 <xref:System.String> 、 `ReadOnlySpan<Byte>` 、 `ReadOnlySpan<Char>` 或 <xref:System.Text.Json.JsonEncodedText> ，然后将其传递给相应的 <xref:System.Text.Json.Utf8JsonWriter.WriteStringValue%2A?displayProperty=nameWithType> 或 <xref:System.Text.Json.Utf8JsonWriter.WriteString%2A?displayProperty=nameWithType> 方法。
@@ -124,11 +130,11 @@ ms.locfileid: "94817531"
 
 在中实现的扩展 ISO 8601-1:2019 配置文件 <xref:System.Text.Json> 定义了日期和时间表示的以下组件。 这些组件用于定义分析和格式设置 <xref:System.DateTime> 和表示形式时支持的各种粒度级别 <xref:System.DateTimeOffset> 。
 
-| 组件       | 格式                      | 说明                                                                     |
+| 组件       | 格式                      | 描述                                                                     |
 |-----------------|-----------------------------|---------------------------------------------------------------------------------|
 | 年龄            | “yyyy”                      | 0001-9999                                                                       |
-| Month           | “MM”                        | 01-12                                                                           |
-| 天             | “dd”                        | 01-28、01-29、01-30、01-31 （基于月份/年份）                                  |
+| 月份           | “MM”                        | 01-12                                                                           |
+| 日期             | “dd”                        | 01-28、01-29、01-30、01-31 （基于月份/年份）                                  |
 | 小时            | “HH”                        | 00-23                                                                           |
 | Minute          | “mm”                        | 00-59                                                                           |
 | 秒          | “ss”                        | 00-59                                                                           |

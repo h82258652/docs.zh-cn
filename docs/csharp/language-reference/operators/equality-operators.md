@@ -15,12 +15,12 @@ helpviewer_keywords:
 - inequality operator [C#]
 - not equals operator [C#]
 - '!= operator [C#]'
-ms.openlocfilehash: 39461157c33fea0effb5c8808ded1c9981900e17
-ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
+ms.openlocfilehash: ee45869dff19712d8e4ef30f2fc01c2d4633acf1
+ms.sourcegitcommit: e7e0921d0a10f85e9cb12f8b87cc1639a6c8d3fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93063210"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255449"
 ---
 # <a name="equality-operators-c-reference"></a>相等运算符（C# 参考）
 
@@ -55,7 +55,7 @@ ms.locfileid: "93063210"
 
 ### <a name="record-types-equality"></a>记录类型相等性
 
-在 C# 9.0 和更高版本中提供，[记录类型](../../whats-new/csharp-9.md#record-types)支持 `==` 和 `!=` 运算符，这些运算符默认提供值相等性语义。 也就是说，当两个记录操作数均为 `null` 或所有字段的对应值和自动实现的属性相等时，两个记录操作数都相等。
+在 C# 9.0 和更高版本中提供，[记录类型](../builtin-types/record.md)支持 `==` 和 `!=` 运算符，这些运算符默认提供值相等性语义。 也就是说，当两个记录操作数均为 `null` 或所有字段的对应值和自动实现的属性相等时，两个记录操作数都相等。
 
 :::code language="csharp" source="snippets/shared/EqualityOperators.cs" id="RecordTypesEquality":::
 

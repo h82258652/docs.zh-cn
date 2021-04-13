@@ -2,12 +2,12 @@
 title: Docker 应用程序的外部循环 DevOps 工作流步骤
 description: 了解 DevOps 工作流的“外部循环”步骤
 ms.date: 01/06/2021
-ms.openlocfilehash: bfac2d2c7866bfd11cd18201a93cb17a72cae588
-ms.sourcegitcommit: 7ef96827b161ef3fcde75f79d839885632e26ef1
+ms.openlocfilehash: 8bca36d5aa0fef95d684a96a5c6017ec15956358
+ms.sourcegitcommit: 5ce37699c2a51ed173171813be68ef7577b1aba5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97970292"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104881089"
 ---
 # <a name="steps-in-the-outer-loop-devops-workflow-for-a-docker-application"></a>Docker 应用程序的外部循环 DevOps 工作流步骤
 
@@ -77,7 +77,7 @@ Visual Studio Azure DevOps Services 包含可在 CI/CD 管道中使用的生成�
 
 通过这些 Visual Studio Team Services 任务、在 Azure 中预配的生成 Linux Docker 主机/VM 和首选 Docker 注册表（Azure 容器注册表、Docker Hub、专用 Docker DTR 或任何其他 Docker 注册表），你可以非常一致的方式来组装 Docker CI 管道。
 
-要求：*_
+***要求：***
 
 - Azure DevOps Services，或用于本地安装的 Team Foundation Server 2015 Update 3 或更高版本。
 
@@ -85,7 +85,8 @@ Visual Studio Azure DevOps Services 包含可在 CI/CD 管道中使用的生成�
 
   创建其中某个代理的简单方法是使用 Docker 运行基于 Azure DevOps Services 代理 Docker 映像的容器。
 
-> [!INFORMATION] 要了解有关组装 Azure DevOps Services Docker CI 管道的详细信息和查看演练，请访问以下站点：
+> [!TIP]
+> 要了解有关组装 Azure DevOps Services Docker CI 管道的详细信息和查看演练，请访问以下站点：
 >
 > - 将 Visual Studio Team Services（现在是 Azure DevOps Services）代理作为 Docker 容器运行：\
 >   <https://hub.docker.com/_/microsoft-azure-pipelines-vsts-agent>
@@ -126,7 +127,7 @@ Visual Studio Azure DevOps Services 包含可在 CI/CD 管道中使用的生成�
 
 ![显示将自定义映像推送到容器注册表的关系图。](./media/docker-application-outer-loop-devops-workflow/docker-push-custom-images.png)
 
-图 5-4。 将自定义映像发布到 Docker 注册表
+**图 5-4**。 将自定义映像发布到 Docker 注册表
 
 在步骤 3 中，对于生成集成和测试 (CI)，可以将生成的 Docker 映像发布到专用或公共注册表。 云供应商提供了多种 Docker 注册表产品/服务，如 Azure 容器注册表、Amazon Web Services 容器注册表、Google 容器注册表、Quay 注册表等。
 
@@ -136,7 +137,8 @@ Visual Studio Azure DevOps Services 包含可在 CI/CD 管道中使用的生成�
 
 **图 5-5**。 使用 Azure DevOps Services 将自定义映像发布到 Docker 注册表
 
-> [!INFORMATION] 有关 Azure 容器注册表的详细信息，请参阅 <https://aka.ms/azurecontainerregistry>。
+> [!TIP]
+> 有关 Azure 容器注册表的详细信息，请参阅 <https://aka.ms/azurecontainerregistry>。
 
 ## <a name="step-4-cd-deploy"></a>步骤 4：CD、部署
 
@@ -196,7 +198,8 @@ Azure DevOps Services 模板使你能够生成包含特定注册表映像摘要�
 
 **图 5-11**。 部署到 ACS DC/OS 的 Docker 部署任务定义
 
-> [!INFORMATION] 要了解有关 Azure DevOps Services 和 Docker 的 CD 管道的更多信息，请访问 <https://azure.microsoft.com/services/devops/pipelines>
+> [!TIP]
+> 如需了解有关 Azure DevOps Services 和 Docker 的 CD 管道的更多信息，请访问 <https://azure.microsoft.com/services/devops/pipelines>
 
 ## <a name="step-5-run-and-manage"></a>步骤 5：运行和管理
 

@@ -3,12 +3,12 @@ title: 教程：编写第一个分析器和代码修补程序
 description: 本教程提供了有关使用 .NET 编译器 SDK (Roslyn API) 生成分析器和代码修补程序的分步说明。
 ms.date: 03/02/2021
 ms.custom: mvc
-ms.openlocfilehash: 7bc2b66367af5e764e77d44dde45a379d1aba938
-ms.sourcegitcommit: 1d3af230ec30d8d061be7a887f6ba38a530c4ece
+ms.openlocfilehash: b712cb4df5ab6dae825407212685cb1a08b2d189
+ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102511941"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105637242"
 ---
 # <a name="tutorial-write-your-first-analyzer-and-code-fix"></a>教程：编写第一个分析器和代码修补程序
 
@@ -259,7 +259,7 @@ using Microsoft.CodeAnalysis.Formatting;
 
 打开单元测试项目中的“MakeConstUnitTests.cs”文件。 该模板会创建两个测试，这些测试遵循分析器和代码修补程序单元测试的两种常见模式。 `TestMethod1` 显示测试模式，确保分析器在不应报告诊断的情况下不会执行此操作。 `TestMethod2` 演示用于报告诊断和运行代码修补程序的模式。
 
-该模板使用 [Microsoft.CodeAnalysis.Testing](https://github.com/dotnet/roslyn-sdk/blob/master/src/Microsoft.CodeAnalysis.Testing/README.md) 包进行单元测试。
+该模板使用 [Microsoft.CodeAnalysis.Testing](https://github.com/dotnet/roslyn-sdk/blob/main/src/Microsoft.CodeAnalysis.Testing/README.md) 包进行单元测试。
 
 > [!TIP]
 > 测试库支持特殊标记语法，其中包括以下内容：
@@ -267,11 +267,11 @@ using Microsoft.CodeAnalysis.Formatting;
 > - `[|text|]`：表示报告 `text` 的诊断信息。 默认情况下，此格式只可用于测试由 `DiagnosticAnalyzer.SupportedDiagnostics` 提供了正好一个 `DiagnosticDescriptor` 的分析器。
 > - `{|ExpectedDiagnosticId:text|}`：表示针对 `text` 报告 <xref:Microsoft.CodeAnalysis.Diagnostic.Id> 为 `ExpectedDiagnosticId` 的诊断信息。
 
-将以下测试方法添加到 `MakeConstUnitTest` 类：
+将 `MakeConstUnitTest` 类中的模板测试替换为以下测试方法：
 
 [!code-csharp[test method for fix test](snippets/how-to-write-csharp-analyzer-code-fix/MakeConst/MakeConst.Test/MakeConstUnitTests.cs#FirstFixTest "test method for fix test")]
 
-运行这两个测试，以确保其通过。 在 Visual Studio 中，通过选择“测试” > “Windows” > “测试资源管理器”来打开“测试资源管理器”。 然后，选择“全部运行”。
+运行此测试，确保测试通过。 在 Visual Studio 中，通过选择“测试” > “Windows” > “测试资源管理器”来打开“测试资源管理器”。 然后，选择“全部运行”。
 
 ## <a name="create-tests-for-valid-declarations"></a>为有效声明创建测试
 
@@ -382,17 +382,17 @@ foreach (VariableDeclaratorSyntax variable in localDeclaration.Declaration.Varia
 
 幸运的是，所有上述 bug 可以使用你刚刚了解的相同技术解决。
 
-若要修复第一个 bug，请先打开“DiagnosticAnalyzer.cs”并找到 foreach 循环，将检查其中每个局部声明的初始值设定项以确保向其分配常量值。 在第一个 foreach 循环之前，立即调用 `context.SemanticModel.GetTypeInfo()` 来检索有关局部声明的声明类型的详细信息：
+若要修复第一个 bug，请先打开“MakeConstAnalyzer.cs”，并找到 foreach 循环，将检查其中每个局部声明的初始值设定项以确保向其分配常量值。 在第一个 foreach 循环之前，立即调用 `context.SemanticModel.GetTypeInfo()` 来检索有关局部声明的声明类型的详细信息：
 
-[!code-csharp[Retrieve type information](snippets/how-to-write-csharp-analyzer-code-fix/MakeConst/MakeConst.Test/MakeConstUnitTests.cs#VariableConvertedType "Retrieve type information")]
+[!code-csharp[Retrieve type information](snippets/how-to-write-csharp-analyzer-code-fix/MakeConst/MakeConst/MakeConstAnalyzer.cs#VariableConvertedType "Retrieve type information")]
 
 然后，在 `foreach` 循环中，检查每个初始值设定项，以确保它可以转换为变量类型。 确保初始值设定项为常量后，添加以下检查：
 
-[!code-csharp[Ensure non-user-defined conversion](snippets/how-to-write-csharp-analyzer-code-fix/MakeConst/MakeConst.Test/MakeConstUnitTests.cs#BailOutOnUserDefinedConversion "Bail-out on user-defined conversion")]
+[!code-csharp[Ensure non-user-defined conversion](snippets/how-to-write-csharp-analyzer-code-fix/MakeConst/MakeConst/MakeConstAnalyzer.cs#BailOutOnUserDefinedConversion "Bail-out on user-defined conversion")]
 
 下一次更改建立在最后一次更改之上。 在第一个 foreach 循环的右大括号前，添加以下代码以检查当常量为字符串或 NULL 时局部声明的类型。
 
-[!code-csharp[Handle special cases](snippets/how-to-write-csharp-analyzer-code-fix/MakeConst/MakeConst.Test/MakeConstUnitTests.cs#HandleSpecialCases "Handle special cases")]
+[!code-csharp[Handle special cases](snippets/how-to-write-csharp-analyzer-code-fix/MakeConst/MakeConst/MakeConstAnalyzer.cs#HandleSpecialCases "Handle special cases")]
 
 必须在代码修复提供程序中编写更多代码以将 `var` 关键字替换为正确类型名称。 返回到 MakeConstCodeFixProvider.cs。 要添加的代码将执行以下步骤：
 
@@ -429,7 +429,7 @@ int k = i + j;
 
 完成这些更改后，仅在前两个变量上有红色波浪线。 将 `const` 同时添加到 `i` 和 `j`，你将获得一个有关 `k` 的新警告，因为它现在可以是 `const`。
 
-祝贺你！ 你已创建第一个 .NET Compiler Platform 扩展来执行即时代码分析，以便检测问题，并提供了用于快速更正的修补程序。 在此过程中，你已了解很多代码 API 是 .NET Compiler Platform SDK (Roslyn API) 的一部分。 可以在我们的示例 GitHub 存储库中根据[完成的示例](https://github.com/dotnet/samples/tree/master/csharp/roslyn-sdk/Tutorials/MakeConst)来检查工作。
+祝贺你！ 你已创建第一个 .NET Compiler Platform 扩展来执行即时代码分析，以便检测问题，并提供了用于快速更正的修补程序。 在此过程中，你已了解很多代码 API 是 .NET Compiler Platform SDK (Roslyn API) 的一部分。 可以在我们的示例 GitHub 存储库中根据[完成的示例](https://github.com/dotnet/samples/tree/main/csharp/roslyn-sdk/Tutorials/MakeConst)来检查工作。
 
 ## <a name="other-resources"></a>其他资源
 

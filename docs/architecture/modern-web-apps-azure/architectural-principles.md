@@ -4,12 +4,12 @@ description: 使用 ASP.NET Core 和 Azure 构建新式 Web 应用程序 | 体�
 author: ardalis
 ms.author: wiwagn
 ms.date: 12/01/2020
-ms.openlocfilehash: f4079e0409c1675e8f8a3e494303683daeef29c1
-ms.sourcegitcommit: 45c7148f2483db2501c1aa696ab6ed2ed8cb71b2
+ms.openlocfilehash: bab860b73f029687873949f1cafed02cfcea7220
+ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96851407"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104873063"
 ---
 # <a name="architectural-principles"></a>体系结构原则
 
@@ -34,7 +34,7 @@ ms.locfileid: "96851407"
 
 ### <a name="dependency-inversion"></a>依赖关系反转
 
-应用程序中的依赖关系方向应该是抽象的方向，而不是实现详细信息的方向。 大部分应用程序都是这样编写的：编译时依赖关系顺着运行时执行的方向流动，从而生成一个直接依赖项关系图。 也就是说，如果模块 A 调用模块 B 中的函数，而模块 B 又调用模块 C 中的函数，则编译时 A 取决于 B，而 B 又取决于 C，如图 4-1 中所示。
+应用程序中的依赖关系方向应该是抽象的方向，而不是实现详细信息的方向。 大部分应用程序都是这样编写的：编译时依赖关系顺着运行时执行的方向流动，从而生成一个直接依赖项关系图。 也就是说，如果类 A 调用类 B 的方法，类 B 调用 C 类的方法，则在编译时，类 A 将取决于类 B，而 B 类又取决于类 C，如图 4-1 所示。
 
 ![直接依赖项关系图](./media/image4-1.png)
 

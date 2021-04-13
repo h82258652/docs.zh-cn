@@ -7,12 +7,12 @@ f1_keywords:
 helpviewer_keywords:
 - record keyword [C#]
 - record type [C#]
-ms.openlocfilehash: 57474caf0f1106380e52da7fcb7608b62a0f23e5
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: 067046a66c6eb1f314c123de8bde2d023f1f374a
+ms.sourcegitcommit: e7e0921d0a10f85e9cb12f8b87cc1639a6c8d3fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104872647"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255111"
 ---
 # <a name="records-c-reference"></a>记录（C# 参考）
 
@@ -48,7 +48,7 @@ ms.locfileid: "104872647"
 
 当你为属性定义使用位置语法时，编译器将创建以下内容：
 
-* 为记录声明中提供的每个位置参数提供一个公共的 init-only 自动实现的属性。 [init-only](../../whats-new/csharp-9.md#init-only-setters) 属性只能在构造函数中或使用属性初始值设定项来设置。
+* 为记录声明中提供的每个位置参数提供一个公共的 init-only 自动实现的属性。 [init-only](../keywords/init.md) 属性只能在构造函数中或使用属性初始值设定项来设置。
 * 主构造函数，它的参数与记录声明上的位置参数匹配。
 * 一个 `Deconstruct` 方法，对记录声明中提供的每个位置参数都有一个 `out` 参数。 只有当有两个或更多的位置参数时，才会提供这个方法。 此方法解构了使用位置语法定义的属性；它忽略了使用标准属性语法定义的属性。
 

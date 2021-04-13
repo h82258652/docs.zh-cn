@@ -1,15 +1,14 @@
 ---
 title: 中断性变更：Kestrel：在不兼容的 Windows 版本上通过 TLS 禁用 HTTP/2
 description: 了解 ASP.NET Core 5.0 中的以下中断性变更：Kestrel：在不兼容的 Windows 版本上通过 TLS 禁用 HTTP/2
-author: scottaddie
 ms.author: scaddie
 ms.date: 10/01/2020
-ms.openlocfilehash: befd393795f3e1859d391bca513dd9856101d295
-ms.sourcegitcommit: d8020797a6657d0fbbdff362b80300815f682f94
+ms.openlocfilehash: b8bbe113b3357508b6af29fa9a4d1431f6a6acea
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95759246"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106498108"
 ---
 # <a name="kestrel-http2-disabled-over-tls-on-incompatible-windows-versions"></a>Kestrel：在不兼容的 Windows 版本上通过 TLS 禁用 HTTP/2
 
@@ -67,7 +66,7 @@ AppContext.SetSwitch("Microsoft.AspNetCore.Server.Kestrel.EnableWindows81Http2",
 
 ## <a name="affected-apis"></a>受影响的 API
 
-None
+无
 
 <!--
 

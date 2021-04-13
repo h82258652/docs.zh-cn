@@ -2,12 +2,12 @@
 title: 日志记录和跟踪 - .NET Core
 description: .NET Core 日志记录和跟踪简介。
 ms.date: 10/12/2020
-ms.openlocfilehash: 70cff297688270d30b9850d123ffc8bb27ef7fbe
-ms.sourcegitcommit: f0fc5db7bcbf212e46933e9cf2d555bb82666141
+ms.openlocfilehash: dfecdad4518c79b605eb4fbe991af07fcba7db1c
+ms.sourcegitcommit: e16315d9f1ff355f55ff8ab84a28915be0a8e42b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582968"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105111083"
 ---
 # <a name="net-core-logging-and-tracing"></a>.NET Core 日志记录和跟踪
 
@@ -72,7 +72,7 @@ ms.locfileid: "100582968"
 
 ## <a name="distributed-tracing"></a>分布式跟踪
 
-[分布式跟踪](./distributed-tracing.md)是在分布式系统中发布和观察跟踪数据的方法。
+[分布式跟踪](./distributed-tracing.md)是一种诊断技术，可帮助工程师找出应用程序中的故障和性能问题，尤其是那些可能跨多个计算机或进程分布的问题。 此技术通过应用程序跟踪请求，将不同应用程序组件完成的工作关联在一起，并将其与应用程序可能为并发请求所做的其他工作分开。
 
 ## <a name="ilogger-and-logging-frameworks"></a>ILogger 和日志记录框架
 

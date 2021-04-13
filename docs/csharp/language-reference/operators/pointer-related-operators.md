@@ -20,12 +20,12 @@ helpviewer_keywords:
 - pointer increment [C#]
 - pointer decrement [C#]
 - pointer comparison [C#]
-ms.openlocfilehash: 2d522e9357fb6da7b8d66a663e99e8858c9dd521
-ms.sourcegitcommit: 0bb8074d524e0dcf165430b744bb143461f17026
+ms.openlocfilehash: 22cd87a62c92dbfacd0b8ebbdd5cbafb92da73ca
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103480382"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106497354"
 ---
 # <a name="pointer-related-operators-c-reference"></a>指针相关运算符（C# 参考）
 
@@ -37,7 +37,7 @@ ms.locfileid: "103480382"
 - 算术运算符 [`+`、`-`、`++` 和 `--`](#pointer-arithmetic-operators)
 - 比较运算符 [`==`、`!=`、`<`、`>`、`<=` 和 `>=`](#pointer-comparison-operators)
 
-有关指针类型的信息，请参阅[指针类型](../../programming-guide/unsafe-code-pointers/pointer-types.md)。
+有关指针类型的信息，请参阅[指针类型](../unsafe-code.md#pointer-types)。
 
 > [!NOTE]
 > 任何带指针的运算都需要使用 [unsafe](../keywords/unsafe.md) 上下文。 必须使用 [AllowUnsafeBlocks](../compiler-options/language.md#allowunsafeblocks) 编译器选项来编译包含不安全块的代码。
@@ -189,7 +189,7 @@ x->y
 
 - [C# 参考](../index.md)
 - [C# 运算符和表达式](index.md)
-- [指针类型](../../programming-guide/unsafe-code-pointers/pointer-types.md)
+- [指针类型](../unsafe-code.md#pointer-types)
 - [unsafe 关键字](../keywords/unsafe.md)
 - [fixed 关键字](../keywords/fixed-statement.md)
 - [stackalloc](stackalloc.md)

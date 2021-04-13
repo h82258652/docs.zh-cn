@@ -1,15 +1,15 @@
 ---
-title: C# 保留的特性：Conditional, Obsolete, AttributeUsage
-ms.date: 04/09/2020
-description: 这些特性由编译器解释，以影响编译器生成的代码
-ms.openlocfilehash: c6d697dd08233ffc88900949998047137ee170a9
-ms.sourcegitcommit: bc293b14af795e0e999e3304dd40c0222cf2ffe4
+title: C# 保留属性：其他
+ms.date: 03/18/2021
+description: 了解影响编译器生成的代码的属性：Conditional、Obsolete、AttributeUsage、ModuleInitializer 和 SkipLocalsInit 属性。
+ms.openlocfilehash: 6b8cda658ec5b3f81a7f903d8cadae0fe30e8ac2
+ms.sourcegitcommit: e16315d9f1ff355f55ff8ab84a28915be0a8e42b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "82021761"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105111306"
 ---
-# <a name="reserved-attributes-conditionalattribute-obsoleteattribute-attributeusageattribute"></a>保留的特性：ConditionalAttribute, ObsoleteAttribute, AttributeUsageAttribute
+# <a name="reserved-attributes-miscellaneous"></a>保留属性：其他
 
 这些特性可应用于代码中的元素。 它们为这些元素添加语义。 编译器使用这些语义来更改其输出，并报告使用你的代码的开发人员可能犯的错误。
 
@@ -95,6 +95,51 @@ ms.locfileid: "82021761"
 :::code language="csharp" source="snippets/NonInheritedAttribute.cs" id="SnippetNonInherited" :::
 
 在本例中，`NonInheritedAttribute` 不会通过继承应用于 `DClass`。
+
+## <a name="moduleinitializer-attribute"></a>`ModuleInitializer` 特性
+
+从 C# 9 开始，`ModuleInitializer` 属性标记程序集加载时运行时调用的方法。 `ModuleInitializer` 是 <xref:System.Runtime.CompilerServices.ModuleInitializerAttribute> 的别名。
+
+`ModuleInitializer` 属性只能应用于以下方法：
+
+* 静态方法。
+* 无参数方法。
+* 返回 `void`。
+* 能够从包含模块（即 `internal` 或 `public`）访问的方法。
+* 不是泛型的方法。
+* 没有包含在泛型类中的方法。
+* 不是本地函数的方法。
+
+`ModuleInitializer` 属性可应用于多种方法。 在这种情况下，运行时调用它们的顺序是确定的，但未指定。
+
+下面的示例阐释了如何使用多个模块初始化表达式方法。 `Init1` 和 `Init2` 方法在 `Main` 之前运行，并且每种方法都将一个字符串添加到 `Text` 属性。 因此，当 `Main` 运行时，`Text` 属性已具有来自两个初始化表达式方法中的字符串。
+
+:::code language="csharp" source="snippets/ModuleInitializerExampleMain.cs" :::
+
+:::code language="csharp" source="snippets/ModuleInitializerExampleModule.cs" :::
+
+源代码生成器有时需要生成初始化代码。 模块初始化表达式为该代码提供了一个标准的驻留位置。
+
+## <a name="skiplocalsinit-attribute"></a>`SkipLocalsInit` 特性
+
+从 C# 9 开始，`SkipLocalsInit` 属性可防止编译器在发出到元数据时设置 `.locals init` 标志。 `SkipLocalsInit` 属性是一个单用途属性，可应用于方法、属性、类、结构、接口或模块，但不能应用于程序集。 `SkipLocalsInit` 是 <xref:System.Runtime.CompilerServices.SkipLocalsInitAttribute> 的别名。
+
+`.locals init` 标志会导致 CLR 将方法中声明的所有局部变量初始化为其默认值。 由于编译器还可以确保在为变量赋值之前永远不使用变量，因此通常不需要使用 `.locals init`。 但是，在某些情况下，额外的零初始化可能会对性能产生显著影响，例如使用 [stackalloc](../operators/stackalloc.md) 在堆栈上分配一个数组时。 在这些情况下，可添加 `SkipLocalsInit` 属性。 如果直接应用于方法，该属性会影响该方法及其所有嵌套函数，包括 lambda 和局部函数。 如果应用于类型或模块，则它会影响嵌套在内的所有方法。 此属性不会影响抽象方法，但会影响为实现生成的代码。
+
+此属性需要 [AllowUnsafeBlocks](../compiler-options/language.md#allowunsafeblocks) 编译器选项。 这是为了发出信号，在某些情况下，代码可以查看未分配的内存（例如，读取未初始化的堆栈分配的内存）。
+
+下面的示例阐释 `SkipLocalsInit` 属性对使用 `stackalloc` 的方法的影响。 该方法显示分配整数数组后内存中的任何内容。
+
+:::code language="csharp" source="snippets/SkipLocalsInitExample.cs" id="ReadUninitializedMemory":::
+
+若要亲自尝试此代码，请在 .csproj 文件中设置 `AllowUnsafeBlocks` 编译器选项：
+
+```xml
+<PropertyGroup>
+  ...
+  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+</PropertyGroup>
+```
 
 ## <a name="see-also"></a>请参阅
 

@@ -1,15 +1,14 @@
 ---
 title: 中断性变更：扩展：影响某些 NuGet 包的包引用更改
 description: 了解 ASP.NET Core 5.0 中的以下中断性变更：扩展：影响某些 NuGet 包的包引用更改
-author: scottaddie
 ms.author: scaddie
 ms.date: 10/01/2020
-ms.openlocfilehash: 4a525d9f7aad4409fd507fcf80c00968ff4b63d4
-ms.sourcegitcommit: d8020797a6657d0fbbdff362b80300815f682f94
+ms.openlocfilehash: 82ee5129d6422d0a5ea4a0f14632a42e779f6ded
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95759139"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106497731"
 ---
 # <a name="extensions-package-reference-changes-affecting-some-nuget-packages"></a>扩展：影响某些 NuGet 包的包引用更改
 
@@ -50,7 +49,7 @@ ms.locfileid: "95759139"
 
 ## <a name="affected-apis"></a>受影响的 API
 
-None
+无
 
 <!--
 
