@@ -112,7 +112,7 @@ items:
         href: programming-guide/classes-and-structs/classes.md
       - name: 析构元组和其他类型
         href: deconstruct.md
-      - name: 接口
+      - name: 界面
         href: programming-guide/interfaces/index.md
       - name: 方法
         href: methods.md
@@ -538,10 +538,10 @@ items:
             href: programming-guide/types/using-type-dynamic.md
           - name: 演练：创建并使用动态对象（C# 和 Visual Basic）
             href: programming-guide/types/walkthrough-creating-and-using-dynamic-objects.md
-      - name: 类、记录或结构
+      - name: 类、结构和记录
         items:
           - name: 概述
-            displayName: 'classes, records'
+            displayName: 'classes, structs, records'
             href: programming-guide/classes-and-structs/index.md
           - name: 类
             href: programming-guide/classes-and-structs/classes.md
@@ -658,7 +658,7 @@ items:
             href: programming-guide/classes-and-structs/anonymous-types.md
           - name: 如何在查询中返回元素属性的子集
             href: programming-guide/classes-and-structs/how-to-return-subsets-of-element-properties-in-a-query.md
-      - name: 接口
+      - name: 界面
         items:
           - name: 概述
             displayName: interfaces
@@ -1075,7 +1075,7 @@ items:
                 href: language-reference/keywords/out-parameter-modifier.md
           - name: 命名空间关键字
             items:
-              - name: namespace
+              - name: 命名空间
                 href: language-reference/keywords/namespace.md
               - name: using
                 items:
