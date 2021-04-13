@@ -2,12 +2,12 @@
 title: 界面
 description: '了解 F # 接口如何指定其他类实现的相关成员集。'
 ms.date: 08/15/2020
-ms.openlocfilehash: 0cef2932045dae401f5aa069107815543457ca4a
-ms.sourcegitcommit: f99115e12a5eb75638abe45072e023a3ce3351ac
+ms.openlocfilehash: ca6ff206758cab12f1a240c4b79ea5143a2a0b7d
+ms.sourcegitcommit: bbc724b72fb6c978905ac715e4033efa291f84dc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557046"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107369629"
 ---
 # <a name="interfaces"></a>界面
 
@@ -62,10 +62,10 @@ let class-name (argument-list) =
 可以通过两种方式指定多个参数： F # 样式和。NET 样式。 对于 .NET 使用者，这两种方法都是相同的，但 F # 样式将强制 F # 调用方使用 F # 样式参数应用程序和。NET 样式将强制 F # 调用方使用元组参数应用程序。
 
 ```fsharp
-type INumeric1 =
+type INumericFSharp =
     abstract Add: x: int -> y: int -> int
 
-type INumeric2 =
+type INumericDotNet =
     abstract Add: x: int * y: int -> int
 ```
 
