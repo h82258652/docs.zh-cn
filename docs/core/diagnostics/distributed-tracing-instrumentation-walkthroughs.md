@@ -3,12 +3,12 @@ title: 添加分布式跟踪检测 - .NET
 description: 在 .NET 应用程序中检测分布式跟踪的教程
 ms.topic: tutorial
 ms.date: 03/14/2021
-ms.openlocfilehash: eeb065d1ac39dd34d9b27e2ad63195818d0d6493
-ms.sourcegitcommit: e16315d9f1ff355f55ff8ab84a28915be0a8e42b
+ms.openlocfilehash: 4eb791499855a1479393ef2e00d86316a81409a1
+ms.sourcegitcommit: 44af69720863bd09bd7a4509bf1ec119466ba6e8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105111501"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106231148"
 ---
 # <a name="adding-distributed-tracing-instrumentation"></a>添加分布式跟踪检测
 
@@ -121,7 +121,7 @@ namespace Sample.DistributedTracing
 
         static async Task Main(string[] args)
         {
-            ...    
+            ...
 ```
 
 #### <a name="best-practices"></a>最佳实践
@@ -286,7 +286,7 @@ OpenTelemetry 允许每个 Activity 报告代表工作的通过/失败结果的[
                 activity?.AddEvent(new ActivityEvent("Part way there"));
                 await StepTwo();
                 activity?.AddEvent(new ActivityEvent("Done now"));
-                
+
                 // Pretend something went wrong
                 activity?.SetTag("otel.status_code", "ERROR");
                 activity?.SetTag("otel.status_description", "Use this text give more information about the error");
