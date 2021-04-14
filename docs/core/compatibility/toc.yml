@@ -41,6 +41,8 @@ items:
                     href: aspnet-core/6.0/messagepack-library-change.md
                   - name: 中间件：HTTPS 重定向中间件会在不明确的 HTTPS 端口上引发异常
                     href: aspnet-core/6.0/middleware-ambiguous-https-ports-exception.md
+                  - name: Razor：编译器生成单一程序集
+                    href: aspnet-core/6.0/razor-compiler-doesnt-produce-views-assembly.md
                   - name: Razor：RazorEngine API 标记为已过时
                     href: aspnet-core/6.0/razor-engine-apis-obsolete.md
               - name: Core .NET 库
@@ -351,6 +353,8 @@ items:
                     href: aspnet-core/6.0/messagepack-library-change.md
                   - name: 中间件：HTTPS 重定向中间件会在不明确的 HTTPS 端口上引发异常
                     href: aspnet-core/6.0/middleware-ambiguous-https-ports-exception.md
+                  - name: Razor：编译器生成单一程序集
+                    href: aspnet-core/6.0/razor-compiler-doesnt-produce-views-assembly.md
                   - name: Razor：RazorEngine API 标记为已过时
                     href: aspnet-core/6.0/razor-engine-apis-obsolete.md
               - name: .NET 5
