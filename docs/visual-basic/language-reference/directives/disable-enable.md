@@ -6,16 +6,24 @@ helpviewer_keywords:
 - directives, enable
 - directives, disable
 - disable directive
-ms.openlocfilehash: d600cc959639a3f70bca5678fbc81aae0806c9cc
-ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
+ms.openlocfilehash: 14f8fbd0ac49829f99643d3eb0ac3149ddd9d647
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99797258"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494774"
 ---
 # <a name="disable-and-enable-directives-visual-basic"></a>#Disable 和 #Enable 指令 (Visual Basic) 
 
-`#Disable`和 `#Enable` 指令是 Visual Basic 源代码编译器指令。 它们用于为代码区域禁用和重新启用特定警告。
+`#Disable`和 `#Enable` 指令是 Visual Basic 源代码编译器指令。 它们用于为代码区域禁用和重新启用所有或特定的警告。
+
+```vb
+    Dim variable1    'warning BC42024: Unused local variable: 'variable1'.
+#Disable Warning
+    Dim variable2    'no warning
+#Enable Warning 
+    Dim variable3    'warning BC42024: Unused local variable: 'variable3'.
+```
 
 ```vb
 ' Suppress warning about no awaits in this method.

@@ -3,12 +3,12 @@ description: 了解详细信息： WCF 中使用的安全概念
 title: WCF 中使用的安全概念
 ms.date: 03/30/2017
 ms.assetid: 3b9dfcf5-4bf1-4f35-9070-723171c823a1
-ms.openlocfilehash: 5ad5b80c69e5dec5675879984fbcd2585b295dd4
-ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
+ms.openlocfilehash: 93c97bb7429e44533ad964728bbe5a0dd7989c28
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99779759"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494761"
 ---
 # <a name="security-concepts-used-in-wcf"></a>WCF 中使用的安全概念
 
@@ -28,7 +28,7 @@ Microsoft 模式和实践组编写了一篇称为 [WCF 安全指南](https://arc
   
 ### <a name="kerberos-protocol"></a>Kerberos 协议  
 
- *Kerberos 协议* 是一种用于创建在 Windows 域上对用户进行身份验证的安全机制的规范。 它允许用户建立针对域中的其他实体的安全上下文。 Windows 2000 及版本更高的平台默认情况下使用 Kerberos 协议。 在创建将与 intranet 客户端进行交互的服务时，理解系统的机制非常有用。 此外，由于 *Web Services 安全性 Kerberos 绑定* 已广泛发布，因此可以使用 kerberos 协议与 Internet 客户端通信， (也就是说，kerberos 协议可在) 互操作。 有关如何在 Windows 中实现 Kerberos 协议的详细信息，请参阅  [Microsoft kerberos](/windows/win32/secauthn/microsoft-kerberos)。  
+ *Kerberos 协议* 是一种用于创建在 Windows 域上对用户进行身份验证的安全机制的规范。 它允许用户建立针对域中的其他实体的安全上下文。 默认情况下，Windows 使用 Kerberos 协议。 在创建将与 intranet 客户端进行交互的服务时，理解系统的机制非常有用。 此外，由于 *Web Services 安全性 Kerberos 绑定* 已广泛发布，因此可以使用 kerberos 协议与 Internet 客户端通信， (也就是说，kerberos 协议可在) 互操作。 有关如何在 Windows 中实现 Kerberos 协议的详细信息，请参阅  [Microsoft kerberos](/windows/win32/secauthn/microsoft-kerberos)。  
   
 ### <a name="x509-certificates"></a>X.509 证书  
 
@@ -54,7 +54,7 @@ Microsoft 模式和实践组编写了一篇称为 [WCF 安全指南](https://arc
   
  有关这些主题的详细信息，请参阅 [访问控制机制](access-control-mechanisms.md)  
   
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 - [安全性概述](security-overview.md)
 - [Windows Server App Fabric 的安全模型](/previous-versions/appfabric/ee677202(v=azure.10))

@@ -17,18 +17,18 @@ helpviewer_keywords:
 - ULong data type
 - UL literal type characters [Visual Basic]
 ms.assetid: 017e0702-774e-44ae-bedc-786b424ca84e
-ms.openlocfilehash: 5e47fc49e8e0a6df4d1fcc70174a8519752fd3e1
-ms.sourcegitcommit: 42d436ebc2a7ee02fc1848c7742bc7d80e13fc2f
+ms.openlocfilehash: 107100b4992be75dab574cbf274b53f506e267f3
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102104817"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494592"
 ---
 # <a name="ulong-data-type-visual-basic"></a>ULong 数据类型 (Visual Basic) 
 
 保留未签名的64位 (8 字节) 整数，范围介于0到18446744073709551615之间， (超过1.84 倍 10 ^ 19) 。
 
-## <a name="remarks"></a>备注
+## <a name="remarks"></a>注解
 
 使用 `ULong` 数据类型可包含太大的二进制数据 `UInteger` 或可能的最大无符号整数值。
 
@@ -70,8 +70,6 @@ Dim number = &H_00_00_0A_96_2F_AC_14_D7ul
 - **CLS 遵从性。** `ULong`数据类型不是[公共语言规范](https://www.ecma-international.org/publications-and-standards/standards/ecma-335/) (CLS) 的一部分，因此符合 cls 的代码不能使用使用它的组件。
 
 - **互操作注意事项。** 如果你与不是为 .NET Framework 编写的组件（如自动化或 COM 对象）进行交互，请记住，如这样的类型 `ulong` 可以在其他环境中具有不同的数据宽度 (32 位) 。 如果要将32位参数传递给此类组件，请 `UInteger` `ULong` 在托管的 Visual Basic 代码中将其声明为而不是。
-
-  此外，在 Windows 95、Windows 98、Windows ME 或 Windows 2000 上，自动化不支持64位整数。 不能将 Visual Basic `ULong` 参数传递到这些平台上的自动化组件。
 
 - **扩大.** `ULong`数据类型扩大到 `Decimal` 、 `Single` 和 `Double` 。 这意味着你可以转换 `ULong` 为这些类型中的任何一种，而不会遇到 <xref:System.OverflowException?displayProperty=nameWithType> 错误。
 

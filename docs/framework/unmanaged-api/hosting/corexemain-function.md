@@ -18,12 +18,12 @@ helpviewer_keywords:
 ms.assetid: 898f76e2-16f4-4a63-b7d9-dad2d3824d8a
 topic_type:
 - apiref
-ms.openlocfilehash: f94197598d01255c35712aa682f83ca9be1fb377
-ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
+ms.openlocfilehash: e687cae4d267b97d1b9eb35be1ad5aabd8aec30b
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99717116"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494111"
 ---
 # <a name="_corexemain-function"></a>_CorExeMain 函数
 
@@ -39,11 +39,9 @@ __int32 STDMETHODCALLTYPE _CorExeMain ();
 
  此函数由加载程序在从托管可执行程序集创建的进程中调用。 对于 DLL 程序集，加载程序将改为调用 [_CorDllMain](cordllmain-function.md) 函数。  
   
- 操作系统加载程序将调用此方法，而不考虑映像文件中指定的入口点。  
+ 操作系统加载程序将调用此方法，而不考虑映像文件中指定的入口点。
   
- 在 Windows 98、Windows ME、Windows NT 和 Windows 2000 中， `_CorExeMain` 通过操作系统加载程序中的修正间接调用该函数。 在所有其他版本的 Windows 中，操作系统加载程序直接调用它。  
-  
- 有关其他信息，请参阅 [_CorValidateImage](corvalidateimage-function.md) 主题中的 "备注" 部分。  
+ 有关其他信息，请参阅 [_CorValidateImage](corvalidateimage-function.md) 文章中的 "备注" 部分。  
   
 ## <a name="requirements"></a>要求  
 
@@ -55,6 +53,6 @@ __int32 STDMETHODCALLTYPE _CorExeMain ();
   
  **.NET Framework 版本：**[!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 - [元数据全局静态函数](../metadata/metadata-global-static-functions.md)

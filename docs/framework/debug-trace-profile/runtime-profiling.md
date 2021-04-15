@@ -12,12 +12,12 @@ helpviewer_keywords:
 - profiling applications
 - Performance Console
 ms.assetid: ccd68284-f3a8-47b8-bc3f-92e5fe3a1640
-ms.openlocfilehash: 5d1542c7f6afa2d683240d6d5cca837b961eb3be
-ms.sourcegitcommit: bc293b14af795e0e999e3304dd40c0222cf2ffe4
+ms.openlocfilehash: a1ee34ef5e99f95dc7037c0ed5aebc074aa9db7a
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96267099"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494867"
 ---
 # <a name="runtime-profiling"></a>运行时分析
 
@@ -61,9 +61,9 @@ ms.locfileid: "96267099"
 
  .NET Framework 提供了一些类，可用于以编程方式访问性能控制台中提供的相同性能信息。 另外，还可以使用这些类创建自定义性能计数器。 下表描述了 .NET Framework 中提供的某些性能监视类。  
   
-|实例|描述|  
+|类|描述|  
 |-----------|-----------------|  
-|<xref:System.Diagnostics.PerformanceCounter?displayProperty=nameWithType>|表示 Windows NT 性能计数器组件。 使用此类可读取现有预定义或自定义计数器，并向自定义计数器发布（写入）性能数据。|  
+|<xref:System.Diagnostics.PerformanceCounter?displayProperty=nameWithType>|表示 Windows 性能计数器组件。 使用此类可读取现有预定义或自定义计数器，并向自定义计数器发布（写入）性能数据。|  
 |<xref:System.Diagnostics.PerformanceCounterCategory?displayProperty=nameWithType>|提供与计数器交互的几种方法以及计算机上计数器的类别。|  
 |<xref:System.Diagnostics.PerformanceCounterInstaller?displayProperty=nameWithType>|指定 `PerformanceCounter` 组件的安装程序。|  
 |<xref:System.Diagnostics.PerformanceCounterType?displayProperty=nameWithType>|为 `NextValue` 指定用于计算 `PerformanceCounter`的方法。|  

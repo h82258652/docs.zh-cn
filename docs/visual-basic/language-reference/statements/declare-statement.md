@@ -28,12 +28,12 @@ helpviewer_keywords:
 - Visual Basic code, Sub procedures
 - Function procedures [Visual Basic], declaring
 ms.assetid: d3f21fb0-b804-4c99-97ed-583b23894cf1
-ms.openlocfilehash: 8ad8169515bbb2889c0adbed4df4e30a0215d47d
-ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
+ms.openlocfilehash: 4ceca6b1095e34a437f9363d95e4133e77809e83
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99673838"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494553"
 ---
 # <a name="declare-statement"></a>Declare Statement
 
@@ -56,20 +56,20 @@ Declare [ charsetmodifier ] [ Function ] name Lib "libname" _
 |术语|定义|
 |---|---|
 |`attributelist`|可选。 请参阅 [特性列表](attribute-list.md)。|
-|`accessmodifier`|可选。 可以是以下其中一个值：<br /><br /> -   [公布](../modifiers/public.md)<br />-   [避免](../modifiers/protected.md)<br />-   [友好](../modifiers/friend.md)<br />-   [专有](../modifiers/private.md)<br />- [受保护的朋友](../modifiers/protected-friend.md)<br />- [私有受保护](../modifiers/private-protected.md)<br /><br /> 请参阅 [Visual Basic 中的访问级别](../../programming-guide/language-features/declared-elements/access-levels.md)。|
+|`accessmodifier`|可选。 可以是以下值之一：<br /><br /> -   [公布](../modifiers/public.md)<br />-   [避免](../modifiers/protected.md)<br />-   [友好](../modifiers/friend.md)<br />-   [专有](../modifiers/private.md)<br />- [受保护的朋友](../modifiers/protected-friend.md)<br />- [私有受保护](../modifiers/private-protected.md)<br /><br /> 请参阅 [Visual Basic 中的访问级别](../../programming-guide/language-features/declared-elements/access-levels.md)。|
 |`Shadows`|可选。 请参阅 [阴影](../modifiers/shadows.md)。|
-|`charsetmodifier`|可选。 指定字符集和文件搜索信息。 可以是以下其中一个值：<br /><br /> -   [Ansi](../modifiers/ansi.md) (默认值) <br />-   [Unicode](../modifiers/unicode.md)<br />-   [自动](../modifiers/auto.md)|
+|`charsetmodifier`|可选。 指定字符集和文件搜索信息。 可以是以下值之一：<br /><br /> -   [Ansi](../modifiers/ansi.md) (默认值) <br />-   [Unicode](../modifiers/unicode.md)<br />-   [自动](../modifiers/auto.md)|
 |`Sub`|可选，但 `Sub` `Function` 必须出现或。 指示外部过程不返回值。|
 |`Function`|可选，但 `Sub` `Function` 必须出现或。 指示外部过程返回值。|
 |`name`|必需。 此外部引用的名称。 有关详细信息，请参阅已 [声明的元素名称](../../programming-guide/language-features/declared-elements/declared-element-names.md)。|
 |`Lib`|必需。 引入一个 `Lib` 子句，该子句标识包含外部过程的外部文件 (DLL 或代码资源) 。|
 |`libname`|必需。 包含已声明过程的文件的名称。|
 |`Alias`|可选。 指示无法在其文件中按中指定的名称标识所声明的过程 `name` 。 在中指定其标识 `aliasname` 。|
-|`aliasname`|如果使用关键字，则为必需 `Alias` 。 通过以下两种方式之一标识过程的字符串：<br /><br /> 过程在其文件中的入口点名称，在引号 (`""`) <br /><br /> \- 或 -<br /><br /> 数字符号 (`#`) 后跟一个整数，该整数指定过程入口点在其文件中的序号|
+|`aliasname`|如果使用关键字，则为必需 `Alias` 。 通过以下两种方式之一标识过程的字符串：<br /><br /> 过程在其文件中的入口点名称，在引号 (`""`) <br /><br /> -或-<br /><br /> 数字符号 (`#`) 后跟一个整数，该整数指定过程入口点在其文件中的序号|
 |`parameterlist`|如果过程使用参数，则为必需。 请参阅 [参数列表](parameter-list.md)。|
 |`returntype`|如果 `Function` 指定了并为，则 `Option Strict` 为必需 `On` 。 过程返回的值的数据类型。|
 
-## <a name="remarks"></a>备注
+## <a name="remarks"></a>注解
 
 有时，您需要调用在项目外部)  (文件中定义的过程，如 DLL 或代码资源。 当你执行此操作时，Visual Basic 编译器不能访问正确调用过程所需的信息，例如过程所在的位置、标识方法、调用序列和返回类型，以及它使用的字符串字符集。 `Declare`语句创建对外部过程的引用并提供此必要信息。
 
@@ -119,13 +119,13 @@ Declare [ charsetmodifier ] [ Function ] name Lib "libname" _
 
   直接将参数传递给外部过程，如语句中所指定的那样 `parameterlist` `Declare` 。 不要考虑参数最初在外部文件中的声明方式。 同样，如果有返回值，请按语句中的指定完全相同的值 `returntype` `Declare` 。
 
-- **字符集。** 可以指定 Visual Basic 在 `charsetmodifier` 调用外部过程时应如何封送字符串。 `Ansi`修饰符指示 Visual Basic 将所有字符串封送为 ANSI 值， `Unicode` 修饰符指示它将所有字符串封送为 Unicode 值。 `Auto`修饰符指示 Visual Basic 根据外部引用 .NET Framework 规则封送字符串 `name` ，如果指定，则指示 `aliasname` 。 默认值是 `Ansi`。
+- **字符集。** 可以指定 Visual Basic 在 `charsetmodifier` 调用外部过程时应如何封送字符串。 `Ansi`修饰符指示 Visual Basic 将所有字符串封送为 ANSI 值， `Unicode` 修饰符指示它将所有字符串封送为 Unicode 值。 `Auto`修饰符指示 Visual Basic 根据外部引用 .NET Framework 规则封送字符串 `name` ，如果指定，则指示 `aliasname` 。 默认值为 `Ansi`。
 
   `charsetmodifier` 还指定 Visual Basic 应如何查找外部文件中的外部过程。 `Ansi``Unicode`同时直接 Visual Basic 在搜索过程中查找，而无需修改其名称。 `Auto` 指示 Visual Basic 确定运行时平台的基本字符集，并可能修改外部过程名称，如下所示：
 
-  - 在 ANSI 平台（如 Windows 95、Windows 98 或 Windows Millennium Edition）上，首先查找不带名称修改的外部过程。 如果此操作失败，请在外部过程名称末尾追加 "A"，并再次查找。
+  - 在 Unicode 平台（如 Windows）上，首先查找外部过程，而不修改名称。 如果此操作失败，请将 "W" 追加到外部过程名称的末尾，并再次查找。
 
-  - 在 Unicode 平台（如 Windows NT、Windows 2000 或 Windows XP）上，首先查找外部过程，而不修改名称。 如果此操作失败，请将 "W" 追加到外部过程名称的末尾，并再次查找。
+  - 在 ANSI 平台上，首先查找外部过程，而不修改名称。 如果此操作失败，请在外部过程名称末尾追加 "A"，并再次查找。
 
 - **机制.** Visual Basic 使用 .NET Framework *平台调用* (PInvoke) 机制来解析和访问外部过程。 `Declare`语句和 <xref:System.Runtime.InteropServices.DllImportAttribute> 类都自动使用这种机制，无需任何有关 PInvoke 的知识。 有关详细信息，请参阅 [演练：调用 Windows api](../../programming-guide/com-interop/walkthrough-calling-windows-apis.md)。
 
@@ -146,7 +146,7 @@ Declare [ charsetmodifier ] [ Function ] name Lib "libname" _
 
 [!code-vb[VbVbalrStatements#1](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrStatements/VB/Class1.vb#1)]
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 - <xref:Microsoft.VisualBasic.ErrObject.LastDllError%2A>
 - [Imports 语句（.NET 命名空间和类型）](imports-statement-net-namespace-and-type.md)

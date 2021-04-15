@@ -15,23 +15,23 @@ helpviewer_keywords:
 ms.assetid: 33f431d7-ab1a-494d-8af2-20ab15aba194
 topic_type:
 - apiref
-ms.openlocfilehash: b989013f7eb54e163feeb965e10448a3a1756e3a
-ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
+ms.openlocfilehash: db6c407e3361ebd9c39dd2c3cf7e5b53a69e0559
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99772518"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494826"
 ---
 # <a name="icordebug-interface"></a>ICorDebug 接口
 
 提供允许开发人员在公共语言运行时 (CLR) 环境中调试应用程序的方法。  
   
 > [!NOTE]
-> 混合模式 (托管代码和本机代码) 调试在 Windows 95、Windows 98 或 Windows ME 或非 x86 平台 (如 IA64 和 AMD64) 上不受支持。  
+> 混合模式 (托管代码和本机代码) 调试在非 x86 平台 (如 IA64 和 AMD64) 上不受支持。  
   
 ## <a name="methods"></a>方法  
   
-|方法|说明|  
+|方法|描述|  
 |------------|-----------------|  
 |[CanLaunchOrAttach 方法](icordebug-canlaunchorattach-method.md)|确定是否可以在当前计算机和运行时配置的上下文中启动新进程或附加到给定进程。|  
 |[CreateProcess 方法](icordebug-createprocess-method.md)|在调试器的控制下启动进程及其主线程。|  
@@ -43,7 +43,7 @@ ms.locfileid: "99772518"
 |[SetUnmanagedHandler 方法](icordebug-setunmanagedhandler-method.md)|指定非托管事件的事件处理程序对象。|  
 |[Terminate 方法](icordebug-terminate-method.md)|终止 `ICorDebug` 对象。|  
   
-## <a name="remarks"></a>备注  
+## <a name="remarks"></a>注解  
 
  `ICorDebug` 表示调试器进程的事件处理循环。 调试程序必须等待所有正在调试的进程中的 [ICorDebugManagedCallback：： ExitProcess](icordebugmanagedcallback-exitprocess-method.md) 回调，然后释放此接口。  
   
@@ -62,6 +62,6 @@ ms.locfileid: "99772518"
   
  **.NET Framework 版本：**[!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 - [调试接口](debugging-interfaces.md)

@@ -15,12 +15,12 @@ helpviewer_keywords:
 ms.assetid: bd9936a6-cc24-4869-8761-0988664464e6
 topic_type:
 - apiref
-ms.openlocfilehash: c6567ebb76c7a3c415c9978dc50941cb0b8985a0
-ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
+ms.openlocfilehash: a14dc9d94d83a662d996ebb027e2e6ca3ef62c03
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99717870"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494046"
 ---
 # <a name="icordebugremotetarget-interface"></a>ICorDebugRemoteTarget 接口
 
@@ -43,13 +43,13 @@ interface ICorDebugRemoteTarget  : IUnknown
   
 ## <a name="methods"></a>方法  
   
-|方法|说明|  
+|方法|描述|  
 |------------|-----------------|  
 |[ICorDebugRemoteTarget::GetHostName 方法](icordebugremotetarget-gethostname-method.md)|返回远程计算机的主机名或 IP 地址。|  
   
-## <a name="remarks"></a>备注  
+## <a name="remarks"></a>注解  
 
- 在 Windows 95、Windows 98、Windows ME 或非 x86 平台（例如 IA-64 和 AMD64）上，不支持混合模式（即托管和本机代码）调试。  
+ 混合模式 (即，非 x86 (平台（如 IA-64 和 AMD64) ）不支持) 调试的托管代码和本机代码。  
   
 ## <a name="requirements"></a>要求  
 
@@ -61,7 +61,7 @@ interface ICorDebugRemoteTarget  : IUnknown
   
  **.NET Framework 版本：** 3.5 SP1  
   
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 - [ICorDebugRemote 接口](icordebugremote-interface.md)
 - [ICorDebug 接口](icordebug-interface.md)

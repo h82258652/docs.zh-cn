@@ -3,12 +3,12 @@ description: 了解详细信息：使用诊断 Windows Management Instrumentatio
 title: 使用 Windows Management Instrumentation 进行诊断
 ms.date: 03/30/2017
 ms.assetid: fe48738d-e31b-454d-b5ec-24c85c6bf79a
-ms.openlocfilehash: 508422e8e060e608032d7ed22c5736c56c838f10
-ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
+ms.openlocfilehash: 2c3d79133b24c180f69d8ad015c1b08d9a9d188f
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99653870"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494813"
 ---
 # <a name="using-windows-management-instrumentation-for-diagnostics"></a>使用 Windows Management Instrumentation 进行诊断
 
@@ -49,7 +49,7 @@ Windows Communication Foundation (WCF) 会通过 WCF Windows Management Instrume
   
  **警告** WMI 仅支持 <xref:System.TimeSpan> 最多3个小数位数的值。 例如，如果您的服务将其中一个属性设置为 <xref:System.TimeSpan.MaxValue>，当通过 WMI 查看时，它的值将保留 3 位小数。  
   
-## <a name="security"></a>安全  
+## <a name="security"></a>安全性  
 
  因为 WCF WMI 提供程序允许发现环境中的服务，所以，您应该非常小心地授予对该服务的访问权限。 如果您放宽了默认的仅管理员访问，就可能允许不完全受信任方访问您的环境中的敏感数据。 特别是，如果您放宽了对远程 WMI 访问的权限，可能会发生洪泛攻击。 如果某个进程被大量 WMI 请求溢满，其性能将有所下降。  
   
@@ -154,7 +154,7 @@ Windows Communication Foundation (WCF) 会通过 WCF Windows Management Instrume
 Whoami /user  
 ```  
   
- 此方法提供了当前用户的 SID，但是此方法不能用于获取任意用户的 SID。 获取 SID 的另一种方法是使用 Windows 2000 资源工具包工具中的 [getsid.exe](/windows/win32/wmisdk/using-wmi) 工具来执行管理任务。 此工具比较两个用户（本地用户或域用户）的 SID，其副功能是将两个 SID 显示到命令行。 有关详细信息，请参阅众所周知的 [sid](https://support.microsoft.com/help/243330/well-known-security-identifiers-in-windows-operating-systems)。  
+有关详细信息，请参阅众所周知的 [sid](/troubleshoot/windows-server/identity/security-identifiers-in-windows)。  
   
 ## <a name="accessing-remote-wmi-object-instances"></a>访问远程 WMI 对象实例  
 

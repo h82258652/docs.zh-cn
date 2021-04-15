@@ -3,12 +3,12 @@ description: 了解详细信息：安全数据访问
 title: 安全数据访问
 ms.date: 03/30/2017
 ms.assetid: 473ebd69-21a3-4627-b95e-4e04d035c56f
-ms.openlocfilehash: 0f14f271dda9d07ba1efdea2328a5b3e30d14849
-ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
+ms.openlocfilehash: 091af5f888ca8566035b5da6aa8f972c627aa9c1
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99718884"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494839"
 ---
 # <a name="secure-data-access"></a>安全数据访问
 
@@ -77,7 +77,7 @@ ms.locfileid: "99718884"
 
 ## <a name="enterprise-services"></a>企业服务  
 
- COM+ 包含其自己的安全模型，该模型依赖于 Windows NT 帐户和进程/线程模拟。 <xref:System.EnterpriseServices> 命名空间提供的包装允许 .NET 应用程序通过 <xref:System.EnterpriseServices.ServicedComponent> 类来集成托管代码与 COM+ 安全服务。  
+ COM + 包含其自己的安全模型，该模型依赖于 Windows 帐户和进程/线程模拟。 <xref:System.EnterpriseServices> 命名空间提供的包装允许 .NET 应用程序通过 <xref:System.EnterpriseServices.ServicedComponent> 类来集成托管代码与 COM+ 安全服务。  
   
  有关更多信息，请参见以下资源。  
   
@@ -96,7 +96,7 @@ ms.locfileid: "99718884"
 |[与非托管代码交互操作](../../interop/index.md)|包含描述如何向 .NET Framework 公开 COM 组件以及如何向 COM 公开 .NET Framework 组件的主题。|
 |[高级 COM 互操作性](/previous-versions/dotnet/netframework-4.0/bd9cdfyx(v=vs.100))|包含高级主题，如主互操作程序集、线程和自定义封送处理。|
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 - [保证 ADO.NET 应用程序的安全](securing-ado-net-applications.md)
 - [SQL Server 安全性](./sql/sql-server-security.md)
