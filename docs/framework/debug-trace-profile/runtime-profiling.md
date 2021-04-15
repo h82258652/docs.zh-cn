@@ -61,7 +61,7 @@ ms.locfileid: "107494867"
 
  .NET Framework 提供了一些类，可用于以编程方式访问性能控制台中提供的相同性能信息。 另外，还可以使用这些类创建自定义性能计数器。 下表描述了 .NET Framework 中提供的某些性能监视类。  
   
-|类|描述|  
+|类|说明|  
 |-----------|-----------------|  
 |<xref:System.Diagnostics.PerformanceCounter?displayProperty=nameWithType>|表示 Windows 性能计数器组件。 使用此类可读取现有预定义或自定义计数器，并向自定义计数器发布（写入）性能数据。|  
 |<xref:System.Diagnostics.PerformanceCounterCategory?displayProperty=nameWithType>|提供与计数器交互的几种方法以及计算机上计数器的类别。|  

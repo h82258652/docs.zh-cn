@@ -65,7 +65,7 @@ typedef enum  CorPinvokeMap {
   
 ## <a name="members"></a>成员  
   
-|成员|描述|  
+|成员|说明|  
 |------------|-----------------|  
 |`pmNoMangle`|按指定使用每个成员名称。|  
 |`pmCharSetMask`|保留。|  

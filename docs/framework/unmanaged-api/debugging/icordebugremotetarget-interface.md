@@ -43,7 +43,7 @@ interface ICorDebugRemoteTarget  : IUnknown
   
 ## <a name="methods"></a>方法  
   
-|方法|描述|  
+|方法|说明|  
 |------------|-----------------|  
 |[ICorDebugRemoteTarget::GetHostName 方法](icordebugremotetarget-gethostname-method.md)|返回远程计算机的主机名或 IP 地址。|  
   

@@ -31,7 +31,7 @@ ms.locfileid: "107494826"
   
 ## <a name="methods"></a>方法  
   
-|方法|描述|  
+|方法|说明|  
 |------------|-----------------|  
 |[CanLaunchOrAttach 方法](icordebug-canlaunchorattach-method.md)|确定是否可以在当前计算机和运行时配置的上下文中启动新进程或附加到给定进程。|  
 |[CreateProcess 方法](icordebug-createprocess-method.md)|在调试器的控制下启动进程及其主线程。|  
