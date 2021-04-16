@@ -6,17 +6,17 @@ helpviewer_keywords:
 - ServiceInstaller class, Windows Service applications
 - Service class, Windows Service applications
 - Windows Service applications
-- Windows NT services
+- Windows services
 - ServiceProcessInstaller class, Windows Service applications
 - services
 - .NET applications, Windows applications
 ms.assetid: ba72d648-9553-4849-b829-069ad5ea014b
-ms.openlocfilehash: 2aea73267f05340930a9591f430de59677c1cb11
-ms.sourcegitcommit: 97405ed212f69b0a32faa66a5d5fae7e76628b68
+ms.openlocfilehash: 7a19d48ee4e7b12bc6ed0ff7fa5e2c8899bffaca
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91609572"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494475"
 ---
 # <a name="develop-windows-service-apps"></a>开发 Windows 服务应用
 
