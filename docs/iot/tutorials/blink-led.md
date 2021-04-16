@@ -1,45 +1,45 @@
 ---
 title: 闪烁 LED
-description: 了解如何使用 .NET IoT 库闪烁 LED。
+description: 了解如何使用 .NET IoT 库让 LED 闪烁。
 author: camsoper
 ms.author: casoper
 ms.date: 11/13/2020
 ms.topic: tutorial
 ms.prod: dotnet
 ms.openlocfilehash: 0d5db19faac0293b9982731f26dfd85d6ce07b3a
-ms.sourcegitcommit: 9c589b25b005b9a7f87327646020eb85c3b6306f
-ms.translationtype: MT
+ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102259007"
 ---
 # <a name="blink-an-led"></a>闪烁 LED
 
-可以单独控制常规用途 i/o (GPIO) pin。 这适用于控制 Led、中继和其他有状态设备。 在本主题中，你将使用 .NET 和 Raspberry Pi 的 GPIO pin 来使 LED 通电，并重复闪烁。
+可以单独控制常规用途 I/O (GPIO) 引脚。 这对控制 LED、中继和其他有状态设备很有用。 在本主题中，你将使用 .NET 和 Raspberry Pi 的 GPIO 引脚使 LED 通电，并重复闪烁。
 
 ## <a name="prerequisites"></a>先决条件
 
 - [!INCLUDE [prereq-rpi](../includes/prereq-rpi.md)]
-- 5 mm LED
-- 330Ω电阻器
+- 5 毫米 LED
+- 330 Ω 电阻器
 - 试验板
 - 跳线
-- Raspberry Pi GPIO (可选/推荐的) 
+- Raspberry Pi GPIO 分线板（可选/推荐）
 - [!INCLUDE [tutorial-prereq-dotnet](../includes/tutorial-prereq-dotnet.md)]
 
 [!INCLUDE [ensure-ssh](../includes/ensure-ssh.md)]
 
 ## <a name="prepare-the-hardware"></a>准备硬件
 
-按照下图所示，使用硬件组件构建线路：
+使用硬件组件构建电路，如下图所示：
 
-:::image type="content" source="../media/rpi-led_bb-thumb.png" alt-text="显示具有 LED 和电阻器的线路的 Fritzing 图" lightbox="../media/rpi-led_bb.png":::
+:::image type="content" source="../media/rpi-led_bb-thumb.png" alt-text="Fritzing 图显示具有 LED 和电阻器的线路" lightbox="../media/rpi-led_bb.png":::
 
 上图描述了下列连接：
 
-- GPIO 18 到 LED 阳极 (更长的正面) 
-- LED (较短、负面的潜在顾客) 到330Ω电阻器 (要么结束) 
-- 330Ω电阻器 (其他端) 到地面
+- GPIO 18 到 LED 阳极（较长、正极导线）
+- LED 阴极（较短、负极导线）到 330 Ω 电阻器（任一端）
+- 330 Ω 电阻器（另一端）到地面
 
 [!INCLUDE [tutorial-rpi-gpio](../includes/tutorial-rpi-gpio.md)]
 
@@ -49,7 +49,7 @@ ms.locfileid: "102259007"
 
 在首选开发环境中完成以下步骤：
 
-1. 使用 [.NET CLI](../../core/tools/dotnet-new.md) 或 [Visual Studio](../../core/tutorials/with-visual-studio.md)创建一个新的 .net 控制台应用程序。 将其命名为 *BlinkTutorial*。
+1. 使用 [.NET CLI](../../core/tools/dotnet-new.md) 或 [Visual Studio](../../core/tutorials/with-visual-studio.md) 创建新 .Net 控制台应用。 将其命名为 BlinkTutorial。
 
     ```dotnetcli
     dotnet new console -o BlinkTutorial
@@ -62,12 +62,12 @@ ms.locfileid: "102259007"
 
     在上述代码中：
 
-    - [Using 声明](../../csharp/whats-new/csharp-8.md#using-declarations)创建的实例 `GpioController` 。 `using`声明可确保释放对象并正确释放硬件资源。
-    - 为输出打开 GPIO 引脚18
-    - `while`循环会无限期运行。 每次迭代：
-        1. 向 GPIO 引脚18写入值。 如果 `ledOn` 为 true，则它 `PinValue.High` 在) 上写入 (。 否则，将写入 `PinValue.Low` 。
-        1. 睡眠1000毫秒。
-        1. 切换的值 `ledOn` 。
+    - [using 声明](../../csharp/whats-new/csharp-8.md#using-declarations)创建 `GpioController` 实例。 `using` 声明可确保对象已处置，硬件资源已正确释放。
+    - GPIO 引脚 18 已为输出打开
+    - `while` 循环无限期运行。 每次迭代：
+        1. 向 GPIO 引脚 18 写入值。 如果 `ledOn` 为 true，则迭代写入 `PinValue.High`（开）。 否则，写入 `PinValue.Low`。
+        1. 休眠 1000 毫秒。
+        1. 切换 `ledOn` 的值。
 
 1. [!INCLUDE [tutorial-build](../includes/tutorial-build.md)]
 1. [!INCLUDE [tutorial-deploy](../includes/tutorial-deploy.md)]
@@ -77,15 +77,15 @@ ms.locfileid: "102259007"
     ./BlinkTutorial
     ```
 
-    LED 闪烁，每秒闪烁一次。
+    LED 每秒闪烁一次。
 
-1. 通过按 <kbd>Ctrl + C</kbd>终止节目。
+1. 按 <kbd>Ctrl+C</kbd> 终止程序。
 
-祝贺你！ 已使用 GPIO 闪烁 LED。
+祝贺你！ 你已使用 GPIO 让 LED 闪烁。
 
 ## <a name="get-the-source-code"></a>获取源代码
 
-[GitHub 上提供](https://github.com/MicrosoftDocs/dotnet-iot-assets/tree/master/tutorials/BlinkTutorial)了本教程的源。
+[GitHub](https://github.com/MicrosoftDocs/dotnet-iot-assets/tree/master/tutorials/BlinkTutorial) 上提供此教程的源。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,6 +1,6 @@
 ---
-title: 加载器和联编程序运行时事件
-description: 请参阅收集特定于加载程序的诊断信息和联编程序 ETW 事件的 .NET 运行时事件，这些事件收集有关程序集加载程序和联编程序的信息。
+title: 加载器和绑定器运行时事件
+description: 查看收集特定于加载器和绑定器 ETW 事件的诊断信息的 .NET 运行时事件，ETW 事件收集有关程序集加载器和绑定器的信息。
 ms.date: 11/13/2020
 ms.topic: reference
 helpviewer_keywords:
@@ -8,21 +8,21 @@ helpviewer_keywords:
 - Assembly Binder events (CoreCLR)
 - ETW, EventPipe, LTTng assembly loader and binder events (CoreCLR)
 ms.openlocfilehash: 2284c580482f6b93a77f44649225ff7e5485666a
-ms.sourcegitcommit: bc293b14af795e0e999e3304dd40c0222cf2ffe4
-ms.translationtype: MT
+ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96591079"
 ---
-# <a name="net-runtime-loader-and-binder-events"></a>.NET 运行时加载程序和联编程序事件
+# <a name="net-runtime-loader-and-binder-events"></a>.NET 运行时加载器和绑定器事件
 
-这些事件将收集与加载和卸载程序集和模块相关的信息。 有关如何将这些事件用于诊断的详细信息，请参阅 [日志记录和跟踪 .net 应用程序](../../core/diagnostics/logging-tracing.md)
+这些事件收集有关加载和卸载程序集和模块的信息。 有关如何将这些事件用于诊断的详细信息，请参阅[对 .NET 应用程序进行日志记录和跟踪](../../core/diagnostics/logging-tracing.md)
 
 |引发事件的关键字|事件|Level|
 |-----------------------------------|-----------|-----------|
 |`LoaderKeyword` (0x8)|`DomainModuleLoad_V1`|信息性 (4)|
 
-|事件|事件 ID|描述|
+|事件|事件 ID|说明|
 |-----------|--------------|-----------------|
 |`DomainModuleLoad_V1`|151|在为应用程序域加载模块时引发。|
 
@@ -32,17 +32,17 @@ ms.locfileid: "96591079"
 |-----------------------------------|-----------|-----------|
 |`LoaderKeyword` (0x8)|`DomainModuleLoad_V1`|信息性 (4)|
 
-|事件|事件 ID|描述|
+|事件|事件 ID|说明|
 |-----------|--------------|-----------------|
 |`ModuleLoad_V2`|152|在进程的生存期内加载模块时引发。|
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
 |`ModuleID`|`win:UInt64`|模块的唯一 ID。|
 |`AssemblyID`|`win:UInt64`|此模块所驻留的程序集的 ID。|
 |`ModuleFlags`|`win:UInt32`|0x1：非特定于域的模块。<br /><br /> 0x2：模块具有本机映像。<br /><br /> 0x4：动态模块。<br /><br /> 0x8：清单模块。|
 |`Reserved1`|`win:UInt32`|保留的字段。|
-|`ModuleILPath`|`win:UnicodeString`|适用于模块的公共中间语言 (CIL) 图像的路径; 如果是动态程序集，则为动态模块名称 (以 null 终止) 。|
+|`ModuleILPath`|`win:UnicodeString`|模块的公共中间语言 (CIL) 映像的路径；如果是动态程序集（以 null 结尾），则为动态模块名。|
 |`ModuleNativePath`|`win:UnicodeString`|如果存在（以 null 结尾），则为模块本机映像的路径。|
 |`ClrInstanceID`|`win:UInt16`|CLR 或 CoreCLR 的实例的唯一 ID。|
 |`ManagedPdbSignature`|`win:GUID`|匹配此模块的托管程序数据库 (PDB) 的 GUID 签名。|
@@ -58,17 +58,17 @@ ms.locfileid: "96591079"
 |-----------------------------------|-----------|-----------|
 |`LoaderKeyword` (0x8)|`DomainModuleLoad_V1`|信息性 (4)|
 
-|事件|事件 ID|描述|
+|事件|事件 ID|说明|
 |-----------|--------------|-----------------|
 |`ModuleUnload_V2`|153|在进程的生存期内卸载模块时引发。|
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
 |`ModuleID`|`win:UInt64`|模块的唯一 ID。|
 |`AssemblyID`|`win:UInt64`|此模块所驻留的程序集的 ID。|
 |`ModuleFlags`|`win:UInt32`|0x1：非特定于域的模块。<br /><br /> 0x2：模块具有本机映像。<br /><br /> 0x4：动态模块。<br /><br /> 0x8：清单模块。|
 |`Reserved1`|`win:UInt32`|保留的字段。|
-|`ModuleILPath`|`win:UnicodeString`|适用于模块的公共中间语言 (CIL) 图像的路径; 如果是动态程序集，则为动态模块名称 (以 null 终止) 。|
+|`ModuleILPath`|`win:UnicodeString`|模块的公共中间语言 (CIL) 映像的路径；如果是动态程序集（以 null 结尾），则为动态模块名。|
 |`ModuleNativePath`|`win:UnicodeString`|如果存在（以 null 结尾），则为模块本机映像的路径。|
 |`ClrInstanceID`|``win:UInt16``|CLR 或 CoreCLR 的实例的唯一 ID。|
 |`ManagedPdbSignature`|`win:GUID`|匹配此模块的托管程序数据库 (PDB) 的 GUID 签名。|
@@ -84,17 +84,17 @@ ms.locfileid: "96591079"
 |-----------------------------------|-----------|-----------|
 |`LoaderKeyword` (0x8)|`DomainModuleLoad_V1`|信息性 (4)
 
-|事件|事件 ID|描述
+|事件|事件 ID|说明
 |-----------|--------------|-----------------|
 |`ModuleDCStart_V2`|153|在启动断开期间枚举模块。|
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
 |`ModuleID`|`win:UInt64`|模块的唯一 ID。|
 |`AssemblyID`|`win:UInt64`|此模块所驻留的程序集的 ID。|
 |`ModuleFlags`|`win:UInt32`|0x1：非特定于域的模块。<br /><br /> 0x2：模块具有本机映像。<br /><br /> 0x4：动态模块。<br /><br /> 0x8：清单模块。|
 |`Reserved1`|`win:UInt32`|保留的字段。|
-|`ModuleILPath`|`win:UnicodeString`|适用于模块的公共中间语言 (CIL) 图像的路径; 如果是动态程序集，则为动态模块名称 (以 null 终止) 。|
+|`ModuleILPath`|`win:UnicodeString`|模块的公共中间语言 (CIL) 映像的路径；如果是动态程序集（以 null 结尾），则为动态模块名。|
 |`ModuleNativePath`|`win:UnicodeString`|如果存在（以 null 结尾），则为模块本机映像的路径。|
 |`ClrInstanceID`|`win:UInt16`|CLR 或 CoreCLR 的实例的唯一 ID。|
 |`ManagedPdbSignature`|`win:GUID`|匹配此模块的托管程序数据库 (PDB) 的 GUID 签名。|
@@ -110,17 +110,17 @@ ms.locfileid: "96591079"
 |-----------------------------------|-----------|-----------|
 |`LoaderKeyword` (0x8)|`DomainModuleLoad_V1`|信息性 (4)|
 
-|事件|事件 ID|描述|
+|事件|事件 ID|说明|
 |-----------|--------------|-----------------|
 |`ModuleDCEnd_V2`|154|在结束断开期间枚举模块。|
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
 |`ModuleID`|`win:UInt64`|模块的唯一 ID。|
 |`AssemblyID`|`win:UInt64`|此模块所驻留的程序集的 ID。|
 |`ModuleFlags`|`win:UInt32`|0x1：非特定于域的模块。<br /><br /> 0x2：模块具有本机映像。<br /><br /> 0x4：动态模块。<br /><br /> 0x8：清单模块。|
 |`Reserved1`|`win:UInt32`|保留的字段。|
-|`ModuleILPath`|`win:UnicodeString`|适用于模块的公共中间语言 (CIL) 图像的路径; 如果是动态程序集，则为动态模块名称 (以 null 终止) 。|
+|`ModuleILPath`|`win:UnicodeString`|模块的公共中间语言 (CIL) 映像的路径；如果是动态程序集（以 null 结尾），则为动态模块名。|
 |`ModuleNativePath`|`win:UnicodeString`|如果存在（以 null 结尾），则为模块本机映像的路径。|
 |`ClrInstanceID`|`win:UInt16`|CLR 或 CoreCLR 的实例的唯一 ID。|
 |`ManagedPdbSignature`|`win:GUID`|匹配此模块的托管程序数据库 (PDB) 的 GUID 签名。|
@@ -136,11 +136,11 @@ ms.locfileid: "96591079"
 |-----------------------------------|-----------|-----------|
 |`LoaderKeyword` (0x8)|`DomainModuleLoad_V1`|信息性 (4)|
 
-|事件|事件 ID|描述|
+|事件|事件 ID|说明|
 |-----------|--------------|-----------------|
 |`AssemblyLoad_V1`|154|在加载程序集时引发。|
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
 |`AssemblyID`|`win:UInt64`|程序集的唯一 ID。|
 |`AppDomainID`|`win:UInt64`|此程序集的域的 ID。|
@@ -155,11 +155,11 @@ ms.locfileid: "96591079"
 |-----------------------------------|-----------|-----------|
 |`LoaderKeyword` (0x8)|`DomainModuleLoad_V1`|信息性 (4)|
 
-|事件|事件 ID|描述|
+|事件|事件 ID|说明|
 |-----------|--------------|-----------------|
 |`FireAssemblyUnload_V1`|155|在加载程序集时引发。|
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
 |`AssemblyID`|`win:UInt64`|程序集的唯一 ID。|
 |`AppDomainID`|`win:UInt64`|此程序集的域的 ID。|
@@ -174,11 +174,11 @@ ms.locfileid: "96591079"
 |-----------------------------------|-----------|-----------|
 |`LoaderKeyword` (0x8)|`DomainModuleLoad_V1`|信息性 (4)|
 
-|事件|事件 ID|描述|
+|事件|事件 ID|说明|
 |-----------|--------------|-----------------|
 |`AssemblyDCStart_V1`|155|在启动断开期间枚举程序集。|
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
 |`AssemblyID`|`win:UInt64`|程序集的唯一 ID。|
 |`AppDomainID`|`win:UInt64`|此程序集的域的 ID。|
@@ -191,60 +191,60 @@ ms.locfileid: "96591079"
 
 |引发事件的关键字|事件|Level|
 |-----------------------------------|-----------|-----------|
-|`Binder` (0x4) |`AssemblyLoadStart`|信息性 (4)|
+|`Binder` (0x4)|`AssemblyLoadStart`|信息性 (4)|
 
-|事件|事件 ID|描述|
+|事件|事件 ID|说明|
 |-----------|--------------|-----------------|
 |`AssemblyLoadStart`|290|已请求程序集加载。
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
-|`AssemblyName`|`win:UnicodeString`|程序集名称的名称。|
+|`AssemblyName`|`win:UnicodeString`|程序集的名称。|
 |`AssemblyPath`|`win:UnicodeString`|程序集名称的路径。|
-|`RequestingAssembly`|`win:UnicodeString`|请求 ( "parent" ) 程序集的名称。|
-|`AssemblyLoadContext`|`win:UnicodeString`|加载程序集的上下文。|
-|`RequestingAssemblyLoadContext`|`win:UnicodeString`|加载请求 ( "parent" ) 程序集的上下文。|
+|`RequestingAssembly`|`win:UnicodeString`|正在请求的（“父”）程序集的名称。|
+|`AssemblyLoadContext`|`win:UnicodeString`|程序集的加载上下文。|
+|`RequestingAssemblyLoadContext`|`win:UnicodeString`|正在请求的（“父”）程序集的加载上下文。|
 |`ClrInstanceID`|`win:UInt16`|CoreCLR 实例的唯一 ID。|
 
 ## <a name="assemblyloadstop-event"></a>AssemblyLoadStop 事件
 
 |引发事件的关键字|事件|Level|
 |-----------------------------------|-----------|-----------|
-|`Binder` (0x4) |`AssemblyLoadStart`|信息性 (4)|
+|`Binder` (0x4)|`AssemblyLoadStart`|信息性 (4)|
 
-|事件|事件 ID|描述|
+|事件|事件 ID|说明|
 |-----------|--------------|-----------------|
 |`AssemblyLoadStart`|291|已请求程序集加载。
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
-|`AssemblyName`|`win:UnicodeString`|程序集名称的名称。|
+|`AssemblyName`|`win:UnicodeString`|程序集的名称。|
 |`AssemblyPath`|`win:UnicodeString`|程序集名称的路径。|
-|`RequestingAssembly`|`win:UnicodeString`|请求 ( "parent" ) 程序集的名称。|
-|`AssemblyLoadContext`|`win:UnicodeString`|加载程序集的上下文。|
-|`RequestingAssemblyLoadContext`|`win:UnicodeString`|加载请求 ( "parent" ) 程序集的上下文。|
+|`RequestingAssembly`|`win:UnicodeString`|正在请求的（“父”）程序集的名称。|
+|`AssemblyLoadContext`|`win:UnicodeString`|程序集的加载上下文。|
+|`RequestingAssemblyLoadContext`|`win:UnicodeString`|正在请求的（“父”）程序集的加载上下文。|
 |`Success`|`win:Boolean`|程序集加载是否成功。|
 |`ResultAssemblyName`|`win:UnicodeString`|已加载的程序集的名称。|
-|`ResultAssemblyPath`|`win:UnicodeString`|从加载的程序集的路径。|
-|`Cached`|`win:UnicodeString`|是否缓存了负载。|
+|`ResultAssemblyPath`|`win:UnicodeString`|从中加载的程序集的路径。|
+|`Cached`|`win:UnicodeString`|是否缓存了加载。|
 |`ClrInstanceID`|`win:UInt16`|CoreCLR 实例的唯一 ID。|
 
 ## <a name="resolutionattempted-event"></a>ResolutionAttempted 事件
 
 |引发事件的关键字|Level|
 |-----------------------------------|-----------|-----------|
-|`Binder` (0x4) |信息性 (4)|
+|`Binder` (0x4)|信息性 (4)|
 
-|事件|事件 ID|描述|
+|事件|事件 ID|说明|
 |-----------|--------------|-----------------|
 |`ResolutionAttempted`|292|已请求程序集加载。
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
-|`AssemblyName`|`win:UnicodeString`|程序集名称的名称。|
-|`Stage`|`win:UInt16`|解决阶段。<br/><br/>0：在加载中查找。<br/><br/>1：程序集加载上下文</br><br/>2：应用程序程序集。<br/><br/>3：默认程序集加载上下文回退。 <br/><br/>4：解析附属程序集。 <br/><br/>5：程序集加载上下文正在解析。<br/><br/>6： AppDomain 程序集正在解析。
-|`AssemblyLoadContext`|`win:UnicodeString`|加载程序集的上下文。|
-|`Result`|`win:UInt16`|解析尝试的结果。<br/><br/>0：成功<br/><br/>1：程序集 NotFound<br/><br/>2：版本不兼容<br/><br/>3：程序集名称不匹配<br/><br/>4：失败<br/><br/>5：异常|
+|`AssemblyName`|`win:UnicodeString`|程序集的名称。|
+|`Stage`|`win:UInt16`|解析阶段。<br/><br/>0：在加载中查找。<br/><br/>1：程序集加载上下文</br><br/>2：部署应用程序集。<br/><br/>3：默认程序集加载上下文回退。 <br/><br/>4：解析附属程序集。 <br/><br/>5：正在解析程序集加载上下文。<br/><br/>6：正在解析 AppDomain 程序集。
+|`AssemblyLoadContext`|`win:UnicodeString`|程序集的加载上下文。|
+|`Result`|`win:UInt16`|解析尝试的结果。<br/><br/>0：成功<br/><br/>1：未找到程序集<br/><br/>2：版本不兼容<br/><br/>3：程序集名称不匹配<br/><br/>4：失败<br/><br/>5：异常|
 |`ResultAssemblyName`|`win:UnicodeString`|已解析的程序集的名称。|
 |`ResultAssemblyPath`|`win:UnicodeString`|从中解析的程序集的路径。|
 |`ErrorMessage`|`win:UnicodeString`|发生异常时的错误消息。|
@@ -254,17 +254,17 @@ ms.locfileid: "96591079"
 
 |引发事件的关键字|Level|
 |-----------------------------------|-----------|-----------|
-|`Binder` (0x4) |信息性 (4)|
+|`Binder` (0x4)|信息性 (4)|
 
-|事件|事件 ID|描述|
+|事件|事件 ID|说明|
 |-----------|--------------|-----------------|
-|`AssemblyLoadContextResolvingHandlerInvoked`|293|已调用 [AssemblyLoadContext](xref:System.Runtime.Loader.AssemblyLoadContext.Resolving) 处理程序。|
+|`AssemblyLoadContextResolvingHandlerInvoked`|293|已调用 [AssemblyLoadContext.Resolving](xref:System.Runtime.Loader.AssemblyLoadContext.Resolving) 处理程序。|
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
-|`AssemblyName`|`win:UnicodeString`|程序集名称的名称。|
-|`HandlerName`|`win:UnicodeString`|调用的处理程序的名称。|
-|`AssemblyLoadContext`|`win:UnicodeString`|加载程序集的上下文。|
+|`AssemblyName`|`win:UnicodeString`|程序集的名称。|
+|`HandlerName`|`win:UnicodeString`|已调用的处理程序的名称。|
+|`AssemblyLoadContext`|`win:UnicodeString`|程序集的加载上下文。|
 |`ResultAssemblyName`|`win:UnicodeString`|已解析的程序集的名称。|
 |`ResultAssemblyPath`|`win:UnicodeString`|从中解析的程序集的路径。|
 |`ClrInstanceID`|`win:UInt16`|CoreCLR 实例的唯一 ID。|
@@ -273,16 +273,16 @@ ms.locfileid: "96591079"
 
 |引发事件的关键字|Level|
 |-----------------------------------|-----------|-----------|
-|`Binder` (0x4) |信息性 (4)|
+|`Binder` (0x4)|信息性 (4)|
 
-|事件|事件 ID|描述|
+|事件|事件 ID|说明|
 |-----------|--------------|-----------------|
-|`AppDomainAssemblyResolveHandlerInvoked`|294|已 <xref:System.AppDomain.AssemblyResolve?displayProperty=nameWithType> 调用处理程序。|
+|`AppDomainAssemblyResolveHandlerInvoked`|294|已调用 <xref:System.AppDomain.AssemblyResolve?displayProperty=nameWithType> 处理程序。|
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
-|`AssemblyName`|`win:UnicodeString`|程序集名称的名称。|
-|`HandlerName`|`win:UnicodeString`|调用的处理程序的名称。|
+|`AssemblyName`|`win:UnicodeString`|程序集的名称。|
+|`HandlerName`|`win:UnicodeString`|已调用的处理程序的名称。|
 |`ResultAssemblyName`|`win:UnicodeString`|已解析的程序集的名称。|
 |`ResultAssemblyPath`|`win:UnicodeString`|从中解析的程序集的路径。|
 |`ClrInstanceID`|`win:UInt16`|CoreCLR 实例的唯一 ID。|
@@ -291,33 +291,33 @@ ms.locfileid: "96591079"
 
 |引发事件的关键字|Level|
 |-----------------------------------|-----------|-----------|
-|`Binder` (0x4) |信息性 (4)|
+|`Binder` (0x4)|信息性 (4)|
 
-|事件|事件 ID|描述|
+|事件|事件 ID|说明|
 |-----------|--------------|-----------------|
-|`AssemblyLoadFromResolveHandlerInvoked`|295|已 <xref:System.Reflection.Assembly.LoadFrom%2A?displayProperty=nameWithType> 调用处理程序。|
+|`AssemblyLoadFromResolveHandlerInvoked`|295|已调用 <xref:System.Reflection.Assembly.LoadFrom%2A?displayProperty=nameWithType> 处理程序。|
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
-|`AssemblyName`|`win:UnicodeString`|程序集名称的名称。|
+|`AssemblyName`|`win:UnicodeString`|程序集的名称。|
 |`IsTrackedLoad`|`win:Boolean`|是否跟踪程序集加载。|
-|`RequestingAssemblyPath`|`win:UnicodeString`|请求的程序集的路径。|
-|`ComputedRequestedAssemblyPath`|`win:UnicodeString`|请求的程序集的路径。|
+|`RequestingAssemblyPath`|`win:UnicodeString`|正在请求的程序集的路径。|
+|`ComputedRequestedAssemblyPath`|`win:UnicodeString`|已请求的程序集的路径。|
 |`ClrInstanceID`|`win:UInt16`|CoreCLR 实例的唯一 ID。|
 
 ## <a name="knownpathprobed-event"></a>KnownPathProbed 事件
 
 |引发事件的关键字|Level|
 |-----------------------------------|-----------|-----------|
-|`Binder` (0x4) |信息性 (4)|
+|`Binder` (0x4)|信息性 (4)|
 
-|事件|事件 ID|描述|
+|事件|事件 ID|说明|
 |-----------|--------------|-----------------|
-|`KnownPathProbed`|296|为程序集探测了已知路径。|
+|`KnownPathProbed`|296|探测到了程序集的一个已知路径。|
 
 |字段名称|数据类型|说明|
 |----------------|---------------|-----------------|
-|`FilePath`|`win:UnicodeString`|已探测路径。|
-|`Source`|`win:UInt16`|已探测路径的源。<br/><br/>0x0：应用程序程序集。<br/><br/>0x1：应用本机映像路径。<br/><br/>0x2：应用路径。</br><br/>0x3：平台资源根。<br/><br/>0x4：附属子目录。</br>|
-|`Result`|`win:UInt32`|探测器的 HRESULT。|
+|`FilePath`|`win:UnicodeString`|已探测的路径。|
+|`Source`|`win:UInt16`|已探测的路径的源。<br/><br/>0x0：应用程序集。<br/><br/>0x1：应用本机映像路径。<br/><br/>0x2：应用路径。</br><br/>0x3：平台资源根。<br/><br/>0x4：附属子目录。</br>|
+|`Result`|`win:UInt32`|探测的 HRESULT。|
 |`ClrInstanceID`|`win:UInt16`|CoreCLR 实例的唯一 ID。|

@@ -1,5 +1,5 @@
 ---
-title: '设计规则 (代码分析) '
+title: 设计规则（代码分析）
 description: 了解代码分析设计规则。
 ms.date: 11/04/2016
 ms.topic: reference
@@ -12,45 +12,45 @@ helpviewer_keywords:
 author: gewarren
 ms.author: gewarren
 ms.openlocfilehash: 548e0eaaa6239a9b9ee6a08677cd720710bb48c2
-ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "99714126"
 ---
 # <a name="design-rules"></a>设计规则
 
-设计规则支持遵循 [.NET Framework 设计准则](../../../standard/design-guidelines/index.md)。
+设计规则支持遵从 [.NET Framework 设计准则](../../../standard/design-guidelines/index.md)。
 
-## <a name="in-this-section"></a>本节内容
+## <a name="in-this-section"></a>在本节中
 
 | 规则 | 描述 |
 | - | - |
 | [CA1000:不要在泛型类型中声明静态成员](ca1000.md) | 调用泛型类型的静态成员时，必须指定该类型的类型参数。 当调用不支持推理的泛型实例成员时，必须指定该成员的类型参数。 在上述两种情况下，用于指定类型自变量的语法不同，但很容易混淆。 |
-| [CA1001:具有可释放字段的类型应该是可释放的](ca1001.md) | 类声明并实现属于 IDisposable 类型并且类不实现 IDisposable 的实例字段。 声明 IDisposable 字段的类间接拥有非托管资源，并且应该实现 IDisposable 接口。 |
-| [CA1002:不要公开泛型列表](ca1002.md) | \<(T>) # A1) 的< (是为性能而不是继承而设计的泛型集合。 因此，List 不包含任何虚拟成员。 应改为公开针对继承设计的泛型集合。 |
-| [CA1003:使用泛型事件处理程序实例](ca1003.md) | 类型包含一个返回 void 的委托，该委托的签名包含 (第一个对象的两个参数，第二个参数包含可分配给 EventArgs) 的类型，并且包含的程序集目标 .NET Framework 2.0。 |
-| [CA1005:避免泛型类型的参数过多](ca1005.md) | 泛型类型包含的类型参数越多，越难以知道并记住每个类型参数各代表什么。 通常情况下，有一种类型参数，如在列表中 \<T> ，以及在某些情况下有两个类型参数，如字典中所示 \<TKey, TValue> 。 但是，如果存在两个以上的类型参数，则大多数用户都会感到过于困难。 |
-| [CA1008:枚举应具有零值](ca1008.md) | 像其他值类型一样，未初始化枚举的默认值为零。 Nonflags 特性化枚举应使用零值来定义成员，以便默认值为枚举的有效值。 如果应用了 FlagsAttribute 特性的枚举定义值为零成员，则该成员的名称应为“None”，以指示枚举中尚未设置值。 |
+| [CA1001:具有可释放字段的类型应该是可释放的](ca1001.md) | 某个类声明并实现 System.IDisposable 类型的实例字段，但该类不实现 IDisposable。 声明 IDisposable 字段的类间接拥有非托管资源，并且应该实现 IDisposable 接口。 |
+| [CA1002:不要公开泛型列表](ca1002.md) | Collections.Generic.List<(Of \<(T>)>) 是针对性能（而非继承）设计的泛型集合。 因此，List 不包含任何虚拟成员。 应改为公开针对继承设计的泛型集合。 |
+| [CA1003:使用泛型事件处理程序实例](ca1003.md) | 某个类型包含的委托返回 void，该委托的签名包含两个参数（第一个参数是对象，第二个参数是可以分配给 EventArgs 的类型），而且包含程序集针对的是 .NET Framework 2.0。 |
+| [CA1005:避免泛型类型的参数过多](ca1005.md) | 泛型类型包含的类型参数越多，越难以知道并记住每个类型参数各代表什么。 它通常有一个类型参数，如在 List\<T> 中，而在某些情况下有两个类型参数，如在 Dictionary\<TKey, TValue> 中。 但是，如果存在两个以上的类型参数，则大多数用户都会感到过于困难。 |
+| [CA1008:枚举应具有零值](ca1008.md) | 像其他值类型一样，未初始化枚举的默认值为零。 无标志特性的枚举应通过使用零值来定义成员，这样默认值即为该枚举的有效值。 如果应用了 FlagsAttribute 特性的枚举定义值为零成员，则该成员的名称应为“None”，以指示枚举中尚未设置值。 |
 | [CA1010:集合应实现泛型接口](ca1010.md) | 若要扩大集合的用途，应实现某个泛型集合接口。 然后，可以使用该集合来填充泛型集合类型。 |
 | [CA1012:抽象类型不应具有构造函数](ca1012.md) | 抽象类型的构造函数只能由派生类型调用。 由于公共构造函数用于创建类型的实例，但无法为抽象类型创建实例，因此具有公共构造函数的抽象类在设计上是错误的。 |
-| [CA1014:用 CLSCompliantAttribute 标记程序集](ca1014.md) | 公共语言规范 (CLS) 定义了程序集在跨编程语言使用时必须符合的命名限制、数据类型和规则。 良好的设计规定，所有程序集都通过使用 CLSCompliantAttribute 显式指示 CLS 符合性。 如果程序集没有此特性，则该程序集即不合规。 |
-| [CA1016:用 AssemblyVersionAttribute 标记程序集](ca1016.md) | .NET 使用版本号来唯一标识程序集，并绑定到强名称程序集中的类型。 版本号与版本和发行者策略一起使用。 默认情况下，仅使用用于生成应用程序的程序集版本运行应用程序。 |
+| [CA1014:用 CLSCompliantAttribute 标记程序集](ca1014.md) | 公共语言规范 (CLS) 定义了程序集在跨编程语言使用时必须符合的命名限制、数据类型和规则。 好的设计要求所有程序集用 CLSCompliantAttribute 显式指示 CLS 合规性。 如果程序集没有此特性，则该程序集即不合规。 |
+| [CA1016:用 AssemblyVersionAttribute 标记程序集](ca1016.md) | .NET 使用版本号唯一地标识程序集，并绑定到具有强名称的程序集中的类型。 版本号与版本和发行者策略一起使用。 默认情况下，仅使用用于生成应用程序的程序集版本运行应用程序。 |
 | [CA1017:用 ComVisibleAttribute 标记程序集](ca1017.md) | ComVisibleAttribute 决定 COM 客户端如何访问托管代码。 合理的设计指出程序集将显式指示 COM 可见性。 可以设置整个程序集的 COM 可见性，然后重写各个类型和类型成员的 COM 可见性。 如果此特性不存在，则程序集的内容对 COM 客户端可见。 |
 | [CA1018:用 AttributeUsageAttribute 标记特性](ca1018.md) | 当定义自定义特性时，用 AttributeUsageAttribute 标记该特性，以指示源代码中可以应用自定义特性的位置。 特性的含义和预定用法将决定它在代码中的有效位置。 |
 | [CA1019:定义特性参数的访问器](ca1019.md) | 特性可以定义强制自变量，在对目标应用该特性时必须指定这些自变量。 这些实参也称为位置实参，因为它们将作为位置形参提供给特性构造函数。 对于每一个强制变量，特性还必须提供一个相应的只读属性，以便可以在执行时检索该变量的值。 特性还可以定义可选实参，可选实参也称为命名实参。 这些变量按名称提供给特性构造函数，并且必须具有相应的读/写属性。 |
 | [CA1021:避免使用 out 参数](ca1021.md) | 通过引用（使用 out 或 ref）传递类型要求具有使用指针的经验，了解值类型和引用类型的不同之处，以及能处理具有多个返回值的方法。 另外，out 和 ref 参数之间的差异没有得到广泛了解。 |
 | [CA1024:在适用处使用属性](ca1024.md) | 公共或受保护方法的名称以“Get”开头，没有采用任何参数或返回的值不是数组。 该方法可能很适于成为属性。 |
 | [CA1027:用 FlagsAttribute 标记枚举](ca1027.md) | 枚举是一种值类型，它定义一组相关的已命名常数。 如果可以按照有意义的方式组合一个枚举的已命名常数，则对该枚举应用 FlagsAttribute。 |
-| [CA1028:枚举存储应为 Int32](ca1028.md) | 枚举是一种值类型，它定义一组相关的已命名常数。 默认情况下，System.Int32 数据类型用于存储常量值。 尽管你可以更改此基础类型，但在大多数情况下不需要或建议使用此类型。 |
+| [CA1028:枚举存储应为 Int32](ca1028.md) | 枚举是一种值类型，它定义一组相关的已命名常数。 默认情况下，System.Int32 数据类型用于存储常量值。 虽然你可以更改此基础类型，但对于大多数情况，既不需要，也不建议你这样做。 |
 | [CA1030:在适用处使用事件](ca1030.md) | 该规则检测名称通常用于事件的方法。 如果为响应明确定义的状态更改而调用一个方法，则应由事件处理程序调用该方法。 调用该方法的对象应引发事件而不是直接调用该方法。 |
-| [CA1031:不要捕捉一般异常类型](ca1031.md) | 不应捕捉一般异常。 捕获更具体的异常，或者再次引发一般异常作为 catch 块中的最后一个语句。 |
+| [CA1031:不要捕捉一般异常类型](ca1031.md) | 不应捕捉一般异常。 捕捉更具体的异常，或者在执行 catch 块中的最后一条语句时重新引发一般异常。 |
 | [CA1032:实现标准异常构造函数](ca1032.md) | 如果不能提供完整的构造函数集，要正确处理异常将变得比较困难。 |
 | [CA1033:接口方法应可由子类型调用](ca1033.md) | 未密封的外部可见类型提供了显式实现公共接口的方法，但没有提供具有相同名称的其他外部可见方法。 |
 | [CA1034:嵌套类型不应是可见的](ca1034.md) | 嵌套类型是在另一个类型的范围中声明的类型。 嵌套类型用于封装包含类型的私有实现详细信息。 如果用于此用途，则嵌套类型不应是外部可见的。 |
 | [CA1036:重写可比较类型中的方法](ca1036.md) | 公共或受保护类型实现 System.IComparable 接口。 它不重写 Object.Equals，也不重载表示相等、不等、小于或大于的语言特定运算符。 |
 | [CA1040:避免使用空接口](ca1040.md) | 接口定义提供某个行为或使用协定的成员。 接口所描述的功能可以被任何类型采用，而不管该类型出现在继承层次结构中的哪个位置。 类型通过实现接口的成员来实现接口。 空接口无法定义任何成员；因此，它无法定义可以实现的协定。 |
-| [CA1041:提供 ObsoleteAttribute 消息](ca1041.md) | 用未指定其 ObsoleteAttribute.Message 属性的 System.ObsoleteAttribute 特性来标记类型或成员。 当编译用 ObsoleteAttribute 标记的类型或成员时，将显示属性的消息属性，该属性将为用户提供有关已过时的类型或成员的信息。 |
+| [CA1041:提供 ObsoleteAttribute 消息](ca1041.md) | 用未指定其 ObsoleteAttribute.Message 属性的 System.ObsoleteAttribute 特性来标记类型或成员。 当编译使用 ObsoleteAttribute 标记的类型或成员时，将显示该特性的 Message 属性，这为用户提供有关过时的类型或成员的信息。 |
 | [CA1043:将整型或字符串参数用于索引器](ca1043.md) | 索引器（即索引属性）应将整型或字符串类型用于索引。 这些类型一般用于为数据结构编制索引，并且提高库的可用性。 应仅限于在设计时无法指定特定整型或字符串类型的情况下使用 Object 类型。 |
 | [CA1044:属性不应是只写的](ca1044.md) | 虽然可以接受且经常需要使用只读属性，但设计准则禁止使用只写属性。 这是因为允许用户设置值但又禁止该用户查看这个值不能提供任何安全性。 而且，如果没有读访问，将无法查看共享对象的状态，使其用处受到限制。 |
 | [CA1045:不要通过引用来传递类型](ca1045.md) | 通过引用（使用 out 或 ref）传递类型要求具有使用指针的经验，了解值类型和引用类型的不同之处，以及能处理具有多个返回值的方法。 为一般用户进行设计的库架构师不应指望用户能熟练运用 out 或 ref 参数。 |
@@ -58,20 +58,20 @@ ms.locfileid: "99714126"
 | [CA1047:不要在密封类型中声明受保护的成员](ca1047.md) | 类型声明受保护的成员，使继承类型可以访问或重写该成员。 按照定义，不能继承密封类型，这表示不能调用密封类型上的受保护方法。 |
 | [CA1050:在命名空间中声明类型](ca1050.md) | 应在命名空间内声明类型以避免名称冲突，并作为一种在对象层次结构中组织相关类型的方式。 |
 | [CA1051:不要声明可见实例字段](ca1051.md) | 字段的主要用途应是作为实现的详细信息。 字段应为 private 或 internal，并应通过使用属性公开这些字段。 |
-| [CA1052:应密封静态容器类型](ca1052.md) | 公共或受保护类型仅包含静态成员，并且不是使用密封的 (c # ) 或 NotInheritable (Visual Basic) 修饰符声明的。 应使用 sealed 修饰符标记不希望被继承的类型，以免将其用作基类型。 |
+| [CA1052:应密封静态容器类型](ca1052.md) | 公共或受保护类型仅包含静态成员，而且没有用 sealed (C#) 或 NotInheritable (Visual Basic) 修饰符声明该类型。 应使用 sealed 修饰符标记不希望被继承的类型，以免将其用作基类型。 |
 | [CA1053:静态容器类型不应具有构造函数](ca1053.md) | 公共或嵌套公共类型只声明了静态成员，但具有公共或受保护的默认构造函数。 由于调用静态成员不需要类型的示例，因此没必要使用构造函数。 为安全起见，字符串重载应使用字符串自变量调用统一资源标识符 (URI) 重载。 |
 | [CA1054:URI 参数不应为字符串](ca1054.md) | 如果某方法采用 URI 的字符串表示形式，则应提供采用 URI 类的实例的相应重载，该重载以安全的方式提供这些服务。 |
 | [CA1055:URI 返回值不应是字符串](ca1055.md) | 此规则假定该方法返回 URI。 URI 的字符串表示形式容易导致分析和编码错误，并且可造成安全漏洞。 System.Uri 类以一种安全的方式提供这些服务。 |
 | [CA1056:URI 属性不应是字符串](ca1056.md) | 此规则假定属性表示 URI。 URI 的字符串表示形式容易导致分析和编码错误，并且可造成安全漏洞。 System.Uri 类以一种安全的方式提供这些服务。 |
 | [CA1058:类型不应扩展某些基类型](ca1058.md) | 外部可见的类型扩展某些基类型。 请使用某个备选项。 |
-| [CA1060：将 P/Invoke 移动到 NativeMethods 类](ca1060.md) | 平台调用方法，如用或方法标记的方法，这些方法是 <xref:System.Runtime.InteropServices.DllImportAttribute?displayProperty=fullName> 通过在 Visual Basic 中使用 Declare 关键字定义的，访问非托管代码。 这些方法应属于 NativeMethods、SafeNativeMethods 或 UnsafeNativeMethods 类。 |
+| [CA1060：将 P/Invoke 移动到](ca1060.md) NativeMethods 类 | 平台调用方法（例如标以 <xref:System.Runtime.InteropServices.DllImportAttribute?displayProperty=fullName> 的方法或在 Visual Basic 中使用 Declare 关键字定义的方法）访问非托管代码。 这些方法应属于 NativeMethods、SafeNativeMethods 或 UnsafeNativeMethods 类。 |
 | [CA1061:不要隐藏基类方法](ca1061.md) | 如果派生方法的参数签名只是在类型方面有所不同，而且与基方法的参数签名中的对应类型相比，这些类型的派生方式更弱，则基类型中的方法由派生类型中的同名方法隐藏。 |
 | [CA1062:验证公共方法的参数](ca1062.md) | 对于传递给外部可见方法的所有引用自变量，都应检查其是否为 null。 |
 | [CA1063:正确实现 IDisposable](ca1063.md) | 所有的 IDisposable 类型都应当正确实现 Dispose 模式。 |
-| [CA1064:异常应该是公共的](ca1064.md) | 内部异常仅在其自己的内部范围内可见。 当异常超出内部范围后，只能使用基异常来捕获该异常。 如果内部异常继承自 <xref:System.Exception?displayProperty=fullName> 、或， <xref:System.SystemException?displayProperty=fullName> <xref:System.ApplicationException?displayProperty=fullName> 外部代码将不会有足够的信息来了解如何处理该异常。 |
+| [CA1064:异常应该是公共的](ca1064.md) | 内部异常仅在其自己的内部范围内可见。 当异常超出内部范围后，只能使用基异常来捕获该异常。 如果内部异常继承自 <xref:System.Exception?displayProperty=fullName>、<xref:System.SystemException?displayProperty=fullName> 或 <xref:System.ApplicationException?displayProperty=fullName>，则外部代码将没有足够的信息来了解如何处理该异常。 |
 | [CA1065:不要在意外的位置引发异常](ca1065.md) | 不应引发异常的方法引发了异常。 |
-| [CA1066：重写 Equals 时实现 IEquatable](ca1066.md) | 值类型重写 <xref:System.Object.Equals%2A> 方法，但不实现 <xref:System.IEquatable%601> 。 |
-| [CA1067：实现 IEquatable 时重写 Equals](ca1067.md) | 类型实现 <xref:System.IEquatable%601> ，但不重写 <xref:System.Object.Equals%2A> 方法。 |
-| [CA1068:CancellationToken 参数必须最后出现](ca1068.md) | 方法具有一个不是最后一个参数的 CancellationToken 参数。 |
-| [CA1069:枚举不得具有重复值](ca1069.md) | 枚举具有多个显式分配相同常数值的成员。 |
-| [CA1070:不要将事件字段声明为“虚拟”](ca1070.md) | [类似字段的事件](../../../csharp/event-pattern.md#defining-and-raising-field-like-events)被声明为 virtual。 |
+| [CA1066：重写 Equals 时实现 IEquatable](ca1066.md) | 值类型替代 <xref:System.Object.Equals%2A> 方法，但不实现 <xref:System.IEquatable%601>。 |
+| [CA1067：实现 IEquatable 时重写 Equals](ca1067.md) | 类型实现 <xref:System.IEquatable%601>，但不替代 <xref:System.Object.Equals%2A> 方法。 |
+| [CA1068:CancellationToken 参数必须最后出现](ca1068.md) | 方法具有 CancellationToken 参数，但它不是最后一个参数。 |
+| [CA1069:枚举不得具有重复值](ca1069.md) | 枚举具有多个成员，这些成员显式分配有相同常数值。 |
+| [CA1070:不要将事件字段声明为“虚拟”](ca1070.md) | [类字段事件](../../../csharp/event-pattern.md#defining-and-raising-field-like-events)被声明为“虚拟”。 |

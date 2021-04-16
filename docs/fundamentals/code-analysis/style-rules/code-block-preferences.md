@@ -1,6 +1,6 @@
 ---
 title: 代码块首选项
-description: 了解代码块首选项的代码分析语言规则
+description: 了解适用于代码块首选项的代码分析语言规则
 ms.date: 09/30/2020
 ms.topic: reference
 author: gewarren
@@ -9,10 +9,10 @@ dev_langs:
 - CSharp
 - VB
 ms.openlocfilehash: bd480c60711af33ff79fbbac9afa94e3dea8a23d
-ms.sourcegitcommit: 636af37170ae75a11c4f7d1ecd770820e7dfe7bd
-ms.translationtype: MT
+ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96590526"
 ---
 # <a name="code-block-preferences"></a>代码块首选项
@@ -21,8 +21,8 @@ ms.locfileid: "96590526"
 
 本节中的样式规则涉及以下代码块首选项：
 
-- [ (IDE0011 添加大括号) ](ide0011.md)
-- [ (IDE0063 使用简单的 "using" 语句) ](ide0063.md)
+- [添加大括号 (IDE0011)](ide0011.md)
+- [使用简单的 using 语句 (IDE0063)](ide0063.md)
 
 ## <a name="see-also"></a>另请参阅
 

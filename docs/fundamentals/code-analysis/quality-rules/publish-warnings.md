@@ -1,5 +1,5 @@
 ---
-title: '发布规则 (代码分析) '
+title: 发布规则（代码分析）
 description: 了解代码分析发布规则。
 ms.date: 09/04/2020
 ms.topic: reference
@@ -12,10 +12,10 @@ helpviewer_keywords:
 author: gewarren
 ms.author: gewarren
 ms.openlocfilehash: 403d9d48a57c85d1cdf7bd2dfb6cbee1656de733
-ms.sourcegitcommit: 2e4adc490c1d2a705a0592b295d606b10b9f51f1
-ms.translationtype: MT
+ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96590458"
 ---
 # <a name="publish-rules"></a>发布规则
@@ -26,5 +26,5 @@ ms.locfileid: "96590458"
 
 |规则|描述|
 |----------|-----------------|
-|[在发布为单个文件时，IL3000 避免访问程序集文件路径](il3000.md)|在发布为单一文件时避免访问程序集文件路径|
-|[在发布为单个文件时，IL3001 避免访问程序集文件路径](il3001.md)|在发布为单一文件时避免访问程序集文件路径|
+|[IL3000 当发布为单个文件时，避免访问程序集文件路径](il3000.md)|当发布为单个文件时，避免访问程序集文件路径|
+|[IL3001 当发布为单个文件时，避免访问程序集文件路径](il3001.md)|当发布为单个文件时，避免访问程序集文件路径|

@@ -3,227 +3,227 @@ title: 部署新式桌面应用程序
 description: 部署新式桌面应用程序时需要了解的所有内容。
 ms.date: 05/12/2020
 ms.openlocfilehash: ba47f09b27adf270734bbfff285fe44dd4175d29
-ms.sourcegitcommit: 632818f4b527e5bf3c48fc04e0c7f3b4bdb8a248
-ms.translationtype: MT
+ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98615849"
 ---
 # <a name="deploying-modern-desktop-applications"></a>部署新式桌面应用程序
 
-开发桌面应用程序时，要考虑的一个问题是如何将应用程序打包并部署到用户的计算机。 打包、部署和安装的问题在于，它通常由 IT 专业人员负责，他们关心的不同方面与开发人员有关。
+当你开发桌面应用程序时，需要考虑的一个问题是如何打包应用程序并将其部署到用户的计算机上。 打包、部署和安装的问题在于，它通常由 IT 专业人员负责，而 IT 专业人员关注的点与开发人员不同。
 
-如今，我们都熟悉了 DevOps 概念，开发人员和 IT 专业人员在其中密切合作，将应用程序移动到其生产环境中。 但是，如果你已在桌面工作中经历了10年以上，你可能会看到以下情景。 开发人员团队共同工作，以满足项目截止时间。 业务人员紧张，因为他们需要系统在多个用户的计算机上工作才能运行公司。 在 "D 天" 上，项目经理会对照每个开发人员进行检查，使其代码正常工作，并确保一切正常，使他们能够发货。 然后，包团队将生成应用程序的安装程序，将其分发给每个用户计算机和一组测试用户运行该应用程序。 嗯，它们会尝试，因为在显示任何 UI 之前，应用程序会引发一个异常，其中显示 "方法 ~ 对象 ~ 失败"。 紧急情况从空中开始流动，并进行短暂的调查，重点介绍引入了第三方控件的一个年轻人开发人员，这无疑是 "在开发计算机上工作"。
+如今，我们都很熟悉 DevOps 的概念，在 DevOps 中，开发人员和 IT 专业人员密切合作，将应用程序迁移到生产环境中。 但是，如果你身陷这场桌面战役已经超过 10 年，那么，你可能看到过下面这样的场景。 一支由开发人员组成的团队共同努力，以期按时完成项目。 业务人员很紧张，因为他们需要系统在多台用户计算机上正常运行，以维持公司运营。 在“D 日”，项目经理向每位开发人员确认了他们的代码运行良好，一切运转正常，他们可以交付应用了。 然后，包团队开始生成应用的安装程序，将其分发到每台用户计算机上，一组测试用户开始运行应用程序。 好吧，他们只是试了一下，因为还没显示任何 UI，应用程序就引发一个异常，指出“Method ~ of object ~ failed”。 恐慌情绪开始蔓延，经过简单调查后，矛头指向一个年轻而疲惫的开发人员，他引入了一个第三方控件，这无疑是“在开发计算机上工作”。
 
-出于两个主要原因，安装桌面应用程序通常是一种痛苦：
+安装桌面应用程序历来就是一场噩梦，主要原因有两个：
 
-- 开发团队和 IT 团队之间缺少密切的协作文化。
-- 缺乏可靠的打包和部署技术，我们可以进行构建。
+- 开发团队和 IT 团队之间缺乏紧密的合作文化。
+- 缺乏可以依赖的可靠打包和部署技术。
 
-事实上，我们一直在生活，这是因为有时你后悔安装了应用，因为：
+实际上，我们一直生活在这样的事实中，有时候你后悔安装了一个应用，因为：
 
-- 它最终会在您的计算机上产生一些意外的副作用。
-- 以前安装的某些应用程序将停止工作。
+- 它最终在你的计算机上产生了一些意想不到的副作用。
+- 以前安装的某些应用程序停止工作。
 
-此外，不能通过卸载应用程序将系统还原到其原始状态。 我们在这种情况下，我们已经梦寐以求了 "DLL Hell" 或 "Winrot" 等术语。
+此外，你无法通过卸载应用将系统还原到原始状态。 我们对这种情况习以为常，以至于创造出“DLL Hell”或“Winrot”这样的术语。
 
-在本章中，我们将讨论 .MSIX。 .MSIX 是 Microsoft 的全新技术，它尝试充分利用以前的技术，为未来的打包技术提供坚实的基础。
+在本章中，我们将探讨 MSIX。 MSIX 是 Microsoft 推出的全新技术，它试图汲取以往技术的精华，为未来的打包技术打下坚实的基础。
 
-打包技术与现代化有什么关系？ 事实证明，打包是企业 IT 的基本知识，其中投入了大量资金。 现代化并非仅与使用最新技术相关。 在公司将功能交付给客户端之前，它还与缩短业务需求的上市时间有关。
+打包技术和现代化有什么关系？ 事实证明，打包是企业 IT 的根本，企业的大量资金便投入于此。 现代化不仅与使用最新技术有关。 它还与缩短上市时间（从定义业务需求到公司向客户交付该功能）有关。
 
-## <a name="the-modern-application-lifecycle"></a>新式应用程序生命周期
+## <a name="the-modern-application-lifecycle"></a>新式应用程序的生命周期
 
-如今，开发人员编写并生成应用程序的代码，然后将生成的资产传递给 IT 专业人员。 然后，IT 专业人员重新配置应用程序并将其重新打包，通常是在 MSI 中，或在最近的版本中，采用 app-v 打包格式。 然后，应用程序通过不同的通道和工具进行部署。 此方法的主要问题之一通常称为 "打包 paralysis"。 问题在于，每次更新应用更新或操作系统时，此周期都将重复。
+如今，开发人员编写并生成应用代码，然后将生成的资产交给 IT 专业人员。 IT 专业人员通常采用 MSI 或最近的 App-V 打包格式，对应用进行重新配置和重新打包。 然后，应用通过各种渠道和工具进行部署。 这种方法的主要问题之一通常称为“打包瘫痪”。 其问题在于，每次有应用更新或操作系统更新时，都会重复这个打包周期。
 
-您可以看到如下图所示的过程：
+你可以看看下图所示的过程：
 
-![显示新式 IT 生命周期的示意图](./media/deploy-modern-applications/modern-it-application-lifecycle.png)
+![该图显示了新式 IT 生命周期](./media/deploy-modern-applications/modern-it-application-lifecycle.png)
 
-公司需要通过一种方式将此打包周期分解为三个独立的周期：
+公司需要采用一种方法，将这个打包周期分成三个独立的周期：
 
 - OS 更新
 - 应用程序更新
 - 自定义
 
-![显示新式 IT 良性周期的图示](./media/deploy-modern-applications/modern-it-virtuous-cycle.png)
+![该图显示了新式 IT 良性循环](./media/deploy-modern-applications/modern-it-virtuous-cycle.png)
 
-前面的关系图显示你可以：
+上图说明你可以：
 
-- 更新基础 OS，无需重新打包应用。
-- 启用自定义，无需重新打包原始开发人员包。
+- 更新底层 OS，而无需重新打包应用。
+- 实现 IT 自定义，而无需重新打包原始开发人员包。
 
-这项根式变化会使我们成为新的和新式 IT 生命周期，如下图所示：
+这种根本性的变化将我们引向了新式 IT 生命周期，如下图所示：
 
-![使用 Microsoft 工具显示应用程序生命周期的图示](./media/deploy-modern-applications/microsoft-it-tools.png)
+![该图显示了使用 Microsoft 工具的应用程序生命周期](./media/deploy-modern-applications/microsoft-it-tools.png)
 
-开发人员创建应用程序并生成 .MSIX 包，IT 专业人员可以使用和配置该包，而无需重新打包。 除了 .MSIX 技术，Microsoft 还创建了一些工具，可用于自定义和配置包，而无需重新打包。
+开发人员创建应用并生成 MSIX 包，IT 专业人员可以使用和配置该包，而无需重新打包。 除了 MSIX 技术，Microsoft 还创建了一些工具，让 IT 人员无需重新打包即可自定义和配置包。
 
-## <a name="msix-the-next-generation-of-deployment"></a>.MSIX：下一代部署
+## <a name="msix-the-next-generation-of-deployment"></a>MSIX：下一代部署
 
-在 .MSIX 之前，可以使用多种打包技术，如安装向导、MSI、ClickOnce、App-v 和脚本撰写。 其中每种技术都有其各自的优势，Microsoft 决定最大程度地选择生成 .MSIX。 .MSIX 是在这些现有技术的基础上建立的，它们都是最佳选择：
+在 MSIX 之前，存在多种打包技术，例如设置向导、MSI、ClickOnce、App-V 和脚本。 每种技术都有其各自的优势，于是，Microsoft 决定集百家之长来构建 MSIX。 MSIX 建立在这些现有技术的基础上，并取其精华：
 
-- App-v = \> 容器化
-- ClickOnce = \> 自动更新
-- MSI = \> 易于分发
+- App-V =\> 容器化
+- ClickOnce =\> 自动更新
+- MSI =\> 易于分发
 
-借助 .MSIX，你将获得一项安装程序技术，其中包含所有这些功能。
+有了 MSIX，就等于有了一项集这些功能于一身的安装程序技术。
 
-![显示对生成 .MSIX 有影响的各种技术的图示](./media/deploy-modern-applications/msix.png)
+![该图显示了影响 MSIX 构建的各种技术](./media/deploy-modern-applications/msix.png)
 
-### <a name="benefits-of-msix"></a>.MSIX 的优点
+### <a name="benefits-of-msix"></a>MSIX 的好处
 
-#### <a name="never-regret-installing-an-app"></a>从不后悔安装应用
+#### <a name="never-regret-installing-an-app"></a>永远不会后悔安装了某个应用
 
-.MSIX 提供可预测、可靠和安全的部署。 包清单中包含的声明性方法使 OS 可以跟踪应用程序所需的每个资产。 它还提供真正的干净卸载，不会产生负面影响。
+MSIX 提供可预测、可靠、安全的部署。 包清单中包含的声明性方法使操作系统可以跟踪应用程序所需的每项资产。 它还提供真正的干净卸载，没有任何副作用。
 
 #### <a name="disk-space-optimization"></a>磁盘空间优化
 
-.MSIX 经过优化，可降低应用程序对用户计算机磁盘空间的占用空间。 它创建文件的单实例存储。 也就是说，如果有两个不同于同一个 DLL 的包，则不会两次安装 DLL。 平台会处理该问题，因为它知道某个特定应用程序的所有文件都是根据其声明性性质而安装的。 它还允许并行工作的不同版本的 DLL。
+MSIX 经过优化，可减少应用程序对用户计算机磁盘空间的占用。 它会创建文件的单个实例存储。 也就是说，如果你有两个具有相同 DLL 的不同包，则不会安装该 DLL 两次。 该平台解决了这个问题，因为它知道特定应用安装的所有文件，这要归功于它的声明性质。 它还允许你并行运行不同版本的 DLL。
 
-使用资源包时，可以轻松创建多语言应用，操作系统会安装所使用的应用。
+通过使用资源包，你可以轻松创建多语言应用，并且操作系统会安装所使用的应用。
 
 #### <a name="network-optimization"></a>网络优化
 
-.MSIX 检测到字节块级别上的文件之间的差异，启用称为差异更新的功能。 这意味着在应用程序更新上只下载更新的字节块。
+MSIX 可在字节块级别检测到文件上的差异，从而实现了一项称为差异更新的功能。 这意味着在应用程序更新时只下载更新的字节块。
 
-![显示 .MSIX 如何管理差异更新的关系图](./media/deploy-modern-applications/msix-managing-updates.png)
+![该图显示了 MSIX 如何管理差异更新](./media/deploy-modern-applications/msix-managing-updates.png)
 
-使用流式安装，用户可以快速开始使用应用程序，同时在后台下载应用程序的其他部分。 此功能可为用户提供丰富的体验。
+使用流式安装，用户可以在后台下载应用程序其他部分的同时，快速开始使用应用程序。 此功能有助于为用户带来引人入胜的体验。
 
-利用可选包功能，你可以在应用部署上实现组件化，因此你可以在需要时下载这些包。
+借助可选包功能，你可以在应用部署上实现组件化，这样你就可以在需要时下载它们。
 
-#### <a name="simple-packaging-and-deployment"></a>简单打包和部署
+#### <a name="simple-packaging-and-deployment"></a>简单的打包和部署
 
-AppManifest 声明了版本控制、设备目标，并为每个应用程序确定了标准方式。 它还提供了一种方法来对资产进行签名，从而提供可靠的安全基础。
+AppManifest 以标准方式为每个应用程序声明版本控制、设备定位和标识。 它还提供一种对资产进行签名的方法，从而提供可靠的安全基础。
 
-#### <a name="os-managed"></a>操作系统管理
+#### <a name="os-managed"></a>操作系统托管
 
-操作系统将处理用于安装、更新和删除应用程序的所有过程。 应用程序是按用户安装的，但仅下载一次，从而最大程度地减少磁盘占用。 Microsoft 正在努力同时提供 Windows 7 上的 .MSIX 体验。
+操作系统负责处理安装、更新和删除应用程序的所有过程。 应用程序按用户安装，但仅下载一次，从而最大程度地减少了磁盘占用。 Microsoft 正致力于在 Windows 7 上也提供 MSIX 体验。
 
-#### <a name="windows-provides-integrity-for-the-app"></a>Windows 提供应用的完整性
+#### <a name="windows-provides-integrity-for-the-app"></a>Windows 为应用提供完整性
 
-使用数字签名，可以确保不会从不受信任的源安装应用程序。 .MSIX 还会阻止篡改，原因如下：
+使用数字签名，可以确保不会从不受信任的源安装应用程序。 MSIX 还可以防止篡改，因为：
 
-- 它保留文件哈希记录。
-- 它检测是否在安装后修改了文件。
+- 它会保留文件哈希的记录。
+- 它会检测是否在安装后修改了文件。
 
-#### <a name="works-for-the-entire-app-catalog"></a>适用于整个应用程序目录
+#### <a name="works-for-the-entire-app-catalog"></a>适用于整个应用目录
 
-.MSIX 的最酷之一是，它适用于整个应用程序目录、Windows 窗体、WPF、MFC/ATL、Delphi，即使你想要执行 xCopy 部署、ClickOnce 或转到应用商店，你也可以使用相同的 .MSIX 包。
+MSIX 最酷的一点是它适用于整个应用程序目录（Windows 窗体、WPF、MFC/ATL、Delphi），即使你想执行 xCopy 部署、ClickOnce 或进入 Store，也可以使用同一个 MSIX 包。
 
 ### <a name="tools"></a>工具
 
 #### <a name="windows-application-packaging-project"></a>Windows 应用程序打包项目
 
-你可以使用 Visual Studio 中的 **Windows 应用程序打包项目** 项目为桌面应用生成程序包。 然后，你可以将该包发布到 Microsoft Store 或将其旁加载到一个或多个电脑上。
+你可以使用 Visual Studio 中的 **Windows 应用程序打包项目** 项目为桌面应用生成程序包。 然后，你可以将该包发布到 Microsoft Store，或将其旁加载到一台或多台电脑上。
 
 #### <a name="msix-packaging-tool"></a>MSIX 打包工具
 
-使用 MSIX 打包工具可将现有的 Win32 应用程序重新打包为 MSIX 格式。 它同时提供交互式 UI 和用于转换的命令行，并使你能够在不使用源代码的情况下转换应用程序。
+使用 MSIX 打包工具可将现有的 Win32 应用程序重新打包为 MSIX 格式。 此工具提供交互式 UI 和命令行用于转换，并且可以在没有源代码的情况下转换应用程序。
 
 ![MSIX 打包工具](./media/deploy-modern-applications/msix-packaging-tool.png)
 
 #### <a name="package-support-framework"></a>包支持框架
 
-包支持框架是一个开源工具包，可帮助你在无法访问源代码的情况下将修补程序应用于现有的 Win32 应用程序，使其能够在 .MSIX 容器中运行。 包支持框架可帮助应用程序遵循新式运行时环境的最佳做法。
+包支持框架是一个开源工具包，有助于在无权访问源代码时将修补程序应用于现有 Win32 应用程序，以便其在 MSIX 容器中运行。 包支持框架可帮助应用程序遵循新式运行时环境的最佳做法。
 
 #### <a name="app-installer"></a>应用安装程序
 
-应用安装程序允许通过双击应用程序包来安装 Windows 10 应用。 这意味着用户无需使用 PowerShell 或其他开发人员工具来部署 Windows 10 应用。 应用安装程序还可以从 Web、可选包和相关的集中安装应用。
+利用应用安装程序，可以通过双击应用包来安装 Windows 10 应用。 这意味着用户无需使用 PowerShell 或其他开发人员工具，即可部署 Windows 10 应用。 应用安装程序还可以从 Web、可选包和相关的集中安装应用。
 
-## <a name="how-to-create-an-msix-package-from-an-existing-win32-desktop-application"></a>如何从现有 Win32 桌面应用程序创建 .MSIX 包
+## <a name="how-to-create-an-msix-package-from-an-existing-win32-desktop-application"></a>如何从现有的 Win32 桌面应用程序创建 MSIX 包
 
-让我们完成从现有 Win32 应用程序创建 .MSIX 包的过程。 在此示例中，我们将使用 Windows 窗体应用程序。
+让我们看一下从现有 Win32 应用程序创建 MSIX 包的过程。 在此示例中，我们将使用 Windows 窗体应用。
 
-若要开始，请将新项目添加到解决方案中，选择 Windows 应用程序打包项目，并为其指定名称。
+首先，将一个新项目添加到解决方案中，选择“Windows 应用程序打包项目”，并为其命名。
 
 ![添加新的 Windows 应用程序打包项目](./media/deploy-modern-applications/add-packaging-project.png)
 
-你将看到打包项目的结构，并记下名为 " *应用程序*" 的特殊文件夹。 在此文件夹中，可以指定要包含在包中的应用程序。 它可以有多个。
+你会看到打包项目的结构，并注意到一个名为 Applications 的特殊文件夹。 在此文件夹中，可以指定要包含在包中的应用程序。 可以指定多个。
 
 ![打包项目的结构](./media/deploy-modern-applications/packaging-project.png)
 
-右键单击 " *应用程序* " 文件夹，然后选择要从 Visual Studio 解决方案中打包的 Windows 窗体项目。
+右键单击 Applications 文件夹，从 Visual Studio 解决方案中选择要打包的 Windows 窗体项目。
 
-![向打包项目添加 Windows 窗体项目](./media/deploy-modern-applications/add-winforms-project.png)
+![将 Windows 窗体项目添加到打包项目中](./media/deploy-modern-applications/add-winforms-project.png)
 
-此时，可以编译和生成包，但我们要检查几个问题。 为了获得更好的用户体验，Visual Studio 可以自动生成所有视觉对象，新式应用程序需要处理磁贴栏和 "开始" 菜单的图标和磁贴资产。 打开 *appxmanifest.xml* 文件以访问清单设计器。 然后，你可以通过单击 " **创建**"，从项目中的给定映像生成所有视觉资产。
+此时，你可以编译并生成包，但我们要确认几件事。 为了获得更好的用户体验，Visual Studio 可以自动生成新式应用程序处理磁贴栏和开始菜单的图标和磁贴资产所需的所有视觉资产。 打开 Package.appxmanifest 文件以访问清单设计器。 然后，只需单击“创建”，即可根据项目中的给定图片生成所有视觉资产。
 
-![Visual Studio 中的清单设计器屏幕截图](./media/deploy-modern-applications/manifest-designer.png)
+![Visual Studio 中清单设计器的屏幕截图](./media/deploy-modern-applications/manifest-designer.png)
 
-如果你打开 *appxmanifest.xml* 文件的代码，你会看到一些有趣的事情。
+如果打开 Package.appxmanifest 文件的代码，你会看到一些有趣的事情。
 
-在 `<Package>` 中，有一个 `<Identity>` 节点。 你的打包应用程序将通过它来获取其标识，该标识将由操作系统进行管理。
+就在 `<Package>` 下面，有一个 `<Identity>` 节点。 这是打包应用程序获取标识的地方，它将由操作系统管理。
 
-![标识节点](./media/deploy-modern-applications/identity-node.png)
+![Identity 节点](./media/deploy-modern-applications/identity-node.png)
 
-在 `<Capabilities>` 节点中，你可以找到应用程序所需的所有需求，特别注意 `<rescap:Capability Name="runFullTrust" \>` ，这会告诉 OS 以完全信任模式运行应用，因为它是 Win32 应用程序。
+在 `<Capabilities>` 节点中，你可以找到应用程序所需的所有必备组件，特别注意 `<rescap:Capability Name="runFullTrust" \>`，它会指示操作系统以完全信任模式运行应用，因为这是一个 Win32 应用程序。
 
-![功能节点](./media/deploy-modern-applications/capabilities-node.png)
+![Capabilities 节点](./media/deploy-modern-applications/capabilities-node.png)
 
-将打包项目设置为解决方案的启动项目，然后选择 " *运行*"。 这将：
+将打包项目设置为解决方案的启动项目，然后选择“运行”。 此操作将：
 
 - 编译 Windows 窗体应用程序。
-- 从生成结果中创建 .MSIX 包。
+- 根据生成结果创建 MSIX 包。
 - 部署包。
-- 在开发计算机上本地安装它。
+- 在开发计算机上进行本地安装。
 - 启动应用。
 
-![已安装的应用程序](./media/deploy-modern-applications/our-installed-application.png)
+![我们安装的应用程序](./media/deploy-modern-applications/our-installed-application.png)
 
-为此，你具有 .MSIX 提供完全集成到 Windows 10 的全新安装和卸载体验。
+你将借此获得 MSIX 提供的完全集成到 Windows 10 的干净安装和卸载体验。
 
-最后一阶段介绍如何将 .MSIX 包部署到其他计算机。
+最后阶段介绍如何将 MSIX 包部署到另一台计算机。
 
-右键单击打包项目，选择 " **应用商店** " 菜单，然后选择 " **创建应用包** " 选项。
+右键单击打包项目，选择“Store”菜单，然后选择“创建应用包”选项。
 
-然后，可以选择是创建要上传到存储的包，还是创建用于旁加载的包。 在大多数现代化情况下，你将选择 " **我想要创建旁加载包**"。
+然后，可以选择是创建包以上传到 Store，还是创建包以进行旁加载。 在大多数现代化方案中，你将选择“我想创建包以进行旁加载”。
 
 ![配置包](./media/deploy-modern-applications/configuring-packages.png)
 
-你可以选择要作为目标的不同体系结构，因为你可以在同一个 .MSIX 包中包含所需数量。
+在这里，你可以选择要作为目标的不同体系结构，因为你可以在同一个 MSIX 包中包含任意数量的体系结构。
 
 最后一步是声明要在何处部署最终安装资产。
 
 ![配置更新设置](./media/deploy-modern-applications/configure-update-settings.png)
 
-你可以选择在企业文件服务器上使用共享 UNC 路径的 web 服务器。 请注意设置以指定你希望如何更新应用程序。 下一节将介绍应用程序更新。
+你可以选择使用企业文件服务器上的共享 UNC 路径的 Web 服务器。 请注意用于指定应用程序更新方式的设置。 下一部分将介绍应用程序更新。
 
-有关详细的分步指南，请参阅 [使用 Visual Studio 从源代码打包桌面应用](/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)。
+有关详细的分步指南，请参阅[使用 Visual Studio 从源代码打包桌面应用](/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)。
 
-## <a name="auto-updates-in-msix"></a>.MSIX 中的自动更新
+## <a name="auto-updates-in-msix"></a>MSIX 中的自动更新
 
-Windows 应用商店使用 Windows 更新具有很好的更新机制。 在大多数企业方案中，你不会使用应用商店分发桌面应用。 因此，你需要一种类似的方式来为应用程序配置更新，并将它们拉取给用户。
+Windows 应用商店具有使用 Windows 更新的强大更新机制。 在大多数企业方案中，你不会使用应用商店来分发桌面应用。 因此，你需要采用一种类似的方法来为应用程序配置更新并将其拉取给用户。
 
-结合使用 Windows 10 功能和 .MSIX 包，你可以为用户提供出色的更新体验。 事实上，用户根本不需要技术，但仍可从无缝应用程序更新体验中获益。
+结合使用 Windows 10 功能和 MSIX 包，你可以为用户提供出色的更新体验。 事实上，用户不需要掌握任何技术，也能从无缝的应用程序更新体验中受益。
 
-可以通过两种不同的方式配置更新以与用户交互：
+你可以配置更新，以便通过两种不同的方式与用户交互：
 
-- 用户提示更新：操作系统会显示一些自动生成的理想 UI，通知用户有关应用程序即将安装的信息。 它基于你在安装文件中指定的属性生成此 UI。
+- 用户提示的更新：操作系统显示一些自动生成的精美 UI，以通知用户即将安装应用程序。 它基于你在安装文件上指定的属性来生成此 UI。
 
-- 后台无提示更新。 如果选择此选项，则用户无需知道更新。
+- 后台无提示更新。 使用此选项，你的用户无需知道这些更新。
 
-你还可以配置当应用程序启动或定期执行更新的时间。 凭借边载功能，您甚至可以在应用程序运行时获取这些更新。
+你还可以配置何时执行更新，是应用程序启动时更新还是定期更新。 凭借旁加载功能，你甚至可以在应用程序运行时获取这些更新。
 
-当你使用此类型的部署时，将创建一个名为 *appinstaller* 的特殊文件。 此简单文件包含以下部分：
+使用这种类型的部署时，系统会创建一个名为 .appinstaller 的特殊文件。 这个简单文件包含以下几部分：
 
-- *Appinstaller* 文件的位置
-- 应用程序的主 .MSIX 包属性
+- .appinstaller 文件的位置
+- 应用程序的主要 MSIX 包属性
 - 更新行为
 
-![appinstaller 文件](./media/deploy-modern-applications/appinstaller-file.png)
+![.appinstaller 文件](./media/deploy-modern-applications/appinstaller-file.png)
 
-与此文件结合使用，Microsoft 设计了一个特殊的 URL 协议，以从链接启动安装过程：
+结合此文件，Microsoft 设计了一个特殊的 URL 协议，以从链接启动安装过程：
 
 ```xml
 <a href="ms-appinstaller:?source=http://mywebservice.azureedge.net/MyApp.msix">Install app package </a>
 ```
 
-此协议适用于所有浏览器，并在 Windows 10 上通过出色的用户体验启动安装过程。 由于 OS 管理安装过程，因此它知道此应用程序的安装位置，并跟踪该进程影响的所有文件。
+此协议适用于所有浏览器，并在 Windows 10 上以良好的用户体验启动安装过程。 由于操作系统负责管理安装过程，因此它知道此应用程序的安装位置，并跟踪受该过程影响的所有文件。
 
-.MSIX 创建用于安装的用户界面，该用户界面会自动显示包的某些属性。 这允许为每个应用提供常见的安装体验。
+MSIX 会创建一个用于安装的用户界面，以自动显示包的某些属性。 这样可以为每个应用提供通用的安装体验。
 
-生成新的 .MSIX 包并将其移到部署服务器后，只需编辑 *appinstaller* 文件来反映这些更改，主要是版本和新 .msix 文件的路径。 用户下一次启动应用程序时，系统将检测更改，并在后台下载新版本的文件。 完成此操作后，将以透明方式对用户执行安装。
+生成新的 MSIX 包并将其迁移到部署服务器后，只需编辑 .appinstaller 文件以反映这些更改，主要包括版本和新 MSIX 文件的路径。 下次用户启动应用程序时，系统将检测到更改并在后台下载新版本的文件。 完成此操作后，将在新应用程序启动时以对用户透明的方式执行安装。
 
 >[!div class="step-by-step"]
 >[上一页](example-migration.md)

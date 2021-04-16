@@ -1,62 +1,62 @@
 ---
 title: 从模拟到数字转换器读取值
-description: 了解如何使用模拟到数字转换器读取可变电压值。
+description: 了解如何使用模数转换器读取可变电压值。
 author: camsoper
 ms.author: casoper
 ms.date: 11/13/2020
 ms.topic: tutorial
 ms.prod: dotnet
 ms.openlocfilehash: 509616e3423fbb83b74bfbb8ecec1a7df49f0a20
-ms.sourcegitcommit: 9c589b25b005b9a7f87327646020eb85c3b6306f
-ms.translationtype: MT
+ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102259730"
 ---
 <!--markdownlint-disable DOCSMD011 -->
 # <a name="read-values-from-an-analog-to-digital-converter"></a>从模拟到数字转换器读取值
 
- (ADC) 使用模拟到数字的转换器，它可以读取模拟输入电压值并将其转换为数字值。 ADCs 用于从 thermistors、potentiometers 和其他设备读取值，这些值根据某些条件更改抵抗。
+模数转换器 (ADC) 设备可读取模拟输入电压值并将其转换为数字值。 ADC 用于从热敏电阻和电位差计等设备读取值，这些设备会根据某些条件更改电阻。
 
-在本主题中，你将使用 .NET 从 ADC 读取值，因为使用 potentiometer 伯输入电压。
+在本主题中，由于使用电位差计来调整输入电压，因此将使用 .NET 从 ADC 读取值。
 
 ## <a name="prerequisites"></a>先决条件
 
 - [!INCLUDE [prereq-rpi](../includes/prereq-rpi.md)]
-- [MCP3008](https://www.microchip.com/wwwproducts/MCP3008) 的模拟到数字转换器
-- 三针 potentiometer
+- [MCP3008](https://www.microchip.com/wwwproducts/MCP3008) 模数转换器
+- 三脚电位差计
 - 试验板
 - 跳线
-- Raspberry Pi GPIO (可选/推荐的) 
+- Raspberry Pi GPIO 分线板（可选/推荐）
 - [!INCLUDE [tutorial-prereq-dotnet](../includes/tutorial-prereq-dotnet.md)]
 
 [!INCLUDE [prepare-pi-spi](../includes/prepare-pi-spi.md)]
 
 ## <a name="prepare-the-hardware"></a>准备硬件
 
-按照下图所示，使用硬件组件构建线路：
+使用硬件组件构建下图所示的线路：
 
-:::image type="content" source="../media/rpi-trimpot_spi-thumb.png" alt-text="显示具有 MCP3008 ADC 和 potentiometer 的线路的 Fritzing 关系图" lightbox="../media/rpi-trimpot_spi.png":::
+:::image type="content" source="../media/rpi-trimpot_spi-thumb.png" alt-text="显示具有 MCP3008 ADC 和电位差计的线路的 Fritzing 图" lightbox="../media/rpi-trimpot_spi.png":::
 
-MCP3008 使用串行外围设备接口 (SPI) 进行通信。 下面是从 MCP3008 到 Raspberry Pi 和 potentiometer 的连接：
+MCP3008 使用串行外围设备接口 (SPI) 进行通信。 下列是从 MCP3008 到 Raspberry Pi 和电位差计的连接：
 
-- 从<sub>DD</sub> 到 3.3 v (显示为红色) 
-- 指向 3.3 V 的 v<sub>引用</sub> (红色) 
-- AGND 到地面 (黑色) 
-- CLK SCLK (橙色) 
-- D<sub>MISO</sub> (橙色) 
-- D<sub>中的</sub> MOSI (橙色) 
-- CS/SHDN to CE0 (绿色) 
-- DGND 到地面 (黑色) 
-- CH0 到 potentiometer (黄色的变量 (中间) 固定) 
+- V<sub>DD</sub> 连接到 3.3V（红色所示）
+- V<sub>REF</sub> 连接到 3.3V（红色）
+- AGND 连接到地面（黑色）
+- CLK 连接到 SCLK（橙色）
+- D<sub>OUT</sub> 连接到 MISO（橙色）
+- D<sub>IN</sub> 连接到 MOSI（橙色）
+- CS/SHDN 连接到 CE0（绿色）
+- DGND 连接到地面（黑色）
+- CH0 连接到电位差计上的可变（中间）引脚（黄色）
 
-向 potentiometer 上的外部针脚提供 3.3 V 和接地。 顺序并不重要。
+为电位差计上的外部引脚提供 3.3V 的电源并接地。 顺序并不重要。
 
-根据需要，请参阅以下引出线关系图：
+根据需要，请参阅以下引脚分配关系图：
 
 | MCP3008  | Raspberry Pi GPIO |
 |----------|-------------------|
-| :::image type="content" source="../media/mcp3008-diagram-thumb.png" alt-text="显示 MCP3008 引线的示意图" lightbox="../media/mcp3008-diagram.png"::: | :::image type="content" source="../media/gpio-pinout-diagram-thumb.png" alt-text="显示 Raspberry Pi GPIO 标头引线的关系图。Image 礼节性 Raspberry Pi Foundation。" lightbox="../media/gpio-pinout-diagram.png":::<br />[Image 礼节性 Raspberry Pi Foundation](https://www.raspberrypi.org/documentation/usage/gpio/)。
+| :::image type="content" source="../media/mcp3008-diagram-thumb.png" alt-text="显示 MCP3008 的引脚分配关系图" lightbox="../media/mcp3008-diagram.png"::: | :::image type="content" source="../media/gpio-pinout-diagram-thumb.png" alt-text="显示 Raspberry Pi GPIO 标头引脚分配的关系图。图片由 Raspberry Pi 基金会提供。" lightbox="../media/gpio-pinout-diagram.png":::<br />[图片由 Raspberry Pi 基金会提供](https://www.raspberrypi.org/documentation/usage/gpio/)。
  |
 
 [!INCLUDE [gpio-breakout](../includes/gpio-breakout.md)]
@@ -65,7 +65,7 @@ MCP3008 使用串行外围设备接口 (SPI) 进行通信。 下面是从 MCP300
 
 在首选开发环境中完成以下步骤：
 
-1. 使用 [.NET CLI](../../core/tools/dotnet-new.md) 或 [Visual Studio](../../core/tutorials/with-visual-studio.md)创建一个新的 .net 控制台应用程序。 将其命名为 *AdcTutorial*。
+1. 使用 [.NET CLI](../../core/tools/dotnet-new.md) 或 [Visual Studio](../../core/tutorials/with-visual-studio.md) 创建一个新 .Net 控制台应用。 将其命名为 AdcTutorial。
 
     ```dotnetcli
     dotnet new console -o AdcTutorial
@@ -78,15 +78,15 @@ MCP3008 使用串行外围设备接口 (SPI) 进行通信。 下面是从 MCP300
 
     在上述代码中：
 
-    - `hardwareSpiSettings` 设置为的新实例 `SpiConnectionSettings` 。 构造函数将 `busId` 参数设置为0，将 `chipSelectLine` 参数设置为0。
-    - [Using 声明](../../csharp/whats-new/csharp-8.md#using-declarations) `SpiDevice` 通过调用并传入来创建的实例 `SpiDevice.Create` `hardwareSpiSettings` 。 这 `SpiDevice` 表示 SPI 总线。 `using`声明可确保释放对象并正确释放硬件资源。
-    - 其他 `using` 声明将创建的实例 `Mcp3008` ，并将传递 `SpiDevice` 到构造函数中。
-    - `while`循环会无限期运行。 每次迭代：
-        1. 通过调用读取 ADC 上 CH0 的值 `mcp.Read(0)` 。
-        1. 值除以10.24。 MCP3008 是一个10位 ADC，这意味着它将返回1024的可能值，范围为0-1023。 将值除以10.24 表示百分比形式的值。
-        1. 将值舍入到最接近的整数。
-        1. 将值写入格式为百分比的控制台。
-        1. 睡眠500毫秒。
+    - `hardwareSpiSettings` 设置为 `SpiConnectionSettings` 的新实例。 构造函数将 `busId` 参数设置为 0，将 `chipSelectLine` 参数设置为 0。
+    - [using 声明](../../csharp/whats-new/csharp-8.md#using-declarations)通过调用 `SpiDevice.Create` 和传入 `hardwareSpiSettings` 来创建 `SpiDevice` 的实例。 `SpiDevice` 表示 SPI 总线。 `using` 声明可确保释放对象并正确释放硬件资源。
+    - 其他 `using` 声明创建 `Mcp3008` 的实例，并将 `SpiDevice` 传递到构造函数中。
+    - `while` 循环无限期运行。 每次迭代：
+        1. 通过调用 `mcp.Read(0)` 来读取 ADC 上的 CH0 值。
+        1. 将值除以 10.24。 MCP3008 是 10 位 ADC，表示它会返回范围为 0-1023 的 1024 个可能的值。 将值除以 10.24 表示百分比形式的值。
+        1. 将小数值四舍五入到最接近的整数。
+        1. 将值以百分比形式写入控制台。
+        1. 休眠 500 毫秒。
 
 1. [!INCLUDE [tutorial-build](../includes/tutorial-build.md)]
 1. [!INCLUDE [tutorial-deploy](../includes/tutorial-deploy.md)]
@@ -96,15 +96,15 @@ MCP3008 使用串行外围设备接口 (SPI) 进行通信。 下面是从 MCP300
     ./AdcTutorial
     ```
 
-    旋转 potentiometer 时观察输出。 这是因为 potentiometer 会将在 ADC 上提供给 CH0 的电压改变。 ADC 比较了 CH0 上的输入电压与 V<sub>REF</sub> 提供的参考电压，以生成值。
+    旋转电位差计刻度时观察输出。 这是因为电位差计会改变供给 ADC 上 CH0 的电压。 ADC 将 CH0 上的输入电压与提供给 V<sub>REF</sub> 的参考电压进行比较，从而生成一个值。
 
-1. 通过按 <kbd>Ctrl + C</kbd>终止节目。
+1. 按 <kbd>Ctrl+C</kbd> 终止程序。
 
-祝贺你！ 已使用 SPI 从模拟到数字转换器读取值。
+祝贺你！ 你使用 SPI 从模数转换器读取了值。
 
 ## <a name="get-the-source-code"></a>获取源代码
 
-[GitHub 上提供](https://github.com/MicrosoftDocs/dotnet-iot-assets/tree/master/tutorials/AdcTutorial)了本教程的源。
+[GitHub](https://github.com/MicrosoftDocs/dotnet-iot-assets/tree/master/tutorials/AdcTutorial) 上提供此教程的源。
 
 ## <a name="next-steps"></a>后续步骤
 

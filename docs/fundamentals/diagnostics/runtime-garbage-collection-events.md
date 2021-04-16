@@ -1,6 +1,6 @@
 ---
 title: 垃圾回收运行时事件
-description: 请参阅收集特定于 .NET 垃圾回收器的诊断信息的 .NET 运行时事件。
+description: 查看收集特定于 .NET 垃圾回收器的诊断信息的 .NET 运行时事件。
 ms.date: 11/13/2020
 ms.topic: reference
 helpviewer_keywords:
@@ -8,15 +8,15 @@ helpviewer_keywords:
 - garbage collection events (CoreCLR)
 - ETW, EventPipe, LTTng garbage collection events (CoreCLR)
 ms.openlocfilehash: 2799a93f351baf23ec7a359b0b4b2be5c216dc4d
-ms.sourcegitcommit: 965a5af7918acb0a3fd3baf342e15d511ef75188
-ms.translationtype: MT
+ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96591061"
 ---
 # <a name="net-runtime-garbage-collection-events"></a>.NET 运行时垃圾回收事件
 
-这些事件可收集有关垃圾回收的信息。 它们有助于诊断和调试，包括确定垃圾回收执行的次数、垃圾回收期间释放的内存量等。有关如何将这些事件用于诊断的详细信息，请参阅 [日志记录和跟踪 .net 应用程序](../../core/diagnostics/logging-tracing.md)
+这些事件可收集有关垃圾回收的信息。 它们有助于诊断和调试，包括确定执行垃圾回收的次数、垃圾回收期间释放的内存量等。有关如何将这些事件用于诊断的详细信息，请参阅[对 .NET 应用程序进行日志记录和跟踪](../../core/diagnostics/logging-tracing.md)
 
 ## <a name="gcstart_v2-event"></a>GCStart_V2 事件
 
@@ -34,12 +34,12 @@ ms.locfileid: "96591061"
 
 下表显示了事件数据：
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
 |`Count`|`win:UInt32`|第 *n* 代垃圾回收。|
 |`Depth`|`win:UInt32`|正在回收的代。|
-|`Reason`|`win:UInt32`|垃圾回收的触发原因：<br /><br /> `0x0` -小对象堆分配。<br /><br /> `0x1` 触发.<br /><br /> `0x2` -内存不足。<br /><br /> `0x3` 空白处.<br /><br /> `0x4` -大型对象堆分配。<br /><br /> `0x5` (小对象堆) 空间不足。<br /><br /> `0x6` 对于大型对象堆)  (空间不足。<br /><br /> `0x7` -已引发，但未强制为阻止。|
-|`Type`|`win:UInt32`|`0x0` -在后台垃圾回收外部发生了阻止垃圾回收。<br /><br /> `0x1` -后台垃圾回收。<br /><br /> `0x2` -在后台垃圾回收期间发生了阻止垃圾回收。|
+|`Reason`|`win:UInt32`|垃圾回收的触发原因：<br /><br /> `0x0` - 小型对象堆分配。<br /><br /> `0x1` - 已引发。<br /><br /> `0x2` - 内存不足。<br /><br /> `0x3` - 空。<br /><br /> `0x4` - 大型对象堆分配。<br /><br /> `0x5` - 空间外（针对小型对象堆）。<br /><br /> `0x6` - 空间外（针对大型对象堆）。<br /><br /> `0x7` - 已引发，但不是强制作为阻塞。|
+|`Type`|`win:UInt32`|`0x0` - 后台垃圾回收外发生了阻止垃圾回收。<br /><br /> `0x1` - 后台垃圾回收。<br /><br /> `0x2` - 后台垃圾回收时发生了阻止垃圾回收。|
 |`ClrInstanceID`|win:UInt16|CoreCLR 实例的唯一 ID。|
 
 ## <a name="gcend_v1-event"></a>GCEnd_V1 事件
@@ -58,7 +58,7 @@ ms.locfileid: "96591061"
 
 下表显示了事件数据：
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
 |`Count`|`win:UInt32`|第 *n* 代垃圾回收。|
 |`Depth`|`win:UInt32`|已回收的代。|
@@ -74,13 +74,13 @@ ms.locfileid: "96591061"
 
 下表显示了事件信息：
 
-|事件|事件 ID|描述|
+|事件|事件 ID|说明|
 |-----------|--------------|-----------------|
 |`GCHeapStats_V2`|4|在每次垃圾回收结束时显示堆统计信息。|
 
 下表显示了事件数据：
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
 |`GenerationSize0`|`win:UInt64`|第 0 代内存的大小（以字节为单位）。|
 |`TotalPromotedSize0`|`win:UInt64`|从第 0 代提升到第 1 代的字节数。|
@@ -96,8 +96,8 @@ ms.locfileid: "96591061"
 |`SinkBlockCount`|`win:UInt32`|正在使用的同步块的数目。|
 |`GCHandleCount`|`win:UInt32`|使用中的垃圾回收句柄的数目。|
 |`ClrInstanceID`|`win:UInt16`|CoreCLR 实例的唯一 ID。|
-|`GenerationSize4`|`win:UInt64`|固定对象堆的大小（以字节为单位）。|
-|`TotalPromotedSize4`|`win:UInt64`|上次回收后保留在固定对象堆中的字节数。|
+|`GenerationSize4`|`win:UInt64`|已固定对象堆的大小（以字节为单位）。|
+|`TotalPromotedSize4`|`win:UInt64`|上次回收后仍存在于固定对象堆中的字节数。|
 
 ## <a name="gccreatesegment_v1-event"></a>GCCreateSegment_V1 事件
 
@@ -115,7 +115,7 @@ ms.locfileid: "96591061"
 
 下表显示了事件数据：
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
 |`Address`|`win:UInt64`|段的地址。|
 |`Size`|`win:UInt64`|段的大小。|
@@ -140,7 +140,7 @@ ms.locfileid: "96591061"
 
 下表显示了事件数据：
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
 |`Address`|`win:UInt64`|段的地址。|
 |`ClrInstanceID`|`win:UInt16`|CoreCLR 实例的唯一 ID。|
@@ -207,10 +207,10 @@ ms.locfileid: "96591061"
 |-----------|--------------|-----------------|
 |`GCSuspendEEBegin_V1`|8|开始挂起垃圾回收的执行引擎。|
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
 |`Count`|`win:UInt32`|第 *n* 代垃圾回收。|
-|`Reason`|`win:UInt32`|EE 挂起的原因。<br/><br/>`0x0`：挂起其他<br/><br/>`0x1`：挂起 GC。<br/><br/>`0x2`：挂起 AppDomain 关闭。<br/><br/>`0x3`：挂起代码间距调整。<br/><br/>`0x4`：挂起以关闭。<br/><br/>`0x5`：挂起调试器。<br/><br/>`0x6`：挂起 GC 准备。<br/><br/>`0x7`：挂起调试程序扫描|
+|`Reason`|`win:UInt32`|EE 挂起的原因。<br/><br/>`0x0`：因其他事件而暂停<br/><br/>`0x1`：因 GC 而暂停。<br/><br/>`0x2`：因 AppDomain 关闭而暂停。<br/><br/>`0x3`：因代码间距调整而暂停。<br/><br/>`0x4`：因关闭而暂停。<br/><br/>`0x5`：因调试器而暂停。<br/><br/>`0x6`：因 GC 准备而暂停。<br/><br/>`0x7`：因调试程序扫描而暂停|
 
 ## <a name="gcallocationtick_v3-event"></a>GCAllocationTick_V3 事件
 
@@ -218,7 +218,7 @@ ms.locfileid: "96591061"
 
 |引发事件的关键字|Level|
 |-----------------------------------|-----------|
-|`GCKeyword` (0x1)|详细 (4) |
+|`GCKeyword` (0x1)|详细 (4)|
 
 下表显示了事件信息：
 
@@ -228,10 +228,10 @@ ms.locfileid: "96591061"
 
 下表显示了事件数据：
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
 |`AllocationAmount`|`win:UInt32`|分配大小（以字节为单位）。 对于小于 ULONG（4,294,967,295 字节）长度的分配，此值为精确值。 如果分配长度更大，则此字段包含了截断的值。 对于非常大的分配使用 `AllocationAmount64` 。|
-|`AllocationKind`|`win:UInt32`|`0x0` -小对象分配 (在小对象堆) 中分配。<br /><br /> `0x1` -大型对象分配 (在大型对象堆) 中分配。|
+|`AllocationKind`|`win:UInt32`|`0x0` - 小型对象分配（小型对象堆中的分配）。<br /><br /> `0x1` - 大型对象分配（大型对象堆中的分配）。|
 |`AllocationAmount64`|`win:UInt64`|分配大小（以字节为单位）。 对于非常大的分配，此值为精确值。|
 |`TypeId`|`win:Pointer`|MethodTable 的地址。 如果在此事件期间分配了几种类型的对象，则此地址为对应于分配的最后一个对象（导致超过 100 KB 阙值的对象）的 MethodTable 地址。|
 |`TypeName`|`win:UnicodeString`|已分配的类型的名称。 如果在此事件期间分配了几种类型的对象，则此地址为对应于分配的最后一个类型（导致超过 100 KB 阙值的对象）。|
@@ -305,7 +305,7 @@ ms.locfileid: "96591061"
 
 下表显示了事件数据：
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
 |`Count`|`win:UInt32`|运行的终结器数。|
 |`ClrInstanceID`|win:UInt16|CLR 或 CoreCLR 的实例的唯一 ID。|
@@ -316,7 +316,7 @@ ms.locfileid: "96591061"
 
 |引发事件的关键字|Level|
 |-----------------------------------|-----------|
-|`GCHandleKeyword` (0x2) |信息性 (4)|
+|`GCHandleKeyword` (0x2)|信息性 (4)|
 
 下表显示了事件信息：
 
@@ -326,11 +326,11 @@ ms.locfileid: "96591061"
 
 下表显示了事件数据：
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
 |`HandleID`|`win:Pointer`|已分配的句柄的地址。|
-|`ObjectID`|`win:Pointer`|创建了其句柄的对象的地址。|
-|`Kind`|`win:UInt32`|已设置的 GC 句柄的类型。 <br /><br />`0x0`: WeakShort <br/><br/>`0x1`: WeakLong <br /><br />`0x2`：强 <br /><br />`0x3`：固定 <br /><br />`0x4`：变量<br /><br />`0x5`: RefCounted <br /><br />`0x6`：依赖<br /><br />`0x7`: AsyncPinned<br /><br />`0x8`： SizedRef|
+|`ObjectID`|`win:Pointer`|创建了句柄的对象的地址。|
+|`Kind`|`win:UInt32`|已设置的 GC 句柄的类型。 <br /><br />`0x0`：WeakShort <br/><br/>`0x1`：WeakLong <br /><br />`0x2`：Strong <br /><br />`0x3`：Pinned <br /><br />`0x4`：Variable<br /><br />`0x5`：RefCounted <br /><br />`0x6`：Dependent<br /><br />`0x7`：AsyncPinned<br /><br />`0x8`：SizedRef|
 |`Generation`|`win:UInt32`|创建了其句柄的对象的生成。|
 |`AppDomainID`|`win:UInt64`|AppDomain ID。|
 |`ClrInstanceID`|`win:UInt16`|CoreCLR 实例的唯一 ID。|
@@ -341,19 +341,19 @@ ms.locfileid: "96591061"
 
 |引发事件的关键字|Level|
 |-----------------------------------|-----------|
-|`GCHandleKeyword` (0x2) |信息性 (4)|
+|`GCHandleKeyword` (0x2)|信息性 (4)|
 
 下表显示了事件信息：
 
 |事件|事件 ID|在发生以下情况时引发|
 |-----------|--------------|-----------------|
-|`DestroyGCHandle`|31|GC 句柄已销毁。|
+|`DestroyGCHandle`|31|已销毁 GC 句柄。|
 
 下表显示了事件数据：
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
-|`HandleID`|`win:Pointer`|已销毁句柄的地址。|
+|`HandleID`|`win:Pointer`|已销毁的句柄的地址。|
 |`ClrInstanceID`|win:UInt16|CoreCLR 实例的唯一 ID。|
 
 ## <a name="pinobjectatgctime-event"></a>PinObjectAtGCTime 事件
@@ -368,16 +368,16 @@ ms.locfileid: "96591061"
 
 |事件|事件 ID|在发生以下情况时引发|
 |-----------|--------------|-----------------|
-|`PinObjectAtGCTime`|33|对象在 GC 期间被固定。|
+|`PinObjectAtGCTime`|33|对象在 GC 期间已固定。|
 
 下表显示了事件数据：
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
 |`HandleID`|`win:Pointer`|句柄的地址。|
-|`ObjectID`|`win:Pointer`|固定对象的地址。|
-|`ObjectSize`|`win:UInt64`|固定对象的大小。|
-|`TypeName`|`win:UnicodeString`|固定对象的类型的名称。|
+|`ObjectID`|`win:Pointer`|已固定对象的地址。|
+|`ObjectSize`|`win:UInt64`|已固定对象的大小。|
+|`TypeName`|`win:UnicodeString`|已固定对象的类型的名称。|
 |`ClrInstanceID`|`win:UInt16`|CoreCLR 实例的唯一 ID。|
 
 ## <a name="gctriggered-event"></a>GCTriggered 事件
@@ -396,9 +396,9 @@ ms.locfileid: "96591061"
 
 下表显示了事件数据：
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
-|`Reason`|`win:UInt32`|触发 GC 的原因。<br/><br/>`0x0`: AllocSmall<br/><br/>`0x1`：已引发 <br/><br/>`0x2`: LowMemory <br/><br/>`0x3`： Empty <br/><br/>`0x4`: AllocLarge <br/><br/>`0x5`: OutOfSpaceSmallObjectHeap <br/><br/>`0x6`: OutOfSpaceLargeObjectHeap <br/><br/>`0x7`:InducedNoForce <br/><br/>`0x8`：压力 <br/><br/>`0x9`: InducedLowMemory|
+|`Reason`|`win:UInt32`|触发 GC 的原因。<br/><br/>`0x0`：AllocSmall<br/><br/>`0x1`：Induced <br/><br/>`0x2`：LowMemory <br/><br/>`0x3`：Empty <br/><br/>`0x4`：AllocLarge <br/><br/>`0x5`：OutOfSpaceSmallObjectHeap <br/><br/>`0x6`：OutOfSpaceLargeObjectHeap <br/><br/>`0x7`：InducedNoForce <br/><br/>`0x8`：Stress <br/><br/>`0x9`：InducedLowMemory|
 |`ClrInstanceID`|`win:UInt16`|CoreCLR 实例的唯一 ID。|
 
 ## <a name="increasememorypressure-event"></a>IncreaseMemoryPressure 事件
@@ -407,13 +407,13 @@ ms.locfileid: "96591061"
 
 |引发事件的关键字|Level|
 |-----------------------------------|-----------|
-|`GCKeyword` (0x1)| (4) 的信息|
+|`GCKeyword` (0x1)|信息 (4)|
 
 下表显示了事件信息：
 
 |事件|事件 ID|在发生以下情况时引发|
 |----------------|---------------|-----------------|
-|`IncreaseMemoryPressure`|200|增加了内存压力。|
+|`IncreaseMemoryPressure`|200|内存压力增加。|
 
 下表显示了事件数据：
 
@@ -427,13 +427,13 @@ ms.locfileid: "96591061"
 
 |引发事件的关键字|Level|
 |-----------------------------------|-----------|
-|`GCKeyword` (0x1)| (4) 的信息|
+|`GCKeyword` (0x1)|信息 (4)|
 
 下表显示了事件信息：
 
 |事件|事件 ID|在发生以下情况时引发|
 |----------------|---------------|-----------------|
-|`DecreaseMemoryPressure`|201|内存压力下降。|
+|`DecreaseMemoryPressure`|201|内存压力降低。|
 
 下表显示了事件数据：
 
@@ -448,13 +448,13 @@ ms.locfileid: "96591061"
 
 |引发事件的关键字|Level|
 |-----------------------------------|-----------|
-|`GCKeyword` (0x1)| (4) 的信息|
+|`GCKeyword` (0x1)|信息 (4)|
 
 下表显示了事件信息：
 
 |事件|事件 ID|在发生以下情况时引发|
 |----------------|---------------|-----------------|
-|`GCMarkWithType`|202|Gc 标记阶段中已标记了一个 GC 根。|
+|`GCMarkWithType`|202|GC 标记阶段期间已标记了一个 GC 根。|
 
 下表显示了事件数据：
 
@@ -462,8 +462,8 @@ ms.locfileid: "96591061"
 |----------------|---------------|-----------------|
 |`HeapNum`|`win:UInt32`|堆号。|
 |`ClrInstanceID`|win:UInt16|CoreCLR 实例的唯一 ID。|
-|`Type`|`win:UInt32`|GC 根类型。<br/><br/>`0x0`： Stack<br/><br/>`0x1`：终结器<br/><br/>`0x2`：句柄<br/><br/>`0x3`：较早<br/><br/>`0x4`： SizedRef<br/><br/>`0x5`：溢出<br/><br/>|
-|`Bytes`|`win:UInt64`|标记的字节数。|
+|`Type`|`win:UInt32`|GC 根类型。<br/><br/>`0x0`：Stack<br/><br/>`0x1`：Finalizer<br/><br/>`0x2`：Handle<br/><br/>`0x3`：Older<br/><br/>`0x4`：SizedRef<br/><br/>`0x5`：Overflow<br/><br/>|
+|`Bytes`|`win:UInt64`|已标记的字节数。|
 
 ## <a name="gcjoin_v2-event"></a>GCJoin_V2 事件
 
@@ -477,13 +477,13 @@ ms.locfileid: "96591061"
 
 |事件|事件 ID|在发生以下情况时引发|
 |-----------|--------------|-----------------|
-|`GCJoin_V2`|203|已加入 GC 线程。|
+|`GCJoin_V2`|203|已联接的 GC 线程。|
 
 下表显示了事件数据：
 
-|字段名称|数据类型|说明|
+|字段名|数据类型|说明|
 |----------------|---------------|-----------------|
 |`Heap`|`win:UInt32`|堆号|
-|`JoinTime`|`win:UInt32`|指示在联接 (联接结束时是否激发此事件 `0x0` ， `0x1` 对于联接端) 为。|
-|`JoinType`|`win:UInt32`|联接类型。 <br/><br/>`0x0`：上次联接<br/><br/>`0x1`：联接 <br/><br/>`0x2`：重新启动 <br/><br/>`0x3`：第一个反向联接<br/><br/>`0x4`：反向联接<br/><br/>|
+|`JoinTime`|`win:UInt32`|指示在联接开始或结束时是否触发此事件（`0x0` 为联接开始，`0x1` 为联接结束）|
+|`JoinType`|`win:UInt32`|联接类型。 <br/><br/>`0x0`：Last Join<br/><br/>`0x1`：Join <br/><br/>`0x2`：Restart <br/><br/>`0x3`：First Reverse Join<br/><br/>`0x4`：Reverse Join<br/><br/>|
 |`ClrInstanceID`|`win:UInt16`|CoreCLR 实例的唯一 ID。|
