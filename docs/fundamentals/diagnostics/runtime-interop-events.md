@@ -1,42 +1,42 @@
 ---
 title: 互操作运行时事件
-description: 请参阅收集特定于互操作的诊断信息的 .NET 运行时事件。
+description: 查看收集特定于互操作的诊断信息的 .NET 运行时事件。
 ms.date: 11/13/2020
 ms.topic: reference
 helpviewer_keywords:
 - Interop events (CoreCLR)
 - ETW, EventPipe, LTTng interop events (CoreCLR)
 ms.openlocfilehash: 5635fb55b3a6ffa3f5611da80cdb2909e226e2ea
-ms.sourcegitcommit: 965a5af7918acb0a3fd3baf342e15d511ef75188
-ms.translationtype: MT
+ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96591058"
 ---
-# <a name="net-runtime-interop-events"></a><span data-ttu-id="30477-103">.NET 运行时互操作事件</span><span class="sxs-lookup"><span data-stu-id="30477-103">.NET runtime interop events</span></span>
+# <a name="net-runtime-interop-events"></a><span data-ttu-id="b4a34-103">.NET 运行时互操作事件</span><span class="sxs-lookup"><span data-stu-id="b4a34-103">.NET runtime interop events</span></span>
 
-<span data-ttu-id="30477-104">这些运行时事件捕获有关公共中间语言 (CIL) 存根生成的信息。</span><span class="sxs-lookup"><span data-stu-id="30477-104">These runtime events capture information about Common Intermediate Language (CIL) stub generation.</span></span> <span data-ttu-id="30477-105">有关如何将这些事件用于诊断的详细信息，请参阅 [日志记录和跟踪 .net 应用程序](../../core/diagnostics/logging-tracing.md)</span><span class="sxs-lookup"><span data-stu-id="30477-105">For more information about how to use these events for diagnostic purposes, see [logging and tracing .NET applications](../../core/diagnostics/logging-tracing.md)</span></span>
+<span data-ttu-id="b4a34-104">这些运行时事件捕获有关公共中间语言 (CIL) 存根生成的信息。</span><span class="sxs-lookup"><span data-stu-id="b4a34-104">These runtime events capture information about Common Intermediate Language (CIL) stub generation.</span></span> <span data-ttu-id="b4a34-105">有关如何将这些事件用于诊断的详细信息，请参阅 [.NET 应用程序日志记录和跟踪](../../core/diagnostics/logging-tracing.md)</span><span class="sxs-lookup"><span data-stu-id="b4a34-105">For more information about how to use these events for diagnostic purposes, see [logging and tracing .NET applications](../../core/diagnostics/logging-tracing.md)</span></span>
 
-## <a name="ilstubgenerated-event"></a><span data-ttu-id="30477-106">ILStubGenerated 事件</span><span class="sxs-lookup"><span data-stu-id="30477-106">ILStubGenerated event</span></span>
+## <a name="ilstubgenerated-event"></a><span data-ttu-id="b4a34-106">ILStubGenerated 事件</span><span class="sxs-lookup"><span data-stu-id="b4a34-106">ILStubGenerated event</span></span>
 
-|<span data-ttu-id="30477-107">引发事件的关键字</span><span class="sxs-lookup"><span data-stu-id="30477-107">Keyword for raising the event</span></span>|<span data-ttu-id="30477-108">Level</span><span class="sxs-lookup"><span data-stu-id="30477-108">Level</span></span>|
+|<span data-ttu-id="b4a34-107">引发事件的关键字</span><span class="sxs-lookup"><span data-stu-id="b4a34-107">Keyword for raising the event</span></span>|<span data-ttu-id="b4a34-108">Level</span><span class="sxs-lookup"><span data-stu-id="b4a34-108">Level</span></span>|
 |-----------------------------------|-----------|
-|<span data-ttu-id="30477-109">`InteropKeyword` (0x2000)</span><span class="sxs-lookup"><span data-stu-id="30477-109">`InteropKeyword` (0x2000)</span></span>|<span data-ttu-id="30477-110">信息性 (4)</span><span class="sxs-lookup"><span data-stu-id="30477-110">Informational(4)</span></span>|
+|<span data-ttu-id="b4a34-109">`InteropKeyword` (0x2000)</span><span class="sxs-lookup"><span data-stu-id="b4a34-109">`InteropKeyword` (0x2000)</span></span>|<span data-ttu-id="b4a34-110">信息性 (4)</span><span class="sxs-lookup"><span data-stu-id="b4a34-110">Informational(4)</span></span>|
   
-|<span data-ttu-id="30477-111">事件</span><span class="sxs-lookup"><span data-stu-id="30477-111">Event</span></span>|<span data-ttu-id="30477-112">事件 ID</span><span class="sxs-lookup"><span data-stu-id="30477-112">Event ID</span></span>|<span data-ttu-id="30477-113">在发生以下情况时引发</span><span class="sxs-lookup"><span data-stu-id="30477-113">Raised when</span></span>|
+|<span data-ttu-id="b4a34-111">事件</span><span class="sxs-lookup"><span data-stu-id="b4a34-111">Event</span></span>|<span data-ttu-id="b4a34-112">事件 ID</span><span class="sxs-lookup"><span data-stu-id="b4a34-112">Event ID</span></span>|<span data-ttu-id="b4a34-113">在发生以下情况时引发</span><span class="sxs-lookup"><span data-stu-id="b4a34-113">Raised when</span></span>|
 |-----------|--------------|-----------------|
-|`ILStubGenerated`|<span data-ttu-id="30477-114">88</span><span class="sxs-lookup"><span data-stu-id="30477-114">88</span></span>|<span data-ttu-id="30477-115">生成 IL 存根。</span><span class="sxs-lookup"><span data-stu-id="30477-115">An IL Stub is generated.</span></span>|
+|`ILStubGenerated`|<span data-ttu-id="b4a34-114">88</span><span class="sxs-lookup"><span data-stu-id="b4a34-114">88</span></span>|<span data-ttu-id="b4a34-115">生成 IL 存根。</span><span class="sxs-lookup"><span data-stu-id="b4a34-115">An IL Stub is generated.</span></span>|
 
-|<span data-ttu-id="30477-116">字段名称</span><span class="sxs-lookup"><span data-stu-id="30477-116">Field name</span></span>|<span data-ttu-id="30477-117">数据类型</span><span class="sxs-lookup"><span data-stu-id="30477-117">Data type</span></span>|<span data-ttu-id="30477-118">说明</span><span class="sxs-lookup"><span data-stu-id="30477-118">Description</span></span>|
+|<span data-ttu-id="b4a34-116">字段名</span><span class="sxs-lookup"><span data-stu-id="b4a34-116">Field name</span></span>|<span data-ttu-id="b4a34-117">数据类型</span><span class="sxs-lookup"><span data-stu-id="b4a34-117">Data type</span></span>|<span data-ttu-id="b4a34-118">说明</span><span class="sxs-lookup"><span data-stu-id="b4a34-118">Description</span></span>|
 |----------------|---------------|-----------------|
-|`ModuleID`|`win:UInt16`|<span data-ttu-id="30477-119">模块标识符。</span><span class="sxs-lookup"><span data-stu-id="30477-119">The module identifier.</span></span>|
-|`StubMethodID`|`win:UInt64`|<span data-ttu-id="30477-120">存根方法标识符。</span><span class="sxs-lookup"><span data-stu-id="30477-120">The stub method identifier.</span></span>|
-|`StubFlags`|`win:UInt32`|<span data-ttu-id="30477-121">存根标志：</span><span class="sxs-lookup"><span data-stu-id="30477-121">The flags for the stub:</span></span><br /><br /> <span data-ttu-id="30477-122">`0x1` -反向互操作。</span><span class="sxs-lookup"><span data-stu-id="30477-122">`0x1` - Reverse interop.</span></span><br /><br /> <span data-ttu-id="30477-123">`0x2` -COM 互操作。</span><span class="sxs-lookup"><span data-stu-id="30477-123">`0x2` - COM interop.</span></span><br /><br /> <span data-ttu-id="30477-124">`0x4` -由 NGen.exe 生成的存根。</span><span class="sxs-lookup"><span data-stu-id="30477-124">`0x4` - Stub generated by NGen.exe.</span></span><br /><br /> <span data-ttu-id="30477-125">`0x8` 委托.</span><span class="sxs-lookup"><span data-stu-id="30477-125">`0x8` - Delegate.</span></span><br /><br /> <span data-ttu-id="30477-126">`0x10` -可变参数。</span><span class="sxs-lookup"><span data-stu-id="30477-126">`0x10` - Variable argument.</span></span><br /><br /> <span data-ttu-id="30477-127">`0x20` -非托管被调用方。</span><span class="sxs-lookup"><span data-stu-id="30477-127">`0x20` - Unmanaged callee.</span></span><br /><br /> <span data-ttu-id="30477-128">`0x40` -结构封送</span><span class="sxs-lookup"><span data-stu-id="30477-128">`0x40` - Struct Marshal</span></span>|
-|`ManagedInteropMethodToken`|`win:UInt32`|<span data-ttu-id="30477-129">托管互操作方法的标记。</span><span class="sxs-lookup"><span data-stu-id="30477-129">The token for the managed interop method.</span></span>|
-|`ManagedInteropMethodNameSpace`|`win:UnicodeString`|<span data-ttu-id="30477-130">托管互操作方法的命名空间和封闭类型。</span><span class="sxs-lookup"><span data-stu-id="30477-130">The namespace and enclosing type of the managed interop method.</span></span>|
-|`ManagedInteropMethodName`|`win:UnicodeString`|<span data-ttu-id="30477-131">托管互操作方法的名称。</span><span class="sxs-lookup"><span data-stu-id="30477-131">The name of the managed interop method.</span></span>|
-|`ManagedInteropMethodSignature`|`win:UnicodeString`|<span data-ttu-id="30477-132">托管互操作方法的签名。</span><span class="sxs-lookup"><span data-stu-id="30477-132">The signature of the managed interop method.</span></span>|
-|`NativeMethodSignature`|`win:UnicodeString`|<span data-ttu-id="30477-133">本机方法签名。</span><span class="sxs-lookup"><span data-stu-id="30477-133">The native method signature.</span></span>|
-|`StubMethodSignature`|`win:UnicodeString`|<span data-ttu-id="30477-134">存根方法签名。</span><span class="sxs-lookup"><span data-stu-id="30477-134">The stub method signature.</span></span>|
-|`StubMethodILCode`|`win:UnicodeString`|<span data-ttu-id="30477-135">公共中间语言 (存根方法的 CIL) 代码。</span><span class="sxs-lookup"><span data-stu-id="30477-135">The Common Intermediate Language (CIL) code for the stub method.</span></span>|
-|`ClrInstanceID`|`win:UInt16`|<span data-ttu-id="30477-136">CLR 或 CoreCLR 的实例的唯一 ID。</span><span class="sxs-lookup"><span data-stu-id="30477-136">Unique ID for the instance of CLR or CoreCLR.</span></span>|
+|`ModuleID`|`win:UInt16`|<span data-ttu-id="b4a34-119">模块标识符。</span><span class="sxs-lookup"><span data-stu-id="b4a34-119">The module identifier.</span></span>|
+|`StubMethodID`|`win:UInt64`|<span data-ttu-id="b4a34-120">存根方法标识符。</span><span class="sxs-lookup"><span data-stu-id="b4a34-120">The stub method identifier.</span></span>|
+|`StubFlags`|`win:UInt32`|<span data-ttu-id="b4a34-121">存根标志：</span><span class="sxs-lookup"><span data-stu-id="b4a34-121">The flags for the stub:</span></span><br /><br /> <span data-ttu-id="b4a34-122">`0x1` - 反向互操作。</span><span class="sxs-lookup"><span data-stu-id="b4a34-122">`0x1` - Reverse interop.</span></span><br /><br /> <span data-ttu-id="b4a34-123">`0x2` - COM 互操作。</span><span class="sxs-lookup"><span data-stu-id="b4a34-123">`0x2` - COM interop.</span></span><br /><br /> <span data-ttu-id="b4a34-124">`0x4` - 由 NGen.exe 生成的存根。</span><span class="sxs-lookup"><span data-stu-id="b4a34-124">`0x4` - Stub generated by NGen.exe.</span></span><br /><br /> <span data-ttu-id="b4a34-125">`0x8` - 委托。</span><span class="sxs-lookup"><span data-stu-id="b4a34-125">`0x8` - Delegate.</span></span><br /><br /> <span data-ttu-id="b4a34-126">`0x10` - 变量参数。</span><span class="sxs-lookup"><span data-stu-id="b4a34-126">`0x10` - Variable argument.</span></span><br /><br /> <span data-ttu-id="b4a34-127">`0x20` - 非托管被调用方。</span><span class="sxs-lookup"><span data-stu-id="b4a34-127">`0x20` - Unmanaged callee.</span></span><br /><br /> <span data-ttu-id="b4a34-128">`0x40` - 结构封送</span><span class="sxs-lookup"><span data-stu-id="b4a34-128">`0x40` - Struct Marshal</span></span>|
+|`ManagedInteropMethodToken`|`win:UInt32`|<span data-ttu-id="b4a34-129">托管互操作方法的标记。</span><span class="sxs-lookup"><span data-stu-id="b4a34-129">The token for the managed interop method.</span></span>|
+|`ManagedInteropMethodNameSpace`|`win:UnicodeString`|<span data-ttu-id="b4a34-130">托管互操作方法的命名空间和封闭类型。</span><span class="sxs-lookup"><span data-stu-id="b4a34-130">The namespace and enclosing type of the managed interop method.</span></span>|
+|`ManagedInteropMethodName`|`win:UnicodeString`|<span data-ttu-id="b4a34-131">托管互操作方法的名称。</span><span class="sxs-lookup"><span data-stu-id="b4a34-131">The name of the managed interop method.</span></span>|
+|`ManagedInteropMethodSignature`|`win:UnicodeString`|<span data-ttu-id="b4a34-132">托管互操作方法的签名。</span><span class="sxs-lookup"><span data-stu-id="b4a34-132">The signature of the managed interop method.</span></span>|
+|`NativeMethodSignature`|`win:UnicodeString`|<span data-ttu-id="b4a34-133">本机方法签名。</span><span class="sxs-lookup"><span data-stu-id="b4a34-133">The native method signature.</span></span>|
+|`StubMethodSignature`|`win:UnicodeString`|<span data-ttu-id="b4a34-134">存根方法签名。</span><span class="sxs-lookup"><span data-stu-id="b4a34-134">The stub method signature.</span></span>|
+|`StubMethodILCode`|`win:UnicodeString`|<span data-ttu-id="b4a34-135">存根方法的公共中间语言 (CIL) 代码。</span><span class="sxs-lookup"><span data-stu-id="b4a34-135">The Common Intermediate Language (CIL) code for the stub method.</span></span>|
+|`ClrInstanceID`|`win:UInt16`|<span data-ttu-id="b4a34-136">CLR 或 CoreCLR 的实例的唯一 ID。</span><span class="sxs-lookup"><span data-stu-id="b4a34-136">Unique ID for the instance of CLR or CoreCLR.</span></span>|
