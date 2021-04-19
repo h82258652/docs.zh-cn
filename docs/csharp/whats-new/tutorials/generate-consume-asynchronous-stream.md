@@ -4,12 +4,12 @@ description: 本高级教程介绍如何生成和使用异步流。 异步流提
 ms.date: 02/10/2019
 ms.technology: csharp-async
 ms.custom: mvc
-ms.openlocfilehash: 9218e11a066d1d6107e501d4c20079a642f927a3
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: 4e2264e88b0df9fe8c4e1ebf9bd154dddb390e4e
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104878871"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106497419"
 ---
 # <a name="tutorial-generate-and-consume-async-streams-using-c-80-and-net-core-30"></a>教程：使用 C# 8.0 和 .NET Core 3.0 生成和使用异步流
 
@@ -42,7 +42,7 @@ C# 8.0 引入了异步流，这可针对流式处理数据源建模  。 数据�
 
 ## <a name="run-the-starter-application"></a>运行初学者应用程序
 
-可以从 [csharp/tutorials/AsyncStreams](https://github.com/dotnet/docs/tree/main/docs/csharp/tutorials/snippets/generate-consume-asynchronous-streams/start) 文件夹中的 [dotnet/docs](https://github.com/dotnet/docs) 存储库获得本教程中使用的初学者应用程序代码。
+可以从 [csharp/whats-new/tutorials](https://github.com/dotnet/docs/tree/main/docs/csharp/whats-new/tutorials/snippets/generate-consume-asynchronous-streams/start) 文件夹中的 [dotnet/docs](https://github.com/dotnet/docs) 存储库获得本教程中使用的初学者应用程序代码。
 
 初学者应用程序是一个控制台应用程序，它使用 [GitHub GraphQL](https://developer.github.com/v4/) 接口检索最近在 [dotnet/docs](https://github.com/dotnet/docs) 存储库中编写的问题。 首先来看一下以下初学者应用 `Main` 方法的代码：
 
@@ -144,7 +144,7 @@ try
 
 :::code language="csharp" source="snippets/generate-consume-asynchronous-streams/finished/Program.cs" id="SnippetEnumerateWithCancellation" :::
 
-可以从 [csharp/tutorials/AsyncStreams](https://github.com/dotnet/docs/tree/main/docs/csharp/tutorials/snippets/generate-consume-asynchronous-streams/finished) 文件夹中的 [dotnet/docs](https://github.com/dotnet/docs) 存储库获得完成教程的代码。
+可以从 [csharp/whats-new/tutorials](https://github.com/dotnet/docs/tree/main/docs/csharp/whats-new/tutorials/snippets/generate-consume-asynchronous-streams/finished) 文件夹中的 [dotnet/docs](https://github.com/dotnet/docs) 存储库获得完成教程的代码。
 
 ## <a name="run-the-finished-application"></a>运行完成的应用程序
 

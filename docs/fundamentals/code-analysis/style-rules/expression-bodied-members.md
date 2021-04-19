@@ -8,12 +8,12 @@ ms.author: gewarren
 dev_langs:
 - CSharp
 - VB
-ms.openlocfilehash: efffad48dc36a58da45ea1520cff6202f6e66333
-ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
+ms.openlocfilehash: 5aae09b1ac94219b7df802981e4e4598cd949035
+ms.sourcegitcommit: bbc724b72fb6c978905ac715e4033efa291f84dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96591008"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107369603"
 ---
 # <a name="expression-bodied-members"></a>Expression-bodied 成员
 

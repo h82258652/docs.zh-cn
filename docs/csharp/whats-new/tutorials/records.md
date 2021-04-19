@@ -2,12 +2,12 @@
 title: 使用记录类型 - C# 教程
 description: 了解如何使用记录类型、构建记录的层次结构，以及何时选择记录而不是类。
 ms.date: 11/12/2020
-ms.openlocfilehash: 9c90368bc25225fa2bf1dc4dff75d995e0a53268
-ms.sourcegitcommit: 872ca41d1c26f39d0aef57cc365d09503bac780d
+ms.openlocfilehash: c8a1922fdf113d046dc087ec289accce4312c4ae
+ms.sourcegitcommit: 4b7f6b348c986556ef805cb6baacfd5b9ec18ed0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106288065"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107075532"
 ---
 # <a name="create-record-types"></a>创建记录类型
 
@@ -159,4 +159,4 @@ var growingDegreeDaysCopy = growingDegreeDays with { };
 
 记录提供了另一种定义类型的方法。 使用 `class` 定义来创建面向对象的层次结构，这些层次结构重点关注对象的责任和行为。 可为数据结构创建 `struct` 类型，这些数据结构可存储数据，并且足够小，以便进行有效复制。 当你需要基于值的相等性和比较、不需要复制值以及要使用引用变量时，可以创建 `record` 类型。
 
-可以通过阅读[记录类型的 C# 语言参考文章](../../language-reference/builtin-types/record.md)和[建议的记录类型规范](~/_csharplang/proposals/csharp-9.0/records.md)来了解记录的完整说明。
+若要了解记录的完整说明，可阅读[记录类型的 C# 语言参考文章](../../language-reference/builtin-types/record.md)和[建议的记录类型规范](~/_csharplang/proposals/csharp-9.0/records.md)。

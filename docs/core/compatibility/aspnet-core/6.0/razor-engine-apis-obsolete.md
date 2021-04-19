@@ -1,15 +1,14 @@
 ---
 title: 中断性变更：Razor：RazorEngine API 已标记为已过时
 description: 了解 ASP.NET Core 6.0 中的中断性变更，其标题为：Razor：RazorEngine API 已标记为已过时
-author: scottaddie
 ms.author: scaddie
 ms.date: 02/09/2021
-ms.openlocfilehash: 173ff0ee5c062f050c967c6edc7bed333d1a2031
-ms.sourcegitcommit: 10e719780594efc781b15295e499c66f316068b8
+ms.openlocfilehash: a312fb2fda6245e529d59d82b72ffe64ae6d6ff5
+ms.sourcegitcommit: e7e0921d0a10f85e9cb12f8b87cc1639a6c8d3fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100488193"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255098"
 ---
 # <a name="razor-razorengine-apis-marked-obsolete"></a>Razor：RazorEngine API 已标记为已过时
 
@@ -17,7 +16,7 @@ ms.locfileid: "100488193"
 
 ## <a name="version-introduced"></a>引入的版本
 
-6.0 预览版 1
+ASP.NET Core 6.0 预览版 1
 
 ## <a name="old-behavior"></a>旧行为
 
@@ -37,9 +36,9 @@ ms.locfileid: "100488193"
 
 ## <a name="affected-apis"></a>受影响的 API
 
-- [Microsoft.AspNetCore.Mvc.Razor.Extensions.InjectDirective.Register](/dotnet/api/microsoft.aspnetcore.mvc.razor.extensions.injectdirective.register?view=aspnetcore-3.1&preserve-view=true)
-- [Microsoft.AspNetCore.Mvc.Razor.Extensions.ModelDirective.Register](/dotnet/api/microsoft.aspnetcore.mvc.razor.extensions.namespacedirective.register?view=aspnetcore-2.2&preserve-view=true)
-- [Microsoft.AspNetCore.Mvc.Razor.Extensions.PageDirective.Register](/dotnet/api/microsoft.aspnetcore.mvc.razor.extensions.namespacedirective.register?view=aspnetcore-2.2&preserve-view=true)
+- `Microsoft.AspNetCore.Mvc.Razor.Extensions.InjectDirective.Register`
+- `Microsoft.AspNetCore.Mvc.Razor.Extensions.ModelDirective.Register`
+- `Microsoft.AspNetCore.Mvc.Razor.Extensions.PageDirective.Register`
 - [Microsoft.AspNetCore.Razor.Language.Extensions.FunctionsDirective.Register](/dotnet/api/microsoft.aspnetcore.razor.language.extensions.functionsdirective.register?view=aspnetcore-3.0&preserve-view=true)
 - [Microsoft.AspNetCore.Razor.Language.Extensions.InheritsDirective.Register](/dotnet/api/microsoft.aspnetcore.razor.language.extensions.inheritsdirective.register?view=aspnetcore-3.0&preserve-view=true)
 - [Microsoft.AspNetCore.Razor.Language.Extensions.SectionDirective.Register](/dotnet/api/microsoft.aspnetcore.razor.language.extensions.sectiondirective.register?view=aspnetcore-3.0&preserve-view=true)

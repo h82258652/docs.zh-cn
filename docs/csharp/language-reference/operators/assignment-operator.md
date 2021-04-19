@@ -7,12 +7,12 @@ f1_keywords:
 helpviewer_keywords:
 - = operator [C#]
 ms.assetid: d802a6d5-32f0-42b8-b180-12f5a081bfc1
-ms.openlocfilehash: 3df118143b692cc8655de31cce23af41f7da125c
-ms.sourcegitcommit: d579fb5e4b46745fd0f1f8874c94c6469ce58604
+ms.openlocfilehash: 702652cc7ae05d6a2bfd419ebce55399b9403a52
+ms.sourcegitcommit: 4b7f6b348c986556ef805cb6baacfd5b9ec18ed0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89117878"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107075428"
 ---
 # <a name="assignment-operators-c-reference"></a>赋值运算符（C# 参考）
 

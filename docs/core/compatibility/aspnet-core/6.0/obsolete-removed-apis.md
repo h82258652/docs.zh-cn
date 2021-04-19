@@ -1,15 +1,14 @@
 ---
 title: 中断性变更：过时的和已删除的 API
 description: 了解 ASP.NET Core 6.0 中的中断性变更，其标题为：过时的和已删除的 API
-author: scottaddie
 ms.author: scaddie
 ms.date: 02/16/2021
-ms.openlocfilehash: 4a4819247b7e6bb957f643b457e651cca5b4e703
-ms.sourcegitcommit: 42d436ebc2a7ee02fc1848c7742bc7d80e13fc2f
+ms.openlocfilehash: b5524a6ca42972ef630f8db60cbfd67051daf9e4
+ms.sourcegitcommit: e7e0921d0a10f85e9cb12f8b87cc1639a6c8d3fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102108216"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255033"
 ---
 # <a name="obsoleted-and-removed-apis"></a>已过时和已删除的 API
 
@@ -17,7 +16,7 @@ ms.locfileid: "102108216"
 
 ## <a name="version-introduced"></a>引入的版本
 
-6.0 预览版 1
+ASP.NET Core 6.0 预览版 1
 
 ## <a name="old-behavior"></a>旧行为
 

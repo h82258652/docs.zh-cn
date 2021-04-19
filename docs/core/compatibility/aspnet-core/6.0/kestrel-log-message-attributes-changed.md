@@ -1,15 +1,14 @@
 ---
 title: 中断性变更：Kestrel：日志消息属性已更改
 description: 了解 ASP.NET Core 6.0 中的以下中断性变更：Kestrel：日志消息属性已更改
-author: scottaddie
 ms.author: scaddie
 ms.date: 02/01/2021
-ms.openlocfilehash: 30b03c22a6c85623fec7db14b58b169f887395a0
-ms.sourcegitcommit: 4df8e005c074ceb1f978f007b222fe253be2baf3
+ms.openlocfilehash: daeb9ae418f343a00e9563ef3e2b5090a7f016a9
+ms.sourcegitcommit: e7e0921d0a10f85e9cb12f8b87cc1639a6c8d3fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551528"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255163"
 ---
 # <a name="kestrel-log-message-attributes-changed"></a>Kestrel：日志消息属性已更改
 
@@ -17,7 +16,7 @@ Kestrel 日志消息具有关联的 ID 和名称。 这些属性唯一地标识�
 
 ## <a name="version-introduced"></a>引入的版本
 
-6.0
+ASP.NET Core 6.0
 
 ## <a name="old-behavior"></a>旧行为
 

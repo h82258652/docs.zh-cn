@@ -20,12 +20,12 @@ helpviewer_keywords:
 - cast expression [C#]
 - () operator [C#]
 - typeof operator [C#]
-ms.openlocfilehash: 0bf0c3b1cea667456780ff56deb43467fd3bbffd
-ms.sourcegitcommit: ef50c99928183a0bba75e07b9f22895cd4c480f8
+ms.openlocfilehash: f47074fda20c1bc2eda75184dd26c9de1c0e3701
+ms.sourcegitcommit: 4b7f6b348c986556ef805cb6baacfd5b9ec18ed0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87916650"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107075311"
 ---
 # <a name="type-testing-operators-and-cast-expression-c-reference"></a>类型测试运算符和强制转换表达式（C# 引用）
 
@@ -62,19 +62,11 @@ E is T
 
 ### <a name="type-testing-with-pattern-matching"></a>有模式匹配的类型测试
 
-从 C# 7.0 开始，`is` 运算符还会对照某个模式测试表达式结果。 具体而言，它支持以下形式的类型模式：
+从 C# 7.0 开始，`is` 运算符还会对照某个模式测试表达式结果。 下面的示例演示如何使用[声明模式](patterns.md#declaration-and-type-patterns)来检查表达式的运行时类型：
 
-```csharp
-E is T v
-```
+[!code-csharp-interactive[is with declaration pattern](snippets/shared/TypeTestingAndConversionOperators.cs#IsDeclarationPattern)]
 
-其中，`E` 为返回值的表达式，`T` 为类型或类型参数的名称，`v` 为类型 `T` 的新局部变量。 如果 `E` 的结果为非 null 且可以通过引用、装箱或取消装箱转换来转换为 `T`，则 `E is T v` 表达式将返回 `true`，`E` 结果转换后的值将分配给变量 `v`。
-
-以下示例演示了具有以下类型模式的 `is` 运算符的用法：
-
-[!code-csharp-interactive[is with type pattern](snippets/shared/TypeTestingAndConversionOperators.cs#IsTypePattern)]
-
-有关类型模式和其他受支持模式的详细信息，请参阅[具有 is 的模式匹配](../keywords/is.md#pattern-matching-with-is)。
+若要了解受支持的模式，请参阅[模式](patterns.md)。
 
 ## <a name="as-operator"></a>as 运算符
 

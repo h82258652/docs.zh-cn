@@ -1,15 +1,14 @@
 ---
 title: 中断性变更：可以为 Null 的引用类型注释已更改
 description: 了解 ASP.NET Core 6.0 中标题为“可以为 Null 的引用类型注释已更改”的中断性变更
-author: scottaddie
 ms.author: scaddie
 ms.date: 02/24/2021
-ms.openlocfilehash: d6a43b4885a7b11669fc0eeb469c740b60d0cd4c
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: 5658ce359bd0d61f3e9597116fd203b89d6f0667
+ms.sourcegitcommit: e7e0921d0a10f85e9cb12f8b87cc1639a6c8d3fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104874337"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255059"
 ---
 # <a name="nullable-reference-type-annotations-changed"></a>可以为 Null 的引用类型注释已更改
 
@@ -21,7 +20,7 @@ ms.locfileid: "104874337"
 
 ## <a name="version-introduced"></a>引入的版本
 
-6.0
+ASP.NET Core 6.0
 
 ## <a name="old-behavior"></a>旧行为
 

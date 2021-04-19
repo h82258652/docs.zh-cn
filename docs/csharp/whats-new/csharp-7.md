@@ -3,12 +3,12 @@ title: C# 7.0 中的新增功能 - C# 指南
 description: 大致了解 C# 语言的版本 7.0 中的新增功能。
 ms.date: 10/02/2020
 ms.assetid: fd41596d-d0c2-4816-b94d-c4d00a5d0243
-ms.openlocfilehash: 973491044808d7abc58920381ffed57549ee58d3
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: 0c57a030497d13b783960152612de27d5fc73c3c
+ms.sourcegitcommit: e7e0921d0a10f85e9cb12f8b87cc1639a6c8d3fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104876053"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255020"
 ---
 # <a name="whats-new-in-c-70-through-c-73"></a>C# 7.0 - C# 7.3 中的新增功能
 
@@ -166,10 +166,10 @@ public static int SumPositiveNumbers(IEnumerable<object> sequence)
 }
 ```
 
-- `case 0:` 是常见的常量模式。
-- `case IEnumerable<int> childSequence:` 是一种类型模式。
-- `case int n when n > 0:` 是具有附加 `when` 条件的类型模式。
-- `case null:` 是 null 模式。
+- `case 0:` 是[常量模式](../language-reference/operators/patterns.md#constant-pattern)。
+- `case IEnumerable<int> childSequence:` 是[声明模式](../language-reference/operators/patterns.md#declaration-and-type-patterns)。
+- `case int n when n > 0:` 是具有附加 `when` 条件的声明模式。
+- `case null:` 是 `null` 常量模式。
 - `default:` 是常见的默认事例。
 
 自 C# 7.1 起，`is` 和 `switch` 类型模式的模式表达式的类型可能为泛型类型参数。 这可能在检查 `struct` 或 `class` 类型且要避免装箱时最有用。

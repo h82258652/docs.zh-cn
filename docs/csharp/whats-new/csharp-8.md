@@ -2,12 +2,12 @@
 title: C# 8.0 中的新增功能 - C# 指南
 description: 简要介绍 C# 8.0 中提供的新功能。
 ms.date: 04/07/2020
-ms.openlocfilehash: 7e2e484b4eacf8fdbef61a600409fa561dd34cb3
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: fa31276175733211c74ac54affc8ec222896c87f
+ms.sourcegitcommit: e7e0921d0a10f85e9cb12f8b87cc1639a6c8d3fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104876066"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255345"
 ---
 # <a name="whats-new-in-c-80"></a>C# 8.0 中的新增功能
 
@@ -104,7 +104,7 @@ public readonly void Translate(int xOffset, int yOffset)
 
 C# 8.0 扩展了此词汇表，这样就可以在代码中的更多位置使用更多模式表达式。 当数据和功能分离时，请考虑使用这些功能。 当算法依赖于对象运行时类型以外的事实时，请考虑使用模式匹配。 这些技术提供了另一种表达设计的方式。
 
-除了可以在新位置使用新模式之外，C# 8.0 还添加了“递归模式”。 任何模式表达式的结果都是一个表达式。 递归模式只是应用于另一个模式表达式输出的模式表达式。
+除了可以在新位置使用新模式之外，C# 8.0 还添加了“递归模式”。 递归模式是可以包含其他模式的模式。
 
 ### <a name="switch-expressions"></a>switch 表达式
 
@@ -174,6 +174,8 @@ public static RGBColor FromRainbowClassic(Rainbow colorBand)
 }
 ```
 
+有关详细信息，请参阅 [`switch` 表达式](../language-reference/operators/switch-expression.md)。
+
 ### <a name="property-patterns"></a>属性模式
 
 借助属性模式，可以匹配所检查的对象的属性。 请看一个电子商务网站的示例，该网站必须根据买家地址计算销售税。 这种计算不是 `Address` 类的核心职责。 它会随时间变化，可能比地址格式的更改更频繁。 销售税的金额取决于地址的 `State` 属性。 下面的方法使用属性模式从地址和价格计算销售税：
@@ -192,9 +194,11 @@ public static decimal ComputeSalesTax(Address location, decimal salePrice) =>
 
 模式匹配为表达此算法创建了简洁的语法。
 
+有关详细信息，请参阅[模式](../language-reference/operators/patterns.md)一文的[属性模式](../language-reference/operators/patterns.md#property-pattern)部分。
+
 ### <a name="tuple-patterns"></a>元组模式
 
-一些算法依赖于多个输入。 使用元组模式，可根据表示为[元组](../language-reference/builtin-types/value-tuples.md)的多个值进行切换。  以下代码显示了游戏“rock, paper, scissors（石头剪刀布）”的切换表达式：：
+一些算法依赖于多个输入。 使用元组模式，可根据表示为[元组](../language-reference/builtin-types/value-tuples.md)的多个值进行切换。 以下代码显示了游戏“rock, paper, scissors（石头剪刀布）”的切换表达式：：
 
 ```csharp
 public static string RockPaperScissors(string first, string second)
@@ -261,7 +265,7 @@ static Quadrant GetQuadrant(Point point) => point switch
 
 当 `x` 或 `y` 为 0（但不是两者同时为 0）时，前一个开关中的弃元模式匹配。 Switch 表达式必须要么生成值，要么引发异常。 如果这些情况都不匹配，则 switch 表达式将引发异常。 如果没有在 switch 表达式中涵盖所有可能的情况，编译器将生成一个警告。
 
-可在此[模式匹配高级教程](../tutorials/pattern-matching.md)中探索模式匹配方法。
+可在此[模式匹配高级教程](../tutorials/pattern-matching.md)中探索模式匹配方法。 有关位置模式的详细信息，请参阅[模式](../language-reference/operators/patterns.md)的[位置模式](../language-reference/operators/patterns.md#positional-pattern)部分。
 
 ## <a name="using-declarations"></a>using 声明
 

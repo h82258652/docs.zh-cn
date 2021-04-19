@@ -2,15 +2,15 @@
 title: 为 dotnet new 创建模板包
 description: 了解如何创建一个 csproj 文件，该文件将为 dotnet new 命令生成模板包。
 author: adegeo
-ms.date: 12/11/2020
+ms.date: 03/26/2021
 ms.topic: tutorial
 ms.author: adegeo
-ms.openlocfilehash: 2aea143f1e41d580de41a9cc9e924d70b55695db
-ms.sourcegitcommit: 635a0ff775d2447a81ef7233a599b8f88b162e5d
+ms.openlocfilehash: 343104f9609c59e7da24f857de6a7fc29803e2df
+ms.sourcegitcommit: e7e0921d0a10f85e9cb12f8b87cc1639a6c8d3fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97633593"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255384"
 ---
 # <a name="tutorial-create-a-template-pack"></a>教程：创建模板包
 
@@ -103,19 +103,27 @@ Restore succeeded.
 
 ## <a name="build-and-install"></a>生成和安装
 
-保存此文件，然后运行 pack 命令
-
-```dotnetcli
-dotnet pack
-```
-
-此命令将生成项目并在其中创建一个 NuGet 包，具体应为 working\bin\Debug 文件夹。
-
-```dotnetcli
-dotnet pack
-```
+保存项目文件。 在生成模板包之前，请验证文件夹结构是否正确。 要打包的任何模板都应放置在自己的文件夹中的 templates 文件夹中。 文件夹结构应如下所示：
 
 ```console
+working
+│   templatepack.csproj
+└───templates
+    ├───extensions
+    │   └───.template.config
+    │           template.json
+    └───consoleasync
+        └───.template.config
+                template.json
+```
+
+templates 文件夹中有两个文件夹：extensions 和 consoleasync  。
+
+在终端中的 working 文件夹中，运行 `dotnet pack` 命令。 此命令会生成项目，并在 working\bin\Debug 文件夹中创建一个 NuGet 包，如以下输出所示：
+
+```console
+C:\working> dotnet pack
+
 Microsoft (R) Build Engine version 16.8.0+126527ff1 for .NET
 Copyright (C) Microsoft Corporation. All rights reserved.
 
@@ -152,10 +160,8 @@ Class library                                     classlib                 [C#],
 无论如何安装模板包，即无论是直接使用 .nupkg 文件还是通过 NuGet 源安装，删除模板包的操作都是一样的。 使用要卸载的模板的 `<PackageId>`。 可以通过运行 `dotnet new -u` 命令获取已安装的模板列表。
 
 ```dotnetcli
-dotnet new -u
-```
+C:\working> dotnet new -u
 
-```console
 Template Instantiation Commands for .NET Core CLI
 
 Currently installed items:

@@ -3,12 +3,12 @@ title: .NET 中的已知 EventCounters
 description: 查看 .NET 运行时和库发布的 EventCounters。
 ms.topic: reference
 ms.date: 12/17/2020
-ms.openlocfilehash: aad4fa8b33ebf0dcb7803c77b11fb99a6b6d7b83
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: fc07ace22f1580d547c33b897bcd1bb9a1de15c3
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104872829"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106496717"
 ---
 # <a name="well-known-eventcounters-in-net"></a>.NET 中的已知 EventCounters
 
@@ -43,6 +43,7 @@ ms.locfileid: "104872829"
 | :::no-loc text="Working Set"::: (`working-set`) | 某个时间点映射到进程上下文的物理内存量，基于 <xref:System.Environment.WorkingSet?displayProperty=nameWithType> |
 | :::no-loc text="IL Bytes Jitted"::: (`il-bytes-jitted`) | JIT 编译的 IL 的总大小，以字节为单位（在 .NET 5 及更高版本中可用） |
 | :::no-loc text="Method Jitted Count"::: (`method-jitted-count`) | JIT 编译的方法数（在 .NET 5 及更高版本中可用） |
+| :::no-loc text="GC Committed Bytes"::: (`gc-committed-bytes`) | GC 提交的字节数（在 .NET 6 及更高版本中提供） |
 
 ## <a name="microsoftaspnetcorehosting-counters"></a>“Microsoft.AspNetCore.Hosting”计数器
 

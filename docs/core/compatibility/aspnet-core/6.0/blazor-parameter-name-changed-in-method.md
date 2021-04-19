@@ -1,15 +1,14 @@
 ---
 title: 中断性变更：Blazor：RequestImageFileAsync 方法中的参数名称已更改
 description: 了解 ASP.NET Core 6.0 中的中断性变更，其标题为：Blazor：RequestImageFileAsync 方法中的参数名称已更改
-author: scottaddie
 ms.author: scaddie
 ms.date: 02/09/2021
-ms.openlocfilehash: bfaaa6bfe94c32fbc1a5b5b70db863d105d389b5
-ms.sourcegitcommit: 10e719780594efc781b15295e499c66f316068b8
+ms.openlocfilehash: 645b53e341507ffd9f369eea1b940232b7c14770
+ms.sourcegitcommit: e7e0921d0a10f85e9cb12f8b87cc1639a6c8d3fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100488199"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255176"
 ---
 # <a name="blazor-parameter-name-changed-in-requestimagefileasync-method"></a>Blazor：RequestImageFileAsync 方法中的参数名称已更改
 
@@ -17,7 +16,7 @@ ms.locfileid: "100488199"
 
 ## <a name="version-introduced"></a>引入的版本
 
-6.0 预览版 1
+ASP.NET Core 6.0 预览版 1
 
 ## <a name="old-behavior"></a>旧行为
 

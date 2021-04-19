@@ -3,14 +3,14 @@ title: 在 .NET 中实现自定义日志记录提供程序
 description: 了解如何在 .NET 应用程序中实现自定义日志记录提供程序。
 author: IEvangelist
 ms.author: dapine
-ms.date: 09/25/2020
+ms.date: 04/07/2021
 ms.topic: how-to
-ms.openlocfilehash: 3a0af6296c2ade15ff1b75dce5a5f99bfe235ebf
-ms.sourcegitcommit: 97405ed212f69b0a32faa66a5d5fae7e76628b68
+ms.openlocfilehash: 56dd3aa9962d2cdaf13df85960a99aab7b050477
+ms.sourcegitcommit: e7e0921d0a10f85e9cb12f8b87cc1639a6c8d3fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "102401932"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255124"
 ---
 # <a name="implement-a-custom-logging-provider-in-net"></a>在 .NET 中实现自定义日志记录提供程序
 
@@ -33,7 +33,7 @@ ms.locfileid: "102401932"
 前面的代码：
 
 - 为每个类别名称创建一个记录器实例。
-- 在 `IsEnabled` 中检查 `logLevel == _config.LogLevel`，因此每个 `logLevel` 都有一个唯一的记录器。 还应为所有更高的日志级别启用记录器：
+- 在 `IsEnabled` 中检查 `_config.LogLevels.ContainsKey(logLevel)`，因此每个 `logLevel` 都有一个唯一的记录器。 还应为所有更高的日志级别启用记录器：
 
 :::code language="csharp" source="snippets/configuration/console-custom-logging/ColorConsoleLogger.cs" range="16-17":::
 
@@ -43,26 +43,27 @@ ms.locfileid: "102401932"
 
 :::code language="csharp" source="snippets/configuration/console-custom-logging/ColorConsoleLoggerProvider.cs":::
 
-在前面的代码中，<xref:Microsoft.Build.Logging.LoggerDescription.CreateLogger%2A> 会为每个类别名称创建一个 `ColorConsoleLogger` 实例并将其存储在 [`ConcurrentDictionary<TKey,TValue>`](/dotnet/api/system.collections.concurrent.concurrentdictionary-2) 中。
+在前面的代码中，<xref:Microsoft.Build.Logging.LoggerDescription.CreateLogger%2A> 会为每个类别名称创建一个 `ColorConsoleLogger` 实例并将其存储在 [`ConcurrentDictionary<TKey,TValue>`](/dotnet/api/system.collections.concurrent.concurrentdictionary-2) 中。 此外，还需要 <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> 接口才能更新对基础 `ColorConsoleLoggerConfiguration` 对象的更改。
 
 ## <a name="usage-and-registration-of-the-custom-logger"></a>自定义记录器的使用和注册
 
 若要添加自定义日志记录提供程序和相应的记录器，请从 <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.ConfigureLogging(Microsoft.Extensions.Hosting.IHostBuilder,System.Action{Microsoft.Extensions.Logging.ILoggingBuilder})?displayProperty=nameWithType> 使用 <xref:Microsoft.Extensions.Logging.ILoggingBuilder> 添加 <xref:Microsoft.Extensions.Logging.ILoggerProvider>：
 
-:::code language="csharp" source="snippets/configuration/console-custom-logging/Program.cs" range="23-39":::
+:::code language="csharp" source="snippets/configuration/console-custom-logging/Program.cs" range="23-33":::
 
 `ILoggingBuilder` 创建一个或多个 `ILogger` 实例。 框架使用 `ILogger` 实例记录信息。
 
-对于前面的代码，为 `ILoggerFactory` 提供至少一个扩展方法：
+按照约定，`ILoggingBuilder` 上的扩展方法用于注册自定义提供程序：
 
 :::code language="csharp" source="snippets/configuration/console-custom-logging/Extensions/ColorConsoleLoggerExtensions.cs":::
 
-运行这个简单的应用程序将显示如下的控制台窗口：
+运行此简单应用程序将把颜色输出呈现到控制台窗口，如下图所示：
 
 :::image type="content" source="media/color-console-logger.png" alt-text="为控制台日志器示例输出着色":::
 
 ## <a name="see-also"></a>另请参阅
 
-- [.NET 中的日志记录](logging.md)。
-- [.NET 中的日志记录提供程序](logging-providers.md)。
-- [.NET 中的高性能日志记录](high-performance-logging.md)。
+- [.NET 中的日志记录](logging.md)
+- [.NET 中的日志记录提供程序](logging-providers.md)
+- [.NET 中的依赖关系注入](dependency-injection.md)
+- [.NET 中的高性能日志记录](high-performance-logging.md)
