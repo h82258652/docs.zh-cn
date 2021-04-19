@@ -3,12 +3,12 @@ title: 在泛型集合的接口中使用变体 (C#)
 description: 了解如何对泛型集合使用协变和逆变接口。 请参阅转换和比较泛型集合的示例。
 ms.date: 07/20/2015
 ms.assetid: a44f0708-10fa-4c76-82cd-daa6e6b31e8e
-ms.openlocfilehash: a896fe8fda3d9ad08de9a09c6a172f7d75335e7d
-ms.sourcegitcommit: 5b475c1855b32cf78d2d1bbb4295e4c236f39464
+ms.openlocfilehash: 39da866be3d1ead357485be31fee1c19f2b1ae27
+ms.sourcegitcommit: 985c603cb21a085f8a8105f34ff5b87a44b76ab4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91176300"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564852"
 ---
 # <a name="using-variance-in-interfaces-for-generic-collections-c"></a>在泛型集合的接口中使用变体 (C#)
 
@@ -59,7 +59,7 @@ class Program
   
 ## <a name="comparing-generic-collections"></a>比较泛型集合  
 
- 下例阐释了 <xref:System.Collections.Generic.IComparer%601> 接口中的逆变支持的益处。 `PersonComparer` 类实现 `IComparer<Person>` 接口。 但可以重用此类来比较 `Employee` 类型的对象序列，因为 `Employee` 继承 `Person`。  
+ 下例阐释了 <xref:System.Collections.Generic.IEqualityComparer%601> 接口中的逆变支持的益处。 `PersonComparer` 类实现 `IEqualityComparer<Person>` 接口。 但可以重用此类来比较 `Employee` 类型的对象序列，因为 `Employee` 继承 `Person`。  
   
 ```csharp  
 // Simple hierarchy of classes.  

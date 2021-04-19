@@ -3,19 +3,19 @@ title: 在 .NET 中使用依赖注入
 description: 了解如何在 .NET 应用程序中使用依赖注入。
 author: IEvangelist
 ms.author: dapine
-ms.date: 11/13/2020
+ms.date: 04/12/2021
 ms.topic: tutorial
 no-loc:
 - Transient
 - Scoped
 - Singleton
 - Example
-ms.openlocfilehash: d6654d5d1c8f7959e96998c18a1790cce46ebf41
-ms.sourcegitcommit: 42d436ebc2a7ee02fc1848c7742bc7d80e13fc2f
+ms.openlocfilehash: 03828496dfa3487ad70fac8cf32ff81844eca6fd
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102401980"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494267"
 ---
 # <a name="tutorial-use-dependency-injection-in-net"></a>教程：在 .NET 中使用依赖注入
 
@@ -89,10 +89,10 @@ OperationLogger.cs
 
 :::code language="csharp" source="snippets/configuration/console-di/Program.cs" range="1-18,35-60" highlight="22-26":::
 
-> 每个 `services.Add{SERVICE_NAME}` 扩展方法添加并可能配置服务。 我们建议应用遵循此约定。 将扩展方法置于 <xref:Microsoft.Extensions.DependencyInjection?displayProperty=fullName> 命名空间中以封装服务注册的组。 还包括用于 DI 扩展方法的命名空间部分 `Microsoft.Extensions.DependencyInjection`：
->
-> - 允许在不添加其他 `using` 块的情况下在 [IntelliSense](/visualstudio/ide/using-intellisense) 中显示它们。
-> - 在通常会调用这些扩展方法的 `Program` 或 `Startup` 类中，避免出现过多的 `using` 语句。
+每个 `services.Add{SERVICE_NAME}` 扩展方法添加（并可能配置）服务。 我们建议应用遵循此约定。 将扩展方法置于 <xref:Microsoft.Extensions.DependencyInjection?displayProperty=fullName> 命名空间中以封装服务注册的组。 还包括用于 DI 扩展方法的命名空间部分 `Microsoft.Extensions.DependencyInjection`：
+
+- 允许在不添加其他 `using` 块的情况下在 [IntelliSense](/visualstudio/ide/using-intellisense) 中显示它们。
+- 在通常会调用这些扩展方法的 `Program` 或 `Startup` 类中，避免出现过多的 `using` 语句。
 
 应用会执行以下操作：
 

@@ -5,16 +5,16 @@ ms.date: 03/30/2017
 helpviewer_keywords:
 - debugging Windows Service applications
 - debugging [Visual Studio], Windows services
-- Windows NT services, debugging
+- Windows services, debugging
 - Windows Service applications, debugging
 - services, debugging
 ms.assetid: 63ab0800-0f05-4f1e-88e6-94c73fd920a2
-ms.openlocfilehash: 4d8ac0316e47925d253e7220597ab9953252521e
-ms.sourcegitcommit: bc293b14af795e0e999e3304dd40c0222cf2ffe4
+ms.openlocfilehash: 29ab09e0de024ed4256dc5be6bd8e54ff28b101b
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96270623"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494527"
 ---
 # <a name="how-to-debug-windows-service-applications"></a>如何：调试 Windows 服务应用程序
 

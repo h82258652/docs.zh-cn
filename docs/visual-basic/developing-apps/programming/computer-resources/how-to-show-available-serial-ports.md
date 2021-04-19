@@ -8,12 +8,12 @@ helpviewer_keywords:
 - My.Computer.Ports object
 - ports, serial port availability
 ms.assetid: eaf2ee5a-8103-4e10-a205-ed1d4db120ba
-ms.openlocfilehash: 0f55e7ed7155940dd279a22ae9da5f21097f56a6
-ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
+ms.openlocfilehash: 7fdbd5577ca40d1a900bc9442cb4bfeedae82c64
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99775287"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494566"
 ---
 # <a name="how-to-show-available-serial-ports-in-visual-basic"></a>如何：在 Visual Basic 中显示可用的串行端口
 
@@ -43,10 +43,7 @@ ms.locfileid: "99775287"
   
 ## <a name="robust-programming"></a>可靠编程  
 
- 不必使用 <xref:System.Windows.Forms.ListBox> 控件显示可用串行端口名称。 相反，可以使用 <xref:System.Windows.Forms.ComboBox> 或其他控件。 如果应用程序不需要来自用户的响应，则可以使用 <xref:System.Windows.Forms.TextBox> 控件显示信息。  
-  
-> [!NOTE]
-> 在 Windows 98 上运行时，`My.Computer.Ports.SerialPortNames` 返回的端口名称可能不正确。 若要防止应用程序错误，请在使用端口名称打开端口时使用异常处理（如 `Try...Catch...Finally` 语句或 `Using` 语句）。  
+ 不必使用 <xref:System.Windows.Forms.ListBox> 控件显示可用串行端口名称。 相反，可以使用 <xref:System.Windows.Forms.ComboBox> 或其他控件。 如果应用程序不需要来自用户的响应，则可以使用 <xref:System.Windows.Forms.TextBox> 控件显示信息。
   
 ## <a name="see-also"></a>另请参阅
 

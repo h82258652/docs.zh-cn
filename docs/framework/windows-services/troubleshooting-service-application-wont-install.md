@@ -6,16 +6,16 @@ helpviewer_keywords:
 - troubleshooting service applications
 - services, troubleshooting
 - services, debugging
-- Windows NT services, troubleshooting
+- Windows services, troubleshooting
 - troubleshooting NT services
 - Windows Service applications, troubleshooting
 ms.assetid: 45c48e2e-b97d-44bc-8896-14f328e0ce33
-ms.openlocfilehash: 02ac95c22007caa6e30300fb8a98178f11cecd14
-ms.sourcegitcommit: bc293b14af795e0e999e3304dd40c0222cf2ffe4
+ms.openlocfilehash: 057fe52d43daad90df862c3acaec41a427333cba
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96270349"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494423"
 ---
 # <a name="troubleshooting-service-application-wont-install"></a>疑难解答：服务应用程序无法安装
 

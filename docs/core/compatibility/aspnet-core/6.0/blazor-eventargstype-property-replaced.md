@@ -5,12 +5,12 @@ ms.author: scaddie
 ms.date: 02/24/2021
 no-loc:
 - Blazor
-ms.openlocfilehash: fb82e27d7ab55b78293f40debe917da2d99239a7
-ms.sourcegitcommit: e7e0921d0a10f85e9cb12f8b87cc1639a6c8d3fe
+ms.openlocfilehash: ed4bb3d19e6b78d751d24ae640f35c72bd15ed1f
+ms.sourcegitcommit: fdfa01f6cd3aa4c36b6e8a1830693ff22d35aeea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107255207"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107292296"
 ---
 # <a name="blazor-no-loc-textwebeventdescriptoreventargstype-property-replaced"></a>Blazor：已替换 :::no-loc text="WebEventDescriptor.EventArgsType"::: 属性
 
