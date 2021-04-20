@@ -31,7 +31,7 @@ ms.locfileid: "104874779"
 
 ### <a name="systemdevicegpio"></a>System.Device.Gpio
 
-`System.Device.Gpio` 支持多种协议，用于与低级别硬件引脚交互以控制设备。 其中包括:
+`System.Device.Gpio` 支持多种协议，用于与低级别硬件引脚进行交互以控制设备。 其中包括:
 
 - 常规用途 I/O (GPIO)
 - 内置集成电路 (I2C)
