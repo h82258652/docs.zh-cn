@@ -2,15 +2,14 @@
 title: 代码质量规则配置选项
 description: 了解如何为代码质量规则指定更多配置选项。
 ms.date: 09/24/2020
-ms.topic: conceptual
 no-loc:
 - EditorConfig
-ms.openlocfilehash: 0be0d094739893dc74e1b5c85e686594c766cbcb
-ms.sourcegitcommit: 26721a2260deabb3318cc98af8619306711153cd
+ms.openlocfilehash: 982dc3bba7042083a22123b0ba4af31c1aeba889
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105027865"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740990"
 ---
 # <a name="code-quality-rule-configuration-options"></a>代码质量规则配置选项
 

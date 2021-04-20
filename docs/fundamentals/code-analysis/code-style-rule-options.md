@@ -2,15 +2,14 @@
 title: .NET 代码样式规则选项
 description: 了解如何指定 .NET 代码样式选项。
 ms.date: 09/25/2020
-ms.topic: conceptual
 author: gewarren
 ms.author: gewarren
-ms.openlocfilehash: dce31e7b8976caecfc7fb1dd50da7f246093b1e4
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: 52419591447b2b92e67a68ab911af49af242d33a
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104876677"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740977"
 ---
 # <a name="code-style-rule-options"></a>代码样式规则选项
 

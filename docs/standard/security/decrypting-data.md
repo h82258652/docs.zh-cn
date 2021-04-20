@@ -1,7 +1,7 @@
 ---
 title: 解密数据
 description: 了解如何使用对称算法或非对称算法解密 .NET 中的数据。
-ms.date: 03/22/2021
+ms.date: 04/19/2021
 dev_langs:
 - csharp
 - vb
@@ -11,12 +11,12 @@ helpviewer_keywords:
 - asymmetric decryption
 - decryption
 ms.assetid: 9b266b6c-a9b2-4d20-afd8-b3a0d8fd48a0
-ms.openlocfilehash: 14d8b6185c1c5b3aaee4f2041f98c500f2d3c313
-ms.sourcegitcommit: 26721a2260deabb3318cc98af8619306711153cd
+ms.openlocfilehash: 1b12e4250f3b2345afd05dbe3c257eb3e7277634
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105027904"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740339"
 ---
 # <a name="decrypting-data"></a>解密数据
 
@@ -26,18 +26,18 @@ ms.locfileid: "105027904"
 
 解密用对称算法加密的数据类似于用对称算法加密数据的过程。 <xref:System.Security.Cryptography.CryptoStream>类与 .net 提供的对称加密类一起使用，对从任何托管流对象中读取的数据进行解密。
 
-下面的示例演示如何创建算法的默认实现类的新实例 <xref:System.Security.Cryptography.Aes> 。 实例用于对对象执行解密 <xref:System.Security.Cryptography.CryptoStream> 。 此示例首先创建实现类的新实例 <xref:System.Security.Cryptography.Aes> 。 它从托管流变量中读取初始化向量 (IV) 值 `myStream` 。 接下来，它将实例化 <xref:System.Security.Cryptography.CryptoStream> 对象并将其初始化为 `myStream` 实例的值。 将向 <xref:System.Security.Cryptography.SymmetricAlgorithm.CreateDecryptor%2A?displayProperty=nameWithType> 实例中的方法 <xref:System.Security.Cryptography.Aes> 传递 IV 值和用于加密的相同密钥。
+下面的示例演示如何创建算法的默认实现类的新实例 <xref:System.Security.Cryptography.Aes> 。 实例用于对对象执行解密 <xref:System.Security.Cryptography.CryptoStream> 。 此示例首先创建实现类的新实例 <xref:System.Security.Cryptography.Aes> 。 它从托管流变量中读取初始化向量 (IV) 值 `fileStream` 。 接下来，它将实例化 <xref:System.Security.Cryptography.CryptoStream> 对象并将其初始化为 `fileStream` 实例的值。 将向 <xref:System.Security.Cryptography.SymmetricAlgorithm.CreateDecryptor%2A?displayProperty=nameWithType> 实例中的方法 <xref:System.Security.Cryptography.Aes> 传递 IV 值和用于加密的相同密钥。
 
 ```vb
 Dim aes As Aes = Aes.Create()
 Dim cryptStream As New CryptoStream(
-    myStream, aes.CreateDecryptor(key, iv), CryptoStreamMode.Read)
+    fileStream, aes.CreateDecryptor(key, iv), CryptoStreamMode.Read)
 ```
 
 ```csharp
 Aes aes = Aes.Create();
 CryptoStream cryptStream = new CryptoStream(
-    myStream, aes.CreateDecryptor(key, iv), CryptoStreamMode.Read);
+    fileStream, aes.CreateDecryptor(key, iv), CryptoStreamMode.Read);
 ```
 
 下面的示例显示创建流、解密流、从流中读取和关闭流的整个过程。 将创建一个文件流对象，该对象读取名为 *TestData.txt* 的文件。 然后，使用 **CryptoStream** 类和 **Aes** 类对文件流进行解密。 此示例指定在对称加密示例中用于 [加密数据](encrypting-data.md)的键值。 它不会显示加密和传输这些值所需的代码。

@@ -2,18 +2,19 @@
 title: 抑制代码分析警告
 description: 了解抑制 .NET 代码分析冲突的不同方法。
 ms.date: 01/28/2021
+ms-topic: how-to
 dev_langs:
 - CSharp
 - VB
 helpviewer_keywords:
 - code analysis, suppress warnings
 - suppress code analysis warnings
-ms.openlocfilehash: a8fdfbddd2393f9c6c8cd882a63a9ecc6cb1dc95
-ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
+ms.openlocfilehash: a2c85a032c8754be2a1c5c6c8cee06754b3231f2
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105637034"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740548"
 ---
 # <a name="how-to-suppress-code-analysis-warnings"></a>如何禁止显示代码分析警告
 

@@ -1,7 +1,7 @@
 ---
 title: 对数据加密
 description: 了解如何在 .NET 中使用对称算法或非对称算法加密数据。
-ms.date: 03/22/2021
+ms.date: 04/16/2021
 dev_langs:
 - csharp
 - vb
@@ -11,12 +11,12 @@ helpviewer_keywords:
 - cryptography [.NET], asymmetric
 - asymmetric encryption
 ms.assetid: 7ecce51f-db5f-4bd4-9321-cceb6fcb2a77
-ms.openlocfilehash: 5105bf6763f89b5867ccb8908aaf6136ded29dcb
-ms.sourcegitcommit: 26721a2260deabb3318cc98af8619306711153cd
+ms.openlocfilehash: e4b006db86eda1a2a62dfd31073be9aabb7a3bb8
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105027876"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740327"
 ---
 # <a name="encrypting-data"></a>对数据加密
 
@@ -26,18 +26,18 @@ ms.locfileid: "105027876"
 
 托管对称加密类与名为 <xref:System.Security.Cryptography.CryptoStream> 的特殊流类一起使用，后者用于加密读入流中的数据。 使用托管流类（ **CryptoStream** 类）初始化一个类，该类实现 <xref:System.Security.Cryptography.ICryptoTransform> 接口 (从实现加密算法的类创建) ，以及 <xref:System.Security.Cryptography.CryptoStreamMode> 描述允许 **CryptoStream** 的访问类型的枚举。 可以使用从类派生的任何类 <xref:System.IO.Stream> （包括 <xref:System.IO.FileStream> 、和）初始化 CryptoStream 类 <xref:System.IO.MemoryStream> <xref:System.Net.Sockets.NetworkStream> 。 使用这些类，可以对多个流对象执行对称加密。
 
-下面的示例演示如何创建算法的默认实现类的新实例 <xref:System.Security.Cryptography.Aes> 。 实例用于对 **CryptoStream** 类执行加密。 在此示例中，使用名为 **的流对象初始化** CryptoStream `myStream` ，该流对象可以是任何类型的托管流。 **Aes** 类中的 **CreateEncryptor** 方法传递用于加密的密钥和 IV。 在此例中，使用了由 `aes` 生成的默认密钥和 IV。
+下面的示例演示如何创建算法的默认实现类的新实例 <xref:System.Security.Cryptography.Aes> 。 实例用于对 **CryptoStream** 类执行加密。 在此示例中，使用名为 **的流对象初始化** CryptoStream `fileStream` ，该流对象可以是任何类型的托管流。 **Aes** 类中的 **CreateEncryptor** 方法传递用于加密的密钥和 IV。 在此例中，使用了由 `aes` 生成的默认密钥和 IV。
 
 ```vb
 Dim aes As Aes = Aes.Create()
 Dim cryptStream As New CryptoStream(
-    myStream, aes.CreateEncryptor(key, iv), CryptoStreamMode.Write)
+    fileStream, aes.CreateEncryptor(key, iv), CryptoStreamMode.Write)
 ```
 
 ```csharp
 Aes aes = Aes.Create();
 CryptoStream cryptStream = new CryptoStream(
-    myStream, aes.CreateEncryptor(key, iv), CryptoStreamMode.Write);
+    fileStream, aes.CreateEncryptor(key, iv), CryptoStreamMode.Write);
 ```
 
 执行此代码后，将使用 AES 算法对写入到 **CryptoStream** 对象的任何数据进行加密。
@@ -157,7 +157,7 @@ class Class1
 }
 ```
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 - [生成加密和解密的密钥](generating-keys-for-encryption-and-decryption.md)
 - [解密数据](decrypting-data.md)
