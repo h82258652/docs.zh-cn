@@ -2,12 +2,13 @@
 title: 重大更改的类型
 description: 了解 .NET 如何试着保证开发人员在不同的 .NET 版本中享有兼容性，以及哪种类型的变更被视为中断性变更。
 ms.date: 01/28/2021
-ms.openlocfilehash: d539a82b21abc4df8d726673ef728020f36551bf
-ms.sourcegitcommit: 68c9d9d9a97aab3b59d388914004b5474cf1dbd7
+ms.topic: conceptual
+ms.openlocfilehash: a1a55a95cedca4aecba875bb44b952173327606d
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99216033"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740613"
 ---
 # <a name="changes-that-affect-compatibility"></a>会影响兼容性的变更
 
