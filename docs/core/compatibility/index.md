@@ -3,12 +3,12 @@ title: 重大更改的类型
 description: 了解 .NET 如何试着保证开发人员在不同的 .NET 版本中享有兼容性，以及哪种类型的变更被视为中断性变更。
 ms.date: 01/28/2021
 ms.topic: conceptual
-ms.openlocfilehash: a1a55a95cedca4aecba875bb44b952173327606d
-ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
+ms.openlocfilehash: 5814aa03d89cde086c4f055f36def77d4405be6f
+ms.sourcegitcommit: 178ccefa8c454bfae844ce12ed222a54913df157
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107740613"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107883249"
 ---
 # <a name="changes-that-affect-compatibility"></a>会影响兼容性的变更
 
@@ -151,14 +151,15 @@ ms.locfileid: "107740613"
 
 - ❌ 不允许：从成员删除 [virtual](../../csharp/language-reference/keywords/virtual.md) 关键字
 
+- ❌ 不允许：向成员添加 [virtual](../../csharp/language-reference/keywords/virtual.md) 关键字
+
   通常这不属于中断性变更，因为 C# 编译器通常会发出 [callvirt](<xref:System.Reflection.Emit.OpCodes.Callvirt>) 中间语言 (IL) 指令来调用非虚拟方法（`callvirt` 执行 null 检查，而常规调用不会执行此检查），鉴于下列原因此行为非恒定：
+  
   - C# 并非 .NET 面向的唯一语言。
 
   - 目标方法为非虚拟且可能非 null 时（如通过 [?. null 传播运算符](../../csharp/language-reference/operators/member-access-operators.md#null-conditional-operators--and-)访问的方法），C# 编译器逐渐尝将 `callvirt` 优化为常规调用。
 
   使方法成为虚拟方法意味着使用者代码通常最终要以非虚拟方式调用它。
-
-- ❌ 不允许：向成员添加 [virtual](../../csharp/language-reference/keywords/virtual.md) 关键字
 
 - ❌ 不允许：使 virtual 成员成为 abstract 成员
 
