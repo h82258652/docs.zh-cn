@@ -12,12 +12,12 @@ helpviewer_keywords:
 - JSON Serializer, JSON Reader, JSON Writer
 - Converter, JSON Converter, DateTime Converter
 - ISO, ISO 8601, ISO 8601-1:2019
-ms.openlocfilehash: 6b4e79e6c666731e313ed41e25f601df4158b8d4
-ms.sourcegitcommit: 4b7f6b348c986556ef805cb6baacfd5b9ec18ed0
+ms.openlocfilehash: 77b83fae039321a2fe6ef6279a7cab8886484e23
+ms.sourcegitcommit: 02cc87f02c46e603ea5925de95af746b7ab46a35
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107075415"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107954778"
 ---
 # <a name="datetime-and-datetimeoffset-support-in-systemtextjson"></a>System.Text.Json 中的 DateTime 和 DateTimeOffset 支持
 
@@ -31,36 +31,36 @@ ms.locfileid: "107075415"
 
 <xref:System.DateTime> 和 <xref:System.DateTimeOffset> 数据可通过以下方式序列化 <xref:System.Text.Json.JsonSerializer> ：
 
-[!code-csharp[example-serializing-with-jsonserializer](~/samples/snippets/standard/datetime/json/csharp/serializing-with-jsonserializer/Program.cs)]
+:::code language="csharp" source="snippets/system-text-json-support/csharp/serializing-with-jsonserializer/Program.cs":::
 
 还可以通过以下方式对其进行反序列化 <xref:System.Text.Json.JsonSerializer> ：
 
-[!code-csharp[example-deserializing-with-jsonserializer-valid](~/samples/snippets/standard/datetime/json/csharp/deserializing-with-jsonserializer-valid/Program.cs)]
+:::code language="csharp" source="snippets/system-text-json-support/csharp/deserializing-with-jsonserializer-valid/Program.cs":::
 
 对于默认选项，输入 <xref:System.DateTime> 和 <xref:System.DateTimeOffset> 文本表示形式必须符合扩展 ISO 8601-1:2019 配置文件。
 尝试对不符合配置文件的表示形式进行反序列化将导致 <xref:System.Text.Json.JsonSerializer> 引发 <xref:System.Text.Json.JsonException> ：
 
-[!code-csharp[example-deserializing-with-jsonserializer-error](~/samples/snippets/standard/datetime/json/csharp/deserializing-with-jsonserializer-error/Program.cs)]
+:::code language="csharp" source="snippets/system-text-json-support/csharp/deserializing-with-jsonserializer-error/Program.cs":::
 
 <xref:System.Text.Json.JsonDocument>提供对 JSON 有效负载（包括 <xref:System.DateTime> 和表示形式）内容的结构化访问 <xref:System.DateTimeOffset> 。 下面的示例演示了当给定温度集合时，可以计算星期一的平均温度：
 
-[!code-csharp[example-computing-with-jsondocument-valid](~/samples/snippets/standard/datetime/json/csharp/computing-with-jsondocument-valid/Program.cs)]
+:::code language="csharp" source="snippets/system-text-json-support/csharp/computing-with-jsondocument-valid/Program.cs":::
 
 尝试使用不符合表示形式的有效负载来计算平均温度 <xref:System.DateTime> 将导致 <xref:System.Text.Json.JsonDocument> 引发 <xref:System.FormatException> ：
 
-[!code-csharp[example-computing-with-jsondocument-error](~/samples/snippets/standard/datetime/json/csharp/computing-with-jsondocument-error/Program.cs)]
+:::code language="csharp" source="snippets/system-text-json-support/csharp/computing-with-jsondocument-error/Program.cs":::
 
 较低级别的 <xref:System.Text.Json.Utf8JsonWriter> 写入 <xref:System.DateTime> 和 <xref:System.DateTimeOffset> 数据：
 
-[!code-csharp[example-writing-with-utf8jsonwriter](~/samples/snippets/standard/datetime/json/csharp/writing-with-utf8jsonwriter/Program.cs)]
+:::code language="csharp" source="snippets/system-text-json-support/csharp/writing-with-utf8jsonwriter/Program.cs":::
 
 <xref:System.Text.Json.Utf8JsonReader> 分析 <xref:System.DateTime> 和 <xref:System.DateTimeOffset> 数据：
 
-[!code-csharp[example-reading-with-utf8jsonreader-valid](~/samples/snippets/standard/datetime/json/csharp/reading-with-utf8jsonreader-valid/Program.cs)]
+:::code language="csharp" source="snippets/system-text-json-support/csharp/reading-with-utf8jsonreader-valid/Program.cs":::
 
 尝试使用读取不符合格式 <xref:System.Text.Json.Utf8JsonReader> 将导致其引发 <xref:System.FormatException> ：
 
-[!code-csharp[example-reading-with-utf8jsonreader-error](~/samples/snippets/standard/datetime/json/csharp/reading-with-utf8jsonreader-error/Program.cs)]
+:::code language="csharp" source="snippets/system-text-json-support/csharp/reading-with-utf8jsonreader-error/Program.cs":::
 
 ## <a name="custom-support-for-xrefsystemdatetime-and-xrefsystemdatetimeoffset"></a>对和的自定义支持 <xref:System.DateTime><xref:System.DateTimeOffset>
 
@@ -76,7 +76,7 @@ ms.locfileid: "107075415"
 对于序列化，可以 `DateTime(Offset).ToString` 在转换器写入逻辑中使用方法。 这使您可以 <xref:System.DateTime> <xref:System.DateTimeOffset> 使用任何 [标准日期和时间格式](../base-types/standard-date-and-time-format-strings.md)以及 [自定义日期和时间格式](../base-types/custom-date-and-time-format-strings.md)来编写和值。
 与使用序列化程序的本机实现相比，这种性能也明显降低。
 
-[!code-csharp[example-showing-datetime-parse](~/samples/snippets/standard/datetime/json/csharp/datetime-converter-examples/example1/Program.cs)]
+:::code language="csharp" source="snippets/system-text-json-support/csharp/datetime-converter-examples/example1/Program.cs":::
 
 > [!NOTE]
 > 在实现时 <xref:System.Text.Json.Serialization.JsonConverter%601> ，和 `T` 为时 <xref:System.DateTime> ， `typeToConvert` 参数将始终为 `typeof(DateTime)` 。
@@ -88,7 +88,7 @@ ms.locfileid: "107075415"
 
 此示例演示一个自定义转换器，该转换器 <xref:System.DateTime> 根据 ["R" 标准格式](../base-types/standard-date-and-time-format-strings.md#the-rfc1123-r-r-format-specifier)对值进行序列化和反序列化：
 
-[!code-csharp[example-showing-utf8-parser-and-formatter](~/samples/snippets/standard/datetime/json/csharp/datetime-converter-examples/example2/Program.cs)]
+:::code language="csharp" source="snippets/system-text-json-support/csharp/datetime-converter-examples/example2/Program.cs":::
 
 > [!NOTE]
 > "R" 标准格式的长度始终为29个字符。
@@ -100,13 +100,15 @@ ms.locfileid: "107075415"
 如果你通常希望输入 <xref:System.DateTime> 或 <xref:System.DateTimeOffset> 数据符合扩展 ISO 8601-1:2019 配置文件，则可以使用序列化程序的本机分析逻辑。 您还可以实现一种回退机制。
 此示例显示，在无法 <xref:System.DateTime> 使用分析文本表示形式后 <xref:System.Text.Json.Utf8JsonReader.TryGetDateTime(System.DateTime@)> ，转换器使用成功分析数据 <xref:System.DateTime.Parse(System.String)> 。
 
-[!code-csharp[example-showing-datetime-parse-as-fallback](~/samples/snippets/standard/datetime/json/csharp/datetime-converter-examples/example3/Program.cs)]
+:::code language="csharp" source="snippets/system-text-json-support/csharp/datetime-converter-examples/example3/Program.cs":::
 
 #### <a name="using-unix-epoch-date-format"></a>使用 Unix epoch 日期格式
 
-下面的转换器用时区格式处理 Unix epoch (值，如 `/Date(1590863400000-0700)/`) ：
+以下转换器将处理带有或不带时区的 Unix epoch 格式 (值，如 `/Date(1590863400000-0700)/` 或 `/Date(1590863400000)/`) ：
 
 :::code language="csharp" source="../serialization/snippets/system-text-json-how-to-5-0/csharp/CustomConverterUnixEpochDate.cs" id="ConverterOnly":::
+
+:::code language="csharp" source="../serialization/snippets/system-text-json-how-to-5-0/csharp/CustomConverterUnixEpochDateNoZone.cs" id="ConverterOnly":::
 
 ### <a name="when-writing-with-xrefsystemtextjsonutf8jsonwriter"></a>写入时 <xref:System.Text.Json.Utf8JsonWriter>
 
@@ -114,7 +116,7 @@ ms.locfileid: "107075415"
 
 下面的示例演示如何 <xref:System.DateTime> 使用创建自定义格式 <xref:System.DateTime.ToString(System.String,System.IFormatProvider)> ，然后使用方法编写该格式 <xref:System.Text.Json.Utf8JsonWriter.WriteStringValue(System.String)> ：
 
-[!code-csharp[example-custom-writing-with-utf8jsonwriter](~/samples/snippets/standard/datetime/json/csharp/custom-writing-with-utf8jsonwriter/Program.cs)]
+:::code language="csharp" source="snippets/system-text-json-support/csharp/custom-writing-with-utf8jsonwriter/Program.cs":::
 
 ### <a name="when-reading-with-xrefsystemtextjsonutf8jsonreader"></a>读取时 <xref:System.Text.Json.Utf8JsonReader>
 
@@ -122,7 +124,7 @@ ms.locfileid: "107075415"
 
 下面的示例演示如何 <xref:System.DateTimeOffset> 使用检索自定义文本表示形式 <xref:System.Text.Json.Utf8JsonReader.GetString> ，然后使用进行分析 <xref:System.DateTimeOffset.ParseExact(System.String,System.String,System.IFormatProvider)> ：
 
-[!code-csharp[example-custom-reading-with-utf8jsonreader](~/samples/snippets/standard/datetime/json/csharp/custom-reading-with-utf8jsonreader/Program.cs)]
+:::code language="csharp" source="snippets/system-text-json-support/csharp/custom-reading-with-utf8jsonreader/Program.cs":::
 
 ## <a name="the-extended-iso-8601-12019-profile-in-systemtextjson"></a>System.Text.Js上的扩展 ISO 8601-1:2019 配置文件
 
@@ -130,14 +132,14 @@ ms.locfileid: "107075415"
 
 在中实现的扩展 ISO 8601-1:2019 配置文件 <xref:System.Text.Json> 定义了日期和时间表示的以下组件。 这些组件用于定义分析和格式设置 <xref:System.DateTime> 和表示形式时支持的各种粒度级别 <xref:System.DateTimeOffset> 。
 
-| 组件       | 格式                      | 描述                                                                     |
+| 组件       | 格式                      | 说明                                                                     |
 |-----------------|-----------------------------|---------------------------------------------------------------------------------|
-| 年龄            | “yyyy”                      | 0001-9999                                                                       |
+| Year            | “yyyy”                      | 0001-9999                                                                       |
 | 月份           | “MM”                        | 01-12                                                                           |
-| 日期             | “dd”                        | 01-28、01-29、01-30、01-31 （基于月份/年份）                                  |
+| 天             | “dd”                        | 01-28、01-29、01-30、01-31 （基于月份/年份）                                  |
 | 小时            | “HH”                        | 00-23                                                                           |
 | Minute          | “mm”                        | 00-59                                                                           |
-| 秒          | “ss”                        | 00-59                                                                           |
+| Second          | “ss”                        | 00-59                                                                           |
 | 第二部分 | “FFFFFFF”                   | 至少一个数字，最多为16位                                      |
 | 时间偏移     | “K”                         | "Z" 或 " (" + "/"-") HH"： "mm"                                                |
 | 部分时间    | "HH"： "mm"： "ss [FFFFFFF]"     | 不带 UTC 偏移信息的时间                                             |
