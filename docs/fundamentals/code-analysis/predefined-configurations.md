@@ -16,7 +16,7 @@ ms.locfileid: "104876586"
 
 [Microsoft.CodeAnalysis.NetAnalyzers](https://github.com/dotnet/roslyn-analyzers#microsoftcodeanalysisnetanalyzers) 包括用于以下规则类别的预定义 EditorConfig 文件和规则集：
 
-- ┮Τ砏玥
+- 所有规则
 - 数据流
 - 设计
 - 文档
