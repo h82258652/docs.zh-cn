@@ -13,6 +13,8 @@
       href: blazor-for-web-forms-developers/
     - name: 使用 Microsoft 平台和工具对 Docker 应用程序生命周期进行容器化
       href: containerized-lifecycle/
+    - name: 面向 ASP.NET Core 开发人员的 DevOps
+      href: devops-for-aspnet-developers/
     - name: 使用 Azure 云和 Windows 容器现代化现有 .NET 应用程序
       href: modernize-with-azure-containers/
     - name: 使用 .NET 5 在 Windows 10 上对桌面应用进行现代化改造
