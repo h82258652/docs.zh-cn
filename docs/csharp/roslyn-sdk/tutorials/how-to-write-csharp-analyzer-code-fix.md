@@ -3,12 +3,12 @@ title: 教程：编写第一个分析器和代码修补程序
 description: 本教程提供了有关使用 .NET 编译器 SDK (Roslyn API) 生成分析器和代码修补程序的分步说明。
 ms.date: 03/02/2021
 ms.custom: mvc
-ms.openlocfilehash: b712cb4df5ab6dae825407212685cb1a08b2d189
-ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
+ms.openlocfilehash: 040a91c5755c736a9729e6796d2e73d2f956a8dd
+ms.sourcegitcommit: 5ddbd1f65d0369b4cc8c8ff91c72f1b524c90221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105637242"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514458"
 ---
 # <a name="tutorial-write-your-first-analyzer-and-code-fix"></a>教程：编写第一个分析器和代码修补程序
 
@@ -50,6 +50,8 @@ ms.locfileid: "105637242"
 
 > [!TIP]
 > 在运行分析器时，请启动 Visual Studio 的第二个副本。 此第二个副本使用不同的注册表配置单元来存储设置。 这样便可以将 Visual Studio 两个副本中的可视化设置区分开来。 可以选择 Visual Studio 实验性运行的不同主题。 此外，不要在设置中漫游，也不要使用 Visual Studio 的实验性运行登录到 Visual Studio 帐户。 这样可以使设置保持不同。
+>
+> 该配置单元不仅包括正在开发的分析器，而且还包括任何以前打开的分析器。 若要重置 Roslyn 配置单元，需要从 % LocalAppData%\\Microsoft\\VisualStudio 中手动将其删除。 Roslyn 配置单元的文件夹名称将以 `Roslyn` 结尾，例如 `16.0_9ae182f9Roslyn`。 请注意，你可能需要在删除配置单元后清除解决方案并重新生成。
 
 在刚刚启动的第二个 Visual Studio 实例中，创建一个新的 C# 控制台应用程序项目（任何目标框架都可用 -- 分析器在源级别工作。）悬停在带波浪下划线的标记上，将显示分析器提供的警告文本。
 

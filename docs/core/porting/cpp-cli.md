@@ -3,12 +3,12 @@ title: 将 C++/CLI 项目迁移到 .NET Core
 description: 了解如何将 C++/CLI 项目移植到 .NET Core。
 author: mjrousos
 ms.date: 01/10/2020
-ms.openlocfilehash: 1194e1ce03e5b86052d7e2584aa5c15acd01874b
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: 60c4cc2040b5cfb7aadc2147832d3f0a763085dc
+ms.sourcegitcommit: 5ddbd1f65d0369b4cc8c8ff91c72f1b524c90221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104873687"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514391"
 ---
 # <a name="how-to-port-a-ccli-project-to-net-core"></a>如何将 C++/CLI 项目移植到 .NET Core
 
@@ -73,7 +73,7 @@ ms.locfileid: "104873687"
 
 ## <a name="known-issues"></a>已知问题
 
-在处理面向 .NET Core 的 C++/CLI 项目时，需要注意一些已知问题。
+在处理面向 .NET Core 的 C++/CLI 项目时，需要注意几个已知问题。
 
 * .NET Core C++/CLI 项目中的 WPF 框架引用目前会导致一些有关无法导入符号的无关警告。 可以安全忽略这些警告，并且应该尽快解决它们。
 * 如果应用程序具有本机入口点，则首次执行托管代码的 C++/CLI 库需要 [runtimeconfig.json](https://github.com/dotnet/sdk/blob/main/documentation/specs/runtime-configuration-file.md) 文件。 此配置文件在 .NET Core 运行时启动时使用。 C++/CLI 项目不会在生成时自动创建 `runtimeconfig.json` 文件，因此必须手动生成该文件。 如果从托管入口点调用 C++/CLI 库，则 C++/CLI 库不需要 `runtimeconfig.json` 文件（因为入口点程序集将具有一个在启动运行时时使用的该文件）。 下面显示了一个简单的示例 `runtimeconfig.json` 文件。 有关详细信息，请参阅 [GitHub 上的规范](https://github.com/dotnet/sdk/blob/main/documentation/specs/runtime-configuration-file.md)。
@@ -89,3 +89,5 @@ ms.locfileid: "104873687"
           }
     }
     ```
+
+* 在 Windows 7 上，当入口应用程序为原生时，加载 .NET Core C++/CLI 程序集可能会表现出失败的行为。 这一失败行为是由于 Windows 7 加载程序不遵循 C++/CLI 程序集的非 `mscoree.dll` 入口点。 建议的操作方式是将入口应用程序转换为托管代码。 Windows 7 上的所有情况都尤其不支持涉及线程本地存储 (TLS) 的场景。

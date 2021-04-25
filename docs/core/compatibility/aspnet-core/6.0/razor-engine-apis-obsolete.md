@@ -1,16 +1,18 @@
 ---
-title: 中断性变更：Razor：RazorEngine API 已标记为已过时
-description: 了解 ASP.NET Core 6.0 中的中断性变更，其标题为：Razor：RazorEngine API 已标记为已过时
+title: 中断性变更：Razor：RazorEngine API 标记为已过时
+description: 了解 ASP.NET Core 6.0 中的中断性变更，其标题为：RazorRazorEngine API 已标记为已过时
+no-loc:
+- Razor
 ms.author: scaddie
 ms.date: 02/09/2021
-ms.openlocfilehash: a312fb2fda6245e529d59d82b72ffe64ae6d6ff5
-ms.sourcegitcommit: e7e0921d0a10f85e9cb12f8b87cc1639a6c8d3fe
+ms.openlocfilehash: 75ccc8e2640dda29749de40946e90c2b897a7245
+ms.sourcegitcommit: fdfa01f6cd3aa4c36b6e8a1830693ff22d35aeea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107255098"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107292244"
 ---
-# <a name="razor-razorengine-apis-marked-obsolete"></a>Razor：RazorEngine API 已标记为已过时
+# <a name="razor-razorengine-apis-marked-obsolete"></a>RazorRazorEngine API 标记为已过时
 
 与 Blazor 中的 <xref:Microsoft.AspNetCore.Razor.Language.RazorEngine> 类型相关的类型已标记为已过时。
 

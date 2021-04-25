@@ -3,15 +3,15 @@ title: 教程：使用 ONNX 深度学习模型检测对象
 description: 本教程演示如何在 ML.NET 中使用预训练的 ONNX 深度学习模型来检测图像中的对象。
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 06/30/2020
+ms.date: 04/13/2021
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 305a440634120395dba6881584b2ff46646da211
-ms.sourcegitcommit: 1dbe25ff484a02025d5c34146e517c236f7161fb
+ms.openlocfilehash: 2146772d8db28568884e485b95c4cfe8e2ebba2d
+ms.sourcegitcommit: 5ddbd1f65d0369b4cc8c8ff91c72f1b524c90221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104653577"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514484"
 ---
 # <a name="tutorial-detect-objects-using-onnx-in-mlnet"></a>教程：在 ML.NET 中使用 ONNX 检测对象
 
@@ -43,7 +43,9 @@ ms.locfileid: "104653577"
 
 ## <a name="what-is-object-detection"></a>什么是对象检测？
 
-对象检测是计算机视觉问题。 虽然与图像分类密切相关，但是对象检测以更精细的比例执行图像分类。 对象检测用于定位图像中的实体并对其进行分类。 如果图像包含多个不同类型的对象，请使用对象检测。
+对象检测是计算机视觉问题。 虽然与图像分类密切相关，但是对象检测以更精细的比例执行图像分类。 对象检测用于定位图像中的实体并对其进行分类。 物体检测模型通常使用深度学习和神经网络进行训练。 有关详细信息，请参阅[深度学习与机器学习](/azure/machine-learning/concept-deep-learning-vs-machine-learning)。
+
+如果图像包含多个不同类型的对象，请使用对象检测。
 
 ![显示图像分类与对象分类的屏幕截图。](./media/object-detection-onnx/img-classification-obj-detection.png)
 
@@ -114,7 +116,7 @@ YOLO 模型采用图像 `3(RGB) x 416px x 416px`。 模型接受此输入，并�
 
 1. 将提取的 `model.onnx` 文件从刚刚解压缩的目录复制到 ObjectDetection 项目的 `assets\Model` 目录中，并将其重命名为 `TinyYolo2_model.onnx`。 此目录包含本教程所需的模型。
 
-1. 在“解决方案资源管理器”中，右键单击资产目录和子目录中的每个文件，再选择“属性”。 在“高级”下，将“复制到输出目录”的值更改为“如果较新则复制”  。
+1. 在“解决方案资源管理器”中，右键单击资产目录和子目录中的每个文件，再选择“属性”。 在“高级”下，将“复制到输出目录”的值更改为“如果较新则复制”    。
 
 ### <a name="create-classes-and-define-paths"></a>创建类和定义路径
 

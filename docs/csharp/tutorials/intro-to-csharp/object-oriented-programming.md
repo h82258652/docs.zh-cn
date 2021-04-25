@@ -2,21 +2,21 @@
 title: 面向对象的编程 (C#)
 description: C# 提供针对面向对象的编程（包括抽象、封装、继承和多态性）的完整支持。
 ms.date: 09/30/2020
-ms.openlocfilehash: 70642ef00f7ec6462c716498ff14450ab763956b
-ms.sourcegitcommit: e16315d9f1ff355f55ff8ab84a28915be0a8e42b
+ms.openlocfilehash: 8ed304233fe29b46e1da9185b6e079e614a55c79
+ms.sourcegitcommit: 23e2bc267872ce6ea22db4bf6478fe57bcba4bc8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105111356"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107592248"
 ---
 # <a name="object-oriented-programming-c"></a>面向对象的编程 (C#)
 
-C# 是面向对象的语言。 面向对象的编程中使用的四项关键技术是：
+C# 是面向对象的编程语言。 面向对象编程的四项基本原则为：
 
-- “抽象”是指将一组相关属性、方法和其他成员视为一个单元或对象。
-- “封装”是指对类型使用者隐藏不必要的详细信息。
-- “继承”描述基于现有类创建新类的能力。
-- 多态性意味着可以有多个可互换使用的类，即使每个类以不同方式实现相同属性或方法。
+- 抽象：将实体的相关特性和交互建模为类，以定义系统的抽象表示。
+- 封装：隐藏对象的内部状态和功能，并仅允许通过一组公共函数进行访问。
+- 继承：根据现有抽象创建新抽象的能力。
+- 多形性：跨多个抽象以不同方式实现继承属性或方法的能力。
 
 在前面的[类简介](introduction-to-classes.md) 教程中，我们介绍了抽象和封装。 `BankAccount` 类提供银行帐户这一概念的抽象。 你可以修改其实现，而不影响使用 `BankAccount` 类的任何代码。 `BankAccount` 和 `Transaction` 类都提供在代码中描述这些概念所需组件的封装。
 

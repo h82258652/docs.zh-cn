@@ -3,15 +3,15 @@ title: 教程：使用迁移学习自动进行肉眼检查
 description: 本教程演示如何使用图像检测 API 将混凝土表面的图像分类为有裂缝或无裂缝，以使用迁移学习在 ML.NET 中训练 TensorFlow 深度学习模型。
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 02/09/2021
+ms.date: 04/13/2021
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 71d44ca3248d497b3f46d1d93c6505adcfc42021
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: 92c768c429a2eae22071556cc13c7457a7cf26df
+ms.sourcegitcommit: 5ddbd1f65d0369b4cc8c8ff91c72f1b524c90221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104873297"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514510"
 ---
 # <a name="tutorial-automated-visual-inspection-using-transfer-learning-with-the-mlnet-image-classification-api"></a>教程：通过 ML.NET 图像分类 API 使用迁移学习自动进行肉眼检查
 
@@ -36,7 +36,9 @@ ms.locfileid: "104873297"
 
 ## <a name="understand-the-problem"></a>了解问题
 
-图像分类是一种计算机视觉问题。 图像分类使用图像作为输入，并将其分类为规定的类。 图像分类很有用的一些情况包括：
+图像分类是一种计算机视觉问题。 图像分类使用图像作为输入，并将其分类为规定的类。 图像分类模型通常使用深度学习和神经网络进行训练。 有关详细信息，请参阅[深度学习与机器学习](/azure/machine-learning/concept-deep-learning-vs-machine-learning)。
+
+图像分类很有用的一些情况包括：
 
 - 面部识别
 - 情感检测
@@ -396,10 +398,6 @@ Image: 7001-210.jpg | Actual Value: UD | Predicted Value: UD
 - **训练更长时间**：训练的时间越长，模型的调整效果就越好。 增加学习周期数可以提高模型的性能。
 - **试验超参数**：除了在本教程中使用的参数之外，还可以对其他参数进行调整，以便潜在地提高性能。 更改学习率（确定在每个学习周期后对模型所做的更新量）可以提高性能。
 - **使用其他模型体系结构**：根据数据的外观，可以最好地了解其功能的模型可能会有所不同。 如果你对模型的性能不满意，请尝试更改体系结构。
-
-### <a name="additional-resources"></a>其他资源
-
-- [深度学习与机器学习](/azure/machine-learning/service/concept-deep-learning-vs-machine-learning)。
 
 ## <a name="next-steps"></a>后续步骤
 

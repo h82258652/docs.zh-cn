@@ -19,12 +19,12 @@ helpviewer_keywords:
 - BypassNGenAttribute
 - System.Runtime.BypassNGenAttribute
 ms.assetid: 44bf97aa-a9a4-4eba-9a0d-cfaa6fc53a66
-ms.openlocfilehash: 05b77df39645b85872b07b43bcf6e8c852d6f664
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: 480d5172a7ccec0c58b5b615226c836a358cb603
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104874363"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494696"
 ---
 # <a name="ngenexe-native-image-generator"></a>Ngen.exe（本机映像生成器）
 
@@ -131,7 +131,7 @@ ngen /? | /help
 |------------|-----------------|
 |`/nologo`|禁止显示 Microsoft 启动版权标志。|
 |`/silent`|禁止显示成功消息。|
-|`/verbose`|显示详细的调试信息。 **注意：** 由于操作系统限制，此选项显示的附加信息比在 Windows 98 和 Windows Millennium Edition 上显示的少。|
+|`/verbose`|显示详细的调试信息。|
 |`/help`, `/?`|显示当前版本的命令语法和选项。|
 
 ## <a name="remarks"></a>备注
@@ -361,8 +361,6 @@ Microsoft 使用 <xref:System.Runtime.CompilerServices.DefaultDependencyAttribut
 
 - .NET Framework 的版本。
 
-- 操作系统的版本（在从 Windows 9x 系列更改为 Windows NT 系列的情况下）。
-
 - 程序集的确切标识（重新编译将更改标识）。
 
 - 程序集引用的所有程序集的确切标识（重新编译将更改标识）。
@@ -373,11 +371,7 @@ Ngen.exe 在生成本机映像时记录这些信息。 当你执行程序集时�
 
 - .NET Framework 的版本。
 
-     如果将更新应用于 .NET Framework，则使用 Ngen.exe 创建的所有本机映像都将失效。 因此，.NET Framework 的所有更新都执行 `Ngen Update` 命令，以确保重新生成所有的本机映像。 .NET Framework 为它安装的 .NET Framework 库自动创建新的本机映像。
-
-- 操作系统的版本（在从 Windows 9x 系列更改为 Windows NT 系列的情况下）。
-
-     例如，如果计算机上运行的操作系统版本从 Windows 98 更改为 Windows XP，则存储在本机映像缓存中的所有本机映像都将失效。 但是，如果将操作系统从 Windows 2000 更改为 Windows XP，则这些映像将不会失效。
+     如果将更新应用于 .NET Framework，则使用 Ngen.exe 创建的所有原生映像都将失效。 因此，.NET Framework 的所有更新都执行 `Ngen Update` 命令，以确保重新生成所有的原生映像。 .NET Framework 为它安装的 .NET Framework 库自动创建新的原生映像。
 
 - 程序集的确切标识。
 

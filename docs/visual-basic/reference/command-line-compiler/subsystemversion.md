@@ -7,12 +7,12 @@ helpviewer_keywords:
 - -subsystemversion compiler option [Visual Basic]
 - subsystemversion compiler option [Visual Basic]
 ms.assetid: 08be22b2-f447-4cd3-8203-120b1b920b54
-ms.openlocfilehash: 2aecf08b95249b6c4285ca7fe71f4e488f8db3c8
-ms.sourcegitcommit: 0bb8074d524e0dcf165430b744bb143461f17026
+ms.openlocfilehash: 5cb4c79b3f837e2427f1b76e7f49ed0bcec596dd
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103480821"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494059"
 ---
 # <a name="-subsystemversion-visual-basic"></a>-subsystemversion (Visual Basic)
 
@@ -41,8 +41,6 @@ ms.locfileid: "103480821"
 
 |Windows 版本|子系统版本|
 |---------------------|-----------------------|
-|Windows 2000|5.00|
-|Windows XP|5.01|
 |Windows Server 2003|5.02|
 |Windows Vista|6.00|
 |Windows 7|6.01|

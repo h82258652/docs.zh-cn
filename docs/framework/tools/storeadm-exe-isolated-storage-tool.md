@@ -9,12 +9,12 @@ helpviewer_keywords:
 - stores, current user
 - removing stores
 ms.assetid: b81202b8-d91d-4b23-9c53-4a112f74a44a
-ms.openlocfilehash: 1bd7aee54af8ec78454d9c9023856966beb91174
-ms.sourcegitcommit: 1dbe25ff484a02025d5c34146e517c236f7161fb
+ms.openlocfilehash: 89eb2b35dc640f21f3d6d6ca7f477841f1a020c7
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104653603"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494033"
 ---
 # <a name="storeadmexe-isolated-storage-tool"></a>Storeadm.exe（独立存储工具）
 
@@ -50,16 +50,13 @@ storeadm [/list][/machine][/remove][/roaming][/quiet]
   
  应用程序可以选择保存到两个用户存储之一或保存到计算机存储：  
   
-- 本地存储位于保证不会漫游的位置（在 Windows 2000 及更高版本中），即使为用户启用了用户数据漫游也是如此。  
+- 本地存储位于保证不会漫游的位置，即使为用户启用了用户数据漫游也是如此。  
   
-- 漫游存储位于能够漫游的位置，但只有通过 Windows NT 管理为用户启用了漫游后才可做到这一点。  
+- 漫游存储位于能够漫游的位置，但只有通过 Windows 管理为用户启用了漫游后才可做到这一点。  
   
-- 计算机存储对于计算机上的所有用户是公共的，并且它存储在该计算机上的公共目录下。  
+- 计算机存储对于计算机上的所有用户是公共的，并且它存储在该计算机上的公共目录下。
   
-    > [!NOTE]
-    > 计算机存储是 .NET Framework 2.0 版中的新增功能。  
-  
- 实际上，是否为用户启用漫游并不会影响 Storeadm.exe 的管理。 在不使用任何选项的情况下运行此工具会向本地存储应用所有操作。 在使用 /roaming 选项的情况下运行此工具会将所有操作应用于可漫游的存储。 在使用 /machine 选项的情况下运行此工具会将所有操作应用于计算机存储。  
+实际上，是否为用户启用漫游并不会影响 Storeadm.exe 的管理。 在不使用任何选项的情况下运行此工具会向本地存储应用所有操作。 在使用 /roaming 选项的情况下运行此工具会将所有操作应用于可漫游的存储。 在使用 /machine 选项的情况下运行此工具会将所有操作应用于计算机存储。  
   
 ## <a name="see-also"></a>请参阅
 

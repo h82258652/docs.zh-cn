@@ -2,12 +2,12 @@
 title: 特性 (C#)
 description: 了解如何使用特性将元数据或声明性信息与 C# 中的代码关联起来。 可以在运行时使用反射来查询特性。
 ms.date: 04/26/2018
-ms.openlocfilehash: f468b01d3f7832ed8c127f34e6d4e3c1bcf7901a
-ms.sourcegitcommit: f0fc5db7bcbf212e46933e9cf2d555bb82666141
+ms.openlocfilehash: 4c85e36a36cbaa16ab8d1344237e5d685ffd60d9
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100583669"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740366"
 ---
 # <a name="attributes-c"></a>特性 (C#)
 
@@ -55,6 +55,8 @@ ms.locfileid: "100583669"
 ```
 
 第一个参数（DLL 名称）是位置参数，始终第一个出现；其他是已命名参数。 在此示例中，两个已命名参数的默认值均为 false，因此可以省略。 位置参数与特性构造函数的参数相对应。 已命名或可选参数与该特性的属性或字段相对应。 若要了解默认参数值，请参阅各个特性文档。
+
+有关允许的参数类型的详细信息，请参阅 [C# 语言规范](~/_csharplang/spec/introduction.md)中的[属性](~/_csharplang/spec/attributes.md#attribute-parameter-types)部分。
 
 ### <a name="attribute-targets"></a>特性目标
 

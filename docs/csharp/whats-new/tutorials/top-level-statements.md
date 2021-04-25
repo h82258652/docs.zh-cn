@@ -2,12 +2,12 @@
 title: 顶级语句 - C# 教程
 description: 本教程介绍如何使用顶级语句来试验和证明概念，同时探索你的想法
 ms.date: 10/28/2020
-ms.openlocfilehash: d3cd089c5681e6c06a0c63cbffcc3cf5935fbeef
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: 60044b58fb52302cd559d7e8802657b602f1b6eb
+ms.sourcegitcommit: 985c603cb21a085f8a8105f34ff5b87a44b76ab4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104878879"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564826"
 ---
 # <a name="tutorial-explore-ideas-using-top-level-statements-to-build-code-as-you-learn"></a>教程：在学习过程中，探索使用顶级语句生成代码的想法
 
@@ -94,7 +94,7 @@ System.String[]
 
 :::code language="csharp" source="snippets/top-level-statements/ProgramSnippets.cs" ID="Answers":::
 
-此数组有 12 个肯定答案，6 个态度不明确的答案，以及 6 个否定答案。 接下来，添加以下代码以生成并显示来自数组的随机答案：
+此数组有 10 个肯定答案，5 个态度不明确的答案，以及 5 个否定答案。 接下来，添加以下代码以生成并显示来自数组的随机答案：
 
 :::code language="csharp" source="snippets/top-level-statements/ProgramSnippets.cs" ID="GenerateAnswer":::
 

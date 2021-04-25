@@ -6,16 +6,16 @@ helpviewer_keywords:
 - configuring apps to support .NET Framework
 - .NET Framework, configuring apps
 ms.assetid: 63c6b9a8-0088-4077-9aa3-521ab7290f79
-ms.openlocfilehash: 58d71cb7fac7a3c2bef975c99cfab1ca730fb6eb
-ms.sourcegitcommit: cf5a800a33de64d0aad6d115ffcc935f32375164
+ms.openlocfilehash: 66a6ec5f6cad0225e48f480eeae8b7d3862241dd
+ms.sourcegitcommit: bbc724b72fb6c978905ac715e4033efa291f84dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86475458"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107369681"
 ---
 # <a name="how-to-configure-an-app-to-support-net-framework-4-or-later-versions"></a>如何：将应用配置为支持 .NET Framework 4 或更高版本
 
-托管公共语言运行时 (CLR) 的所有应用程序都必须启动（或*激活*）CLR，才能运行托管代码。 通常，.NET Framework 应用在生成它的 CLR 版本上运行，但你可以使用应用程序配置文件（有时称为 app.config 文件）来更改桌面应用程序的此行为。 但是，您不能使用应用程序配置文件来更改 Windows 应用商店应用或 Windows Phone 应用程序的默认激活行为。 本文说明如何使桌面应用程序能够在 .NET Framework 的其他版本上运行，并提供了如何定位版本 4 或更高版本的示例。
+托管公共语言运行时 (CLR) 的所有应用程序都必须启动（或 *激活*）CLR，才能运行托管代码。 通常，.NET Framework 应用在生成它的 CLR 版本上运行，但你可以使用应用程序配置文件（有时称为 app.config 文件）来更改桌面应用程序的此行为。 但是，您不能使用应用程序配置文件来更改 Windows 应用商店应用或 Windows Phone 应用程序的默认激活行为。 本文说明如何使桌面应用程序能够在 .NET Framework 的其他版本上运行，并提供了如何定位版本 4 或更高版本的示例。
 
  按下列顺序确定在其上运行应用程序的 .NET Framework 的版本：
 
@@ -44,7 +44,7 @@ ms.locfileid: "86475458"
 
 1. 添加或查找 .NET Framework 项目的配置文件。 应用程序的配置文件与该应用程序位于相同的目录中，并且具有相同的名称，只不过它具有扩展名 .config。 例如，对于名为 MyExecutable.exe 的应用程序，应用程序配置文件的名称为 MyExecutable.exe.config。
 
-     若要添加配置文件，请在 Visual Studio 菜单栏上依次选择“项目”和“添加新项”。 在左侧窗格中，依次选择“常规”和“配置文件”。 将配置文件命名为 *appName*.exe.config。这些菜单选项对于 Windows 应用商店应用或 Windows Phone 应用程序项目不可用，因为您无法在这些平台上更改激活策略。
+     若要添加配置文件，请在 Visual Studio 菜单栏上依次选择“项目”和“添加新项”。 在左侧窗格中，依次选择“常规”和“配置文件”。 将配置文件命名为 App.config。这些菜单选项对于 Windows 应用商店应用或 Windows Phone 应用程序项目不可用，因为无法在这些平台上更改激活策略。
 
 2. 在应用程序配置文件中添加如下 [\<supportedRuntime>](../configure-apps/file-schema/startup/supportedruntime-element.md) 元素：
 

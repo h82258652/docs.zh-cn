@@ -3,12 +3,12 @@ title: 类和对象 - C# 简介教程
 description: 创建首个 C# 程序，并探索面向对象的概念
 ms.date: 10/11/2017
 ms.custom: mvc
-ms.openlocfilehash: 3da445e6c656628fffdb9ef9384fb1a1c556a2cd
-ms.sourcegitcommit: 9c589b25b005b9a7f87327646020eb85c3b6306f
+ms.openlocfilehash: 2e3311d30c97ecda8531a8e24219e03c37be3361
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2021
-ms.locfileid: "102255413"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494709"
 ---
 # <a name="explore-object-oriented-programming-with-classes-and-objects"></a>使用类和对象探索面向对象的编程
 
@@ -100,7 +100,7 @@ var account = new BankAccount("<name>", 1000);
 Console.WriteLine($"Account {account.Number} was created for {account.Owner} with {account.Balance} initial balance.");
 ```
 
-我们来运行到目前为止已构建的内容。 如果使用的是 Visual Studio，请在“运行”菜单中选择“启动而不调试”。 如果使用的是命令行，请在创建项目的目录中键入 `dotnet run`。
+我们来运行到目前为止已构建的内容。 如果使用的是 Visual Studio，请在“调试”菜单中选择“启动而不调试” 。 如果使用的是命令行，请在创建项目的目录中键入 `dotnet run`。
 
 有没有注意到帐号为空？ 是时候解决这个问题了。 帐号应在构造对象时分配。 但不得由调用方负责创建。 `BankAccount` 类代码应了解如何分配新帐号。  这样做的简单方法是从一个 10 位数开始。 帐号随每个新建的帐户而递增。 最后，在构造对象时，存储当前的帐号。
 

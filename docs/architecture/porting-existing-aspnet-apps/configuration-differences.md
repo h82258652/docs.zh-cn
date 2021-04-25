@@ -3,12 +3,12 @@ title: ASP.NET MVC 和 ASP.NET Core 之间的配置差异
 description: 如何在 ASP.NET 与 ASP.NET Core 之间显著地存储和读取配置值。 本部分将讨论详细信息以及如何将配置从 ASP.NET 迁移到 ASP.NET Core。
 author: ardalis
 ms.date: 11/13/2020
-ms.openlocfilehash: 3d721c028b1e760a6227855451e2194d9e471a58
-ms.sourcegitcommit: b5d2290673e1c91260c9205202dd8b95fbab1a0b
+ms.openlocfilehash: 0e788c8606af05570d64bba257236feea11d5768
+ms.sourcegitcommit: 5cad087ed0cfc4cf632b6d8270ed311e4d8b5217
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106122945"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107928704"
 ---
 # <a name="configuration-differences-between-aspnet-mvc-and-aspnet-core"></a>ASP.NET MVC 和 ASP.NET Core 之间的配置差异
 
@@ -59,7 +59,7 @@ public class TestModel : PageModel
 
 **图 2-2。** 访问配置值 `IConfiguration` 。
 
-使用 [options 模式](/dotnet/core/extensions/options)时，设置访问类似于，但它是强类型的，更特定于使用类 (s) 所需的设置，如图2-3 所示。
+使用 [options 模式](../../core/extensions/options.md)时，设置访问类似于，但它是强类型的，更特定于使用类 (s) 所需的设置，如图2-3 所示。
 
 ```csharp
 public class PositionOptions

@@ -3,14 +3,14 @@ title: .NET 中的依赖关系注入
 description: 了解 .NET 如何实现依赖关系注入以及如何使用它。
 author: IEvangelist
 ms.author: dapine
-ms.date: 10/28/2020
+ms.date: 04/12/2021
 ms.topic: overview
-ms.openlocfilehash: 0b5526f24f3ac658123acd030c3adf32c346422a
-ms.sourcegitcommit: 109507b6c16704ed041efe9598c70cd3438a9fbc
+ms.openlocfilehash: 2feb8b44d7701839bd889138c1f7c8f1fb2be71a
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106079513"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494280"
 ---
 # <a name="dependency-injection-in-net"></a>.NET 中的依赖关系注入
 
@@ -137,16 +137,17 @@ Microsoft 扩展使用一种约定来注册一组相关服务。 约定使用单
 
 下表列出了框架注册的这些服务的一小部分：
 
-| 服务类型                                                                       | 生存期  |
-|------------------------------------------------------------------------------------|-----------|
-| <xref:Microsoft.Extensions.Hosting.IHostApplicationLifetime>                       | 单例 |
-| <xref:Microsoft.Extensions.Logging.ILogger%601?displayProperty=fullName>           | 单例 |
-| <xref:Microsoft.Extensions.Logging.ILoggerFactory?displayProperty=fullName>        | 单例 |
-| <xref:Microsoft.Extensions.ObjectPool.ObjectPoolProvider?displayProperty=fullName> | 单例 |
-| <xref:Microsoft.Extensions.Options.IConfigureOptions%601?displayProperty=fullName> | 暂时 |
-| <xref:Microsoft.Extensions.Options.IOptions%601?displayProperty=fullName>          | 单例 |
-| <xref:System.Diagnostics.DiagnosticListener?displayProperty=fullName>              | 单例 |
-| <xref:System.Diagnostics.DiagnosticSource?displayProperty=fullName>                | 单例 |
+| 服务类型                                                                                  | 生存期  |
+|-----------------------------------------------------------------------------------------------|-----------|
+| <xref:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory?displayProperty=fullName> | 单例 |
+| <xref:Microsoft.Extensions.Hosting.IHostApplicationLifetime>                                  | 单例 |
+| <xref:Microsoft.Extensions.Logging.ILogger%601?displayProperty=fullName>                      | 单例 |
+| <xref:Microsoft.Extensions.Logging.ILoggerFactory?displayProperty=fullName>                   | 单例 |
+| <xref:Microsoft.Extensions.ObjectPool.ObjectPoolProvider?displayProperty=fullName>            | 单例 |
+| <xref:Microsoft.Extensions.Options.IConfigureOptions%601?displayProperty=fullName>            | 暂时 |
+| <xref:Microsoft.Extensions.Options.IOptions%601?displayProperty=fullName>                     | 单例 |
+| <xref:System.Diagnostics.DiagnosticListener?displayProperty=fullName>                         | 单例 |
+| <xref:System.Diagnostics.DiagnosticSource?displayProperty=fullName>                           | 单例 |
 
 ## <a name="service-lifetimes"></a>服务生存期
 
@@ -308,6 +309,23 @@ services.Add(descriptor);
 调用 <xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider%2A> 时创建根服务提供程序。 在启动提供程序和应用时，根服务提供程序的生存期对应于应用的生存期，并在关闭应用时释放。
 
 有作用域的服务由创建它们的容器释放。 如果范围内服务创建于根容器，则该服务的生存期实际上提升至单一实例，因为根容器只会在应用关闭时将其释放。 验证服务作用域，将在调用 `BuildServiceProvider` 时收集这类情况。
+
+## <a name="scope-scenarios"></a>范围场景
+
+<xref:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory> 始终注册为单一实例，但 <xref:System.IServiceProvider> 可能因包含类的生存期而异。 例如，如果从某个范围解析服务，而这些服务中的任意一种采用 <xref:System.IServiceProvider>，该服务将是区分范围的实例。
+
+若要在 <xref:Microsoft.Extensions.Hosting.IHostedService> 的实现（例如 <xref:Microsoft.Extensions.Hosting.BackgroundService>）中实现范围服务，请不要通过构造函数注入来注入服务依赖项。 请改为注入 <xref:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory>，创建范围，然后从该范围解析依赖项以使用适当的服务生存期。
+
+:::code language="csharp" source="snippets/configuration/worker-scope/Worker.cs" highlight="13,15-16,22":::
+
+在上述代码中，当应用运行时，后台服务：
+
+- 依赖于 <xref:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory>。
+- 创建 <xref:Microsoft.Extensions.DependencyInjection.IServiceScope> 用于解析其他服务。
+- 解析区分范围内的服务以供使用。
+- 处理要处理的对象，然后对其执行中继操作，最后将其标记为已处理。
+
+在示例源代码中，可以看到 <xref:Microsoft.Extensions.Hosting.IHostedService> 的实现如何从区分范围的服务生存期中获益。
 
 ## <a name="see-also"></a>另请参阅
 

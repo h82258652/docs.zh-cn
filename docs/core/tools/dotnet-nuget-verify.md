@@ -3,12 +3,12 @@ title: dotnet nuget verify 命令
 description: dotnet nuget verify 命令可验证已签名的包。
 author: kartheekp-ms
 ms.date: 10/08/2020
-ms.openlocfilehash: 6cb368e2b6c203f3774b4450c0831c5d6b2dc0e8
-ms.sourcegitcommit: b59237ca4ec763969a0dd775a3f8f39f8c59fe24
+ms.openlocfilehash: 1c300e5a09b4049a9895b9b3f6c742f701dc2200
+ms.sourcegitcommit: 985c603cb21a085f8a8105f34ff5b87a44b76ab4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91957085"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564839"
 ---
 # <a name="dotnet-nuget-verify"></a>dotnet nuget verify
 
@@ -54,7 +54,30 @@ dotnet nuget verify -h|--help
 
 * **`-v|--verbosity <LEVEL>`**
 
-  设置 MSBuild 详细级别。 允许使用的值为 `q[uiet]`、`m[inimal]`、`n[ormal]`、`d[etailed]` 和 `diag[nostic]`。 默认值为 `normal`。
+  设置 [MSBuild 详细级别](/visualstudio/msbuild/obtaining-build-logs-with-msbuild#verbosity-settings)。 允许使用的值为 `q[uiet]`、`m[inimal]`、`n[ormal]`、`d[etailed]` 和 `diag[nostic]`。 默认值为 `minimal`。
+
+    下表显示了针对每种详细级别显示的内容。
+
+                                      | `q[uiet]` | `m[inimal]` | `n[ormal]` | `d[etailed]` | `diag[nostic]`
+    ----------------------------------| --------- | ----------- | ---------- | -----------| --------------
+    `Certificate chain Information`   | ❌       | ❌          | ❌         | ✔️         | ✔️
+    `Path to package being verified`  | ❌       | ❌          | ✔️         | ✔️         | ✔️
+    `Hashing algorithm used for signature`        | ❌       | ❌          | ✔️         | ✔️         | ✔️
+    `Author/Repository Certificate -> SHA1 hash`| ❌       | ❌          | ✔️         | ✔️         | ✔️
+    `Author/Repository Certificate -> Issued By`| ❌       | ❌          | ✔️         | ✔️         | ✔️
+    `Timestamp Certificate -> Issued By`| ❌       | ❌          | ✔️         | ✔️         | ✔️
+    `Timestamp Certificate -> SHA-256 hash`| ❌       | ❌          | ✔️         | ✔️         | ✔️
+    `Timestamp Certificate -> Validity period`| ❌       | ❌          | ✔️         | ✔️         | ✔️
+    `Timestamp Certificate -> SHA1 hash`| ❌       | ❌          | ✔️         | ✔️         | ✔️
+    `Timestamp Certificate -> Subject name`| ❌       | ❌          | ✔️         | ✔️         | ✔️
+    `Author/Repository Certificate -> Subject name`| ❌       | ✔️          | ✔️         | ✔️         | ✔️
+    `Author/Repository Certificate -> SHA-256 hash`| ❌       | ✔️          | ✔️         | ✔️         | ✔️
+    `Author/Repository Certificate -> Validity period`| ❌       | ✔️          | ✔️         | ✔️         | ✔️
+    `Author/Repository Certificate -> Service index URL (If applicable)`| ❌       | ✔️          | ✔️         | ✔️         | ✔️
+    `Package name being verified`                    | ❌       | ✔️          | ✔️         | ✔️         | ✔️
+    `Type of signature (author or repository)`| ❌       | ✔️          | ✔️         | ✔️         | ✔️
+
+    ❌ 表示未显示的详细信息。 ✔️ 表示已显示的详细信息。
 
 * **`-h|--help`**
 

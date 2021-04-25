@@ -1,60 +1,66 @@
 ---
 title: switch 表达式 - C# 参考
-description: 了解如何将 C# switch 表达式用于模式匹配和其他数据自检
-ms.date: 01/14/2021
-ms.openlocfilehash: 55fef8d351b178fd0ec23847e81e6c56eb1367b0
-ms.sourcegitcommit: 3a8f1979a98c6c19217a1930e0af5908988eb8ba
+description: 详细了解根据模式匹配提供类似 switch 的语义的 C# switch 表达式
+ms.date: 04/16/2021
+f1_keywords:
+- switch_CSharpKeyword
+helpviewer_keywords:
+- switch expression [C#]
+- pattern matching [C#]
+ms.openlocfilehash: ce892598f364e4934613a797d9290fa385abd4c8
+ms.sourcegitcommit: 23e2bc267872ce6ea22db4bf6478fe57bcba4bc8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98536081"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107592261"
 ---
 # <a name="switch-expression-c-reference"></a>switch 表达式（C# 参考）
 
-本文介绍 C# 8.0 中引入的 `switch` 表达式。 有关 `switch` 语句的详细信息，请参阅[语句](../keywords/index.md)部分中关于 [`switch` 语句](../keywords/switch.md)的文章。
+从 C# 8.0 开始，可以使用 `switch` 表达式，根据与输入表达式匹配的模式，对候选表达式列表中的单个表达式进行求值。 有关在语句上下文中支持 `switch` 类语义的 `switch` 语句的信息，请参阅 [`switch` 语句](../keywords/switch.md)一文。
 
-## <a name="basic-example"></a>基本示例
-
-`switch` 表达式在表达式上下文中提供与 `switch` 类似的语义。 当 switch arm 生成值时，它提供简洁的语法。 下面的示例显示了 switch 表达式的结构。 它将联机地图中表示视觉方向的 `enum` 中的值转换为相应的基本方位：
+下面的示例演示了一个 `switch` 表达式，该表达式将在线地图中表示视觉方向的 [`enum`](../builtin-types/enum.md) 中的值转换为相应的基本方位：
 
 :::code language="csharp" source="snippets/shared/SwitchExpressions.cs" id="SnippetBasicStructure":::
 
-前面的示例展示了 switch 表达式的基本元素：
+上述示例展示了 `switch` 表达式的基本元素：
 
-- *范围表达式*：前面的示例使用变量 `direction` 作为范围表达式。
-- *switch expression arm*：每个 switch expression arm 都包含一个模式、  一个可选的 case guard  、`=>` 标记和一个表达式  。
+- 后跟 `switch` 关键字的表达式。 在上述示例中，这是 `direction` 方法参数。
+- `switch` expression arm，用逗号分隔。 每个 `switch` expression arm 都包含一个模式、一个可选的 [case guard](#case-guards)、`=>` 标记和一个表达式  。
 
-switch 表达式  的结果是第一个 switch expression arm  的表达式的值，该 switch expression arm 的模式  与范围表达式  匹配，并且它的 case guard  （如果存在）求值为 `true`。 `=>` 标记右侧的表达式不能是表达式语句。 
+在上述示例中，`switch` 表达式使用以下模式：
 
-switch expression arm  按文本顺序求值。 如果无法选择较低的 switch expression arm  ，编译器会发出错误，因为较高的 switch expression arm  匹配其所有值。
+- [常数模式](patterns.md#constant-pattern)，用于处理 `Direction` 枚举的定义值。
+- [弃元模式](patterns.md#discard-pattern)用于处理没有相应的 `Direction` 枚举成员的任何整数值（例如 `(Direction)10`）。 这会使 `switch` 表达式[详尽](#non-exhaustive-switch-expressions)。
 
-## <a name="patterns-and-case-guards"></a>模式和 case guard
+有关 `switch` 表达式支持的模式的信息，请参阅[模式](patterns.md)。
 
-switch expression arm 支持许多模式。 前面的示例使用常量模式。 常量模式将范围表达式与一个值进行比较。 该值必须是编译时常量。 类型模式  将范围表达式与已知类型进行比较。 下面的示例从序列中检索第三个元素。 它使用基于序列类型的不同方法：
+`switch` 表达式的结果是第一个 `switch` expression arm 的表达式的值，该 switch expression arm 的模式与范围表达式匹配，并且它的 case guard（如果存在）求值为 `true`。 `switch` expression arm 按文本顺序求值。
 
-:::code language="csharp" source="snippets/shared/SwitchExpressions.cs" id="SnippetTypePattern":::
+如果无法选择较低的 `switch` expression arm，编译器会发出错误，因为较高的 `switch` expression arm 匹配其所有值。
 
-模式可以是递归模式，其中模式会测试一个类型，如果该类型匹配，则该模式将匹配范围表达式上的一个或多个属性值。 可以使用递归模式来扩展前面的示例。 为包含少于 3 个元素的数组添加 switch expression arm。 下面的示例演示了递归模式：
+## <a name="case-guards"></a>Case guard
 
-:::code language="csharp" source="snippets/shared/SwitchExpressions.cs" id="SnippetRecursivePattern":::
+模式或许表现力不够，无法指定用于计算 arm 的表达式的条件。 在这种情况下，可以使用 case guard。 这是一个附加条件，必须与匹配模式同时满足。 可以在模式后面的 `when` 关键字之后指定一个 case guard，如以下示例所示：
 
-递归模式可以检查范围表达式的属性，但不能执行任意代码。 你可以使用 `when` 子句中指定的 case guard  为其他序列类型提供类似的检查：
+:::code language="csharp" source="snippets/shared/SwitchExpressions.cs" id="CaseGuardExample":::
 
-:::code language="csharp" source="snippets/shared/SwitchExpressions.cs" id="SnippetGuardCase":::
-
-最后，可以添加 `_` 模式和 `null` 模式，以捕获不由任何其他 switch expression arm 处理的参数。 这会使 switch 表达式穷尽  ，这意味着将处理范围表达式的任何可能的值。 下面的示例添加了这些 expression arm：
-
-:::code language="csharp" source="snippets/shared/SwitchExpressions.cs" id="SnippetExhaustive":::
-
-前面的示例添加了 `null` 模式，并将 `IEnumerable<T>` 类型模式更改为 `_` 模式。 `null` 模式提供 null 检查作为 switch expression arm。 该 arm 的表达式引发 <xref:System.ArgumentNullException>。 `_` 模式与先前的 arm 未匹配的所有输入相匹配。 它必须在 `null` 检查之后执行，否则将与 `null` 输入匹配。
+上述示例使用带有嵌套 [var 模式](patterns.md#var-pattern)的[属性模式](patterns.md#property-pattern)。
 
 ## <a name="non-exhaustive-switch-expressions"></a>非详尽的 switch 表达式
 
-如果 switch 表达式的模式均未捕获参数，则运行时将引发异常。 在 .NET Core 3.0 及更高版本中，异常是 <xref:System.Runtime.CompilerServices.SwitchExpressionException?displayProperty=nameWithType>。 在 .NET Framework 中，异常是 <xref:System.InvalidOperationException>。
+如果 `switch` 表达式的模式均未捕获输入值，则运行时将引发异常。 在 .NET Core 3.0 及更高版本中，异常是 <xref:System.Runtime.CompilerServices.SwitchExpressionException?displayProperty=nameWithType>。 在 .NET Framework 中，异常是 <xref:System.InvalidOperationException>。 如果 `switch` 表达式未处理所有可能的输入值，则编译器会生成警告。
+
+> [!TIP]
+> 为了保证 `switch` 表达式处理所有可能的输入值，请为 `switch` expression arm 提供[弃元模式](patterns.md#discard-pattern)。
+
+## <a name="c-language-specification"></a>C# 语言规范
+
+有关详细信息，请参阅[功能建议说明](~/_csharplang/proposals/csharp-8.0/patterns.md)的 [`switch` 表达式](~/_csharplang/proposals/csharp-8.0/patterns.md#switch-expression)部分。
 
 ## <a name="see-also"></a>另请参阅
 
-- [关于递归模式的 C# 语言规范建议](~/_csharplang/proposals/csharp-8.0/patterns.md#switch-expression)
 - [C# 参考](../index.md)
 - [C# 运算符和表达式](index.md)
-- [模式匹配](../../pattern-matching.md)
+- [模式](patterns.md)
+- [教程：使用模式匹配来构建类型驱动和数据驱动的算法](../../tutorials/pattern-matching.md)
+- [`switch` 语句](../keywords/switch.md)

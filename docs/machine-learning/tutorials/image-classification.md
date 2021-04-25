@@ -1,23 +1,21 @@
 ---
-title: 教程：来自 TensorFlow 的 ML.NET 图像分类模型
-description: 了解如何将现有 TensorFlow 模型中的知识传输到新的 ML.NET 图像分类模型中。 TensorFlow 模型经过训练，可以将图像分为一千个类别。 ML.NET 模型使用迁移学习将图像分为更多类别。
-ms.date: 06/30/2020
+title: 教程：用于对图像进行分类的 ML.NET 分类模型
+description: 了解如何通过用于处理图像的预先训练的 TensorFlow 模型来训练分类模型，以便对图像进行分类。
+ms.date: 04/13/2021
 ms.topic: tutorial
 ms.custom: mvc, title-hack-0612
-ms.openlocfilehash: b3e5617979d1635248f87db6008d3e234bb3ffc5
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: f510b6a21807a2ab1e2d7c878c285038bea33d42
+ms.sourcegitcommit: 5ddbd1f65d0369b4cc8c8ff91c72f1b524c90221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877028"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514471"
 ---
-# <a name="tutorial-generate-an-mlnet-image-classification-model-from-a-pre-trained-tensorflow-model"></a>教程：从预先训练的 TensorFlow 模型生成 ML.NET 图像分类模型
+# <a name="tutorial-train-an-mlnet-classification-model-to-categorize-images"></a>教程：训练 ML.NET 分类模型以对图像进行分类
 
-了解如何将现有 TensorFlow 模型中的知识传输到新的 ML.NET 图像分类模型中。
+了解如何通过用于处理图像的预先训练的 TensorFlow 模型来训练分类模型，以便对图像进行分类。
 
-TensorFlow 模型经过训练，可以将图像分为一千个类别。 ML.NET 模型在其管道中使用 TensorFlow 模型的一部分来训练一个模型，以将图像分为 3 个类别。
-
-从头开始定型[图像分类](https://en.wikipedia.org/wiki/Outline_of_object_recognition)模型需要设置数百万个参数、大量已标记的定型数据和海量计算资源（数百个 GPU 小时）。 虽然不如从头开始定型自定义模型有效，但借助迁移学习，可以通过处理数千张图像（与数百万张已标记的图像相比）来简化此过程，并非常快速地生成自定义模型（在没有 GPU 的计算机上一小时内完成）。 本教程进一步缩小了该过程，只使用十二个训练图像。
+TensorFlow 模型经过训练，可以将图像分为一千个类别。 由于 TensorFlow 模型知道如何识别图像中的模式，因此 ML.NET 模型可以在其管道中使用前者的一部分，以将原始图像转换为特征或输入来训练分类模型。
 
 在本教程中，你将了解：
 > [!div class="checklist"]
@@ -28,12 +26,6 @@ TensorFlow 模型经过训练，可以将图像分为一千个类别。 ML.NET �
 > * 对测试图像进行分类
 
 可以在 [dotnet/samples](https://github.com/dotnet/samples/tree/main/machine-learning/tutorials/TransferLearningTF) 存储库中找到本教程的源代码。 请注意在本教程中，.NET 项目配置默认面向 .NET core 2.2。
-
-## <a name="what-is-transfer-learning"></a>什么是迁移学习？
-
-迁移学习是使用在解决一个问题时所获得的知识并将其应用于不同但相关的问题的过程。
-
-在本教程中，在可将图像分为 3 个类别的 ML.NET 模型中使用 TensorFlow 模型的一部分，该模型经过训练，可将图像分为一千个类别。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -52,7 +44,7 @@ TensorFlow 模型经过训练，可以将图像分为一千个类别。 ML.NET �
 * 执行计算机视觉等一些任务的效果更好。
 * 需要大量训练数据。
 
-图像分类是常见的机器学习任务，可用于将图像自动分类为多个类别，例如：
+图像分类是一项特定分类任务，可用于将图像自动分类为多个类别，例如：
 
 * 检测图像中是否有人脸。
 * 检测是猫还是狗。
@@ -70,13 +62,15 @@ TensorFlow 模型经过训练，可以将图像分为一千个类别。 ML.NET �
 > * “119px-Nalle_-_a_small_brown_teddy_bear.jpg”作者为 [Jonik](https://commons.wikimedia.org/wiki/User:Jonik) - 独自拍摄，CC BY-SA 2.0，[https://commons.wikimedia.org/w/index.php?curid=48166](<https://commons.wikimedia.org/w/index.php?curid=48166>)。
 > * “193px-Broodrooster.jpg”作者为 [M.Minderhoud](https://nl.wikipedia.org/wiki/Gebruiker:Michiel1972) - 自有作品，CC BY-SA 3.0，[https://commons.wikimedia.org/w/index.php?curid=27403](<https://commons.wikimedia.org/w/index.php?curid=27403>)
 
-`Inception model` 经过训练，可将图像分类为一千个类别，但在本教程中，你只需要在更小的类别集中分类图像。 输入 `transfer learning` 的 `transfer` 部分。 可以将 `Inception model` 的识别和分类图像功能迁移到自定义图像分类器的新受限类别。
+从头开始训练[图像分类](https://en.wikipedia.org/wiki/Outline_of_object_recognition)模型需要设置数百万个参数、大量已标记的训练数据和海量计算资源（数百个 GPU 小时）。 虽然不如从头开始定型自定义模型有效，但借助预先训练的模型，可以通过处理数千张图像（与数百万张已标记的图像相比）来简化此过程，并非常快速地生成自定义模型（在没有 GPU 的计算机上一小时内完成）。 本教程进一步缩小了该过程，只使用十二个训练图像。
+
+`Inception model` 经过训练，可将图像分为一千种类别，但对于本教程，你需要将图像分类为较小的类别集，并且仅对这些类别进行分类。可以使用 `Inception model` 的功能将图像识别和分类到自定义图像分类器的新限制类别。
 
 * 食物
 * 玩具
 * 家用电器
 
-本教程使用 TensorFlow [Inception 模型](https://storage.googleapis.com/download.tensorflow.org/models/inception5h.zip)深入学习模型，该模型是在 `ImageNet` 数据集上经过训练的常用图像识别模型。 TensorFlow 模型将整个图像分为一千个类别，例如“伞”、“运动衫”和“洗碗机”。
+本教程使用 TensorFlow [Inception](https://storage.googleapis.com/download.tensorflow.org/models/inception5h.zip) 深入学习模型，该模型是在 `ImageNet` 数据集上经过训练的常用图像识别模型。 TensorFlow 模型将整个图像分为一千个类别，例如“伞”、“运动衫”和“洗碗机”。
 
 由于 `Inception model` 已预先在数千个不同图像上进行过训练，因此内部包含图像识别所需的[图像特征](https://en.wikipedia.org/wiki/Feature_(computer_vision))。 可以在模型中使用这些内部图像特征，用更少的类训练一个新模型。
 
@@ -91,6 +85,8 @@ TensorFlow 模型经过训练，可以将图像分为一千个类别。 ML.NET �
 此例中使用的特定训练者是[多项式逻辑回归算法](https://en.wikipedia.org/wiki/Multinomial_logistic_regression)。
 
 此训练者实现的算法可以很好地处理大量特征存在的问题，这是深度学习模型对图像数据进行操作时遇到的情况。
+
+有关详细信息，请参阅[深度学习与机器学习](/azure/machine-learning/concept-deep-learning-vs-machine-learning)。
 
 ### <a name="data"></a>数据
 
@@ -368,7 +364,7 @@ ML.NET 模型管道是一个估算器链。 请注意，管道构造过程中不
     Image: toaster3.jpg predicted as: appliance with score: 0.9646884
     ```
 
-祝贺你！ 现在，通过在 ML.NET 中对 `TensorFlow` 模型应用迁移学习，已成功生成了用于图像分类的机器学习模型。
+祝贺你！ 通过用于处理图像的预先训练的 TensorFlow，你现已 成功在 ML.NET 中生成分类模型，以便对图像进行分类。
 
 可以在 [dotnet/samples](https://github.com/dotnet/samples/tree/main/machine-learning/tutorials/TransferLearningTF) 存储库中找到本教程的源代码。
 

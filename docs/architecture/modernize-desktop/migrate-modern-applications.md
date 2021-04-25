@@ -2,12 +2,12 @@
 title: 迁移新式桌面应用程序
 description: 新式桌面应用程序迁移过程方面需要了解的所有内容。
 ms.date: 01/19/2021
-ms.openlocfilehash: b5bea6e601dc040adfd8ed410320a3416cb3372e
-ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
+ms.openlocfilehash: 726677f2478de00989ba748200de562cc30f734b
+ms.sourcegitcommit: 040b745ac19e4a5d23df17422ab30e72839f5754
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98615758"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107809749"
 ---
 # <a name="migrating-modern-desktop-applications"></a>迁移新式桌面应用程序
 
@@ -43,7 +43,7 @@ ms.locfileid: "98615758"
 
  也可以生成自己的提供程序。
 
-新配置允许实现可分组到多级层次结构中的名称/值对的列表。 任何存储的值都会映射到字符串，并且提供内置绑定支持，使你可以将设置反序列化为自定义的普通旧 CLR 对象 (POCO) 对象。
+新配置允许实现可分组到多级层次结构中的名称/值对的列表。 任何存储的值都会映射到字符串，并且提供内置绑定支持，使你可以将设置反序列化为自定义的普通旧 CLR 对象 (POCO)。
 
 <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> 对象使你可以通过使用优先级规则解析首选项，来添加应用程序需要的任意多个配置提供程序。 因此，在代码中添加的最后一个提供程序会替代其他提供程序。 这对于管理不同的执行环境是一种很好的功能，因为可以为开发、测试和生产环境定义不同的配置，然后通过代码中的单个函数管理它们。
 

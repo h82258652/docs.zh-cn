@@ -11,26 +11,38 @@ helpviewer_keywords:
 - cross-references [C#]
 - see C# XML tag
 ms.assetid: 0200de01-7e2f-45c4-9094-829d61236383
-ms.openlocfilehash: 154feca5e7e4f4d3f5313c4ae05cd991e69e298f
-ms.sourcegitcommit: 0bb8074d524e0dcf165430b744bb143461f17026
+ms.openlocfilehash: 351dd2e4c7dbc76efa2edbed708fb342c553ce70
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103477772"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494852"
 ---
 # <a name="see-c-programming-guide"></a>\<see>（C# 编程指南）
 
 ## <a name="syntax"></a>语法
 
-```xml
-<see cref="member"/>
+```csharp
+/// <see cref="member"/>
+// or
+/// <see href="link">Link Text</see>
+// or
+/// <see langword="keyword"/>
 ```
 
 ## <a name="parameters"></a>参数
 
-- cref = "`member`"
+- `cref="member"`
 
   对可从当前编译环境调用的成员或字段的引用。 编译器检查是否存在给定的码位元素，并将 `member` 传递到输出 XML 中的元素名称。 将成员置于双引号 (" ") 内。
+
+- `href="link"`
+
+  指向给定 URL 的可单击链接。 例如，`<see href="https://github.com">GitHub</see>` 生成一个可单击的链接，其中包含文本 :::no-loc text="GitHub":::，该文本链接到 `https://github.com`。
+
+- `langword="keyword"`
+
+  语言关键字，如 `true`。
 
 ## <a name="remarks"></a>备注
 

@@ -5,12 +5,12 @@ ms.date: 03/20/2020
 ms.custom: devx-track-dotnet
 ms.author: casoper
 author: camsoper
-ms.openlocfilehash: 6adc485867e9bad401a15da19e6cb4424d2ddb13
-ms.sourcegitcommit: 3d6d6595a03915f617349781f455f838a44b0f44
+ms.openlocfilehash: b0f7bdf7eaf7db242545d43856fae8d1548bc004
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97700705"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494332"
 ---
 # <a name="logging-with-the-azure-sdk-for-net"></a>通过 Azure SDK for .NET 启用日志记录
 
@@ -46,7 +46,8 @@ HTTP 响应日志条目：
 对于请求和响应内容：
 
 - 内容流是文本形式还是字节形式，取决于 Content-Type 标头。
-     > [!注意} 内容日志记录默认处于禁用状态。 要启用它，请将 `ClientOptions` 中的 `Diagnostics.IsLoggingContentEnabled` 设置为 `true`。
+     > [!NOTE]
+     > 内容日志记录默认处于禁用状态。 要启用它，请将 `ClientOptions` 中的 `Diagnostics.IsLoggingContentEnabled` 设置为 `true`。
 
 通常以以下三个级别之一输出事件日志：
 

@@ -3,19 +3,19 @@ title: 教程：使用 Model Builder 检测图像中的对象
 description: 本教程演示了如何使用 ML.NET Model Builder 和 Azure ML 生成对象检测模型，以检测图像中的停车标志。
 author: briacht
 ms.author: brachtma
-ms.date: 03/12/2021
+ms.date: 04/13/2021
 ms.topic: tutorial
 ms.custom: mlnet-tooling
-ms.openlocfilehash: 3a773f7364e3fd6c8ad0073eac091fa38716afa6
-ms.sourcegitcommit: 44af69720863bd09bd7a4509bf1ec119466ba6e8
+ms.openlocfilehash: f628be47bbef080505355fa99630c68b327f1a60
+ms.sourcegitcommit: 5ddbd1f65d0369b4cc8c8ff91c72f1b524c90221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106231266"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514497"
 ---
 # <a name="tutorial-detect-stop-signs-in-images-with-model-builder"></a>教程：使用 Model Builder 检测图像中的停车标志
 
-了解如何使用 ML.NET Model Builder 和 Azure ML 生成对象检测模型，以检测和定位图像中的停车标志。
+了解如何使用 ML.NET Model Builder 和 Azure 机器学习生成物体检测模型，以检测和定位图像中的停车标志。
 
 在本教程中，你将了解：
 
@@ -38,7 +38,9 @@ ms.locfileid: "106231266"
 
 ## <a name="model-builder-object-detection-overview"></a>Model Builder 对象检测概述
 
-对象检测是计算机视觉问题。 虽然与图像分类密切相关，但是对象检测以更精细的比例执行图像分类。 对象检测用于定位图像中的实体并对其进行分类。 如果图像包含多个不同类型的对象，请使用对象检测。
+对象检测是计算机视觉问题。 虽然与图像分类密切相关，但是对象检测以更精细的比例执行图像分类。 对象检测用于定位图像中的实体并对其进行分类。 物体检测模型通常使用深度学习和神经网络进行训练。 有关详细信息，请参阅[深度学习与机器学习](/azure/machine-learning/concept-deep-learning-vs-machine-learning)。
+
+如果图像包含多个不同类型的对象，请使用对象检测。
 
 ![显示图像分类与对象分类的屏幕截图。](./media/object-detection-onnx/img-classification-obj-detection.PNG)
 

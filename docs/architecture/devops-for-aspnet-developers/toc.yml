@@ -1,0 +1,27 @@
+- name: 面向 ASP.NET Core 开发人员的 DevOps
+  href: index.md
+  items:
+    - name: 工具和下载
+      href: tools-and-downloads.md
+    - name: 将应用部署到应用服务
+      href: deploying-to-app-service.md
+    - name: 持续集成和持续部署 (CI/CD)
+      items:
+        - name: Azure DevOps
+          href: cicd.md
+        - name: GitHub 操作
+          items:
+            - name: 概述
+              href: actions-index.md
+            - name: 比较 GitHub Actions 和 Azure Pipelines
+              href: actions-vs-pipelines.md
+            - name: 基本生成工作流
+              href: actions-build.md
+            - name: 部署工作流
+              href: actions-deploy.md
+            - name: 使用 CodeQL 保护 .NET 代码
+              href: actions-codeql.md
+    - name: 监视和调试
+      href: monitoring.md
+    - name: 后续步骤
+      href: next-steps.md

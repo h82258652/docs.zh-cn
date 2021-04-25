@@ -3,12 +3,12 @@ title: .NET SDK 遥测
 description: 了解可收集使用情况信息以供分析的 .NET SDK 遥测功能、收集的数据，以及如何禁用遥测。
 author: KathleenDollard
 ms.date: 08/27/2019
-ms.openlocfilehash: 1a863fe0c713cb49eca2968464d550eae2c9f36a
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: cb557973197277b86c5a85770539b3005e7d9e4a
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104873401"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494215"
 ---
 # <a name="net-sdk-telemetry"></a>.NET SDK 遥测
 
@@ -78,6 +78,11 @@ Read more about .NET CLI Tools telemetry: https://aka.ms/dotnet-cli-telemetry
 | >=2.1.300     | Libc 发行/版本。 |
 | >=3.0.100     | 是否已重定向输出（true 或 false）。 |
 | >=3.0.100     | CLI/SDK 故障时的异常类型及其堆栈跟踪（发送的堆栈跟踪中仅包含 CLI/SDK 代码）。 有关详细信息，请参阅[收集的 .NET CLI/SDK 故障异常遥测](#net-clisdk-crash-exception-telemetry-collected)。 |
+| >=5.0.202     | 从进程开始到进入 CLI 程序的 main 方法为止的运行时间，可衡量主机和运行时的启动情况。 |
+| >=5.0.202     | 在首次运行时将 .NET 工具添加到路径这一步的运行时间。 |
+| >=5.0.202     | 首次运行时要显示首次使用时间通知的运行时间。 |
+| >=5.0.202     | 首次运行时生成 ASP.NET 证书的运行时间。 |
+| >=5.0.202     | 分析 CLI 输入的运行时间。 |
 
 ### <a name="collected-options"></a>收集的选项
 

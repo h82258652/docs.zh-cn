@@ -6,12 +6,12 @@ metadata:
   description: 了解有关架构、构建和迁移 .NET 应用的建议做法。
   ms.topic: landing-page
   ms.date: 03/19/2020
-  ms.openlocfilehash: 68851c514723f6db7017c3000e88242f3fad2592
-  ms.sourcegitcommit: bdbf6472de867a0a11aaa5b9384a2506c24f27d2
+  ms.openlocfilehash: 4ab03d2da735e6c45057c2718aaee9951b3bfdb3
+  ms.sourcegitcommit: 040b745ac19e4a5d23df17422ab30e72839f5754
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 03/05/2021
-  ms.locfileid: "102206695"
+  ms.lasthandoff: 04/21/2021
+  ms.locfileid: "107809801"
 landingContent:
 - title: 开发 ASP.NET Core 应用
   linkLists:
@@ -61,8 +61,8 @@ landingContent:
     links:
     - text: 使用 Microsoft 平台和工具对 Docker 应用程序生命周期进行容器化
       url: containerized-lifecycle/index.md
-    - text: ASP.NET Core DevOps 与 Azure
-      url: /aspnet/core/azure/devops/
+    - text: 面向 ASP.NET Core 开发人员的 DevOps
+      url: devops-for-aspnet-developers/index.md
 - title: 对桌面应用进行现代化改造
   linkLists:
   - linkListType: concept

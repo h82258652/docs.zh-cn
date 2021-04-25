@@ -10,18 +10,20 @@ helpviewer_keywords:
 - '?: operator [C#]'
 - conditional operator (?:) [C#]
 ms.assetid: e83a17f1-7500-48ba-8bee-2fbc4c847af4
-ms.openlocfilehash: b6add045983619169bed0cd9f32eb27dba0a0338
-ms.sourcegitcommit: a8730298170b8d96b4272e0c3dfc9819c606947b
+ms.openlocfilehash: 84a740f3afeca94a706b4120b8cd8f191f49a048
+ms.sourcegitcommit: bbc724b72fb6c978905ac715e4033efa291f84dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90738874"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107369564"
 ---
 # <a name="-operator-c-reference"></a>?: 运算符（C# 参考）
 
-条件运算符 (`?:`) 也被称为三元条件运算符，用于计算布尔表达式，并根据布尔表达式的计算结果为 `true` 还是 `false` 来返回两个表达式中的一个结果。
+条件运算符 (`?:`) 也称为三元条件运算符，用于计算布尔表达式，并根据布尔表达式的计算结果为 `true` 还是 `false` 来返回两个表达式中的一个结果，如以下示例所示：
 
-条件运算符的语法如下所示：
+:::code language="csharp" interactive="try-dotnet-method" source="snippets/shared/ConditionalOperator.cs" id="BasicExample":::
+
+如上述示例所示，条件运算符的语法如下所示：
 
 ```csharp
 condition ? consequent : alternative
@@ -55,10 +57,6 @@ a ? b : (c ? d : e)
 > ```text
 > is this condition true ? yes : no
 > ```
-
-下面的示例演示条件运算符的用法：
-
-[!code-csharp-interactive[non ref conditional](snippets/shared/ConditionalOperator.cs#ConditionalValue)]
 
 ## <a name="conditional-ref-expression"></a>ref 条件表达式
 

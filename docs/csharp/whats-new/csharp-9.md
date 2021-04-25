@@ -2,12 +2,12 @@
 title: C# 9.0 中的新增功能 - C# 指南
 description: 简要介绍 C# 9.0 中提供的新功能。
 ms.date: 04/07/2021
-ms.openlocfilehash: c2189d2db175a40c24d6a41d20f2ae2d9384513b
-ms.sourcegitcommit: e7e0921d0a10f85e9cb12f8b87cc1639a6c8d3fe
+ms.openlocfilehash: e43ecc02fa7fe1f9a0a76353ce0b6bce001f9dac
+ms.sourcegitcommit: 5ddbd1f65d0369b4cc8c8ff91c72f1b524c90221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107255332"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514419"
 ---
 # <a name="whats-new-in-c-90"></a>C# 9.0 中的新增功能
 
@@ -18,20 +18,20 @@ C# 9.0 向 C# 语言添加了以下功能和增强功能：
 - [顶级语句](#top-level-statements)
 - [模式匹配增强功能](#pattern-matching-enhancements)
 - [性能和互操作性](#performance-and-interop)
-  - 本机大小的整数
-  - 函数指针
-  - 禁止发出 localsinit 标志
+  - [本机大小的整数](~/_csharplang/proposals/csharp-9.0/native-integers.md)
+  - [函数指针](~/_csharplang/proposals/csharp-9.0/function-pointers.md)
+  - [禁止发出 localsinit 标志](~/_csharplang/proposals/csharp-9.0/skip-localsinit.md)
 - [调整和完成功能](#fit-and-finish-features)
-  - 目标类型的 `new` 表达式
-  - 静态匿名函数
-  - 目标类型的条件表达式
-  - 协变返回类型
-  - 扩展 `GetEnumerator` 支持 `foreach` 循环
-  - Lambda 弃元参数
-  - 本地函数的属性
+  - [目标类型的 `new` 表达式](~/_csharplang/proposals/csharp-9.0/target-typed-new.md)
+  - [`static` 匿名函数](~/_csharplang/proposals/csharp-9.0/static-anonymous-functions.md)
+  - [目标类型的条件表达式](~/_csharplang/proposals/csharp-9.0/target-typed-conditional-expression.md)
+  - [协变返回类型](~/_csharplang/proposals/csharp-9.0/covariant-returns.md)
+  - [扩展 `GetEnumerator` 支持 `foreach` 循环](~/_csharplang/proposals/csharp-9.0/extension-getenumerator.md)
+  - [Lambda 弃元参数](~/_csharplang/proposals/csharp-9.0/lambda-discard-parameters.md)
+  - [本地函数的属性](~/_csharplang/proposals/csharp-9.0/local-function-attributes.md)
 - [支持代码生成器](#support-for-code-generators)
-  - 模块初始值设定项
-  - 分部方法的新功能
+  - [模块初始值设定项](~/_csharplang/proposals/csharp-9.0/module-initializers.md)
+  - [分部方法的新功能](~/_csharplang/proposals/csharp-9.0/extending-partial-methods.md)
 
 .NET 5 支持 C# 9.0。 有关详细信息，请参阅 [C# 语言版本控制](../language-reference/configure-language-version.md)。
 

@@ -8,12 +8,12 @@ ms.author: gewarren
 dev_langs:
 - CSharp
 - VB
-ms.openlocfilehash: 16c4ba0e4bee2388736bf9813a3e8290d8d4da32
-ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
+ms.openlocfilehash: 5a60d6b631ff6c73ec1d1087be56a2a023e0fd2c
+ms.sourcegitcommit: 040b745ac19e4a5d23df17422ab30e72839f5754
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96590995"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107809723"
 ---
 # <a name="unnecessary-code-rules"></a>不必要的代码规则
 
@@ -41,6 +41,7 @@ ms.locfileid: "96590995"
 - [删除 ByVal (IDE0081)](ide0081.md) - 仅限 Visual Basic。
 - [删除不必要的相等运算符 (IDE0100)](ide0100.md)
 - [删除不必要的弃元 (IDE0110)](ide0110.md) - 仅限 C#。
+- [简化对象创建 (IDE0140)](ide0140.md) - 仅限 Visual Basic。
 
 其中某些规则包含配置规则行为的选项：
 
@@ -50,8 +51,9 @@ ms.locfileid: "96590995"
 - [visual_basic_style_unused_value_assignment_preference (IDE0059)](ide0059.md#visual_basic_style_unused_value_assignment_preference)
 - [dotnet_code_quality_unused_parameters (IDE0060)](ide0060.md#dotnet_code_quality_unused_parameters)
 - [dotnet_remove_unnecessary_suppression_exclusions (IDE0079)](ide0079.md#dotnet_remove_unnecessary_suppression_exclusions)
+- [visual_basic_style_prefer_simplified_object_creation (IDE0140)](ide0140.md#visual_basic_style_prefer_simplified_object_creation)
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 - [代码样式语言规则](language-rules.md)
 - [代码样式规则参考](index.md)

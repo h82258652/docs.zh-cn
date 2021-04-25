@@ -3,13 +3,13 @@ title: 面向 .NET 库创建者的选项模式指南
 author: IEvangelist
 description: 了解如何在 .NET 中以库创建者的身份公开选项模式。
 ms.author: dapine
-ms.date: 01/28/2021
-ms.openlocfilehash: d0da94a8f25c9e5aba6093fab07ccca6a0a7c345
-ms.sourcegitcommit: 68c9d9d9a97aab3b59d388914004b5474cf1dbd7
+ms.date: 04/12/2021
+ms.openlocfilehash: 7e1bfeadff92f5d0d979ef2d7da11d7c1b47c58d
+ms.sourcegitcommit: bbc724b72fb6c978905ac715e4033efa291f84dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "102401974"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107369616"
 ---
 # <a name="options-pattern-guidance-for-net-library-authors"></a>面向 .NET 库创建者的选项模式指南
 
@@ -51,13 +51,13 @@ Microsoft 包利用 `Microsoft.Extensions.DependencyInjection` 命名空间来�
 
 在创建向使用者公开许多选项的库时，可能需要考虑要求使用 `IConfiguration` 参数扩展方法。 应使用 <xref:Microsoft.Extensions.Configuration.IConfiguration.GetSection%2A?displayProperty=nameWithType> 函数，将预期的 `IConfiguration` 实例的作用域限定为此配置的已命名部分。
 
-:::code language="csharp" source="snippets/configuration/options-configparam/ServiceCollectionExtensions.cs" highlight="10,12-16":::
+:::code language="csharp" source="snippets/configuration/options-configparam/ServiceCollectionExtensions.cs" highlight="10,12-14":::
 
 在上述代码中，`AddMyLibraryService` 执行以下操作：
 
 - 扩展 <xref:Microsoft.Extensions.DependencyInjection.IServiceCollection> 的实例
 - 定义 <xref:Microsoft.Extensions.Configuration.IConfiguration> 参数 `namedConfigurationSection`
-- 调用 <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind(Microsoft.Extensions.Configuration.IConfiguration,System.Object)>，传递一个配置绑定到的选项实例
+- 调用要传递 `LibraryOptions` 的泛型类型参数和 `namedConfigurationSection` 实例的 <xref:Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions.Configure%60%601(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)> 以进行配置
 
 此模式中的使用者提供已命名部分已限定作用域的 `IConfiguration` 实例：
 

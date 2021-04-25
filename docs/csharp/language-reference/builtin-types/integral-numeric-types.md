@@ -1,7 +1,7 @@
 ---
 title: 整型数值类型 - C# 参考
 description: 了解每种整型数值类型的范围、存储大小和用途。
-ms.date: 03/17/2021
+ms.date: 04/10/2021
 f1_keywords:
 - byte_CSharpKeyword
 - sbyte_CSharpKeyword
@@ -24,12 +24,12 @@ helpviewer_keywords:
 - uint keyword [C#]
 - long keyword [C#]
 - ulong keyword [C#]
-ms.openlocfilehash: 02b1451dc3aa22dfe27181b0e9160d198349107c
-ms.sourcegitcommit: 20b4565974d185c7716656a6c63e3cfdbdf4bf41
+ms.openlocfilehash: 21e6595e477fd48d0e5f39f5b4f1f7c5893a8840
+ms.sourcegitcommit: bbc724b72fb6c978905ac715e4033efa291f84dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104760166"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107369577"
 ---
 # <a name="integral-numeric-types--c-reference"></a>整型数值类型（C# 参考）
 
@@ -61,8 +61,6 @@ System.Int32 b = 123;
 
 表的最后两行中的 `nint` 和 `nuint` 类型是本机大小的整数。 在内部它们由所指示的 .NET 类型表示，但在任意情况下关键字和 .NET 类型都是不可互换的。 编译器为 `nint` 和 `nuint` 的整数类型提供操作和转换，而不为指针类型 `System.IntPtr` 和 `System.UIntPtr` 提供。 有关详细信息，请参阅 [`nint` 和 `nuint` 类型](nint-nuint.md)。
 
-有关本机大小的整数类型的信息，请参阅 [`nint` 和 `nuint`](nint-nuint.md)。
-
 每个整型类型的默认值都为零 `0`。 除本机大小的类型外，每个整型类型都有 `MinValue` 和 `MaxValue` 常量，提供该类型的最小值和最大值。
 
 <xref:System.Numerics.BigInteger?displayProperty=nameWithType> 结构用于表示没有上限或下限的带符号整数。
@@ -88,6 +86,10 @@ var binaryLiteral = 0b_0010_1010;
 整数文本的类型由其后缀确定，如下所示：
 
 - 如果文本没有后缀，则其类型为以下类型中可表示其值的第一个类型：`int`、`uint`、`long`、`ulong`。
+
+  > [!NOTE]
+  > 文本解释为正值。 例如，文本 `0xFF_FF_FF_FF` 表示 `uint` 类型的数字 `4294967295`，但其位表现形式与 `int` 类型的数字 `-1` 相同。 如果需要特定类型的值，请将文本强制转换为该类型。 如果文本值无法以目标类型表示，请使用运算符 `unchecked`。 示例：`unchecked((int)0xFF_FF_FF_FF)` 生成 `-1`。
+
 - 如果文本以 `U` 或 `u` 为后缀，则其类型为以下类型中可表示其值的第一个类型：`uint`、`ulong`。
 - 如果文本以 `L` 或 `l` 为后缀，则其类型为以下类型中可表示其值的第一个类型：`long`、`ulong`。
 
